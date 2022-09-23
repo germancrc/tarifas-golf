@@ -26,4 +26,10 @@ a{
     border: 1px solid #000000;
 }
 
+.foot{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 

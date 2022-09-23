@@ -45,18 +45,21 @@ let cLocal = (jugadorLocal) => {
         "#modalocal1").style.display = "none";
       document.querySelector(
         "#modalocal2").style.display = "none";
+      console.log(jugadorLocal.value)
     break;
       case "1":
           document.querySelector(
             "#modalocal1").style.display = "block";
           document.querySelector(
             "#modalocal2").style.display = "none";
+            console.log(jugadorLocal.value)  
         break;
       case "2":
         document.querySelector(
           "#modalocal1").style.display = "none";
         document.querySelector(
           "#modalocal2").style.display = "block";
+          console.log(jugadorLocal.value)
         break;
       }
     }

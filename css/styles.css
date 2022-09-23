@@ -1,0 +1,29 @@
+body{
+    font-family: 'roboto', sans-serif;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+.logo, .logoHotel, .banderas, .domfedo{
+    height: 10rem;
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.encabezado{
+    text-align: center;
+}
+
+#clienteHotel, #clienteLocal, #clienteExt{
+    display: none;
+}
+
+.domfedo{
+    border: 1px solid #000000;
+}
+
+

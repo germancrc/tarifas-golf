@@ -36,4 +36,26 @@ let tipoCliente = (jugador) => {
           break;
       }
 }
- 
+
+let clienteLocal = (jugadorLocal) => {
+  switch (jugadorLocal.value) {
+    case "0":
+      document.querySelector(
+        "#modalocal1").style.display = "none";
+      document.querySelector(
+        "#modalocal2").style.display = "none";
+    break;
+      case "1":
+          document.querySelector(
+            "#modalocal1").style.display = "block";
+          document.querySelector(
+            "#modalocal2").style.display = "none";
+        break;
+      case "2":
+        document.querySelector(
+          "#modalocal1").style.display = "none";
+        document.querySelector(
+          "#modalocal2").style.display = "block";
+        break;
+      }
+    }

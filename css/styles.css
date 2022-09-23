@@ -7,11 +7,7 @@ a{
     color: black;
 }
 
-.logo{
-    height: 13rem;
-}
-
-.logoHotel, .banderas, .domfedo{
+.logo, .logoHotel, .banderas, .domfedo{
     height: 10rem;
     display: block;
   margin-left: auto;
@@ -22,7 +18,7 @@ a{
     text-align: center;
 }
 
-#clienteHotel, #clienteLocal, #clienteExt{
+#clienteHotel, #clienteLocal, #clienteExt, #modalocal1, #modalocal2{
     display: none;
 }
 

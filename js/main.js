@@ -38,7 +38,7 @@ let tipoCliente = (jugador) => {
       }
 }
 
-let clienteLocal = (jugadorLocal) => {
+let cLocal = (jugadorLocal) => {
   switch (jugadorLocal.value) {
     case "0":
       document.querySelector(

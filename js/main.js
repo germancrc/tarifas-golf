@@ -1,4 +1,5 @@
 const clienteHotel = document.querySelector('#show')
+const clienteLocal = document.querySelector('#show')
 
 let tipoCliente = (jugador) => {
     switch (jugador.value) {

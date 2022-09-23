@@ -18,7 +18,7 @@ a{
     text-align: center;
 }
 
-#clienteHotel, #clienteLocal, #clienteExt{
+#clienteHotel, #clienteLocal, #clienteExt, #modaloca1, #modalocal2{
     display: none;
 }
 

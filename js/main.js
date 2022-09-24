@@ -1,39 +1,43 @@
-const clienteHotel = document.querySelector('#show')
-
-let tipoCliente = (jugador) => {
-    switch (jugador.value) {
-        case "0":
-            document.querySelector(
-              "#clienteHotel").style.display = "none";
-            document.querySelector(
-              "#clienteLocal").style.display = "none";
-            document.querySelector(
-            "#clienteExt").style.display = "none";
-            break;
-        case "1":
-            document.querySelector(
-            "#clienteHotel").style.display = "block";
-            document.querySelector(
-            "#clienteLocal").style.display = "none";
-            document.querySelector(
-            "#clienteExt").style.display = "none";
-          break;
-        case "2":
-            document.querySelector(
-            "#clienteHotel").style.display = "none";
-            document.querySelector(
-            "#clienteLocal").style.display = "block";
-            document.querySelector(
-            "#clienteExt").style.display = "none";
-          break;
-          case "3":
-            document.querySelector(
-            "#clienteHotel").style.display = "none";
-            document.querySelector(
-            "#clienteLocal").style.display = "none";
-            document.querySelector(
-            "#clienteExt").style.display = "block";
-          break;
-      }
+function btnRecargar(){
+  document.querySelector("#recarga").style.display = "none";
 }
- 
+
+function clienteHotel() {
+    document.querySelector(
+    "#clienteHotel").style.display = "block";
+    document.querySelector(
+    "#clienteLocal").style.display = "none";
+    document.querySelector(
+    "#cTurista").style.display = "none";
+    document.querySelector(
+      "#cardLocal").style.visibility = "hidden";
+    document.querySelector(
+      "#cardExt").style.visibility = "hidden";
+      document.querySelector("#recarga").style.display = "block";
+}
+function clienteLocal() {
+  document.querySelector(
+    "#clienteHotel").style.display = "none";
+    document.querySelector(
+    "#clienteLocal").style.display = "block";
+    document.querySelector(
+    "#cTurista").style.display = "none";
+    document.querySelector(
+      "#cardHotel").style.visibility = "hidden";
+    document.querySelector(
+      "#cardExt").style.visibility = "hidden";
+      document.querySelector("#recarga").style.display = "block";
+}
+function cTurista() {
+  document.querySelector(
+    "#clienteHotel").style.display = "none";
+    document.querySelector(
+    "#clienteLocal").style.display = "none";
+    document.querySelector(
+    "#cTurista").style.display = "block";
+    document.querySelector(
+      "#cardLocal").style.visibility = "hidden";
+    document.querySelector(
+      "#cardHotel").style.visibility = "hidden";
+      document.querySelector("#recarga").style.display = "block";
+}

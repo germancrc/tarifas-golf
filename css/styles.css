@@ -2,9 +2,14 @@ body{
     font-family: 'roboto', sans-serif;
 }
 
+
 a{
     text-decoration: none;
-    color: black;
+    color: white;
+}
+
+a:hover{
+    color: white;
 }
 
 .logo, .logoHotel, .banderas, .domfedo{
@@ -18,12 +23,50 @@ a{
     text-align: center;
 }
 
-#clienteHotel, #clienteLocal, #clienteExt{
+.card{
+    box-shadow: -1px 10px 5px 0px rgba(0,0,0,0.35);
+-webkit-box-shadow: -1px 10px 5px 0px rgba(0,0,0,0.35);
+-moz-box-shadow: -1px 10px 5px 0px rgba(0,0,0,0.35);
+}
+
+.card:hover{
+    transform: scale(1.05);
+    transition: 0.4s ease-in-out all;
+}
+
+
+.btnHide{
     display: none;
 }
 
-.domfedo{
-    border: 1px solid #000000;
+.entrada{
+    opacity: 0.5;
+    transition: 0.4s ease-in-out all;
+}
+
+#clienteHotel, #clienteLocal, #cTurista, #modalocal1, #modalocal2{
+    display: none;
+}
+
+/* .botonReload{
+    position: relative;
+}
+
+.recarga{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    margin-bottom: 2rem;
+} */
+
+
+.foot{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 

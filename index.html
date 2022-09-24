@@ -12,7 +12,11 @@
   <body onload="btnRecargar()">
     <nav class="navbar bg-light">
         <div class="container-fluid">
+<<<<<<< HEAD
+          <a class="navbar-brand" href="#">Hard Rock Golf Club - Tarifas</a>
+=======
             <h3>Hard Rock Golf Club - Tarifas</h3>
+>>>>>>> 7f7e19f0a3b10764cf82e7c80710cbf023e04dff
         </div>
       </nav>
 
@@ -84,10 +88,14 @@
                 <label for="reservado" class="form-label">Quién hizo la reserva?</label>
               </div>
                 <div class="col-6">
+<<<<<<< HEAD
+                    <select class="form-select form-select-sm" id="bookerTipe" aria-label="select booker" onchange="tipoCliente(this)">
+=======
                     <label for="reservado" class="form-label">Quién hizo la reserva?</label>
                 </div>
                 <div class="col-6">
                     <select class="form-select form-select-sm" id="bookerTipe" aria-label="select booker">
+>>>>>>> 7f7e19f0a3b10764cf82e7c80710cbf023e04dff
                         <option selected>Elija uno</option>
                         <option value="1">Vacation Planners</option>
                         <option value="2">Hard Rock (Recep. Golf)</option>
@@ -99,83 +107,27 @@
         <!-- FORMULARIO CLIENTE DIRECTO LOCAL-->
         <form id="clienteLocal" class="mt-5">
             <h5 class="encabezado mb-3">JUGADOR LOCAL / RESIDENTE</h5>
-                <div class="row">
-                    <div class="col-6">
-                        <label for="nacionalidad" class="form-label">El jugador tiene FEDOGOLF?</label>
-                    </div>
-                    <div class="col-6">
-                        <select class="form-select form-select-sm" id="cLocal" aria-label="select nation">
-                            <option value="0">Elija uno</option>
-                            <option value="1">Si</option>
-                            <option value="2">No</option>
-                            </select>
-                    </div>
-                </div>
-        </form>
-
-        <!-- MODAL JUGADOR LOCAL CON FEDO
-
-        <div id="modalocal1">
-            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title">Cliente FEDOGOLF</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                  <h4 class="fw-bold">Aplicar tarifa Fedogolf - Adultos</h4>
-                  <p>GF FEDERADO - 55 USD</p>
-                  <p>TW FEDERADO - 40 USD</p>
-                  <p>CART FEE FEDOGOLF - 35 USD</p>
-
-                  <h4 class="fw-bold">Aplicar tarifa Fedogolf - Junior</h4>
-                  <p>Junior Fedogolf - 40 USD</p>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
-                </div>
-              </div>
+            <h6 class="text-center">El jugador tiene FEDOGOLF?</h6>
+            <div class="row container d-grid gap-2 col-6 mx-auto"">
+                      <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                       SI TIENE
+                      </button>
+                      <br>
+                      <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                        NO TIENE
+                      </button>
             </div>
-          </div>
+              </form>
 
--->
-
-        <!-- MODAL JUGADOR LOCAL
-
-        <div id="modalocal2">
-            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title">Cliente LOCAL</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                  <h4 class="fw-bold">Aplicar tarifa local - Adultos:</h4>
-                  <p>Local Green Fee - 90 USD</p>
-                  <p>Local twilight - 60 USD</p>
-
-                  <h4 class="fw-bold">Aplicar tarifa local - Junior:</h4>
-                  <p>Junior Fee - 60 USD</p>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
-                </div>
-              </div>
-            </div>
-          </div>
-
--->
-
-        <!-- FORMULARIO CLIENTE DIRECTO EXTRANJERO-->
-        <form id="clienteExt" class="mt-3">
-            <img src="/img/banderas.png" class="banderas mb-3" alt="">
-            <h5 class="encabezado mb-3">JUGADOR EXTRANJERO</h5>
-                <div class="row">
+            <!-- FORMULARIO CLIENTE TURISTA-->
+                <form id="cTurista" class="mt-5">
+                  <h5 class="encabezado mb-3">JUGADOR EXTRANJERO</h5>
+                  <div class="row">
                     <div class="col-6">
                         <label for="nacionalidad" class="form-label">La reserva fue hecha por el cliente o por otra persona en su lugar (concierge/mayordomo)?</label>
                     </div>
                     <div class="col-6">
-                        <select class="form-select form-select-sm" id="clExtranj" aria-label="select nation">
+                      <select class="form-select form-select-sm" id="clExtranj" aria-label="select nation" onchange="clExtranj(this)">
                             <option selected>Elija uno</option>
                             <option value="1">Cliente</option>
                             <option value="2">concierge/mayordomo</option>
@@ -224,6 +176,7 @@
         
       </div>
 
+<<<<<<< HEAD
       <div class="container botonReload mt-5 mb-3">
         <button type="button" onClick="window.location.reload()" class="btn btn-danger" id="recarga"><i class="bi bi-arrow-clockwise"></i>
           <a href="#">Empezar de nuevo</a>  
@@ -236,6 +189,13 @@
           <a href="#">
                   <img src="/img/golflogo.png" class="logo" alt="Logo" class="d-inline-block">
                 </a>
+=======
+      <footer class="mt-4">
+          <div class="container foot">
+              <a href="#">
+                  <img src="/img/golflogo.png" class="logo" alt="Logo" class="d-inline-block">
+              </a>
+>>>>>>> 7f7e19f0a3b10764cf82e7c80710cbf023e04dff
               <hr>
               <p class="text-muted text-center">© 2022 German Cruz - Reception Team</p>
         </div>

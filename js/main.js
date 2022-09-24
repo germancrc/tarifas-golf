@@ -1,3 +1,4 @@
+
 function btnRecargar(){
   document.querySelector("#recarga").style.display = "none";
 }
@@ -41,3 +42,4 @@ function cTurista() {
       "#cardHotel").style.visibility = "hidden";
       document.querySelector("#recarga").style.display = "block";
 }
+

@@ -4,6 +4,10 @@ body{
     scroll-behavior: smooth;
 }
 
+h5{
+  text-align: justify;
+}
+
 
 a{
     text-decoration: none;

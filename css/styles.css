@@ -1,5 +1,5 @@
 body{
-  background-color: #f5f6fe;
+  background-color: white;
     font-family: 'roboto', sans-serif;
     scroll-behavior: smooth;
 }
@@ -14,11 +14,15 @@ a:hover{
     color: white;
 }
 
-.logo, .logoHotel, .banderas, .domfedo{
+.logo, .logoHotel, .banderas, .domfedo, .logoFoot{
     height: 10rem;
     display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+.logoFoot{
+  margin-top: 1.5rem;
 }
 
 .encabezado{
@@ -32,18 +36,18 @@ a:hover{
     transition: 0.25s ease-in-out all;
 }
 
-#clienteHotel, #clienteLocal, #clienteExt, #modaloca1, #modalocal2{
+/* #clienteHotel, #clienteLocal, #clienteExt, #modaloca1, #modalocal2{
     display: none;
-}
+} */
 
 .entrada{
     opacity: 0.5;
     transition: 0.4s ease-in-out all;
 }
 
-#clienteHotel, #clienteLocal, #cTurista, #modalocal1, #modalocal2{
+/* #clienteHotel, #clienteLocal, #cTurista, #modalocal1, #modalocal2{
     display: none;
-}
+} */
 
 .card{
   cursor: pointer;
@@ -61,16 +65,6 @@ a:hover{
   transform: translate(-50%, -50%);
 }
 
-/* 
-.recarga{
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    margin-bottom: 2rem;
-} */
 
 
 .foot{
@@ -84,13 +78,13 @@ a:hover{
     margin: 0;
     padding: 0;
     width: 200px;
-    background-color: #ffffff;
+    background-color: #f5f6fe;
     position: fixed;
     height: 100%;
     overflow: auto;
   }
   
-  .sidebar a {
+  .sidebar a{
     display: block;
     color: black;
     padding: 16px;
@@ -102,9 +96,25 @@ a:hover{
     color: white;
   }
   
-  .sidebar a:hover:not(.active) {
+  .sidebar a:hover:not(.active){
     background-color: #dfb502;
     color: white;
+  }
+
+  .btnTarifa{
+    background-color: #514d87;
+    border-radius: 8px 8px 8px 8px;
+    transition: 0.25s ease-in-out all;
+    padding: 5px;
+  }
+
+  
+  .btnTarifa:hover{
+    background-color: #dfb502;
+  }
+
+  .btnTarifa a:hover{
+    color: black;
   }
   
   div.content {
@@ -122,11 +132,25 @@ a:hover{
     }
     .sidebar a {float: left;}
     div.content {margin-left: 0;}
+
+    .logo{
+      display: none;
+    }
   }
   
   @media screen and (max-width: 400px) {
     .sidebar a {
       text-align: center;
       float: none;
+    }
+
+    .logo{
+      display: none;
+    }
+  }
+
+  @media screen and (min-width: 701px) {
+    .logoFoot{
+      display: none;
     }
   }

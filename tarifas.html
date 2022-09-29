@@ -3,13 +3,13 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Tarifas Golf</title>
+    <title>Hard Rock Golf PC - Guía de procedimientos</title> 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/styles.css">
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
   </head>
-  <body onload="btnRecargar()">
+  <body>
 
     <div class="sidebar">
       <div class="container mb-3 mt-3">
@@ -17,67 +17,69 @@
       </div>
       <a href="/index.html">Inicio</a>
       <a class="active" href="/tarifas.html">Tarifas</a>
-      <a href="#contact">EZLinks</a>
-      <a href="#about">OPERA</a>
+      <a href="/ezlinks.html">EZLinks</a>
+      <a href="/ezlinks-pos.html">EZLinks POS</a>
+      <a href="/opera.html">OPERA</a>
+      <a href="/origos.html">Origos</a>
+      <a href="/eba.html">EBA</a>
 
-      <footer class="py-3">
-        <div class="container foot">
-              <hr>
-              <p class="text-muted text-center">© 2022 German Cruz - Reception Team</p>
-        </div>
-            
-      </footer>
     </div>
 
       <div class="content">
-        <h4 class="mt-4 text-center">Complete la información solicitada para saber que tarifa aplicar</h4>
+        <h4 class="mt-4 text-center">Tarifas</h4>
         <hr>
 
         <div class="container">
           <div class="row text-center">
-            <h5>De donde viene el jugador?</h5>
+            <h5>Seleccione el tipo de cliente y siga los pasos para conocer la tarifa a aplicar.</h5>
           </div>
           <div class="row mt-3">
             <div class="col col-sm-1 col-md-6 col-lg-4">
-              <div class="card" id="cardHotel">
+              <div class="card mb-3" id="cardHotel">
+                <a href="/tarifa-hotel.html">
                 <img src="/img/hrlogo.png" class="logoHotel mt-3" alt="">
+              </a>
                 <div class="card-body">
                   <hr>
                   <h5 class="card-title text-center">HUESPED DEL HOTEL</h5>
                   <!-- <p class="card-text">Verificar si tiene algún tipo de beneficios como huésped.</p> -->
-                  <div class="d-grid gap-2 col-6 mx-auto">
-                    <button onclick="clienteHotel()" class="btn btn-primary" id="btnHotel">
-                      <a href="#clienteHotel">Seleccionar</a>  
+                  <div class="d-grid gap-2 col-10 mx-auto">
+                    <button type="button" class="btnTarifa" id="btnHotel">
+                      <a href="/tarifa-hotel.html">Seleccionar</a>  
                     </button>
                   </div>
                 </div>
               </div>
             </div>
             <div class="col col-sm-1 col-md-6 col-lg-4">
-              <div class="card" id="cardLocal">
+              <div class="card mb-3" id="cardLocal">
+                <a href="/tarifa-local.html">
                 <img src="/img/domfedo.png" class="domfedo mt-3" alt="">
+              </a>
                 <div class="card-body">
                   <hr>
                   <h5 class="card-title text-center">JUGADOR LOCAL / RESIDENTE</h5>
                   <!-- <p class="card-text">Ver si está afiliado a FEDOGOLF, si es nacido aqui o si es un extranjero residente.</p> -->
-                  <div class="d-grid gap-2 col-6 mx-auto">
-                    <button onclick="clienteLocal()" class="btn btn-primary" id="btnLocal">
-                      <a href="#clienteLocal">Seleccionar</a>  
+                  <div class="d-grid gap-2 col-10 mx-auto">
+                    <button type="button" class="btnTarifa" id="btnLocal">
+                      <a href="/tarifa-local.html">Seleccionar</a>  
                     </button>
                   </div>
                 </div>
               </div>
             </div>
             <div class="col col-sm-1 col-md-6 col-lg-4">
-              <div class="card" id="cardExt">
+              <div class="card mb-3" id="cardExt">
+                <a href="/tarifa-turista.html">
                 <img src="/img/banderas.png" class="banderas mt-3" alt="">
+              </a>
                 <div class="card-body">
                   <hr>
                   <h5 class="card-title text-center">JUGADOR EXTRANJERO</h5>
                   <!-- <p class="card-text">Verificar si reserva el cliente o alguien en su lugar.</p> -->
-                  <div class="d-grid gap-2 col-6 mx-auto">
-                    <button onclick="cTurista()" class="btn btn-primary" id="btnExt">
-                      <a href="#cTurista">Seleccionar</a>  
+                  <div class="d-grid gap-2 col-10 mx-auto">
+                    <button type="button" class="btnTarifa"  id="btnExt">
+                      <a href="/tarifa-turista.html">Seleccionar</a>  
                     </button>
                   </div>
                 </div>
@@ -86,112 +88,23 @@
           </div>
         </div>
 
-        <!-- FORMULARIO CLIENTE HOTEL -->
-        <form id="clienteHotel" class="mt-5">
-            <h5 class="encabezado mb-3">HUESPED DEL HOTEL</h5>
-            <div class="row">
-                <div class="col col-sm-12 col-md-6">
-                  <label for="tarifaBase" class="form-label">Cuál es la tarifa base en USD?</label>
-                </div>
-                <div class="col col-sm-12 col-md-6">
-                  <input type="number" class="form-control form-control-sm" id="tarifaBase" aria-describedby="emailHelp">
-                </div>
-              </div>
-
-            <div class="row mt-2">
-              <div class="col-6">
-                <label for="reservado" class="form-label">Quién hizo la reserva?</label>
-              </div>
-                <div class="col-6">
-                    <select class="form-select form-select-sm" id="bookerTipe" aria-label="select booker" onchange="tipoCliente(this)">
-                        <option selected>Elija uno</option>
-                        <option value="1">Vacation Planners</option>
-                        <option value="2">Hard Rock (Recep. Golf)</option>
-                      </select>
-                </div>
-            </div>
-        </form>
         
-        <!-- FORMULARIO CLIENTE DIRECTO LOCAL-->
-        <form id="clienteLocal" class="mt-5">
-            <h5 class="encabezado mb-3">JUGADOR LOCAL / RESIDENTE</h5>
-            <h6 class="text-center">El jugador tiene FEDOGOLF?</h6>
-            <div class="row container d-grid gap-2 col-6 mx-auto"">
-                      <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-check2"></i>
-                       SI TIENE
-                      </button>
-                      <br>
-                      <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-x"></i>
-                        NO TIENE
-                      </button>
-            </div>
-              </form>
 
-            <!-- FORMULARIO CLIENTE TURISTA-->
-                <form id="cTurista" class="mt-5">
-                  <h5 class="encabezado mb-3">JUGADOR EXTRANJERO</h5>
-                  <div class="row">
-                    <div class="col-6">
-                        <label for="nacionalidad" class="form-label">La reserva fue hecha por el cliente o por otra persona en su lugar (concierge/mayordomo)?</label>
-                    </div>
-                    <div class="col-6">
-                      <select class="form-select form-select-sm" id="clExtranj" aria-label="select nation" onchange="clExtranj(this)">
-                            <option selected>Elija uno</option>
-                            <option value="1">Cliente</option>
-                            <option value="2">concierge/mayordomo</option>
-                            <option value="3">Tour Operador</option>
-                            </select>
-                            </div>
-                        </div>
-                      </form>
-          
 
-<!-- Modal -->
-                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title" id="staticBackdropLabel">Cliente FEDOGOLF</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                      </div>
-                      <div class="modal-body">
-                        <p class="fw-bold text-center">**Tomar foto codigo QR Fedogolf**</p>
-                        <p class="fw-bold">Adultos - Aplicar tarifa Fedogolf:</p>
-                        <p>GF FEDERADO - 55 USD</p>
-                        <p>TW FEDERADO - 40 USD</p>
-                        <p class="fw-bold">Si tiene cupón disponible:</p>
-                        <p>CART FEE FEDOGOLF - 35 USD</p>
-                        <p class="fw-bold">Junior (13 a 17 años) Aplicar tarifa Fedogolf</p>
-                        <p>Junior Fedogolf - 40 USD</p>
-                        <p class="fw-bold">Niños (menor de 12 años) Aplicar tarifa de niños</p>
-                        <p>Child w/full paying adult - 0 USD</p>
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
-                      </div>
-                    </div>
+                <footer class="py-3">
+                  <div class="container foot">
+                    <div class="container mb-3 mt-3">
+                      <img src="/img/golflogo.png" class="logoFoot" alt="">
                   </div>
-                </div>
-
-
-
-
-
-
-
-
-
-                <div class="container botonReload">
-                  <div class="centerReload">
-                    <button type="button" onClick="window.location.reload()" class="btn btn-danger" id="recarga"><i class="bi bi-arrow-clockwise"></i>
-                      <a href="#">Empezar de nuevo</a>  
-                    </button>
+                        <hr>
+                        <p class="text-muted text-center">© 2022 German Cruz - Reception Team</p>
                   </div>
-                </div>
-
+                      
+                </footer>
         
       </div>
 
+      
 
       
 

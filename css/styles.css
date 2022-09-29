@@ -28,6 +28,8 @@ a:hover{
   height: 50vh;
 }
 
+
+
 .logo, .logoHotel, .banderas, .domfedo, .logoFoot{
     height: 10rem;
     display: block;
@@ -164,6 +166,20 @@ a:hover{
       box-shadow: 10px 10px 4px -5px rgba(0,0,0,0.57);
       -webkit-box-shadow: 10px 10px 4px -5px rgba(0,0,0,0.57);
       -moz-box-shadow: 10px 10px 4px -5px rgba(0,0,0,0.57);
+    }
+
+    .bannerGolf{
+      height: 30vh;
+      width: 90vw;   
+    }
+    .bannerEz{
+      height: 30vh;
+      width: 90vw; 
+    }
+
+    .bannerOrigos{
+      width: 90vw; 
+      height: 45vh;
     }
   }
   

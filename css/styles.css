@@ -14,6 +14,20 @@ a:hover{
     color: white;
 }
 
+.center{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.bannerGolf{
+  height: 70vh;
+}
+
+.bannerEz{
+  height: 50vh;
+}
+
 .logo, .logoHotel, .banderas, .domfedo, .logoFoot{
     height: 10rem;
     display: block;
@@ -130,22 +144,61 @@ a:hover{
       height: auto;
       position: relative;
     }
-    .sidebar a {float: left;}
-    div.content {margin-left: 0;}
+    .sidebar a {
+      float: left;
+    }
+
+    div.content {
+      margin-left: 0;
+    }
 
     .logo{
       display: none;
+    }
+
+    .btnTarifa{
+      display: none;
+    }
+
+    .card{
+      box-shadow: 10px 10px 4px -5px rgba(0,0,0,0.57);
+      -webkit-box-shadow: 10px 10px 4px -5px rgba(0,0,0,0.57);
+      -moz-box-shadow: 10px 10px 4px -5px rgba(0,0,0,0.57);
     }
   }
   
   @media screen and (max-width: 400px) {
+    .bannerGolf{
+      height: 30vh;
+      width: 92vw; 
+      margin-left: auto;
+      margin-right: auto;
+      
+    }
+
     .sidebar a {
       text-align: center;
-      float: none;
+      float: left;
+      margin-top: -10px;
     }
 
     .logo{
       display: none;
+    }
+
+    .scrollmenu{
+      overflow: auto;
+      white-space: nowrap;
+    }
+
+    .btnTarifa{
+      display: none;
+    }
+
+    .card{
+      box-shadow: 10px 10px 4px -5px rgba(0,0,0,0.57);
+      -webkit-box-shadow: 10px 10px 4px -5px rgba(0,0,0,0.57);
+      -moz-box-shadow: 10px 10px 4px -5px rgba(0,0,0,0.57);
     }
   }
 
@@ -153,4 +206,6 @@ a:hover{
     .logoFoot{
       display: none;
     }
+    
+
   }

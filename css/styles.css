@@ -1,5 +1,7 @@
 body{
+  background-color: #f5f6fe;
     font-family: 'roboto', sans-serif;
+    scroll-behavior: smooth;
 }
 
 
@@ -23,15 +25,11 @@ a:hover{
     text-align: center;
 }
 
-.card{
-    box-shadow: -1px 10px 5px 0px rgba(0,0,0,0.35);
--webkit-box-shadow: -1px 10px 5px 0px rgba(0,0,0,0.35);
--moz-box-shadow: -1px 10px 5px 0px rgba(0,0,0,0.35);
-}
-
 .card:hover{
-    transform: scale(1.05);
-    transition: 0.4s ease-in-out all;
+  box-shadow: 1px 0px 12px 1px rgba(81,77,135,0.75);
+  -webkit-box-shadow: 1px 0px 12px 1px rgba(81,77,135,0.75);
+  -moz-box-shadow: 1px 0px 12px 1px rgba(81,77,135,0.75);
+    transition: 0.25s ease-in-out all;
 }
 
 #clienteHotel, #clienteLocal, #clienteExt, #modaloca1, #modalocal2{
@@ -47,10 +45,23 @@ a:hover{
     display: none;
 }
 
-/* .botonReload{
+.card{
+  cursor: pointer;
+}
+.botonReload{
     position: relative;
+    margin-top: 10rem;
+    margin-bottom: 3rem;
 }
 
+.centerReload{
+    position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* 
 .recarga{
     margin: 0;
     position: absolute;
@@ -66,12 +77,56 @@ a:hover{
     display: block;
     margin-left: auto;
     margin-right: auto;
-}
+} 
 
-.foot{
+  
+  .sidebar {
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    background-color: #ffffff;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+  }
+  
+  .sidebar a {
     display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-
+    color: black;
+    padding: 16px;
+    text-decoration: none;
+  }
+   
+  .sidebar a.active {
+    background-color: #514d87;
+    color: white;
+  }
+  
+  .sidebar a:hover:not(.active) {
+    background-color: #dfb502;
+    color: white;
+  }
+  
+  div.content {
+    margin-left: 200px;
+    padding: 1px 16px;
+    height: 1000px;
+    
+  }
+  
+  @media screen and (max-width: 700px) {
+    .sidebar {
+      width: 100%;
+      height: auto;
+      position: relative;
+    }
+    .sidebar a {float: left;}
+    div.content {margin-left: 0;}
+  }
+  
+  @media screen and (max-width: 400px) {
+    .sidebar a {
+      text-align: center;
+      float: none;
+    }
+  }

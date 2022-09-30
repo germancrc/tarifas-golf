@@ -32,29 +32,129 @@
 
         <div class="container">
           <!-- FORMULARIO CLIENTE HOTEL -->
-          <form id="clienteHotel" class="mt-5">
-            <div class="row row-cols-1">
-              <div class="col col-sm-12 col-md-6">
+          <!-- <form id="clienteHotel" class="mt-5">
+            <div class="col col-sm-12 col-md-6 text-center">
+              <div class="row">
                     <label for="tarifaBase" class="form-label">Cuál es la tarifa base en USD?</label>
                   </div>
-                  <div class="col col-sm-12 col-md-6">
+                  <div class="row">
                     <input type="number" class="form-control form-control-sm" id="tarifaBase" aria-describedby="emailHelp">
                   </div>
                 </div>
   
                 <div class="row row-cols-1 mt-3">
                 <div class="col col-sm-12 col-md-6">
-                  <label for="reservado" class="form-label">Quién hizo la reserva?</label>
+                  <label for="reservado" class="form-label">¿Cuál es el <strong>Booking Group</strong>?</label>
                 </div>
                 <div class="col col-sm-12 col-md-6">
+                  <button type="button" class="btn btn-secondary">Secondary</button>
+                  <button type="button" class="btn btn-secondary">Secondary</button>
+                  <button type="button" class="btn btn-secondary">Secondary</button>
+                  <button type="button" class="btn btn-secondary">Secondary</button>
+                  <button type="button" class="btn btn-secondary">Secondary</button>
+                  <button type="button" class="btn btn-secondary">Secondary</button>
+                  <button type="button" class="btn btn-secondary">Secondary</button>
                       <select class="form-select form-select-sm" id="bookerTipe" aria-label="select booker" onchange="tipoCliente(this)">
                           <option selected>Elija uno</option>
-                          <option value="1">Vacation Planners</option>
-                          <option value="2">Hard Rock (Recep. Golf)</option>
+
                         </select>
                   </div>
               </div>
+          </form> -->
+
+          <div class="form-center d-none">
+            <form>
+              <div class="col mt-4">
+                <div class="row">
+                  <h5 class="text-center">¿Cuál es la tarifa base?</h5>
+                </div>
+                <div class="row">
+                    <div class="input-group mb-3 mt-2 input-group-lg">
+                      <input type="number" class="form-control inputBase text-center" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    </div>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <div class="form-center container">
+            <form>
+              <div class="col mt-4">
+                <div class="row">
+                  <h5 class="text-center">¿Cuál es el <strong>Booking Group</strong>?</h5>
+                </div>
+                <div class="row mt-2">
+                  <div class="col mt-2" id="vp">
+                    <button type="button" onclick=reservaVP() class="btn btn-primary btnHotel">Vacation Planners (VP)</button>
+                  </div>
+                  <div class="col mt-2" id="hardRock">
+                    <button type="button" class="btn btn-primary btnHotel">Hard Rock (Recep. Golf)</button>
+                  </div>
+                  <div class="col mt-2" id="golfAdmin">
+                    <button type="button" class="btn btn-primary btnHotel">Hard Rock Admin (Golf Admin)</button>
+                  </div>
+                  <div class="col mt-2" id="web">
+                    <button type="button" class="btn btn-primary btnHotel">Web Hard Rock (Web del hotel)</button>
+                  </div>
+                  <div class="col mt-2" id="ezlinkWeb">
+                    <button type="button" class="btn btn-primary btnHotel">EZLinks -Res Center</button>
+                  </div>
+                  <div class="col mt-2" id="golfNow">
+                    <button type="button" class="btn btn-primary btnHotel">Golfnow</button>
+                  </div>
+                  <div class="col mt-2" id="goGolf">
+                    <button type="button" class="btn btn-primary btnHotel">GRC/The Kiosk Comp. (Go Golf)</button>
+                  </div> 
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <div class="container form-center reservaVP">
+            <div class="col mt-4">
+              <div class="row">
+                <h5 class="text-center">¿Tiene alguna nota sobre rondas <strong>EBA</strong> o rondas de <strong>Regalo</strong>?</h5>
+              </div>
+              <div class="row mt-2">
+                <div class="col mt-2">
+                  <button type="button" class="btn btn-primary btnHotel float-end">SI, TIENE NOTAS</button>
+                </div>
+                <div class="col mt-2">
+                  <button type="button" class="btn btn-primary btnHotel float-start" data-bs-toggle="modal" data-bs-target="#staticBackdrop">NO TIENE NOTAS</button>
+                </div>
+              </div>
+            </div>
           </form>
+          </div>
+
+          <!-- Modal NO-->
+          <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="staticBackdropLabel">Tarifa Vacations Planners</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <p class="fw-bold text-center">**Tomar foto codigo QR Fedogolf**</p>
+                  <p class="fw-bold">Adultos - Aplicar tarifa Fedogolf:</p>
+                  <p>GF FEDERADO - 55 USD</p>
+                  <p>TW FEDERADO - 40 USD</p>
+                  <p class="fw-bold">Si tiene cupón disponible:</p>
+                  <p>CART FEE FEDOGOLF - 35 USD</p>
+                  <p class="fw-bold">Junior (13 a 17 años) Aplicar tarifa Fedogolf</p>
+                  <p>Junior Fedogolf - 40 USD</p>
+                  <p class="fw-bold">Niños (menor de 12 años) Aplicar tarifa de niños</p>
+                  <p>Child w/full paying adult - 0 USD</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
 
         </div>
 

@@ -21,14 +21,33 @@ a:hover{
 }
 
 .bannerGolf{
-  height: 70vh;
-}
-
-.bannerEz{
   height: 50vh;
 }
 
+.inputBase{
+  border-color: black;
 
+}
+
+.form-center {
+  display:flex;
+  justify-content: center;
+}
+
+.btnHotel{
+  width: 8rem;
+  height: 6rem;
+}
+
+.btnHotel a:hover{
+  color: black;
+}
+
+.centerButtons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .logo, .logoHotel, .banderas, .domfedo, .logoFoot{
     height: 10rem;
@@ -52,9 +71,9 @@ a:hover{
     transition: 0.25s ease-in-out all;
 }
 
-/* #clienteHotel, #clienteLocal, #clienteExt, #modaloca1, #modalocal2{
-    display: none;
-} */
+.reservaVP{
+  display: none;
+}
 
 .entrada{
     opacity: 0.5;

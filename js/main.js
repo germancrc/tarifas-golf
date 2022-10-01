@@ -1,9 +1,8 @@
 
-// function btnRecargar(){
-//   document.querySelector("#recarga").style.display = "none";
-// }
-
 function reservaVP() {
+    let element = document.getElementById("vacPlan");
+    document.getElementById("vacPlan").className = "btnHotelNew";
+    console.log(element);
     document.querySelector(
     "#hardRock").style.display = "none";
     document.querySelector(
@@ -12,52 +11,58 @@ function reservaVP() {
     "#web").style.display = "none";
     document.querySelector(
     "#ezlinkWeb").style.display = "none";
-    document.querySelector(
-    "#golfNow").style.display = "none";
-    document.querySelector(
-    "#goGolf").style.display = "none";
 }
 
-function showButtons() {
+function hrGolf() {
+    let element = document.getElementById("hardGolf");
+    document.getElementById("hardGolf").className = "btnHotelNew";
+    console.log(element);
     document.querySelector(
-    "#reservaVP").style.display = "block";
+    "#vp").style.display = "none";
     document.querySelector(
-    "#hardRock").style.display = "block";
+    "#golfAdmin").style.display = "none";
     document.querySelector(
-    "#golfAdmin").style.display = "block";
+    "#web").style.display = "none";
     document.querySelector(
-    "#web").style.display = "block";
-    document.querySelector(
-    "#ezlinkWeb").style.display = "block";
-    document.querySelector(
-    "#golfNow").style.display = "block";
-    document.querySelector(
-    "#goGolf").style.display = "block";
+    "#ezlinkWeb").style.display = "none";
 }
-// function clienteLocal() {
-//   document.querySelector(
-//     "#clienteHotel").style.display = "none";
-//     document.querySelector(
-//     "#clienteLocal").style.display = "block";
-//     document.querySelector(
-//     "#cTurista").style.display = "none";
-//     document.querySelector(
-//       "#cardHotel").style.visibility = "hidden";
-//     document.querySelector(
-//       "#cardExt").style.visibility = "hidden";
-//       document.querySelector("#recarga").style.display = "block";
-// }
-// function cTurista() {
-//   document.querySelector(
-//     "#clienteHotel").style.display = "none";
-//     document.querySelector(
-//     "#clienteLocal").style.display = "none";
-//     document.querySelector(
-//     "#cTurista").style.display = "block";
-//     document.querySelector(
-//       "#cardLocal").style.visibility = "hidden";
-//     document.querySelector(
-//       "#cardHotel").style.visibility = "hidden";
-//       document.querySelector("#recarga").style.display = "block";
-// }
+function hrGolfAdmin() {
+    let element = document.getElementById("hardGolfAdmin");
+    document.getElementById("hardGolfAdmin").className = "btnHotelNew";
+    console.log(element);
+    document.querySelector(
+    "#vp").style.display = "none";
+    document.querySelector(
+    "#hardRock").style.display = "none";
+    document.querySelector(
+    "#web").style.display = "none";
+    document.querySelector(
+    "#ezlinkWeb").style.display = "none";
+}
+function webGolf() {
+    let element = document.getElementById("paginaWeb");
+    document.getElementById("paginaWeb").className = "btnHotelNew";
+    console.log(element);
+    document.querySelector(
+    "#vp").style.display = "none";
+    document.querySelector(
+    "#hardRock").style.display = "none";
+    document.querySelector(
+    "#golfAdmin").style.display = "none";
+    document.querySelector(
+    "#ezlinkWeb").style.display = "none";
+}
+function ezGolf() {
+    let element = document.getElementById("ezGolfBook");
+    document.getElementById("ezGolfBook").className = "btnHotelNew";
+    console.log(element);
+    document.querySelector(
+    "#vp").style.display = "none";
+    document.querySelector(
+    "#hardRock").style.display = "none";
+    document.querySelector(
+    "#golfAdmin").style.display = "none";
+    document.querySelector(
+    "#web").style.display = "none";
+}
 

@@ -25,43 +25,12 @@
 
     </div>
 
-      <div class="content">
+      <div class="content"> 
         <h4 class="mt-4 text-center">HUESPED DEL HOTEL</h4>
         <hr>
         <img src="/img/hrlogo.png" class="logoHotel mt-3" alt="">
 
         <div class="container">
-          <!-- FORMULARIO CLIENTE HOTEL -->
-          <!-- <form id="clienteHotel" class="mt-5">
-            <div class="col col-sm-12 col-md-6 text-center">
-              <div class="row">
-                    <label for="tarifaBase" class="form-label">Cuál es la tarifa base en USD?</label>
-                  </div>
-                  <div class="row">
-                    <input type="number" class="form-control form-control-sm" id="tarifaBase" aria-describedby="emailHelp">
-                  </div>
-                </div>
-  
-                <div class="row row-cols-1 mt-3">
-                <div class="col col-sm-12 col-md-6">
-                  <label for="reservado" class="form-label">¿Cuál es el <strong>Booking Group</strong>?</label>
-                </div>
-                <div class="col col-sm-12 col-md-6">
-                  <button type="button" class="btn btn-secondary">Secondary</button>
-                  <button type="button" class="btn btn-secondary">Secondary</button>
-                  <button type="button" class="btn btn-secondary">Secondary</button>
-                  <button type="button" class="btn btn-secondary">Secondary</button>
-                  <button type="button" class="btn btn-secondary">Secondary</button>
-                  <button type="button" class="btn btn-secondary">Secondary</button>
-                  <button type="button" class="btn btn-secondary">Secondary</button>
-                      <select class="form-select form-select-sm" id="bookerTipe" aria-label="select booker" onchange="tipoCliente(this)">
-                          <option selected>Elija uno</option>
-
-                        </select>
-                  </div>
-              </div>
-          </form> -->
-
           <div class="form-center d-none">
             <form>
               <div class="col mt-4">
@@ -85,26 +54,20 @@
                 </div>
                 <div class="row mt-2">
                   <div class="col mt-2" id="vp">
-                    <button type="button" onclick=reservaVP() class="btn btn-primary btnHotel">Vacation Planners (VP)</button>
+                    <button type="button" onclick=reservaVP() id="vacPlan" class="btn btn-primary btnHotel">Vacation Planners (VP)</button>
                   </div>
                   <div class="col mt-2" id="hardRock">
-                    <button type="button" class="btn btn-primary btnHotel">Hard Rock (Recep. Golf)</button>
+                    <button type="button" onclick=hrGolf() id="hardGolf" class="btn btn-primary btnHotel">Hard Rock (Recep. Golf)</button>
                   </div>
                   <div class="col mt-2" id="golfAdmin">
-                    <button type="button" class="btn btn-primary btnHotel">Hard Rock Admin (Golf Admin)</button>
+                    <button type="button" onclick=hrGolfAdmin() id="hardGolfAdmin" class="btn btn-primary btnHotel">Hard Rock Admin (Golf Admin)</button>
                   </div>
                   <div class="col mt-2" id="web">
-                    <button type="button" class="btn btn-primary btnHotel">Web Hard Rock (Web del hotel)</button>
+                    <button type="button" onclick=webGolf() id="paginaWeb"  class="btn btn-primary btnHotel">Web Hard Rock (Web del hotel)</button>
                   </div>
                   <div class="col mt-2" id="ezlinkWeb">
-                    <button type="button" class="btn btn-primary btnHotel">EZLinks -Res Center</button>
+                    <button type="button" onclick=ezGolf() id="ezGolfBook"  class="btn btn-primary btnHotel">EZLinks -Res Center</button>
                   </div>
-                  <div class="col mt-2" id="golfNow">
-                    <button type="button" class="btn btn-primary btnHotel">Golfnow</button>
-                  </div>
-                  <div class="col mt-2" id="goGolf">
-                    <button type="button" class="btn btn-primary btnHotel">GRC/The Kiosk Comp. (Go Golf)</button>
-                  </div> 
                 </div>
               </div>
             </form>
@@ -161,9 +124,8 @@
 
         <div class="container botonReload mb-3">
           <div class="centerReload">
-            <button type="button" class="btn btn-danger" id="recarga"><i class="bi bi-back"></i>
-              <a href="/tarifas.html">Probar otra tarifa</a>  
-            </button>
+            <a class="btn btn-success" href="/tarifa-hotel.html" id="recarga">Empezar de nuevo</a>  
+              <a class="btn btn-danger" id="recarga" href="/tarifas.html">Volver menú tarifas</a>  
           </div>
         </div>
 

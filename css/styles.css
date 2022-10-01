@@ -14,6 +14,14 @@ a:hover{
     color: white;
 }
 
+.linkTarifa{
+  color: black;
+}
+
+.linkTarifa:hover{
+  color: black;
+}
+
 .center{
   display: block;
   margin-left: auto;
@@ -22,6 +30,9 @@ a:hover{
 
 .bannerGolf{
   height: 50vh;
+  box-shadow: 5px 5px 10px 0px rgba(0,0,0,0.75);
+-webkit-box-shadow: 5px 5px 10px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 5px 5px 10px 0px rgba(0,0,0,0.75);
 }
 
 .inputBase{
@@ -39,6 +50,22 @@ a:hover{
   height: 6rem;
 }
 
+.btnHotelNew{
+  width: 16rem;
+  height: 6rem;
+  background-color: #dfb502;
+  color: black;
+}
+
+.btnHotel:hover, .btnHotelNew:hover{
+  box-shadow: 1px 0px 12px 1px rgba(81,77,135,0.75);
+  -webkit-box-shadow: 1px 0px 12px 1px rgba(81,77,135,0.75);
+  -moz-box-shadow: 1px 0px 12px 1px rgba(81,77,135,0.75);
+    transition: 0.15s ease-in-out all;
+}
+
+
+
 .btnHotel a:hover{
   color: black;
 }
@@ -52,8 +79,8 @@ a:hover{
 .logo, .logoHotel, .banderas, .domfedo, .logoFoot{
     height: 10rem;
     display: block;
-  margin-left: auto;
-  margin-right: auto;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .logoFoot{
@@ -68,7 +95,7 @@ a:hover{
   box-shadow: 1px 0px 12px 1px rgba(81,77,135,0.75);
   -webkit-box-shadow: 1px 0px 12px 1px rgba(81,77,135,0.75);
   -moz-box-shadow: 1px 0px 12px 1px rgba(81,77,135,0.75);
-    transition: 0.25s ease-in-out all;
+    transition: 0.15s ease-in-out all;
 }
 
 .reservaVP{
@@ -86,6 +113,9 @@ a:hover{
 
 .card{
   cursor: pointer;
+  box-shadow: 1px 0px 5px 0px rgba(0,0,0,0.6);
+-webkit-box-shadow: 1px 0px 5px 0px rgba(0,0,0,0.6);
+-moz-box-shadow: 1px 0px 5px 0px rgba(0,0,0,0.6);
 }
 .botonReload{
     position: relative;
@@ -117,18 +147,29 @@ a:hover{
     position: fixed;
     height: 100%;
     overflow: auto;
+    box-shadow: 1px 0px 5px 0px rgba(0,0,0,0.6);
+-webkit-box-shadow: 1px 0px 5px 0px rgba(0,0,0,0.6);
+-moz-box-shadow: 1px 0px 5px 0px rgba(0,0,0,0.6);
   }
   
   .sidebar a{
     display: block;
     color: black;
-    padding: 16px;
+    padding: 10px;
     text-decoration: none;
   }
+
+  .flecha{
+    display: none;
+  }
    
-  .sidebar a.active {
+  .sidebar a.active{
     background-color: #514d87;
     color: white;
+  }
+
+  a.active .flecha{
+    display: inline-block;
   }
   
   .sidebar a:hover:not(.active){
@@ -136,28 +177,33 @@ a:hover{
     color: white;
   }
 
+  .sidebar a:hover .flecha{
+    display: inline-block;
+    
+    color: white;
+  }
+
+
+
   .btnTarifa{
     background-color: #514d87;
-    border-radius: 8px 8px 8px 8px;
-    transition: 0.25s ease-in-out all;
     padding: 5px;
+    color: white;
   }
 
   
-  .btnTarifa:hover{
+  /* .btnTarifa:hover{
     background-color: #dfb502;
-  }
+  } */
 
-  .btnTarifa a:hover{
-    color: black;
-  }
-  
   div.content {
     margin-left: 200px;
     padding: 1px 16px;
-    height: 1000px;
-    
+    /* height: 1000px; */
+    width: calc(100% -200px);
   }
+
+
   
   @media screen and (max-width: 700px) {
     .sidebar {
@@ -211,10 +257,8 @@ a:hover{
       
     }
 
-    .sidebar a {
-      text-align: center;
-      float: left;
-      margin-top: -10px;
+    .sidebar{
+      display: none;
     }
 
     .logo{

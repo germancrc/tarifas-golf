@@ -1,7 +1,7 @@
 body{
   background-color: white;
   font-family: 'roboto', sans-serif;
-  scroll-behavior: smooth;
+  /* scroll-behavior: smooth; */
   min-height: 100vh; 
 }
 
@@ -51,10 +51,14 @@ a:hover{
 
 .btnHotel{
   width: 8rem;
-  height: 6rem;
+  height: 8rem;
+  padding: 2rem 0 2rem 0;
 }
 
 .btnHotelNew{
+  text-align: center;
+  padding-top: 2rem;
+  transition: 0.7s ease-in-out all;
   width: 16rem;
   height: 6rem;
   background-color: #dfb502;
@@ -66,6 +70,7 @@ a:hover{
   -webkit-box-shadow: 1px 0px 12px 1px rgba(81,77,135,0.75);
   -moz-box-shadow: 1px 0px 12px 1px rgba(81,77,135,0.75);
     transition: 0.15s ease-in-out all;
+    color: black;
 }
 
 
@@ -102,7 +107,7 @@ a:hover{
     transition: 0.15s ease-in-out all;
 }
 
-.reservaVP{
+#tarVP{
   display: none;
 }
 
@@ -259,6 +264,10 @@ a:hover{
     .bannerOrigos{
       width: 90vw; 
       height: 45vh;
+    }
+
+    .navi{
+      display: none;
     }
   }
   

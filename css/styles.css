@@ -28,6 +28,10 @@ a:hover{
   margin-right: auto;
 }
 
+.afterNav{
+  margin-top: 6rem;
+}
+
 .bannerGolf{
   height: 50vh;
   box-shadow: 5px 5px 10px 0px rgba(0,0,0,0.75);
@@ -116,6 +120,7 @@ a:hover{
   box-shadow: 1px 0px 5px 0px rgba(0,0,0,0.6);
 -webkit-box-shadow: 1px 0px 5px 0px rgba(0,0,0,0.6);
 -moz-box-shadow: 1px 0px 5px 0px rgba(0,0,0,0.6);
+  
 }
 .botonReload{
     position: relative;
@@ -142,14 +147,11 @@ a:hover{
   .sidebar {
     margin: 0;
     padding: 0;
-    width: 200px;
+    width: 180px;
     background-color: #f5f6fe;
     position: fixed;
     height: 100%;
     overflow: auto;
-    box-shadow: 1px 0px 5px 0px rgba(0,0,0,0.6);
--webkit-box-shadow: 1px 0px 5px 0px rgba(0,0,0,0.6);
--moz-box-shadow: 1px 0px 5px 0px rgba(0,0,0,0.6);
   }
   
   .sidebar a{
@@ -175,6 +177,7 @@ a:hover{
   .sidebar a:hover:not(.active){
     background-color: #dfb502;
     color: white;
+    transition: 0.20s ease;
   }
 
   .sidebar a:hover .flecha{
@@ -196,11 +199,22 @@ a:hover{
     background-color: #dfb502;
   } */
 
-  div.content {
-    margin-left: 200px;
+  .navi {
+    background-color: white;
+    margin-left: 180px;
+    padding: 16px 0 16px 0;
+    /* height: 1000px; */
+    width: calc(100% -180px);
+    box-shadow: 2px 1px 2px 0px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 2px 1px 2px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 2px 1px 2px 0px rgba(0,0,0,0.75);
+  }
+
+  .content {
+    margin-left: 180px;
     padding: 1px 16px;
     /* height: 1000px; */
-    width: calc(100% -200px);
+    width: calc(100% -180px);
   }
 
 

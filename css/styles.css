@@ -131,6 +131,16 @@ border: 2px solid #514d87;
 
 #tarVP{
   display: none;
+  animation-name: fadeInAnim;
+}
+
+@keyframes fadeInAnim {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 

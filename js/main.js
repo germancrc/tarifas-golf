@@ -9,17 +9,6 @@ document.getElementById("nameGuide").innerHTML = "Nombre de la Guía?";
 function reservaVP() {
     let element = document.getElementById("vacPlan");
     console.log(element);
-    document.querySelector(
-    "#hardRock").style.display = "none";
-    document.querySelector(
-    "#golfAdmin").style.display = "none";
-    document.querySelector(
-    "#web").style.display = "none";
-    document.querySelector(
-    "#ezlinkWeb").style.display = "none";
-    document.querySelector(
-    "#tarVP").style.display = "block";
-    document.querySelector(
     "#formBgroup").style.display = "none";
 }
 
@@ -76,9 +65,5 @@ function ezGolf() {
     "#web").style.display = "none";
 }
 
-function scrollvista() {
-    const centerView = document.getElementById("goUp");
-    centerView.scrollIntoView({behavior:"smooth", block:"center"});
-  }
   
 

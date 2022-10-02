@@ -7,9 +7,12 @@ document.getElementById("nameGuide").innerHTML = "Nombre de la Guía?";
 // }
 
 function reservaVP() {
-    let element = document.getElementById("vacPlan");
-    console.log(element);
+//let element = document.getElementById("vacPlan");
+//console.log(element);
+    document.querySelector(
     "#formBgroup").style.display = "none";
+    document.querySelector(
+    "#tarVP").style.display = "block";
 }
 
 function hrGolf() {

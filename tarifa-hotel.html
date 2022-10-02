@@ -57,28 +57,18 @@
           </div>
 
           <div class="form-center container" id="formBgroup">
-            <form>
-              <div class="col mt-2">
-                <div class="card card-body mt-3">
+            <form>              
+              <div class="card card-body mt-3">
+                  <div class="col">
                 <div class="row">
                   <h5 class="text-center">¿Cuál es el <strong>Booking Group</strong>?</h5>
                 </div>          
-                <div class="row pt-2">
-                  <div class="col mt-1" id="vp" >
-                    <a href="#rutaVP" type="button" onclick=reservaVP() id="vacPlan" class="btnHotel">Vacation Planners (VP)</a>
-                  </div>
-                  <div class="col mt-1" id="hardRock">
-                    <a type="button" onclick=hrGolf() id="hardGolf" class="btnHotel">Hard Rock (Recep. Golf)</a>
-                  </div>
-                  <div class="col mt-1" id="golfAdmin">
-                    <a type="button" onclick=hrGolfAdmin() id="hardGolfAdmin" class="btnHotel">Hard Rock Adm (Golf Ofic)</a>
-                  </div>
-                  <div class="col mt-1" id="web">
-                    <a type="button" onclick=webGolf() id="paginaWeb"  class="btnHotel">Web Hard Rock (Web del hotel)</a>
-                  </div>
-                  <div class="col mt-1" id="ezlinkWeb">
-                    <a type="button" onclick=ezGolf() id="ezGolfBook"  class="btnHotel">EZLinks -Res Center</a>
-                  </div>
+                <div class="row d-flex justify-content-evenly  pt-2">
+                    <a href="#rutaVP" type="button" onclick=reservaVP() id="vp" class="btnHotel">Vacation Planners (VP)</a>
+                    <a type="button" onclick=hrGolf() id="hardRock" class="btnHotel">Hard Rock (Recep. Golf)</a>
+                    <a type="button" onclick=hrGolfAdmin() id="golfAdmin" class="btnHotel">Hard Rock Adm (Golf Ofic)</a>
+                    <a type="button" onclick=webGolf() id="web"  class="btnHotel">Web Hard Rock (Web del hotel)</a>
+                    <a type="button" onclick=ezGolf() id="ezlinkWeb"  class="btnHotel">EZLinks -Res Center</a>
                 </div>
                 </div>
               </div>

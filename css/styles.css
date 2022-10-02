@@ -266,7 +266,7 @@ border: 2px solid #514d87;
       position: relative;
     }
     .sidebar a {
-      float: left;
+      display: none;
     }
 
     div.content {
@@ -316,7 +316,6 @@ border: 2px solid #514d87;
       margin-right: auto;
       
     }
-
     .sidebar{
       display: none;
     }
@@ -347,5 +346,9 @@ border: 2px solid #514d87;
   @media screen and (min-width: 701px) {
     .logoFoot{
       display: none;
+    }
+    
+    .navSmall{
+     display: none;
     }
   }

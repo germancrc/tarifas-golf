@@ -253,9 +253,10 @@ border: 2px solid #514d87;
     min-height: calc(100vh - 70px);
   }
 
-footer{
-margin-left: 180px;
-}
+  footer{
+  margin-left: 180px;
+  background-color: white;
+  }
 
 
   

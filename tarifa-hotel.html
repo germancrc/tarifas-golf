@@ -36,6 +36,7 @@
 
       <div class="content"> 
         <img src="/img/hrlogo.png" class="logoHotel afterNav" alt="">
+        <span id="bookGroup" class="mt-3 fw-bold"></span>
 
         <div class="container">
           <div class="form-center d-none">
@@ -53,14 +54,14 @@
             </form>
           </div>
 
-          <div class="form-center container">
+          <div class="form-center container" id="formBgroup">
             <form>
               <div class="col mt-4">
                 <div class="row">
                   <h5 class="text-center">¿Cuál es el <strong>Booking Group</strong>?</h5>
                 </div>
                 <div class="card card-body mt-3">
-                <div class="row p-3">
+                <div class="row pt-2">
                   <div class="col mt-1" id="vp" >
                     <p>
                       <a href="#rutaVP" onclick=reservaVP() id="vacPlan" class="btnHotel" data-bs-toggle="collapse" type="button" aria-expanded="false" aria-controls="rutaVP">
@@ -89,17 +90,17 @@
 
     
 
-          <div class="collapse" id="rutaVP">
+          <div id="rutaVP">
           <div class="container form-center" id="tarVP">
-            <div class="col mt-3">
+            <div class="col mt-4">
               <div class="row">
                 <h5 class="text-center">¿Tiene alguna nota sobre rondas <strong>EBA</strong> o rondas de <strong>Regalo</strong>?</h5>
               </div>
               <div class="card card-body mt-3">
-              <div class="row p-2 d-flex justify-content-around">
-                  <button type="button" class="btnAnswer">NOTAS RONDAS DE REGALO</button>
-                  <button type="button" class="btnAnswer">NOTAS RONDAS EBA</button>
-                  <button type="button" class="btnAnswer" data-bs-toggle="modal" data-bs-target="#staticBackdrop">NO TIENE NOTAS</button>
+              <div class="row d-flex justify-content-around">
+                  <button type="button" class="btnAnswer" data-bs-toggle="modal" data-bs-target="#notasRegalo">NOTAS RONDAS DE REGALO</button>
+                  <button type="button" class="btnAnswer" data-bs-toggle="modal" data-bs-target="#notasEba">NOTAS RONDAS EBA</button>
+                  <button type="button" class="btnAnswer" data-bs-toggle="modal" data-bs-target="#sinRondas">NO TIENE NOTAS</button>
               </div>
             </div>
             </div>
@@ -108,25 +109,51 @@
           </div>
 
 
-          <!-- Modal NO-->
-          <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <!-- Modal NOTAS REGALO-->
+          <div class="modal fade" id="notasRegalo" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="notasRegaloLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="staticBackdropLabel">Tarifa Vacations Planners</h5>
+                  <h5 class="modal-title" id="notasRegaloLabel">Tarifa Legendary Gift Round</h5>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                  <p class="fw-bold text-center">**Tomar foto codigo QR Fedogolf**</p>
-                  <p class="fw-bold">Adultos - Aplicar tarifa Fedogolf:</p>
-                  <p>GF FEDERADO - 55 USD</p>
-                  <p>TW FEDERADO - 40 USD</p>
-                  <p class="fw-bold">Si tiene cupón disponible:</p>
-                  <p>CART FEE FEDOGOLF - 35 USD</p>
-                  <p class="fw-bold">Junior (13 a 17 años) Aplicar tarifa Fedogolf</p>
-                  <p>Junior Fedogolf - 40 USD</p>
-                  <p class="fw-bold">Niños (menor de 12 años) Aplicar tarifa de niños</p>
-                  <p>Child w/full paying adult - 0 USD</p>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In, vero adipisci. Laudantium, illo. Laudantium error ducimus quia nisi ab id!</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Modal NOTAS EBA-->
+          <div class="modal fade" id="notasEba" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="notasEbaLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="notasEbaLabel">Tarifa Legendary EBA Round</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In, vero adipisci. Laudantium, illo. Laudantium error ducimus quia nisi ab id!</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Modal SIN NOTAS-->
+          <div class="modal fade" id="sinRondas" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="sinRondasLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="sinRondasLabel">Tarifa Vacations Planners</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In, vero adipisci. Laudantium, illo. Laudantium error ducimus quia nisi ab id!</p>
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
@@ -140,7 +167,7 @@
         </div>
 
 
-        <div class="container botonReload mb-3" id="goUp">
+        <div class="container botonReload mb-3">
           <div class="centerReload">
             <a class="btn btn-success" href="/tarifa-hotel.html" id="recarga">Empezar de nuevo</a>  
               <a class="btn btn-danger" id="recarga" href="/tarifas.html">Volver menú tarifas</a>  

@@ -1,8 +1,13 @@
 document.getElementById("nameGuide").innerHTML = "Nombre de la Guía?";
 
+
+// function route(){
+//     let bGroup = document.getElementById("vacPlan");    
+//     document.getElementById("bookGroup").innerHTML = "Ruta: " + bGroup.text + " > ";
+// }
+
 function reservaVP() {
     let element = document.getElementById("vacPlan");
-    document.getElementById("vacPlan").className = "btnHotelNew";
     console.log(element);
     document.querySelector(
     "#hardRock").style.display = "none";
@@ -14,26 +19,8 @@ function reservaVP() {
     "#ezlinkWeb").style.display = "none";
     document.querySelector(
     "#tarVP").style.display = "block";
-
-    scrollvista();
-}
-
-function reservaVP2() {
-    let element = document.getElementById("vacPlan");
-    document.getElementById("vacPlan").className = "btnHotelNew";
-    console.log(element);
     document.querySelector(
-    "#hardRock").style.display = "none";
-    document.querySelector(
-    "#golfAdmin").style.display = "none";
-    document.querySelector(
-    "#web").style.display = "none";
-    document.querySelector(
-    "#ezlinkWeb").style.display = "none";
-    document.querySelector(
-    "#tarVP").style.display = "block";
-
-    scrollvista();
+    "#formBgroup").style.display = "none";
 }
 
 function hrGolf() {

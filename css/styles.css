@@ -280,12 +280,6 @@ border: 2px solid #514d87;
       display: none;
     }
 
-    .card{
-      box-shadow: 10px 10px 4px -5px rgba(0,0,0,0.57);
-      -webkit-box-shadow: 10px 10px 4px -5px rgba(0,0,0,0.57);
-      -moz-box-shadow: 10px 10px 4px -5px rgba(0,0,0,0.57);
-    }
-
     .bannerGolf{
       height: 30vh;
       width: 90vw;   
@@ -331,11 +325,6 @@ border: 2px solid #514d87;
       display: none;
     }
 
-    .card{
-      box-shadow: 10px 10px 4px -5px rgba(0,0,0,0.57);
-      -webkit-box-shadow: 10px 10px 4px -5px rgba(0,0,0,0.57);
-      -moz-box-shadow: 10px 10px 4px -5px rgba(0,0,0,0.57);
-    }
   }
 
   @media screen and (min-width: 701px) {

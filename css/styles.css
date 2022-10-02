@@ -132,7 +132,7 @@ border: 2px solid #514d87;
 #tarVP{
   display: none;
   animation-name: fadeInAnim;
-  animation-duration: 5s;
+  animation-duration: 2.2s;
 }
 
 @keyframes fadeInAnim {

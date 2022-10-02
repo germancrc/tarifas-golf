@@ -59,40 +59,54 @@
                 <div class="row">
                   <h5 class="text-center">¿Cuál es el <strong>Booking Group</strong>?</h5>
                 </div>
-                <div class="row mt-2">
-                  <div class="col mt-2" id="vp" >
-                    <a href="#tarVP" type="button" onclick=reservaVP() id="vacPlan" class="btn btn-primary btnHotel">Vacation Planners (VP)</a>
+                <div class="card card-body mt-3">
+                <div class="row p-3">
+                  <div class="col mt-1" id="vp" >
+                    <p>
+                      <a href="#rutaVP" onclick=reservaVP() id="vacPlan" class="btn btn-primary btnHotel" data-bs-toggle="collapse" type="button" aria-expanded="false" aria-controls="rutaVP">
+                        Vacation Planners (VP)
+                      </a>
+                    </p>
                   </div>
-                  <div class="col mt-2" id="hardRock">
+                  <div class="col mt-1" id="hardRock">
                     <a type="button" onclick=hrGolf() id="hardGolf" class="btn btn-primary btnHotel">Hard Rock (Recep. Golf)</a>
                   </div>
-                  <div class="col mt-2" id="golfAdmin">
+                  <div class="col mt-1" id="golfAdmin">
                     <a type="button" onclick=hrGolfAdmin() id="hardGolfAdmin" class="btn btn-primary btnHotel">Hard Rock Admin (Golf Admin)</a>
                   </div>
-                  <div class="col mt-2" id="web">
+                  <div class="col mt-1" id="web">
                     <a type="button" onclick=webGolf() id="paginaWeb"  class="btn btn-primary btnHotel">Web Hard Rock (Web del hotel)</a>
                   </div>
-                  <div class="col mt-2" id="ezlinkWeb">
+                  <div class="col mt-1" id="ezlinkWeb">
                     <a type="button" onclick=ezGolf() id="ezGolfBook"  class="btn btn-primary btnHotel">EZLinks -Res Center</a>
                   </div>
                 </div>
               </div>
+              </div>
             </form>
           </div>
 
+
+    
+
+          <div class="collapse" id="rutaVP">
           <div class="container form-center" id="tarVP">
-            <div class="col mt-4">
+            <div class="col mt-3">
               <div class="row">
                 <h5 class="text-center">¿Tiene alguna nota sobre rondas <strong>EBA</strong> o rondas de <strong>Regalo</strong>?</h5>
               </div>
-              <div class="row d-flex justify-content-around mt-3">
-                  <button type="button" class="btn btn-primary btnHotel mt-2">TIENE NOTAS RONDAS DE REGALO</button>
-                  <button type="button" class="btn btn-primary btnHotel mt-2">TIENE NOTAS RONDAS EBA</button>
-                  <button type="button" class="btn btn-primary btnHotel mt-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop">NO TIENE NOTAS</button>
+              <div class="card card-body mt-3">
+              <div class="row p-2 d-flex justify-content-around">
+                  <button type="button" class="btnAnswer">NOTAS RONDAS DE REGALO</button>
+                  <button type="button" class="btnAnswer">NOTAS RONDAS EBA</button>
+                  <button type="button" class="btnAnswer" data-bs-toggle="modal" data-bs-target="#staticBackdrop">NO TIENE NOTAS</button>
               </div>
+            </div>
             </div>
           </form>
           </div>
+          </div>
+
 
           <!-- Modal NO-->
           <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">

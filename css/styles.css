@@ -50,19 +50,34 @@ a:hover{
 }
 
 .btnHotel{
-  width: 8rem;
-  height: 8rem;
+  width: 10rem;
+  height: 7rem;
   padding: 2rem 0 2rem 0;
 }
 
 .btnHotelNew{
   text-align: center;
-  padding-top: 2rem;
-  transition: 0.7s ease-in-out all;
+  padding: 2rem;
+  transition: 0.3s ease-in-out all;
   width: 16rem;
   height: 6rem;
   background-color: #dfb502;
-  color: black;
+  color: white;
+  border-radius: 10px 10px 10px 10px;
+-webkit-border-radius: 10px 10px 10px 10px;
+-moz-border-radius: 10px 10px 10px 10px;
+}
+
+.btnAnswer{
+  text-align: center;
+  padding: 1.5rem;
+  width: 16rem;
+  height: 6rem;
+  background-color: #514d87;
+  color: white;
+  border-radius: 10px 10px 10px 10px;
+-webkit-border-radius: 10px 10px 10px 10px;
+-moz-border-radius: 10px 10px 10px 10px;
 }
 
 .btnHotel:hover, .btnHotelNew:hover{
@@ -70,7 +85,15 @@ a:hover{
   -webkit-box-shadow: 1px 0px 12px 1px rgba(81,77,135,0.75);
   -moz-box-shadow: 1px 0px 12px 1px rgba(81,77,135,0.75);
     transition: 0.15s ease-in-out all;
-    color: black;
+    color: white;
+}
+
+.btnAnswer:hover{
+  background-color:#dfb502;
+  box-shadow: 1px 0px 12px 1px rgba(81,77,135,0.75);
+  -webkit-box-shadow: 1px 0px 12px 1px rgba(81,77,135,0.75);
+  -moz-box-shadow: 1px 0px 12px 1px rgba(81,77,135,0.75);
+    transition: 0.15s ease;
 }
 
 
@@ -100,7 +123,7 @@ a:hover{
     text-align: center;
 }
 
-.card:hover{
+.cardRate:hover{
   box-shadow: 1px 0px 12px 1px rgba(81,77,135,0.75);
   -webkit-box-shadow: 1px 0px 12px 1px rgba(81,77,135,0.75);
   -moz-box-shadow: 1px 0px 12px 1px rgba(81,77,135,0.75);
@@ -122,10 +145,10 @@ a:hover{
 
 .card{
   cursor: pointer;
-  box-shadow: 1px 0px 5px 0px rgba(0,0,0,0.6);
--webkit-box-shadow: 1px 0px 5px 0px rgba(0,0,0,0.6);
--moz-box-shadow: 1px 0px 5px 0px rgba(0,0,0,0.6);
-  
+}
+
+.collapse.show .collapse{
+  transition: 2s ease;
 }
 .botonReload{
     position: relative;

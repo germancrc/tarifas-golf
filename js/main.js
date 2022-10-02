@@ -13,8 +13,6 @@ function reservaVP() {
     "#ezlinkWeb").style.display = "none";
     document.querySelector(
     "#tarVP").style.display = "block";
-    let text = document.getElementById("vacPlan").innerText;
-    document.getElementById("actual").innerHTML ="- " + text;
 }
 
 function hrGolf() {

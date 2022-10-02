@@ -29,8 +29,8 @@
           <!-- As a heading -->
       <nav class="navbar fixed-top navi">
         <div class="container-fluid">
-          <span class="navbar-brand mb-0 h1">TARIFAS - Huésped del Hotel</span><span id="actual" class="mt-1"></span>
-          <span class="navbar-brand ms-auto mb-0 h1">Guía de Procedimientos</span>
+          <span class="navbar-brand mb-0 h1">TARIFAS - Huésped del Hotel</span>
+          <span class="navbar-brand ms-auto mb-0 h1" id="nameGuide"></span>
         </div>
       </nav>
 
@@ -63,22 +63,22 @@
                 <div class="row p-3">
                   <div class="col mt-1" id="vp" >
                     <p>
-                      <a href="#rutaVP" onclick=reservaVP() id="vacPlan" class="btn btn-primary btnHotel" data-bs-toggle="collapse" type="button" aria-expanded="false" aria-controls="rutaVP">
+                      <a href="#rutaVP" onclick=reservaVP() id="vacPlan" class="btnHotel" data-bs-toggle="collapse" type="button" aria-expanded="false" aria-controls="rutaVP">
                         Vacation Planners (VP)
                       </a>
                     </p>
                   </div>
                   <div class="col mt-1" id="hardRock">
-                    <a type="button" onclick=hrGolf() id="hardGolf" class="btn btn-primary btnHotel">Hard Rock (Recep. Golf)</a>
+                    <a type="button" onclick=hrGolf() id="hardGolf" class="btnHotel">Hard Rock (Recep. Golf)</a>
                   </div>
                   <div class="col mt-1" id="golfAdmin">
-                    <a type="button" onclick=hrGolfAdmin() id="hardGolfAdmin" class="btn btn-primary btnHotel">Hard Rock Admin (Golf Admin)</a>
+                    <a type="button" onclick=hrGolfAdmin() id="hardGolfAdmin" class="btnHotel">Hard Rock Adm (Golf Ofic)</a>
                   </div>
                   <div class="col mt-1" id="web">
-                    <a type="button" onclick=webGolf() id="paginaWeb"  class="btn btn-primary btnHotel">Web Hard Rock (Web del hotel)</a>
+                    <a type="button" onclick=webGolf() id="paginaWeb"  class="btnHotel">Web Hard Rock (Web del hotel)</a>
                   </div>
                   <div class="col mt-1" id="ezlinkWeb">
-                    <a type="button" onclick=ezGolf() id="ezGolfBook"  class="btn btn-primary btnHotel">EZLinks -Res Center</a>
+                    <a type="button" onclick=ezGolf() id="ezGolfBook"  class="btnHotel">EZLinks -Res Center</a>
                   </div>
                 </div>
               </div>
@@ -140,7 +140,7 @@
         </div>
 
 
-        <div class="container botonReload mb-3">
+        <div class="container botonReload mb-3" id="goUp">
           <div class="centerReload">
             <a class="btn btn-success" href="/tarifa-hotel.html" id="recarga">Empezar de nuevo</a>  
               <a class="btn btn-danger" id="recarga" href="/tarifas.html">Volver menú tarifas</a>  

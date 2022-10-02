@@ -252,11 +252,6 @@ border: 2px solid #514d87;
     width: calc(100% -180px);
   }
 
-  footer{
-  margin-left: 180px;
-  }
-
-
   
   @media screen and (max-width: 700px) {
     .sidebar {

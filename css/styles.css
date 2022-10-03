@@ -259,6 +259,11 @@ border: 2px solid #514d87;
     height: 5.5rem;
     }
     
+    .btnHotel, .btnAnswer{
+      height: 4rem;
+      padding: 1rem;
+    }
+    
     .sidebar {
       display: none;
     }
@@ -308,7 +313,8 @@ border: 2px solid #514d87;
     }
     
     .btnHotel, .btnAnswer{
-      height: 3.2rem;
+      height: 4rem;
+      padding: 1rem;
     }
     
     

@@ -165,6 +165,7 @@ border: 2px solid #514d87;
 }
 
 .centerReload{
+  margin-top: 4rem;
   position: absolute;
   top: 50%;
   left: 50%;

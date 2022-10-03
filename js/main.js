@@ -1,5 +1,8 @@
 document.getElementById("nameGuide").innerHTML = "Nombre de la Guía?";
 
+let visible document.getElementById("formBgroup").style.display;
+console.log(visible);
+
 
 // function route(){
 //     let bGroup = document.getElementById("vacPlan");    

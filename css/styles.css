@@ -256,7 +256,7 @@ border: 2px solid #514d87;
 
   
   @media screen and (max-width: 700px) {
-    .logo, .logoHotel, .banderas, .domfedo, .logoFoot{
+    .logo, .logoHotel, .banderas, .domfedo{
     height: 5.5rem;
     }
     
@@ -309,7 +309,7 @@ border: 2px solid #514d87;
   }
   
   @media screen and (max-width: 400px) {
-    .logo, .logoHotel, .banderas, .domfedo, .logoFoot{
+    .logo, .logoHotel, .banderas, .domfedo{
     height: 5.5rem;
     }
     

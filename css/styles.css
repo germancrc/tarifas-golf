@@ -159,13 +159,8 @@ border: 2px solid #514d87;
   cursor: pointer;
 }
 
-/* .collapsing{
-  transition: 1.1s ease-in-out;
-} */
-
 .botonReload{
     position: relative;
-    margin-top: 6rem;
     margin-bottom: 2rem;
 }
 

@@ -260,6 +260,10 @@ border: 2px solid #514d87;
 
   
   @media screen and (max-width: 700px) {
+    .logo, .logoHotel, .banderas, .domfedo, .logoFoot{
+    height: 4rem;
+    }
+    
     .sidebar {
       display: none;
     }
@@ -304,6 +308,11 @@ border: 2px solid #514d87;
   }
   
   @media screen and (max-width: 400px) {
+    .logo, .logoHotel, .banderas, .domfedo, .logoFoot{
+    height: 4rem;
+    }
+    
+    
     .bannerGolf{
       height: 30vh;
       width: 92vw; 

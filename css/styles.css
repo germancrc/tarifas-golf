@@ -307,6 +307,10 @@ border: 2px solid #514d87;
     height: 5.5rem;
     }
     
+    .btnHotel, .btnAnswer{
+      height: 3.2rem;
+    }
+    
     
     .bannerGolf{
       height: 30vh;

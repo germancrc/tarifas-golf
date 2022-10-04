@@ -153,24 +153,6 @@ border: 2px solid #514d87;
   }
 }
 
-#formBgroup, #tarVP, #tarHRlp, #verificarSocio{
-  display: block;
-  animation-name: fadeOutAnim;
-  animation-duration: 1.2s;
-}
-
-@keyframes fadeOutAnim {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-}
-
-
-
-
 /* #clienteHotel, #clienteLocal, #cTurista, #modalocal1, #modalocal2{
     display: none;
 } */

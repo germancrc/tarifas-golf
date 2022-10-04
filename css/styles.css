@@ -273,9 +273,13 @@ border: 2px solid #514d87;
   
   @media screen and (max-width: 700px) {
     .navSmall{
-      background-color: white;
+      background-color: #514d87;
     }
-      
+
+    .navSmall a{
+      color: white;
+    }
+
     .logo, .logoHotel, .banderas, .domfedo{
     height: 5.5rem;
     }
@@ -333,13 +337,8 @@ border: 2px solid #514d87;
       background-color: #ffffff;
     }
     
-    .footMobile{
+    body{
       background-color: #ffffff;
-      display: block;
-    }
-
-    .footDesktop{
-      display: none;
     }
   }
   
@@ -395,14 +394,7 @@ border: 2px solid #514d87;
       text-align: center;
     }
     
-    .footMobile{
-      background-color: #ffffff;
-      display: block;
-    }
-
-    .footDesktop{
-      display: none;
-    }
+    
 
   }
 

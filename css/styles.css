@@ -315,7 +315,9 @@ border: 2px solid #514d87;
     }
     
     footer {
-      margin-left: 0px;    }
+      margin-left: 0px;    
+      backgroung-color: #ffffff;
+    }
   }
   
   @media screen and (max-width: 400px) {

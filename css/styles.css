@@ -154,7 +154,7 @@ border: 2px solid #514d87;
 }
 
 #formBgroup, #tarVP, #tarHRlp, #verificarSocio{
-  display: none;
+  display: block;
   animation-name: fadeOutAnim;
   animation-duration: 1.2s;
 }

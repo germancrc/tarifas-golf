@@ -36,10 +36,11 @@
     
     <!-- NAV SM -->
       <nav class="navbar navSmall">
-        <div class="container">
-          <span class="navbar-brand" href="/index.html" ><i class="bi bi-journals"></i> Guía General</span>
-          <span class="navbar-brand ms-auto mb-0 h1 openNav" onclick="openNav()"><i class="bi bi-list"></i></span>
-        </div>
+        <div class="container-fluid">
+        <span class="navbar-brand" href="/index.html" ><i class="bi bi-journals"></i> Guía General</span>
+        <button class="navbar-toggler" type="button" onclick="openNav()" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
           <div id="mySidenav" class="sidenav">
             <div id="main">
               <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -54,6 +55,7 @@
             </div>
           </div>
         </div>
+      </div>
       </nav>
 
    

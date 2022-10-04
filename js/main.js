@@ -1,41 +1,49 @@
-document.getElementById("nameGuide").innerHTML = "Nombre de la Guía?";
+document.getElementById("nameGuide").innerHTML = "Guía General";
 
-
-// function route(){
-//     let bGroup = document.getElementById("vacPlan");    
-//     document.getElementById("bookGroup").innerHTML = "Ruta: " + bGroup.text + " > ";
-// }
-
+//RUTA VP 
 function reservaVP() {
-    let element = document.getElementById("vacPlan");
-    console.log(element);
-    document.querySelector(
-    "#hardRock").style.display = "none";
-    document.querySelector(
-    "#golfAdmin").style.display = "none";
-    document.querySelector(
-    "#web").style.display = "none";
-    document.querySelector(
-    "#ezlinkWeb").style.display = "none";
-    document.querySelector(
-    "#tarVP").style.display = "block";
     document.querySelector(
     "#formBgroup").style.display = "none";
+    document.querySelector(
+    "#tarVP").style.display = "block";
 }
 
+//RUTA HARD ROCK LISA P
 function hrGolf() {
-    let element = document.getElementById("hardGolf");
-    document.getElementById("hardGolf").className = "btnHotelNew";
-    console.log(element);
     document.querySelector(
-    "#vp").style.display = "none";
+    "#formBgroup").style.display = "none";
     document.querySelector(
-    "#golfAdmin").style.display = "none";
-    document.querySelector(
-    "#web").style.display = "none";
-    document.querySelector(
-    "#ezlinkWeb").style.display = "none";
+    "#tarHRlp").style.display = "block";
 }
+
+function reservaLisa(){
+    document.querySelector(
+        "#rutaHR").style.display = "none";
+        document.querySelector(
+        "#tarVP").style.display = "block";
+}
+
+//reserva recepcion
+function noFueLisa(){
+    document.querySelector(
+        "#tarHRlp").style.display = "none";
+        document.querySelector(
+        "#verificarSocio").style.display = "block";
+}
+
+function noSocio(){
+    document.querySelector(
+        "#verificarSocio").style.display = "none";
+        document.querySelector(
+        "#clienteCasino").style.display = "block";
+}
+
+
+
+
+
+
+
 function hrGolfAdmin() {
     let element = document.getElementById("hardGolfAdmin");
     document.getElementById("hardGolfAdmin").className = "btnHotelNew";
@@ -76,9 +84,5 @@ function ezGolf() {
     "#web").style.display = "none";
 }
 
-function scrollvista() {
-    const centerView = document.getElementById("goUp");
-    centerView.scrollIntoView({behavior:"smooth", block:"center"});
-  }
   
 

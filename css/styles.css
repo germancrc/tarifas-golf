@@ -107,11 +107,6 @@ border: 2px solid #514d87;
     transition: 0.15s ease;
     color: black;
 }
-/* 
-.botonReload{
-  margin-top: 2.8rem;
-} */
-
 
 .logo, .logoHotel, .banderas, .domfedo, .logoFoot{
     height: 8rem;
@@ -166,15 +161,6 @@ border: 2px solid #514d87;
 .card{
   cursor: pointer;
 }
-
-/* 
-.centerReload{
-  margin-top: 4rem;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-} */
 
   .sidebar {
     margin: 0;
@@ -278,11 +264,10 @@ border: 2px solid #514d87;
       padding: 1rem;
     }
 
-    
-  .botonReload{
-    margin-left: 0px;
-    margin-bottom: 2rem;
-  }
+    .botonReload{
+      margin-left: 0px;
+      margin-bottom: 2rem;
+    }
 
     
     .sidebar {

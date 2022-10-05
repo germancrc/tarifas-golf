@@ -256,11 +256,15 @@ border: 2px solid #514d87;
   .miFirma{
     text-align: right;
   }
+  .openSide{
+    font-size: 1.6rem;
+    color: white;
+  }
+
   
   @media screen and (max-width: 700px) {
     .navSmall{
-      background: rgb(81,77,135);
-background: linear-gradient(90deg, rgba(81,77,135,0.9920343137254902) 50%, rgba(255,255,255,1) 100%);
+     background-color: #514d87;
     }
 
     .navSmall a{

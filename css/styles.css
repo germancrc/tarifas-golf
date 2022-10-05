@@ -421,19 +421,19 @@ border: 2px solid #514d87;
   padding: 8px 8px 8px 32px;
   text-decoration: none;
   font-size: 20px;
-  color: #dfb502;
+  color: white;
   display: block;
   transition: 0.3s;
 }
 
 .sidenav a.active{
-  color: white;
-  border-bottom: 1px solid #ffffff;
+  color: #dfb502;
+  border-bottom: 1px solid #dfb502;
 }
 
 /* When you mouse over the navigation links, change their color */
 .sidenav a:hover {
-  color: #f1f1f1;
+  color: #dfb502;
 }
 
 /* Position and style the close button (top right corner) */

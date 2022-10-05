@@ -250,7 +250,8 @@ border: 2px solid #514d87;
   } */
 
   .navi {
-    background-color: #f0f0f0;
+    background-color: #514d87;
+    /*f0f0f0*/
     margin-left: 180px;
     padding: 10px 0 10px 0;
     /* height: 1000px; */

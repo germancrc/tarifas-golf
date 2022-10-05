@@ -235,13 +235,11 @@ border: 2px solid #514d87;
     padding: 1px 16px;
     /* height: 1000px; */
     width: calc(100% -180px);
-    background-color: #f0f0f0;
   }
 
   footer{
     margin-left: 180px;
     width: calc(100% -180px);
-    background-color: #f0f0f0;
   }
 
   .botonReload{
@@ -258,22 +256,11 @@ border: 2px solid #514d87;
   .miFirma{
     text-align: right;
   }
-
-  .footDesktop{
-    background-color: #f0f0f0;
-    display: block;
-  }
-
-  .footMobile{
-    display: none;
-  }
-
-  
-
   
   @media screen and (max-width: 700px) {
     .navSmall{
-      background-color: #514d87;
+      background: rgb(81,77,135);
+background: linear-gradient(90deg, rgba(81,77,135,0.9920343137254902) 50%, rgba(255,255,255,1) 100%);
     }
 
     .navSmall a{
@@ -334,12 +321,8 @@ border: 2px solid #514d87;
     
     footer {
       margin-left: 0px;    
-      background-color: #ffffff;
     }
     
-    body{
-      background-color: #ffffff;
-    }
   }
   
   @media screen and (max-width: 400px) {

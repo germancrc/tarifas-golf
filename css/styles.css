@@ -1,5 +1,5 @@
 body{
-  background-color: #f0f0f0;
+  background-color: #ffffff;
   font-family: 'roboto', sans-serif;
   /* scroll-behavior: smooth; */
   min-height: 100vh; 
@@ -12,6 +12,31 @@ a{
 
 a:hover{
     color: white;
+}
+
+p{
+  line-height: 1.9;
+}
+
+.banner {
+  background-image: url(/img/hardRock.jpg);
+  margin-left: 180px;
+  height: 55vh;
+  width: calc(100% -180px);
+
+  /* Position and center the image to scale nicely on all screens */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.cardService{
+  height: 7rem;
+  text-align: center;
+  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+-webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
 }
 
 .linkTarifa{
@@ -131,6 +156,12 @@ border: 2px solid #514d87;
     text-align: center;
 }
 
+.cardRate{
+  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+-webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);  
+}
+
 .cardRate:hover{
   box-shadow: 1px 0px 12px 1px rgba(81,77,135,0.75);
   -webkit-box-shadow: 1px 0px 12px 1px rgba(81,77,135,0.75);
@@ -165,11 +196,12 @@ border: 2px solid #514d87;
     margin: 0;
     padding: 0;
     width: 180px;
-    background-color: #ffffff;
+    background-color: #f0f0f0;
     /*#f5f6fe*/
     position: fixed;
     height: 100%;
     overflow: auto;
+    border-right: 2px solid #dfdfdf;
   }
   
   .sidebar a{
@@ -218,11 +250,12 @@ border: 2px solid #514d87;
   } */
 
   .navi {
-    background-color: white;
+    background-color: #f0f0f0;
     margin-left: 180px;
     padding: 10px 0 10px 0;
     /* height: 1000px; */
     width: calc(100% -180px);
+    border-bottom: 2px solid #dfdfdf;
     /*
     box-shadow: 2px 1px 2px 0px rgba(0,0,0,0.75);
     -webkit-box-shadow: 2px 1px 2px 0px rgba(0,0,0,0.75);
@@ -283,6 +316,11 @@ border: 2px solid #514d87;
 
     .logo, .logoHotel, .banderas, .domfedo{
     height: 5.5rem;
+    }
+
+    .banner {
+      margin-left: 0px;
+      height: 20vh;
     }
 
     .miFirma{

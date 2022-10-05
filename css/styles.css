@@ -257,9 +257,15 @@ border: 2px solid #514d87;
     text-align: right;
   }
   .openSide{
-    font-size: 1.6rem;
+    font-size: 2rem;
     color: white;
+    margin-right: 13px;
   }
+
+  .openSide:hover{
+    color: #dfb502;
+  }
+
 
   
   @media screen and (max-width: 700px) {
@@ -269,6 +275,10 @@ border: 2px solid #514d87;
 
     .navSmall a{
       color: white;
+    }
+
+    .navSmall a:hover{
+      color: #dfb502;
     }
 
     .logo, .logoHotel, .banderas, .domfedo{

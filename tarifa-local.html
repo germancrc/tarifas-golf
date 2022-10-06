@@ -60,33 +60,52 @@
         <img src="/img/domfedo.png" class="domfedo afterNav" alt="">
         <h5 class="text-center mt-4"><strong>LOCAL / RESIDENTE</strong></h5>
 
-        
-        <!-- FORMULARIO CLIENTE DIRECTO LOCAL-->
-        <form id="clienteLocal" class="mt-5">
-            <h6 class="text-center mb-4">¿El jugador está afiliado a AGLA o FEDOGOLF?</h6>
-            <div class="row container ">
-              <div class="col d-grid gap-2 col-4 mx-auto">
-                <button type="button" class="btn btn-success btn-lg" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                 SI, ESTA AFILIADO
-                </button>
+              <div id="rutaLocal">
+                <div class="container form-center" id="tarLocal">
+                  <form>
+                    <div class="card card-body">
+                  <div class="col">
+                    <div class="row">
+                      <h5 class="text-center">El cliente es <strong>Caddie</strong> o está afiliado a <strong>FEDOGOLF</strong>?</h5>
+                    </div>
+                    
+                    <div class="row d-flex justify-content-center mt-3">
+                        <a role="button" class="btnHotel" data-bs-toggle="modal" data-bs-target="#caddie">ES CADDIE</a>
+                        <a role="button" class="btnHotel" data-bs-toggle="modal" data-bs-target="#fedogolf">TIENE FEDOGOLF</a>
+                        <a role="button" class="btnHotel" data-bs-toggle="modal" data-bs-target="#local">NINGUNA AFILIACION</a>
+                    </div>
+                  </div>
+                </div>
+                </form>
+                </div>
+                </div>
 
-              </div>
-              <div class="col d-grid gap-2 col-4 mx-auto">
-                <button type="button" class="btn btn-danger btn-lg" data-bs-toggle="modal" data-bs-target="#staticBackdrop2">
-                  NO ESTA AFILIADO
-                </button>
-
+          <!-- Modal CADDIE-->
+          <div class="modal fade" id="caddie" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="caddieLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="caddieLabel">Tarifa: Caddies</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In, vero adipisci. Laudantium, illo. Laudantium error ducimus quia nisi ab id!</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                </div>
               </div>
             </div>
-              </form>
+          </div>                
+      
           
 
-<!-- Modal SI-->
-                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<!-- Modal FEDOGOLF-->
+                <div class="modal fade" id="fedogolf" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="fedogolfLabel" aria-hidden="true">
                   <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                     <div class="modal-content">
                       <div class="modal-header">
-                        <h5 class="modal-title" id="staticBackdropLabel">Cliente FEDOGOLF</h5>
+                        <h5 class="modal-title" id="fedogolfLabel">Tarifa: Federado / TW Federado</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                       </div>
                       <div class="modal-body">
@@ -108,58 +127,55 @@
                   </div>
                 </div>
 
-<!-- Modal NO-->
-<div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">Tarifa LOCAL</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <p class="fw-bold text-center">**Confirmar si tiene cédula dominicana y en caso de ser extranjero algún documento que avale su residencia**</p>
-        <p class="fw-bold">Adultos - Aplicar tarifa LOCAL:</p>
-        <p>Local GF - 90 USD</p>
-        <p>Local TW - 60 USD</p>
-        <p class="fw-bold">Junior (13 a 17 años) Aplicar tarifa Junior</p>
-        <p>Junior Fee - 60 USD</p>
-        <p class="fw-bold">Niños (menor de 12 años) Aplicar tarifa de niños</p>
-        <p>Child w/full paying adult - 0 USD</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
-      </div>
-    </div>
-  </div>
-</div>
+                <!-- Modal LOCAL-->
+                <div class="modal fade" id="local" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="localLabel" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="localLabel">Tarifa: Local Green Fee / Local Twilight</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        <p class="fw-bold text-center">**Confirmar si tiene cédula dominicana y en caso de ser extranjero algún documento que avale su residencia**</p>
+                        <p class="fw-bold">Adultos - Aplicar tarifa LOCAL:</p>
+                        <p>Local GF - 90 USD</p>
+                        <p>Local TW - 60 USD</p>
+                        <p class="fw-bold">Junior (13 a 17 años) Aplicar tarifa Junior</p>
+                        <p>Junior Fee - 60 USD</p>
+                        <p class="fw-bold">Niños (menor de 12 años) Aplicar tarifa de niños</p>
+                        <p>Child w/full paying adult - 0 USD</p>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
 
 
 
+                
+                
+                
+                
+              </div>
 
 
+                <div class="text-center botonReload">
+                  <a class="btn btn-success" href="/tarifa-hotel.html" id="recarga"><i class="bi bi-arrow-clockwise"></i> Empezar de nuevo</a>  
+                  <a class="btn btn-danger" href="/tarifas.html" id="backRates"><i class="bi bi-back"></i> Volver menú tarifas</a>  
+          </div>
+  
+          <footer>
+            <hr>
+            <div class="container foot">
+              <div class="container">
+                <img src="/img/golflogo.png" class="logoFoot" alt="">
+              </div>
+                  <p class="text-muted miFirma">© 2022 German Cruz - Reception Team</p>
+            </div>
+          </footer>
 
-
-
-
-<div class="container botonReload mb-3">
-  <div class="centerReload">
-    <button type="button" class="btn btn-danger" id="recarga"><i class="bi bi-back"></i>
-      <a href="/tarifas.html">Probar otra tarifa</a>  
-    </button>
-  </div>
-</div>
-
-<footer>
-  <hr>
-  <div class="container foot">
-    <div class="container">
-      <img src="/img/golflogo.png" class="logoFoot" alt="">
-    </div>
-        <p class="text-muted miFirma">© 2022 German Cruz - Reception Team</p>
-  </div>
-</footer>
-
-</div>
 
 
 

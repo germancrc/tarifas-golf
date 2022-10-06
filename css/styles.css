@@ -31,6 +31,10 @@ p{
   position: relative;
 }
 
+.navbar-brand{
+  color: white;
+}
+
 .cardService{
   height: 7rem;
   text-align: center;
@@ -250,7 +254,7 @@ border: 2px solid #514d87;
   } */
 
   .navi {
-    background-color: #f0f0f0;
+    background-color: #514d87;
     margin-left: 180px;
     padding: 10px 0 10px 0;
     /* height: 1000px; */
@@ -320,7 +324,7 @@ border: 2px solid #514d87;
 
     .banner {
       margin-left: 0px;
-      height: 20vh;
+      height: 25vh;
     }
 
     .miFirma{

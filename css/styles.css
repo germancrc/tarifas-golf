@@ -309,8 +309,40 @@ border: 2px solid #514d87;
     color: #dfb502;
   }
 
+  /* POR APLICACION */
 
+  /* ----------------------------- ORIGOS----------------------------------- */
+
+  .origosConnect{
+    height: 40vh;
+  }
+
+  .origosHost{
+    height: 70vh;
+  }
+
+  .origosLogin{
+    height: 50vh;
+  }
+
+  .origosErrorP{
+    height: 35vh;
+  }
   
+  .origosMain{
+    height: 60vh;
+  }
+  .origosAtn{
+    height: 40vh;
+  }
+  
+  .origosDetail{
+    height: 98vh;
+  }
+  
+  .origosGenSearch{
+    height: 60vh;
+  }
   @media screen and (max-width: 700px) {
     .navSmall{
      background-color: #514d87;

@@ -35,6 +35,10 @@ p{
   color: white;
 }
 
+.navbar-brand:hover{
+  color: white;
+}
+
 .cardService{
   height: 7rem;
   text-align: center;

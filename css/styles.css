@@ -141,11 +141,16 @@ border: 2px solid #514d87;
     color: black;
 }
 
-.logo, .logoHotel, .banderas, .domfedo, .logoFoot{
+.logo, .logoFoot, .domfedo, .banderas, .ttooCardImg{
     height: 8rem;
     display: block;
     margin-left: auto;
     margin-right: auto;
+}
+
+.card-img-top{
+  height: 11.5rem;
+  object-fit: cover;
 }
 
 .logoHotelrate{
@@ -369,6 +374,11 @@ border: 2px solid #514d87;
 
     .logo, .logoHotel, .banderas, .domfedo{
     height: 5.5rem;
+    }
+
+    .card-img-top{
+      height: 12rem;
+      width: 22rem;
     }
 
     .banner {

@@ -358,13 +358,17 @@ border: 2px solid #514d87;
       color: #dfb502;
     }
 
+    .fixHead{
+      margin-top: -40px;
+    }
+
     .logo, .logoHotel, .banderas, .domfedo{
     height: 5.5rem;
     }
 
     .banner {
       margin-left: 0px;
-      height: 25vh;
+      height: 35vh;
     }
 
     .miFirma{

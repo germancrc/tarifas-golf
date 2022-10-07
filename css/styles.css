@@ -343,6 +343,8 @@ border: 2px solid #514d87;
   .origosGenSearch{
     height: 60vh;
   }
+
+  
   @media screen and (max-width: 700px) {
     .navSmall{
      background-color: #514d87;
@@ -386,6 +388,7 @@ border: 2px solid #514d87;
 
     div.content {
       margin-left: 0;
+      margin-top: 64px;
     }
 
     .logo{
@@ -420,7 +423,7 @@ border: 2px solid #514d87;
       /* ----------------------------- ORIGOS----------------------------------- */
 
   .origosConnect{
-    height: 30vh;
+    height: 25vh;
   }
 
   .origosHost{
@@ -439,15 +442,15 @@ border: 2px solid #514d87;
     height: 18vh;
   }
   .origosAtn{
-    height: 25vh;
+    height: 20vh;
   }
   
   .origosDetail{
-    height: 35vh;
+    height: 30vh;
   }
   
   .origosGenSearch{
-    height: 25vh;
+    height: 22vh;
   }
     
   }

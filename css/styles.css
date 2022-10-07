@@ -344,6 +344,11 @@ border: 2px solid #514d87;
     height: 60vh;
   }
 
+  .origosDescont{
+    height: 60vh;
+  }
+
+
   
   @media screen and (max-width: 700px) {
     .navSmall{

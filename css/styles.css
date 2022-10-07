@@ -368,7 +368,8 @@ border: 2px solid #514d87;
 
     .banner {
       margin-left: 0px;
-      height: 35vh;
+      margin-top: 64px;
+      height: 25vh;
     }
 
     .miFirma{

@@ -416,6 +416,39 @@ border: 2px solid #514d87;
     footer {
       margin-left: 0px;    
     }
+
+      /* ----------------------------- ORIGOS----------------------------------- */
+
+  .origosConnect{
+    height: 30vh;
+  }
+
+  .origosHost{
+    height: 55vh;
+  }
+
+  .origosLogin{
+    height: 20vh;
+  }
+
+  .origosErrorP{
+    height: 30vh;
+  }
+  
+  .origosMain{
+    height: 18vh;
+  }
+  .origosAtn{
+    height: 25vh;
+  }
+  
+  .origosDetail{
+    height: 35vh;
+  }
+  
+  .origosGenSearch{
+    height: 25vh;
+  }
     
   }
   

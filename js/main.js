@@ -28,14 +28,34 @@ function noFueLisa(){
     document.querySelector(
         "#tarHRlp").style.display = "none";
         document.querySelector(
-        "#verificarSocio").style.display = "block";
+        "#tieneCortesia").style.display = "block";
 }
 
-function noSocio(){
+function noCortesia(){
     document.querySelector(
-        "#verificarSocio").style.display = "none";
+        "#tieneCortesia").style.display = "none";
         document.querySelector(
         "#clienteCasino").style.display = "block";
+}
+
+function noCasino(){
+    document.querySelector(
+    "#clienteCasino").style.display = "none";
+    document.querySelector(
+    "#verificarSocio").style.display = "block";
+}
+
+function esSocio(){
+    document.querySelector(
+    "#verificarSocio").style.display = "none";
+    document.querySelector(
+    "#socioLeg").style.display = "block";
+}
+function tieneEba(){
+    document.querySelector(
+    "#verificarSocio").style.display = "none";
+    document.querySelector(
+    "#socioLeg").style.display = "block";
 }
 
 

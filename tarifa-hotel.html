@@ -120,80 +120,6 @@
           </div>
           </div>
 
-
-          <!-- Modal NOTAS REGALO-->
-          <div class="modal fade" id="notasRegalo" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="notasRegaloLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="notasRegaloLabel">Tarifa Legendary Gift Round</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In, vero adipisci. Laudantium, illo. Laudantium error ducimus quia nisi ab id!</p>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Modal NOTAS EBA-->
-          <div class="modal fade" id="notasEba" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="notasEbaLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="notasEbaLabel">Tarifa Legendary EBA Round</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In, vero adipisci. Laudantium, illo. Laudantium error ducimus quia nisi ab id!</p>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Modal SIN NOTAS-->
-          <div class="modal fade" id="sinRondas" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="sinRondasLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="sinRondasLabel">Tarifa Vacations Planners</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In, vero adipisci. Laudantium, illo. Laudantium error ducimus quia nisi ab id!</p>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-
-          <!-- Modal CASINO-->
-          <div class="modal fade" id="cliCasino" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="cliCasinoLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="cliCasinoLabel">Casino Rate</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In, vero adipisci. Laudantium, illo. Laudantium error ducimus quia nisi ab id!</p>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
-                </div>
-              </div>
-            </div>
-          </div>
-
           <!-- RUTA Hard Rock (Recep. Golf) -->
           <div id="rutaHR">
             <div class="container form-center" id="tarHRlp">
@@ -214,18 +140,20 @@
             </div>
             </div>   
                   
-          <div id="rutaHRsocioOno">
-            <div class="container form-center" id="verificarSocio">
+
+            <!-- CLIENTE CORTESIA -->
+          <div id="rutaHRcortesia">
+            <div class="container form-center" id="tieneCortesia">
               <form>
                 <div class="card card-body">
               <div class="col">
                 <div class="row">
-                  <h5 class="text-center">El cliente es socio <strong>Legendary</strong> o <strong>Palace Premier</strong>?</h5>
+                  <h5 class="text-center">El cliente viene con rondas de <strong>Cortesía</strong>?</h5>
                 </div>
                 
                 <div class="row d-flex justify-content-center mt-3">
-                    <a role="button" onclick=esSocio() class="btnHotel">SI</a>
-                    <a role="button" onclick=noSocio() class="btnHotel">NO</a>
+                  <a role="button" class="btnHotel" data-bs-toggle="modal" data-bs-target="#cliCortesia">SI</a>
+                    <a role="button" onclick=noCortesia() class="btnHotel">NO</a>
                 </div>
               </div>
             </div>
@@ -233,13 +161,14 @@
             </div>
             </div> 
 
+            <!-- CLIENTE CASINO -->
           <div id="rutaHRcasino">
             <div class="container form-center" id="clienteCasino">
               <form>
                 <div class="card card-body">
               <div class="col">
                 <div class="row">
-                  <h5 class="text-center">El cliente es referido del <strong>Casino</strong>?</h5>
+                  <h5 class="text-center">El cliente es del <strong>Casino</strong>?</h5>
                 </div>
                 
                 <div class="row d-flex justify-content-center mt-3">
@@ -250,16 +179,150 @@
             </div>
             </form>
             </div>
-            </div>         
+            </div> 
 
 
+            <!-- VERIFICAR SOCIO -->
+            <div id="rutaHRsocioOno">
+              <div class="container form-center" id="verificarSocio">
+                <form>
+                  <div class="card card-body">
+                <div class="col">
+                  <div class="row">
+                    <h5 class="text-center">El cliente es socio <strong>Legendary</strong> o <strong>Palace Premier</strong>?</h5>
+                  </div>
+                  
+                  <div class="row d-flex justify-content-center mt-3">
+                      <a role="button" onclick=esSocio() class="btnHotel">SI</a>
+                      <a role="button" onclick=noSocio() class="btnHotel">NO</a>
+                  </div>
+                </div>
+              </div>
+              </form>
+              </div>
+              </div> 
+
+            <!-- ES SOCIO LEG O PP -->
+            <div id="rutaHRsocioLeg">
+              <div class="container form-center" id="socioLeg">
+                <form>
+                  <div class="card card-body">
+                <div class="col">
+                  <div class="row">
+                    <h5 class="text-center">El cliente tiene <strong>Rondas EBA</strong> o <strong>Rondas de Regalo</strong>?</h5>
+                  </div>
+                  
+                  <div class="row d-flex justify-content-center mt-3">
+                      <a role="button" onclick=tieneEba() class="btnHotel">TIENE EBA</a>
+                      <a role="button" class="btnHotel" data-bs-toggle="modal" data-bs-target="#notasRegalo">TIENE REGALO</a>
+                      <a role="button" onclick=noTieneNada() class="btnHotel">NINGUN DE LAS ANTERIORES</a>
+                  </div>
+                </div>
+              </div>
+              </form>
+              </div>
+              </div>
+  
+            
+           <!-- ------------------------- MODALS------------------------ -->
+
+            <!-- Modal NOTAS REGALO-->
+          <div class="modal fade" id="notasRegalo" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="notasRegaloLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="notasRegaloLabel">Tarifa: Legendary Gift Round</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In, vero adipisci. Laudantium, illo. Laudantium error ducimus quia nisi ab id!</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Modal NOTAS EBA-->
+          <div class="modal fade" id="notasEba" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="notasEbaLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="notasEbaLabel">Tarifa: Legendary EBA Round</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In, vero adipisci. Laudantium, illo. Laudantium error ducimus quia nisi ab id!</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Modal SIN NOTAS-->
+          <div class="modal fade" id="sinRondas" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="sinRondasLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="sinRondasLabel">Tarifa: Vacation Planners</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In, vero adipisci. Laudantium, illo. Laudantium error ducimus quia nisi ab id!</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <!-- Modal CASINO-->
+          <div class="modal fade" id="cliCasino" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="cliCasinoLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="cliCasinoLabel">Tarifa: Casino Rate</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In, vero adipisci. Laudantium, illo. Laudantium error ducimus quia nisi ab id!</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Modal CORTESIA-->
+          <div class="modal fade" id="cliCortesia" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="cliCortesiaLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="cliCortesiaLabel">Tarifa: Complimentary</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In, vero adipisci. Laudantium, illo. Laudantium error ducimus quia nisi ab id!</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+              </div>
+            </div>
+          </div>
 
 
         </div>
 
         <div class="text-center botonReload">
                 <a class="btn btn-success" href="/tarifa-hotel.html" id="recarga"><i class="bi bi-arrow-clockwise"></i> Empezar de nuevo</a>  
-                <a class="btn btn-danger" href="/tarifas.html" id="backRates"><i class="bi bi-back"></i> Volver menú tarifas</a>  
+                <a class="btn btn-danger" href="/tarifas.html" id="backRates"><i class="bi bi-back"></i> Cambiar tipo cliente</a>  
         </div>
 
         <footer>

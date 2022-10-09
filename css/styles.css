@@ -179,7 +179,7 @@ border: 2px solid #514d87;
   box-shadow: 1px 0px 12px 1px rgba(81,77,135,0.75);
   -webkit-box-shadow: 1px 0px 12px 1px rgba(81,77,135,0.75);
   -moz-box-shadow: 1px 0px 12px 1px rgba(81,77,135,0.75);
-    transition: 0.15s ease-in-out all;
+  transition: 0.15s ease-in-out all;
 }
 
 #tarVP, #tarHRlp, #verificarSocio, #clienteCasino, #tieneCortesia, #socioLeg{
@@ -256,11 +256,6 @@ border: 2px solid #514d87;
     padding: 5px;
     color: white;
   }
-
-  
-  /* .btnTarifa:hover{
-    background-color: #dfb502;
-  } */
 
   .navi {
     background-color: #514d87;

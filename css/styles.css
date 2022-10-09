@@ -299,15 +299,6 @@ border: 2px solid #514d87;
   .miFirma{
     text-align: right;
   }
-  .openSide{
-    font-size: 2rem;
-    color: white;
-    margin-right: 13px;
-  }
-
-  .openSide:hover{
-    color: #dfb502;
-  }
 
   /* POR APLICACION */
 
@@ -378,7 +369,7 @@ border: 2px solid #514d87;
 
     .banner {
       margin-left: 0px;
-      margin-top: 64px;
+      margin-top: 56px;
       height: 25vh;
     }
 
@@ -466,6 +457,10 @@ border: 2px solid #514d87;
   
   .origosGenSearch{
     height: 22vh;
+  }
+
+  .origosDescont{
+    height: 30vh;
   }
     
   }

@@ -100,19 +100,19 @@ p{
 border: 2px solid black;
 }
 
-/* .btnHotelNew{
-  text-align: center;
-  padding: 0.6rem;
-  width: 16rem;
-  height: 6rem;
-  background-color: #dfb502;
-  color: black;
-  font-size: 1.5rem;
-  border-radius: 10px 10px 10px 10px;
--webkit-border-radius: 10px 10px 10px 10px;
--moz-border-radius: 10px 10px 10px 10px;
-border: 2px solid #514d87;
-} */
+.fixSizeHead{
+  height: 3rem;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background-color: #514d87;
+  color: white;
+}
+
+.bodyCardZise{
+  height: 9rem;
+}
+
 
 .cardBottom{
   background-color: #dfb502;

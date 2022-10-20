@@ -112,7 +112,7 @@ servicesForm.addEventListener('submit', (e) => {
     const servDescription = servicesForm['TextareaService']
     
     saveService(servTitle.value, servPrice.value, servDescription.value)
-    
+    alert("Servicio agregado con éxito");
     servicesForm.reset();
 })
 
@@ -125,6 +125,6 @@ ratesForm.addEventListener('submit', (e) => {
     const ratePrice = ratesForm['rate-price']
 
     saveRate(rateTitle.value, ratePrice.value)
-
+    alert("Tarifa agregada con éxito");
     ratesForm.reset();
 })

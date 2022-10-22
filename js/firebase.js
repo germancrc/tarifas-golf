@@ -9,7 +9,7 @@
     getDocs,
     deleteDoc,
     onSnapshot,
-    orderBy,
+    updateDoc,
     doc
 
   } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-firestore.js"
@@ -46,17 +46,21 @@
   //export const getRates = () => getDocs(collection(db, 'tarifas'))
   
   //ACTUALIZAR LISTA TARIFAS
-  export const onGetRates = (callRates) => onSnapshot(collection(db, 'tarifas'), callRates)
-
-
+  export const onGetRates = (callRates) => 
+  onSnapshot(collection(db, 'tarifas'), callRates)
 
   //GUARDAR SERVICIOS
    export const saveService = (servTitle, servPrice, servDescription) => {
     addDoc(collection(db, 'servicios'), {Servicio: servTitle, Precio: servPrice, Descripcion: servDescription});
   }
 
+  //ACTUALIZAR SERVICIOS
+  export const updateService = (id, updatedData) => 
+  updateDoc(doc(db, 'servicios', id), updatedData)
+
   //BORRAR SERVICIOS
-  export const deleteService = id => deleteDoc(doc(db, 'servicios', id))
+  export const deleteService = id => 
+  deleteDoc(doc(db, 'servicios', id))
 
   //GUARDAR TARIFAS
    export const saveRate = (rateTitle, ratePrice) => {

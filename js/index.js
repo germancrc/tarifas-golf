@@ -4,7 +4,8 @@ import {
     onGetServices,
     onGetRates,
     deleteService,
-    getService
+    getService,
+    updateService
 } from './firebase.js'
 
 
@@ -16,8 +17,23 @@ const ratesContainer = document.getElementById('rates-container')
 const servicesHomePage = document.getElementById('servicesHomePage')
 
 let editStatus = false;
+let id = '';
+
+const botonAgregar = document.getElementById('btnService');
+
+if(botonAgregar){
+    botonAgregar.addEventListener('click', function(e) {
+            document.getElementById('serviceModalLabel').innerHTML = 'Agregar Servicio'
+            document.getElementById('modalAddEdit').innerHTML = 'Agregar Servicio'
+            document.getElementById('service-title').value = ''
+            document.getElementById('service-price').value = ''
+            document.getElementById('TextareaService').value = ''
+        });
+}
+
 
 window.addEventListener('DOMContentLoaded', async () =>{ //cuando carga la app
+
 
     //para listar servicios HOME PAGE
     onGetServices((listServicesCards) => {
@@ -77,32 +93,61 @@ window.addEventListener('DOMContentLoaded', async () =>{ //cuando carga la app
             servicesContainer.innerHTML = servicesHtml; //pintar servicios en HTML
         }
         
-        
-        const btnsDelete = servicesContainer.querySelectorAll('.btnDelete')
-        
-        btnsDelete.forEach(btn => {
-            btn.addEventListener('click', (event) => {
-                deleteService(event.target.dataset.id)
+        if(servicesContainer){
+            //BOTON BORRAR SERVICIO
+            const btnsDelete = servicesContainer.querySelectorAll('.btnDelete')
+            btnsDelete.forEach(btn => {
+                btn.addEventListener('click', (event) => {
+                    Swal.fire({
+                        title: 'Seguro que quiere borrar este servicio?',
+                        text: "Deberá agregarlo de nuevo!",
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'Si, Bórralo!'
+                      }).then((result) => {
+                        if (result.isConfirmed) {
+                            deleteService(event.target.dataset.id)
+                          Swal.fire(
+                            'Eliminado!',
+                            'El servicio ha sido eliminado.',
+                            'success'
+                          )
+                        }
+                      })
+                      
+
+                })
             })
-        })
 
-        const btnsEdit = servicesContainer.querySelectorAll('.btnEdit')
-        
-        btnsEdit.forEach(btn => {
-            btn.addEventListener('click', async (event) => {
-                const serv = await getService(event.target.dataset.id);
-                 const fillServ = serv.data()
 
-                servicesForm['service-title'].value = fillServ.Servicio
-                servicesForm['service-price'].value = fillServ.Precio
-                servicesForm['TextareaService'].value = fillServ.Descripcion
 
-                // document.getElementById('serviceModalLabel').innerHTML = 'Editar Servicio'
-                // document.getElementById('modalAddEdit').innerHTML = 'Editar Servicio'
 
-                editStatus = true;
+
+            
+            
+            //EDITAR SERVICIO
+            const btnsEdit = servicesContainer.querySelectorAll('.btnEdit')
+            
+            btnsEdit.forEach(btn => {
+                btn.addEventListener('click', async (event) => {
+                    const serv = await getService(event.target.dataset.id);
+                        const fillServ = serv.data()
+    
+                    servicesForm['service-title'].value = fillServ.Servicio
+                    servicesForm['service-price'].value = fillServ.Precio
+                    servicesForm['TextareaService'].value = fillServ.Descripcion
+    
+                    document.getElementById('serviceModalLabel').innerHTML = 'Editar Servicio'
+                    document.getElementById('modalAddEdit').innerHTML = 'Editar Servicio'
+    
+                    editStatus = true;
+                    id = serv.id;
+                })
             })
-        })
+        }
+        
     });
 
 
@@ -147,18 +192,32 @@ if(servicesForm){
         const servPrice = servicesForm['service-price']
         const servDescription = servicesForm['TextareaService']
         
-        if(editStatus){
-            console.log('Actualizando');
-        }else{
+        if(!editStatus){
             saveService(servTitle.value, servPrice.value, servDescription.value)
             Swal.fire({
-                position: 'top-end',
+                position: 'center',
                 icon: 'success',
-                title: 'Servicio guardado',
+                title: 'Servicio '+ servTitle.value + ' Agregado',
                 showConfirmButton: false,
                 timer: 1500
               })
-        }
+            }else{
+                
+                editStatus = false;
+                updateService(id, {
+                    Servicio: servTitle.value, 
+                    Precio: servPrice.value, 
+                    Descripcion: servDescription.value
+                    
+                })
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: 'Servicio '+ servTitle.value + ' Modificado',
+                    showConfirmButton: false,
+                    timer: 1500
+                  })
+            }
         
         servicesForm.reset();
     })

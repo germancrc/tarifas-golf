@@ -1,17 +1,16 @@
 document.getElementById("nameGuide").innerHTML = "Guía General";
 
-const mensaje = document.getElementById('TextareaService');
-const contador = document.getElementById('contador');
+// const mensaje = document.getElementById('TextareaService');
+// const contador = document.getElementById('contador');
 
-if(mensaje){
-    mensaje.addEventListener('input', function(e) {
-        const target = e.target;
-        const longitudMax = target.getAttribute('maxlength');
-        const longitudAct = target.value.length;
-        contador.innerHTML = `${longitudAct}/${longitudMax}`;
-    });
-
-}
+// if(mensaje){
+//     mensaje.addEventListener('input', function(e) {
+//         const target = e.target;
+//         const longitudMax = target.getAttribute('maxlength');
+//         const longitudAct = target.value.length;
+//         contador.innerHTML = `${longitudAct}/${longitudMax}`;
+//     });
+// }
 
 //RUTA VP 
 function reservaVP() {

@@ -5,8 +5,13 @@
     getFirestore, 
     collection, 
     addDoc,
+    getDoc,
     getDocs,
-    onSnapshot
+    deleteDoc,
+    onSnapshot,
+    orderBy,
+    doc
+
   } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-firestore.js"
   // TODO: Add SDKs for Firebase products that you want to use
   // https://firebase.google.com/docs/web/setup#available-libraries
@@ -26,15 +31,19 @@
   const db = getFirestore();
 
   //LISTAR SERVICIOS
-  export const getServices = () => getDocs(collection(db, 'servicios'))
-
+  //export const getServices = () => getDocs(collection(db, 'servicios'))
+  
   //ACTUALIZAR LISTA SERVICIOS
   export const onGetServices = (callServices) => onSnapshot(collection(db, 'servicios'), callServices)
+  
+  //OBTENER 1 SERVICIO
+  export const getService = id => getDoc(doc(db, 'servicios', id))
+
   
   
   
   //LISTAR TARIFAS
-  export const getRates = () => getDocs(collection(db, 'tarifas'))
+  //export const getRates = () => getDocs(collection(db, 'tarifas'))
   
   //ACTUALIZAR LISTA TARIFAS
   export const onGetRates = (callRates) => onSnapshot(collection(db, 'tarifas'), callRates)
@@ -44,11 +53,14 @@
   //GUARDAR SERVICIOS
    export const saveService = (servTitle, servPrice, servDescription) => {
     addDoc(collection(db, 'servicios'), {Servicio: servTitle, Precio: servPrice, Descripcion: servDescription});
-    console.log("Datos enviados");
   }
+
+  //BORRAR SERVICIOS
+  export const deleteService = id => deleteDoc(doc(db, 'servicios', id))
 
   //GUARDAR TARIFAS
    export const saveRate = (rateTitle, ratePrice) => {
     addDoc(collection(db, 'tarifas'), {Tarifa: rateTitle, Precio: ratePrice});
-    console.log("Datos enviados");
   }
+
+  

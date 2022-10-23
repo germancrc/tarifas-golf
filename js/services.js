@@ -65,21 +65,22 @@ window.addEventListener('DOMContentLoaded', async () =>{ //cuando carga la app
             servicesHtml += 
             `
             <tr>
-                <td>
+                <td class="testRow">
                     ${servicio.Servicio}
                 </td>
-                <td>
+                <td class="testRow">
                     ${servicio.Precio + '.00'}
                 </td>
-                <td>
+                <td class="testRow">
                     ${servicio.Descripcion}
                 </td>
-                <td>
-                    <button data-bs-toggle="modal" data-bs-target="#serviceModal" class="btn btn-warning btnEdit" data-id="${docServSettings.id}">Editar</button>
+                <td class="testRow">
+                    <button data-bs-toggle="modal" data-bs-target="#serviceModal" class="btn btn-sm btn-warning btnEdit" data-id="${docServSettings.id}">Editar</button>
                     
-                    <button class="btn btn-danger btnDelete" data-id="${docServSettings.id}">Borrar</button>
+                    <button class="btn btn-sm btn-danger btnDelete mt-2" data-id="${docServSettings.id}">Borrar</button>
                 </td>
             </tr>
+
             `;
         });
         if(servicesContainer){

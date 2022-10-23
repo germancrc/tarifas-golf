@@ -39,16 +39,6 @@
   //OBTENER 1 SERVICIO
   export const getService = id => getDoc(doc(db, 'servicios', id))
 
-  
-  
-  
-  //LISTAR TARIFAS
-  //export const getRates = () => getDocs(collection(db, 'tarifas'))
-  
-  //ACTUALIZAR LISTA TARIFAS
-  export const onGetRates = (callRates) => 
-  onSnapshot(collection(db, 'tarifas'), callRates)
-
   //GUARDAR SERVICIOS
    export const saveService = (servTitle, servPrice, servDescription) => {
     addDoc(collection(db, 'servicios'), {Servicio: servTitle, Precio: servPrice, Descripcion: servDescription});
@@ -61,10 +51,30 @@
   //BORRAR SERVICIOS
   export const deleteService = id => 
   deleteDoc(doc(db, 'servicios', id))
+  
+  
+  
+  //LISTAR TARIFAS
+  //export const getRates = () => getDocs(collection(db, 'tarifas'))
+  
+  //ACTUALIZAR LISTA TARIFAS
+  export const onGetRates = (callRates) => 
+  onSnapshot(collection(db, 'tarifas'), callRates)
+
+  //OBTENER 1 TARIFA
+  export const getRate = id => getDoc(doc(db, 'tarifas', id))
 
   //GUARDAR TARIFAS
    export const saveRate = (rateTitle, ratePrice) => {
     addDoc(collection(db, 'tarifas'), {Tarifa: rateTitle, Precio: ratePrice});
   }
+
+  //ACTUALIZAR TARIFAS
+  export const updateRate = (id, updatedData) => 
+  updateDoc(doc(db, 'tarifas', id), updatedData)
+
+  //BORRAR TARIFAS
+  export const deleteRate = id => 
+  deleteDoc(doc(db, 'tarifas', id))
 
   

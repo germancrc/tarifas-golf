@@ -1,19 +1,13 @@
 import {
-    saveRate, 
     saveService, 
     onGetServices,
-    onGetRates,
     deleteService,
     getService,
     updateService
 } from './firebase.js'
 
-
-
 const servicesForm = document.getElementById('services-form')
-const ratesForm = document.getElementById('rates-form')
 const servicesContainer = document.getElementById('services-container')
-const ratesContainer = document.getElementById('rates-container')
 const servicesHomePage = document.getElementById('servicesHomePage')
 
 let editStatus = false;
@@ -24,13 +18,12 @@ const botonAgregar = document.getElementById('btnService');
 if(botonAgregar){
     botonAgregar.addEventListener('click', function(e) {
             document.getElementById('serviceModalLabel').innerHTML = 'Agregar Servicio'
-            document.getElementById('modalAddEdit').innerHTML = 'Agregar Servicio'
+            document.getElementById('modalServName').innerHTML = 'Agregar Servicio'
             document.getElementById('service-title').value = ''
             document.getElementById('service-price').value = ''
             document.getElementById('TextareaService').value = ''
         });
 }
-
 
 window.addEventListener('DOMContentLoaded', async () =>{ //cuando carga la app
 
@@ -140,7 +133,7 @@ window.addEventListener('DOMContentLoaded', async () =>{ //cuando carga la app
                     servicesForm['TextareaService'].value = fillServ.Descripcion
     
                     document.getElementById('serviceModalLabel').innerHTML = 'Editar Servicio'
-                    document.getElementById('modalAddEdit').innerHTML = 'Editar Servicio'
+                    document.getElementById('modalServName').innerHTML = 'Editar Servicio'
     
                     editStatus = true;
                     id = serv.id;
@@ -150,36 +143,6 @@ window.addEventListener('DOMContentLoaded', async () =>{ //cuando carga la app
         
     });
 
-
-   
-    //para listar tarifas
-    onGetRates((listRates) => {
-        let ratesHtml = ''
-        
-        listRates.forEach(docRate => {
-            console.log(docRate.data());
-            const tarifa = docRate.data()
-            ratesHtml += 
-            `
-            <tr>
-                <td>
-                    ${tarifa.Tarifa}
-                </td>
-                <td>
-                    ${'USD ' + tarifa.Precio}
-                </td>
-                <td>
-                    <button class="btn btn-warning"><i class="bi bi-pen"></i></button>
-                    <button class="btn btn-danger"><i class="bi bi-trash"></i></button>
-                </td>
-            </tr>
-            `;
-        });
-        if(ratesContainer){
-            ratesContainer.innerHTML = ratesHtml; //pintar tarifas en HTML
-        }
-    })
-    
 })
 
 
@@ -221,22 +184,6 @@ if(servicesForm){
         
         servicesForm.reset();
     })
-}
-
-
-//Get values modal tarifas
-if(ratesForm){
-    ratesForm.addEventListener('submit', (e) => {
-        e.preventDefault()
-    
-        const rateTitle = ratesForm['rate-title']
-        const ratePrice = ratesForm['rate-price']
-    
-        saveRate(rateTitle.value, ratePrice.value)
-    
-        ratesForm.reset();
-    })
-
 }
 
 

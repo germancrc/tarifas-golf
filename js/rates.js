@@ -41,7 +41,7 @@ window.addEventListener('DOMContentLoaded', async () =>{ //cuando carga la app
                     ${tarifa.Tarifa}
                 </td>
                 <td>
-                    ${'USD ' + tarifa.Precio}
+                    ${'USD ' + tarifa.Precio + ' .00'}
                 </td>
 
                 <td>

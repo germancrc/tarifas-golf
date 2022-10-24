@@ -69,7 +69,7 @@ window.addEventListener('DOMContentLoaded', async () =>{ //cuando carga la app
                     ${servicio.Servicio}
                 </td>
                 <td class="testRow">
-                    ${servicio.Precio + '.00'}
+                    ${'USD ' + servicio.Precio + '.00'}
                 </td>
                 <td class="testRow">
                     ${servicio.Descripcion}
@@ -77,7 +77,7 @@ window.addEventListener('DOMContentLoaded', async () =>{ //cuando carga la app
                 <td class="testRow">
                     <button data-bs-toggle="modal" data-bs-target="#serviceModal" class="btn btn-sm btn-warning btnEdit" data-id="${docServSettings.id}">Editar</button>
                     
-                    <button class="btn btn-sm btn-danger btnDelete mt-2" data-id="${docServSettings.id}">Borrar</button>
+                    <button class="btn btn-sm btn-danger btnDelete" data-id="${docServSettings.id}">Borrar</button>
                 </td>
             </tr>
 

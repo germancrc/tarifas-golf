@@ -348,6 +348,19 @@ border: 2px solid black;
     height: 90vh;
   }
 
+  
+  .tableHead{
+    display: block;
+  }
+
+  .onDesktop{
+    display: block;
+  }
+
+  .onMobile{
+    display: none;
+  }
+
 
   
   @media screen and (max-width: 700px) {
@@ -411,6 +424,22 @@ border: 2px solid black;
     }
 
     .btnTarifa{
+      display: none;
+    }
+
+    .btnDelete{
+      margin-top: 5px;
+    }
+
+    .onDesktop{
+      display: none;
+    }
+
+    .onMobile{
+      display: block;
+    }
+
+    .tableHead{
       display: none;
     }
 

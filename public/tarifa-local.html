@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hard Rock Golf PC - Guía de procedimientos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+  </head>
+  <body>
+
+    <div class="sidebar scrollmenu">
+      <div class="container mb-3 mt-3">
+          <img src="/img/golflogo.png" class="logo" alt="">
+      </div>
+      <a href="/index.html">Inicio <i class="bi bi-chevron-right flecha"></i></a>
+      <a class="active" href="/tarifas.html">Tarifas <i class="bi bi-chevron-right flecha"></i></a>
+      <a href="/ezlinks.html">EZLinks <i class="bi bi-chevron-right flecha"></i></a>
+      <a href="/ezlinks-pos.html">EZLinks POS <i class="bi bi-chevron-right flecha"></i></a>
+      <a href="/opera.html">OPERA <i class="bi bi-chevron-right flecha"></i></a>
+      <a href="/origos.html">Origos <i class="bi bi-chevron-right flecha"></i></a>
+      <a href="/eba.html">EBA <i class="bi bi-chevron-right flecha"></i></a>
+      <a href="#">MINI GOLF <i class="bi bi-chevron-right flecha"></i></a>
+      <a href="/ajustes.html">AJUSTES <i class="bi bi-chevron-right flecha"></i></a>
+    </div>
+
+          <!-- As a heading -->
+      <nav class="navbar fixed-top navi">
+        <div class="container-fluid">
+          <span class="navbar-brand mb-0 h1">TARIFAS - Jugador Local / Residente</span>
+          <span class="navbar-brand ms-auto mb-0 h1" id="nameGuide"></span>
+        </div>
+      </nav>
+    
+    <!-- NAV SM -->
+    <nav class="navbar navSmall fixed-top">
+      <div class="container-fluid">
+      <a class="navbar-brand" href="/index.html" ><i class="bi bi-journals"></i> Guía General</a>
+      <button class="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation" onclick="openNav()">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+        <div id="mySidenav" class="sidenav">
+          <div id="main">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a class="nav-link" href="/index.html">Inicio</a>
+            <a class="nav-link active" href="/tarifas.html">Tarifas</a>
+            <a class="nav-link" href="/ezlinks.html">EZLinks</a>
+            <a class="nav-link" href="/ezlinks-pos.html">EZLinks POS</a>
+            <a class="nav-link" href="/opera.html">OPERA</a>
+            <a class="nav-link" href="/origos.html">Origos</a>
+            <a class="nav-link" href="/eba.html">EBA</a>
+            <a class="nav-link" href="#">MINI GOLF</a>
+            <a class="nav-link" href="/ajustes.html">AJUSTES</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    </nav>
+
+      <div class="content">
+        <img src="/img/domfedo.png" class="domfedo afterNav" alt="">
+        <h5 class="text-center mt-4"><strong>LOCAL / RESIDENTE</strong></h5>
+
+              <div id="rutaLocal">
+                <div class="container form-center" id="tarLocal">
+                  <form>
+                    <div class="card card-body">
+                  <div class="col">
+                    <div class="row">
+                      <h5 class="text-center">El cliente es <strong>Caddie</strong> o está afiliado a <strong>FEDOGOLF</strong>?</h5>
+                    </div>
+                    
+                    <div class="row d-flex justify-content-center mt-3">
+                        <a role="button" class="btnHotel" data-bs-toggle="modal" data-bs-target="#caddie">ES CADDIE</a>
+                        <a role="button" class="btnHotel" data-bs-toggle="modal" data-bs-target="#fedogolf">TIENE FEDOGOLF</a>
+                        <a role="button" class="btnHotel" data-bs-toggle="modal" data-bs-target="#local">NINGUNA AFILIACION</a>
+                    </div>
+                  </div>
+                </div>
+                </form>
+                </div>
+                </div>
+
+          <!-- Modal CADDIE-->
+          <div class="modal fade" id="caddie" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="caddieLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="caddieLabel">Tarifa: Caddies</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In, vero adipisci. Laudantium, illo. Laudantium error ducimus quia nisi ab id!</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+              </div>
+            </div>
+          </div>                
+      
+          
+
+<!-- Modal FEDOGOLF-->
+                <div class="modal fade" id="fedogolf" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="fedogolfLabel" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="fedogolfLabel">Tarifa: Federado / TW Federado</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        <p class="fw-bold text-center">**Tomar foto codigo QR Fedogolf**</p>
+                        <p class="fw-bold">Adultos - Aplicar tarifa Fedogolf:</p>
+                        <p>GF FEDERADO - 55 USD</p>
+                        <p>TW FEDERADO - 40 USD</p>
+                        <p class="fw-bold">Si tiene cupón disponible:</p>
+                        <p>CART FEE FEDOGOLF - 35 USD</p>
+                        <p class="fw-bold">Junior (13 a 17 años) Aplicar tarifa Fedogolf</p>
+                        <p>Junior Fedogolf - 40 USD</p>
+                        <p class="fw-bold">Niños (menor de 12 años) Aplicar tarifa de niños</p>
+                        <p>Child w/full paying adult - 0 USD</p>
+                      </div>
+                      <div class="modal-footer">
+                        <a href="https://fedogolf.site/login" target="_blank" role="button" class="btn btn-success">Ir a Fedogolf</a>
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button> 
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Modal LOCAL-->
+                <div class="modal fade" id="local" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="localLabel" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="localLabel">Tarifa: Local Green Fee / Local Twilight</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        <p class="fw-bold text-center">**Confirmar si tiene cédula dominicana y en caso de ser extranjero algún documento que avale su residencia**</p>
+                        <p class="fw-bold">Adultos - Aplicar tarifa LOCAL:</p>
+                        <p>Local GF - 90 USD</p>
+                        <p>Local TW - 60 USD</p>
+                        <p class="fw-bold">Junior (13 a 17 años) Aplicar tarifa Junior</p>
+                        <p>Junior Fee - 60 USD</p>
+                        <p class="fw-bold">Niños (menor de 12 años) Aplicar tarifa de niños</p>
+                        <p>Child w/full paying adult - 0 USD</p>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+
+                
+                
+                
+                
+              </div>
+
+
+                <div class="text-center botonReload">
+                  <!-- <a class="btn btn-success" href="/tarifa-hotel.html" id="recarga"><i class="bi bi-arrow-clockwise"></i> Empezar de nuevo</a>   -->
+                  <a class="btn btn-danger" href="/tarifas.html" id="backRates"><i class="bi bi-back"></i> Volver menú tarifas</a>  
+          </div>
+  
+          <footer>
+            <hr>
+            <div class="container foot">
+              <div class="container">
+                <img src="/img/golflogo.png" class="logoFoot" alt="">
+              </div>
+                  <p class="text-muted miFirma">© 2022 German Cruz - Reception Team</p>
+            </div>
+          </footer>
+
+
+
+
+      
+
+          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+          <script src="/js/main.js"></script>
+          <!-- <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+          <script type="module" src="/js/services.js"></script>
+          <script type="module" src="/js/rates.js"></script> -->
+        </body>
+      </html>

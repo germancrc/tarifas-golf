@@ -1,12 +1,71 @@
+GET http://localhost:3000/api/servicios HTTP/1.1
+
 ###
-POST https://guiahrgolf.onrender.com/api/usuarios HTTP/1.1
+GET http://localhost:3000/api/tarifas HTTP/1.1
+
+###
+GET https://guiahrgolf.onrender.com/api/usuarios/ HTTP/1.1
+
+###
+
+GET http://localhost:3000/api/servicios/3 HTTP/1.1
+
+###
+GET http://localhost:3000/api/tarifas/3 HTTP/1.1
+
+###
+POST http://localhost:3000/api/servicios HTTP/1.1
 Content-Type: application/json
 
 {
-    "nombre": "German Cruz",
-    "username": "germancrc",
-    "password": "juan316",
-    "rol": "Admin"
+    "nombre": "Para eliminar",
+    "precio": "500",
+    "descripcion": "Borrame" 
+}
+
+###
+POST http://localhost:3000/api/tarifas HTTP/1.1
+Content-Type: application/json
+
+{
+    "nombre": "Caddies",
+    "precio": "35"
+}
+
+###
+POST http://localhost:8081/api/usuarios HTTP/1.1
+Content-Type: application/json
+
+{
+    "nombre": "Para eliminar",
+    "username": "testing",
+    "password": "12345678" ,
+    "rol": "Admin" 
+}
 
 
+###
+PUT  http://localhost:3000/api/servicios/4 HTTP/1.1
+Content-Type: application/json
+
+{
+    "nombre": "Palos Socios Legendary",
+    "precio": "40",
+    "descripcion": "Palos adultos socio Legendary" 
+}
+
+
+###
+GET http://localhost:8081/api/usuarios HTTP/1.1
+
+###
+GET https://guiahrgolf.onrender.com/api/usuarios HTTP/1.1
+
+###
+POST http://localhost:8081/api/tarifas HTTP/1.1
+Content-Type: application/json
+
+{
+    "nombre": "TTOO Green Fee",
+    "precio": "120"
 }

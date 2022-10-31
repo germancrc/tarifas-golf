@@ -1,0 +1,12 @@
+###
+POST https://guiahrgolf.onrender.com/api/usuarios HTTP/1.1
+Content-Type: application/json
+
+{
+    "nombre": "German Cruz",
+    "username": "germancrc",
+    "password": "juan316",
+    "rol": "Admin"
+
+
+}

@@ -183,6 +183,76 @@
 </div>
     </div>
 
+
+      <hr>
+
+    <div class="mt-4">
+      <h2>Usuarios
+      </h2>
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#usersModal" id="btnUsers">
+        <i class="bi bi-plus-circle"> NUEVO USUARIO</i>
+      </button>
+<!-- Button trigger modal -->
+
+
+<div class="mt-3">
+  <div class="table-responsive">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <!-- <th scope="col text-center">ID</th> -->
+        <th scope="col" class="col">Nombre</th>
+        <th scope="col" class="col">Nombre de usuario</th>
+        <th scope="col" class="col">Contraseña</th>
+        <th scope="col" class="col">Rol</th>
+      </tr>
+    </thead>
+    <tbody id="users-container" class="table-group-divider"></tbody>
+  </table>
+</div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="usersModal" tabindex="-1" aria-labelledby="usersModalLabel" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h1 class="modal-title fs-5" id="usersModalLabel">Agregar Usuario</h1>
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+      <form id="users-form" method="POST">
+        <div class="mb-3">
+          <label for="user-title" class="form-label">Nombre</label>
+          <input type="text" class="form-control" id="user-title" placeholder="Escriba el nombre del usuario">
+        </div>
+        <div class="mb-3">
+          <label for="user-nickname" class="form-label">Nombre de usuario</label>
+          <input type="text" class="form-control" id="user-nickname" placeholder="Nickname">
+        </div>  
+        <div class="mb-3">
+          <label for="user-pass" class="form-label">Contraseña</label>
+          <input type="password" class="form-control" id="user-pass" placeholder="Escriba la Contraseña">
+        </div>  
+        <div class="mb-3">
+          <label for="user-role" class="form-label">Rol</label>
+          <select class="form-select" aria-label="role-selector">
+            <option value="1">Admin</option>
+            <option value="2">User</option>
+          </select>
+        </div>  
+
+        <div class="mt-5 d-grid gap-2 d-md-flex justify-content-md-end">
+          <button type="submit" class="btn btn-primary" id="modalRateName">Agregar usuario</button>
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+</div>
+    </div>
+
     </div>
 
 

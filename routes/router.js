@@ -14,7 +14,11 @@ router.get('/login', (req, res) => {
 })
 
 router.get('/ajustes', authController.isAuthenticated, (req, res) => {
-   res.render('ajustes', {user:req.user, alert:false})
+   if(req.user.rol === "Admin"){
+      res.render('ajustes', {user:req.user, alert:false})
+   }else{
+      res.render('index', {user:req.user, alert:false})
+   }
 })
 router.get('/eba', authController.isAuthenticated, (req, res) => {
    res.render('eba', {user:req.user, alert:false})

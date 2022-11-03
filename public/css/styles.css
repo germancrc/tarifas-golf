@@ -18,6 +18,44 @@ p{
   line-height: 1.9;
 }
 
+/* --------------------------------FULL PAGE TABS--------------------------------- */
+/* Set height of body and the document to 100% to enable "full page tabs" */
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
+/* Style tab links */
+.tablink {
+  background-color: #dfb502;
+  color: white;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 17px;
+  width: 33%;
+}
+
+.tablink:hover {
+  background-color: #514d87;
+  color: white;
+}
+
+
+/* Style the tab content (and add height:100% for full page content) */
+.tabcontent {
+  color: black;
+  display: none;
+  padding: 70px 6px;
+  height: 100%;
+}
+
+#Servicios, #Tarifas, #Usuarios {background-color: white;}
+
+/* --------------------------------FULL PAGE TABS--------------------------------- */
+
 .login-card{
   margin: 0;
   position: absolute;

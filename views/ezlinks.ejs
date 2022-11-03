@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hard Rock Golf PC - Guía de procedimientos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+  </head>
+  <body>
+
+    <div class="sidebar scrollmenu">
+        <div class="container mb-3 mt-3">
+            <img src="/img/golflogo.png" class="logo" alt="">
+        </div>
+        <a href="/">Inicio <i class="bi bi-chevron-right flecha"></i></a>
+        <a href="/tarifas">Tarifas <i class="bi bi-chevron-right flecha"></i></a>
+        <a class="active" href="/ezlinks">EZLinks <i class="bi bi-chevron-right flecha"></i></a>
+        <a href="/ezlinks-pos">EZLinks POS <i class="bi bi-chevron-right flecha"></i></a>
+        <a href="/opera">OPERA <i class="bi bi-chevron-right flecha"></i></a>
+        <a href="/origos">Origos <i class="bi bi-chevron-right flecha"></i></a>
+        <a href="/eba">EBA <i class="bi bi-chevron-right flecha"></i></a>
+        <a href="/minigolf">MINI GOLF <i class="bi bi-chevron-right flecha"></i></a>
+        <% if(user.rol === "Admin"){ %>
+          <a class="d-block"href="/ajustes">AJUSTES <i class="bi bi-chevron-right flecha"></i></a>
+          <% } else { %>
+            <a class="d-none"href="/ajustes">AJUSTES <i class="bi bi-chevron-right flecha"></i></a>
+          <% } %>
+      </div>
+
+      <!-- As a heading -->
+      <nav class="navbar fixed-top navi">
+        <div class="container-fluid">
+          <span class="navbar-brand mb-0 h1">EZLinks TEE SHEET</span>
+          <div class="btn-group dropstart">
+            <% if(user.rol === "Admin"){ %>
+              <a class="btn btn-success dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <% } else { %>
+                  <a class="btn btn-warning dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <% } %>
+              <% if(user.rol === "Admin"){ %>
+                <span class="text-light "><i class="bi bi-person-fill"></i> <%= user.username %></span>
+                <% } else { %>
+                  <span class="text-dark "><i class="bi bi-person-fill"></i> <%= user.username %></span>
+                <% } %>
+              <% if(user) { %>
+              <% } %>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Editar datos</a></li>
+              <li><a class="dropdown-item" href="/logout">Salir</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    
+    <!-- NAV SM -->
+    <nav class="navbar navSmall fixed-top">
+      <div class="container-fluid">
+      <a class="navbar-brand" href="/index.html" ><i class="bi bi-journals"></i> Guía General</a>
+      <button class="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation" onclick="openNav()">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+        <div id="mySidenav" class="sidenav">
+          <div id="main">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a class="nav-link" href="/index.html">Inicio</a>
+            <a class="nav-link" href="/tarifas.html">Tarifas</a>
+            <a class="nav-link active" href="/ezlinks.html">EZLinks</a>
+            <a class="nav-link" href="/ezlinks-pos.html">EZLinks POS</a>
+            <a class="nav-link" href="/opera.html">OPERA</a>
+            <a class="nav-link" href="/origos.html">Origos</a>
+            <a class="nav-link" href="/eba.html">EBA</a>
+            <a class="nav-link" href="#">MINI GOLF</a>
+            <a class="nav-link" href="/ajustes.html">AJUSTES</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    </nav>
+  
+      <div class="content">
+        <h4 class="headerSmall p-3 text-center">
+           EZLinks TEE SHEET
+        </h4>
+        <img src="/img/ezlinks.png" class="bannerGolf afterNav center"  alt="">
+        <div class="container">
+          <div class="row text-center mt-4">
+            <h5>Reservas de tee time y edición de jugadores</h5>
+          </div>
+        </div>
+
+        <footer>
+          <hr>
+          <div class="container foot">
+            <div class="container">
+              <img src="/img/golflogo.png" class="logoFoot" alt="">
+            </div>
+                <p class="text-muted miFirma">© 2022 German Cruz - Reception Team</p>
+          </div>
+        </footer>
+
+      </div>
+      
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+      <script src="/js/main.js"></script>
+      <!-- <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+      <script type="module" src="/js/services.js"></script>
+      <script type="module" src="/js/rates.js"></script> -->
+    </body>
+  </html>

@@ -1,4 +1,4 @@
-document.getElementById("nameGuide").innerHTML = "Guía General";
+// document.getElementById("nameGuide").innerHTML = "Guía General";
 
 // const mensaje = document.getElementById('TextareaService');
 // const contador = document.getElementById('contador');

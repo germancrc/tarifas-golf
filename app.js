@@ -1,37 +1,48 @@
-import express from "express"; //para importar express luego de instalarlo
-import cors from "cors";
-import db from "./config/db.js"
-import indexRouter from "./routes/index.route.js";
+const express = require('express')
+const dotenv = require('dotenv')
+const cookieParser = require('cookie-parser')
+const cors = require('cors')
+
 
 const app = express()
-const port = process.env.PORT;
+let port = process.env.PORT || 3000
 
 //cors
 app.use(cors())
 
+
+//motor plantillas
+app.set('view engine', 'ejs')
+
+//carpeta public
+app.use(express.static('public'))
+
 // middleware
-app.use(express.json()); 
+app.use(express.urlencoded({extended:true}))
+app.use(express.json());
 
-//servir contenido estatico
-app.use(express.static('public'));
+//Vriables entorno
+dotenv.config({path: './env/.env'})
 
-//ruta API
-app.use("/", indexRouter);
+//cookies
+app.use(cookieParser())
 
-//rutas locales
-app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/public/index.html')
-})
+//llamar router
+app.use('/', require('./routes/router'))
 
-//conexion a la DB con Planetscale
-db.connect().then(() => {
-  console.log("Conectado a la Base de Datos GOLF");
-}).catch((err) => {
-  console.log("Error: ", err);
-})
+//para eliminar cache al cerrar sesion
+app.use(function(req, res, next){
+  if(!req.user)
+  res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
+  next();
+});
+
 
 
 //iniciar servidor
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+  console.log(`Servidor listening on port ${port}`)
 })
+
+
+            

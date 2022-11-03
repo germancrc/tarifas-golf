@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "Guia tarifas y procedimientos recepcion campo de golf ",
   "main": "app.js",
-  "type": "module",
   "scripts": {
     "start": "node ./app.js",
     "dev": "nodemon ./app.js"
@@ -19,9 +18,14 @@
   },
   "homepage": "https://github.com/germancrc/tarifas-golf#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
+    "ejs": "^3.1.8",
     "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "jsonwebtoken": "^8.5.1",
     "mysql2": "^2.3.3",
     "nodemon": "^2.0.20"
   }

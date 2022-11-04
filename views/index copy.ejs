@@ -104,7 +104,25 @@
             
             <h3 class="mb-4 fw-bold">Servicios que ofrecemos:</h3>
 
- 
+            <div class="container" class="fixSizeHead">
+              <div class="row row-cols-1 row-cols-sm-1 row-cols-md-3 mt-2" id="servicesHomePage">
+                <% serviciores.forEach((service) => { %>
+                  <div class="col">
+                    <div class="card mb-4 cardShadow" id="serviceTest">
+                        <div class="card-header fixSizeHead">
+                          <h5 class="my-0 font-weight-normal text-center"><%= service.nombre %></h5>
+                      </div>
+                      <div class="card-body bodyCardZise">
+                          <h3 class="card-title pricing-card-title text-center">USD <%= service.precio %>.00 <small class="text-muted">p/p</small></h3>
+                          <p><%= service.descripcion %></p>
+                      </div>
+      
+                    </div>
+                  </div>
+                    <% }) %>
+
+              </div>
+            </div>
 
           <h4 class="fw-bold">Otros Servicios </h4>
           <hr>

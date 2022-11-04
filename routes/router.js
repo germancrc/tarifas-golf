@@ -1,6 +1,8 @@
 const express = require('express')
 const router = express.Router()
 
+const db = require('../database/db')
+
 const authController = require('../controllers/authController')
 const usuariosController = require('../controllers/usuariosController')
 
@@ -14,11 +16,20 @@ router.get('/login', (req, res) => {
 })
 
 router.get('/ajustes', authController.isAuthenticated, (req, res) => {
-   if(req.user.rol === "Admin"){
-      res.render('ajustes', {user:req.user, alert:false})
-   }else{
-      res.render('index', {user:req.user, alert:false})
-   }
+   
+   db.query('SELECT * FROM usuarios', (error, results) => {
+      if(error){
+         throw error;
+      }else{
+         if(req.user.rol === "Admin"){
+            res.render('ajustes', {user:req.user, alert:false, results:results})
+         }else{
+            res.render('index', {user:req.user, alert:false})
+         }
+      }
+   })
+
+
 })
 router.get('/eba', authController.isAuthenticated, (req, res) => {
    res.render('eba', {user:req.user, alert:false})
@@ -51,13 +62,16 @@ router.get('/tarifas', authController.isAuthenticated, (req, res) => {
    res.render('tarifas', {user:req.user, alert:false})
 })
 
-//router metodos controller usuarios
-router.post('/agregarUsuario', usuariosController.agregarUsuario)
-
-
 //router metodos controller login
 router.post('/login', authController.login)
 router.get('/logout', authController.logout)
+
+
+//router metodos controller usuarios
+router.post('/createUser', usuariosController.createUser)
+
+
+
 
 
 

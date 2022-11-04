@@ -2,9 +2,11 @@ const bcrypt = require('bcryptjs')
 const db = require('../database/db')
 const {promisify} = require('util')
 
+
 //metodo registro
 
-exports.agregarUsuario = async (req, res) =>{
+
+exports.createUser = async (req, res) =>{
     try {
         const nombre = req.body.nombre
         const username = req.body.username
@@ -20,6 +22,23 @@ exports.agregarUsuario = async (req, res) =>{
     } catch (error) {
         console.log(error);
     }
+
+}
+
+exports.getUsers = (req, res) =>{
+    db.query('SELECT * FROM usuarios', (error, results) => {
+        if(error){
+           throw error;
+        }else{
+           if(req.user.rol === "Admin"){
+              res.render('ajustes', {user:req.user, alert:false, resultsUsers:results})
+             // console.log(resultsUsers);
+           }else{
+              res.render('index', {user:req.user, alert:false})
+             // console.log(resultsUsers);
+           }
+        }
+     })
 
 }
 

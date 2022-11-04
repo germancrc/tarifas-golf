@@ -83,11 +83,11 @@
       </nav>
 
     <div class="content">
-      <div class="afterNav position-sticky">
+      <div class="afterNav position-static">
  
-        <button class="tablink" onclick="openPage('Servicios', this, '#514d87')" id="defaultOpen">Servicios</button>
-        <button class="tablink" onclick="openPage('Tarifas', this, '#514d87')" >Tarifas</button>
-        <button class="tablink" onclick="openPage('Usuarios', this, '#514d87')">Usuarios</button>
+        <button class="tablink" onclick="openPage('Servicios', this, '#514d87')" id="defaultOpen">SERVICIOS</button>
+        <button class="tablink" onclick="openPage('Tarifas', this, '#514d87')" >TARIFAS</button>
+        <button class="tablink" onclick="openPage('Usuarios', this, '#514d87')">USUARIOS</button>
         <!-- <button class="tablink" onclick="openPage('About', this, '#514d87')">About</button> -->
       </div>
       
@@ -110,7 +110,9 @@
                     <th scope="col" class="col">Acciones</th>
                   </tr>
                 </thead>
-              <tbody id="services-container" class="table-group-divider"></tbody>
+                <tbody>
+
+                </tbody>
               </table>
             </div>
           </div>
@@ -169,7 +171,9 @@
                   <th scope="col" class="col">Acciones</th>
                 </tr>
               </thead>
-              <tbody id="rates-container" class="table-group-divider"></tbody>
+              <tbody>
+
+              </tbody>
             </table>
           </div>
           </div>
@@ -216,13 +220,29 @@
           <table class="table table-hover">
             <thead>
               <tr>
-                <!-- <th scope="col text-center">ID</th> -->
+                <th scope="col text-center">ID</th>
                 <th scope="col" class="col">Nombre</th>
                 <th scope="col" class="col">Nombre de usuario</th>
                 <th scope="col" class="col">Rol</th>
+                <th scope="col" class="col">Acciones</th>
               </tr>
             </thead>
-            <tbody id="users-container" class="table-group-divider"></tbody>
+            <tbody>
+              <% results.forEach((user) => { %>
+                <tr>
+                  <td><%= user.id %></td>
+                  <td><%= user.nombre %></td>
+                  <td><%= user.username %></td>
+                  <td><%= user.rol %></td>
+
+                  <td>
+                    <button data-bs-toggle="modal" data-bs-target="#" class="btn btn-sm btn-warning btnEdit"><i class="bi bi-pencil"></i></button>
+                    
+                    <button class="btn btn-sm btn-danger btnDelete"><i class="bi bi-trash"></i></button>
+                  </td>
+                </tr>
+              <% }) %>
+            </tbody>
           </table>
         </div>
         </div>
@@ -236,7 +256,7 @@
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-              <form id="users-form" action="/agregarUsuario" method="POST">
+              <form id="users-form" action="/createUser" method="POST">
                 <div class="mb-3">
                   <label for="userName" class="form-label">Nombre</label>
                   <input type="text" class="form-control" name="nombre" placeholder="Escriba el nombre del usuario">

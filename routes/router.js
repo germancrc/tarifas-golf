@@ -16,7 +16,6 @@ router.get('/', authController.isAuthenticated, (req, res) => {
          throw error;
       }else{
          res.render('index', {user:req.user, results:results, alert:false})
-         console.log(results);
       }
    })
 })
@@ -79,7 +78,6 @@ router.get('/servicios-conf', authController.isAuthenticated, (req, res) => {
          throw error;
       }else{
          res.render('servicios-conf', {user:req.user, results:results, alert:false})
-         console.log(results);
       }
    })
 })
@@ -90,7 +88,6 @@ router.get('/tarifas-conf', authController.isAuthenticated, (req, res) => {
          throw error;
       }else{
          res.render('tarifas-conf', {user:req.user, alert:false, results:results, error: false})
-         console.log(results);
       }
    })
 })
@@ -101,7 +98,6 @@ router.get('/usuarios-conf', authController.isAuthenticated, (req, res) => {
          throw error;
       }else{
          res.render('usuarios-conf', {user:req.user, alert:false, results:results, error: false})
-         console.log(results);
       }
    })
 })

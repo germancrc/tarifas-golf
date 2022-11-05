@@ -11,7 +11,14 @@ const servicesController = require('../controllers/servicesController')
 
 //router de las vistas
 router.get('/', authController.isAuthenticated, (req, res) => {
-   res.render('index', {user:req.user})
+   db.query('SELECT * FROM servicios', (error, results) => {
+      if(error){
+         throw error;
+      }else{
+         res.render('index', {user:req.user, results:results, alert:false})
+         console.log(results);
+      }
+   })
 })
 
 router.get('/login', (req, res) => {

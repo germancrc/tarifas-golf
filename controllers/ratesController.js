@@ -1,18 +1,22 @@
-const bcrypt = require('bcryptjs')
 const db = require('../database/db')
 const {promisify} = require('util')
 
 
-exports.getRates = (req, res) =>{
-   db.query('SELECT * FROM tarifas', (error, results) => {
-      if(error){
-         throw error;
-      }else{
-        res.render('ajustes', {user:req.user, resultsRates:results})
-       // console.log(resultsRates);
-      }
-   })
+exports.createRate = async (req, res) =>{
+   try {
+       const nombre = req.body.nombre
+       const precio = req.body.precio
+   
+       db.query('INSERT INTO tarifas SET ?', {nombre:nombre, precio:precio}, (error, results) => {
+           if(error){console.log(error)}
+           res.redirect('/tarifas-conf')
+       })
+       
+   } catch (error) {
+       console.log(error);
+   }
 
 }
+
 
 

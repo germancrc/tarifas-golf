@@ -5,7 +5,6 @@ const {promisify} = require('util')
 
 //metodo registro
 
-
 exports.createUser = async (req, res) =>{
     try {
         const nombre = req.body.nombre
@@ -16,12 +15,12 @@ exports.createUser = async (req, res) =>{
     
         db.query('INSERT INTO usuarios SET ?', {nombre:nombre, username:username, password:passHash, rol:rol}, (error, results) => {
             if(error){console.log(error)}
-            res.redirect('/ajustes')
+            res.redirect('/usuarios-conf')
         })
         
-    } catch (error) {
-        console.log(error);
-    }
+        } catch (error) {
+            console.log(error);
+        }
 
 }
 
@@ -31,7 +30,7 @@ exports.getUsers = (req, res) =>{
            throw error;
         }else{
            if(req.user.rol === "Admin"){
-              res.render('ajustes', {user:req.user, alert:false, resultsUsers:results})
+              res.render('usuarios-conf', {user:req.user, alert:false, resultsUsers:results})
              // console.log(resultsUsers);
            }else{
               res.render('index', {user:req.user, alert:false})

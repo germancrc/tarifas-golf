@@ -1,17 +1,22 @@
-const bcrypt = require('bcryptjs')
 const db = require('../database/db')
 const {promisify} = require('util')
 
 
-exports.getServices = (req, res) =>{
-    db.query('SELECT * FROM servicios', (error, results) => {
-        if(error){
-           throw error;
-        }else{
-          res.render('ajustes', {user:req.user, resultsServices:results})
-          // console.log(resultsServices);
-        }
-     })
+exports.createService = async (req, res) =>{
+   try {
+       const nombre = req.body.nombre
+       const precio = req.body.precio
+       const descripcion = req.body.descripcion
+   
+       db.query('INSERT INTO servicios SET ?', {nombre:nombre, precio:precio, descripcion:descripcion}, (error, results) => {
+           if(error){console.log(error)}
+           res.redirect('/servicios-conf')
+           console.log(results);
+       })
+       
+       } catch (error) {
+           console.log(error);
+       }
 
 }
 

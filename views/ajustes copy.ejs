@@ -83,197 +83,227 @@
       </nav>
 
     <div class="content">
-
-      <div class="afterNav">
-        <h2>Servicios
-        </h2>
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#serviceModal" id="btnService">
-          <i class="bi bi-plus-circle"> NUEVO SERVICIO</i>
-        </button>
-          <!-- Button trigger modal -->
-
-
-<div class="mt-3">
-  <div class="table-responsive">
-    <table class="table">
-      <thead>
-        <tr>
-          <!-- <th scope="col text-center">ID</th> -->
-          <th scope="col" class="col">Nombre</th>
-          <th scope="col" class="col">Precio</th>
-          <th scope="col" class="col">Descripción</th>
-          <th scope="col" class="col">Acciones</th>
-        </tr>
-      </thead>
-     <tbody id="services-container" class="table-group-divider"></tbody>
-    </table>
-  </div>
-</div>
-
-
-<!-- Modal -->
-<div class="modal fade" id="serviceModal" tabindex="-1" aria-labelledby="serviceModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="serviceModalLabel">Agregar servicio</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form id="services-form">
-          <div class="mb-3">
-            <label for="service-title" class="form-label">Nombre del servicio</label>
-            <input type="text" class="form-control" id="service-title" placeholder="Escriba el nombre del servicio" required>
-          </div>
-          <div class="mb-3">
-            <label for="serivce-price" class="form-label">Precio</label>
-            <input type="number" class="form-control" id="service-price" placeholder="Precio del servicio " required>
-          </div>  
-          <div class="mb-3">
-            <label for="TextareaService" class="form-label">Descripción</label>
-            <textarea class="form-control" id="TextareaService" rows="3" maxlength="50" placeholder="Máximo 50 caracteres" required></textarea>
-            <!-- <div id="contador" class="mt-1"></div> -->
-          </div>
-
-          <div class="mt-4 d-grid gap-2 d-md-flex justify-content-md-end">
-            <button type="submit" class="btn btn-primary" id="modalServName">Agregar servicio</button>
-            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
+      <div class="afterNav position-static">
+ 
+        <button class="tablink" onclick="openPage('Servicios', this, '#514d87')" id="defaultOpen">SERVICIOS</button>
+        <button class="tablink" onclick="openPage('Tarifas', this, '#514d87')" >TARIFAS</button>
+        <button class="tablink" onclick="openPage('Usuarios', this, '#514d87')">USUARIOS</button>
+        <!-- <button class="tablink" onclick="openPage('About', this, '#514d87')">About</button> -->
       </div>
       
+      <div id="Servicios" class="tabcontent">
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#serviceModal" id="btnService">
+            <i class="bi bi-plus-circle"> NUEVO SERVICIO</i>
+          </button>
+            <!-- Button trigger modal -->
+  
+  
+          <div class="mt-3">
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <!-- <th scope="col text-center">ID</th> -->
+                    <th scope="col" class="col">Nombre</th>
+                    <th scope="col" class="col">Precio</th>
+                    <th scope="col" class="col">Descripción</th>
+                    <th scope="col" class="col">Acciones</th>
+                  </tr>
+                </thead>
+                <tbody>
 
+                </tbody>
+              </table>
+            </div>
+          </div>
+  
+  
+          <!-- Modal -->
+          <div class="modal fade" id="serviceModal" tabindex="-1" aria-labelledby="serviceModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="serviceModalLabel">Agregar servicio</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <form id="services-form">
+                    <div class="mb-3">
+                      <label for="service-title" class="form-label">Nombre del servicio</label>
+                      <input type="text" class="form-control" id="service-title" placeholder="Nombre del servicio" required>
+                    </div>
+                    <div class="mb-3">
+                      <label for="serivce-price" class="form-label">Precio</label>
+                      <input type="number" class="form-control" id="service-price" placeholder="Precio del servicio " required>
+                    </div>  
+                    <div class="mb-3">
+                      <label for="TextareaService" class="form-label">Descripción</label>
+                      <textarea class="form-control" id="TextareaService" rows="3" maxlength="50" placeholder="Descripción del servicio" required></textarea>
+                      <!-- <div id="contador" class="mt-1"></div> -->
+                    </div>
+          
+                    <div class="mt-4 d-grid gap-2 d-md-flex justify-content-md-end">
+                      <button type="submit" class="btn btn-primary" id="modalServName">Agregar servicio</button>
+                      <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+      
+      <div id="Tarifas" class="tabcontent">   
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ratesModal" id="btnRate">
+            <i class="bi bi-plus-circle"> NUEVA TARIFA</i>
+          </button>
+           <!-- Button trigger modal -->
+    
+    
+          <div class="mt-3">
+            <div class="table-responsive">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <!-- <th scope="col text-center">ID</th> -->
+                  <th scope="col" class="col">Nombre</th>
+                  <th scope="col" class="col">Precio</th>
+                  <th scope="col" class="col">Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
 
-      <hr>
+              </tbody>
+            </table>
+          </div>
+          </div>
+          
+          <!-- Modal -->
+          <div class="modal fade" id="ratesModal" tabindex="-1" aria-labelledby="ratesModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="ratesModalLabel">Agregar tarifa</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <form id="rates-form">
+                  <div class="mb-3">
+                    <label for="rate-title" class="form-label">Nombre de la tarifa</label>
+                    <input type="text" class="form-control" id="rate-title" placeholder="Escriba el nombre de la tarifa">
+                  </div>
+                  <div class="mb-3">
+                    <label for="rate-price" class="form-label">Precio</label>
+                    <input type="number" class="form-control" id="rate-price" placeholder="Monto de la tarifa">
+                  </div>  
+          
+                  <div class="mt-4 d-grid gap-2 d-md-flex justify-content-md-end">
+                    <button type="submit" class="btn btn-primary" id="modalRateName">Agregar tarifa</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          </div>
+      </div>
+      
+      <div id="Usuarios" class="tabcontent">
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#usersModal" id="btnUsers">
+            <i class="bi bi-plus-circle"> NUEVO USUARIO</i>
+          </button>
+          <!-- Button trigger modal -->
+    
+    
+        <div class="mt-3">
+          <div class="table-responsive">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col text-center">ID</th>
+                <th scope="col" class="col">Nombre</th>
+                <th scope="col" class="col">Nombre de usuario</th>
+                <th scope="col" class="col">Rol</th>
+                <th scope="col" class="col">Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% results.forEach((user) => { %>
+                <tr>
+                  <td><%= user.id %></td>
+                  <td><%= user.nombre %></td>
+                  <td><%= user.username %></td>
+                  <td><%= user.rol %></td>
 
-    <div class="mt-4">
-      <h2>Tarifas
-      </h2>
-      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ratesModal" id="btnRate">
-        <i class="bi bi-plus-circle"> NUEVA TARIFA</i>
-      </button>
-<!-- Button trigger modal -->
-
-
-<div class="mt-3">
-  <div class="table-responsive">
-  <table class="table table-hover">
-    <thead>
-      <tr>
-        <!-- <th scope="col text-center">ID</th> -->
-        <th scope="col" class="col">Nombre</th>
-        <th scope="col" class="col">Precio</th>
-        <th scope="col" class="col">Acciones</th>
-      </tr>
-    </thead>
-    <tbody id="rates-container" class="table-group-divider"></tbody>
-  </table>
-</div>
-</div>
-
-<!-- Modal -->
-<div class="modal fade" id="ratesModal" tabindex="-1" aria-labelledby="ratesModalLabel" aria-hidden="true">
-<div class="modal-dialog modal-dialog-centered">
-  <div class="modal-content">
-    <div class="modal-header">
-      <h1 class="modal-title fs-5" id="ratesModalLabel">Agregar tarifa</h1>
-      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-    </div>
-    <div class="modal-body">
-      <form id="rates-form">
-        <div class="mb-3">
-          <label for="rate-title" class="form-label">Nombre de la tarifa</label>
-          <input type="text" class="form-control" id="rate-title" placeholder="Escriba el nombre de la tarifa">
+                  <td>
+                    <button data-bs-toggle="modal" data-bs-target="#" class="btn btn-sm btn-warning btnEdit"><i class="bi bi-pencil"></i></button>
+                    
+                    <button class="btn btn-sm btn-danger btnDelete"><i class="bi bi-trash"></i></button>
+                  </td>
+                </tr>
+              <% }) %>
+            </tbody>
+          </table>
         </div>
-        <div class="mb-3">
-          <label for="rate-price" class="form-label">Precio</label>
-          <input type="number" class="form-control" id="rate-price" placeholder="Monto de la tarifa">
-        </div>  
-
-        <div class="mt-4 d-grid gap-2 d-md-flex justify-content-md-end">
-          <button type="submit" class="btn btn-primary" id="modalRateName">Agregar tarifa</button>
-          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
         </div>
-      </form>
-    </div>
-  </div>
-</div>
-</div>
-    </div>
+        
+        <!-- Modal -->
+        <div class="modal fade" id="usersModal" tabindex="-1" aria-labelledby="usersModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="usersModalLabel">Agregar Usuario</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form id="users-form" action="/createUser" method="POST">
+                <div class="mb-3">
+                  <label for="userName" class="form-label">Nombre</label>
+                  <input type="text" class="form-control" name="nombre" placeholder="Escriba el nombre del usuario">
+                </div>
+                <div class="mb-3">
+                  <label for="userNickname" class="form-label">Nombre de usuario</label>
+                  <input type="text" class="form-control" name="username" placeholder="Nickname">
+                </div>  
+                <div class="mb-3">
+                  <div class="row">
+                    <div class="col">
+                      <label for="userPass" class="form-label">Contraseña</label>
+                      <input type="password" class="form-control" name="password" placeholder="Escriba la Contraseña">
+                    </div>
+                    <div class="col">
+                      <label for="userPass-conf" class="form-label">Repita la Contraseña</label>
+                      <input type="password" class="form-control" name="pass-conf" placeholder="Repita la Contraseña">
+                    </div>
+                  </div>
 
 
-      <hr>
 
-    <div class="mt-4">
-      <h2>Usuarios
-      </h2>
-      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#usersModal" id="btnUsers">
-        <i class="bi bi-plus-circle"> NUEVO USUARIO</i>
-      </button>
-<!-- Button trigger modal -->
-
-
-<div class="mt-3">
-  <div class="table-responsive">
-  <table class="table table-hover">
-    <thead>
-      <tr>
-        <!-- <th scope="col text-center">ID</th> -->
-        <th scope="col" class="col">Nombre</th>
-        <th scope="col" class="col">Nombre de usuario</th>
-        <th scope="col" class="col">Rol</th>
-      </tr>
-    </thead>
-    <tbody id="users-container" class="table-group-divider"></tbody>
-  </table>
-</div>
-</div>
-
-<!-- Modal -->
-<div class="modal fade" id="usersModal" tabindex="-1" aria-labelledby="usersModalLabel" aria-hidden="true">
-<div class="modal-dialog modal-dialog-centered">
-  <div class="modal-content">
-    <div class="modal-header">
-      <h1 class="modal-title fs-5" id="usersModalLabel">Agregar Usuario</h1>
-      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-    </div>
-    <div class="modal-body">
-      <form id="users-form" action="/agregarUsuario" method="POST">
-        <div class="mb-3">
-          <label for="userName" class="form-label">Nombre</label>
-          <input type="text" class="form-control" name="nombre" placeholder="Escriba el nombre del usuario">
+                </div>  
+                <div class="mb-3">
+                  <label for="userRole" class="form-label">Rol</label>
+                  <select class="form-select" name="rol" aria-label="role-selector">
+                    <option selected>Elija el rol del usuario</option>
+                    <option value="Admin">Admin</option>
+                    <option value="User">User</option>
+                  </select>
+                </div>  
+        
+                <div class="mt-5 d-grid gap-2 d-md-flex justify-content-md-end">
+                  <button type="submit" class="btn btn-primary" id="modalUserName">Agregar usuario</button>
+                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+              </form>
+            </div>
+          </div>
         </div>
-        <div class="mb-3">
-          <label for="userNickname" class="form-label">Nombre de usuario</label>
-          <input type="text" class="form-control" name="username" placeholder="Nickname">
-        </div>  
-        <div class="mb-3">
-          <label for="userPass" class="form-label">Contraseña</label>
-          <input type="password" class="form-control" name="password" placeholder="Escriba la Contraseña">
-        </div>  
-        <div class="mb-3">
-          <label for="userRole" class="form-label">Rol</label>
-          <select class="form-select" name="rol" aria-label="role-selector">
-            <option selected>Elija el rol del usuario</option>
-            <option value="Admin">Admin</option>
-            <option value="User">User</option>
-          </select>
-        </div>  
-
-        <div class="mt-5 d-grid gap-2 d-md-flex justify-content-md-end">
-          <button type="submit" class="btn btn-primary" id="modalUserName">Agregar usuario</button>
-          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
         </div>
-      </form>
-    </div>
-  </div>
-</div>
-</div>
-    </div>
+      </div>
+      
+      <!-- <div id="About" class="tabcontent">
+        <h3>About</h3>
+        <p>Who we are and what we do.</p>
+      </div> -->
 
     </div>
 

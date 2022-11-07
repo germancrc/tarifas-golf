@@ -46,8 +46,9 @@ p{
 .banner {
   background-image: url(/img/hardRock.jpg);
   margin-left: 180px;
-  height: 55vh;
+  height: 50vh;
   width: calc(100% -180px);
+  margin-bottom: 25px;
 
   /* Position and center the image to scale nicely on all screens */
   background-position: center;

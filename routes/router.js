@@ -12,10 +12,10 @@ const servicesController = require('../controllers/servicesController')
 //router de las vistas
 router.get('/', authController.isAuthenticated, (req, res) => {
    db.query('SELECT * FROM servicios', (error, results) => {
-      if(error){
-         throw error;
-      }else{
+      if(results){
          res.render('index', {user:req.user, results:results, alert:false})
+      }else{
+         throw error;
       }
    })
 })
@@ -25,11 +25,14 @@ router.get('/login', (req, res) => {
 })
 
 router.get('/ajustes', authController.isAuthenticated, (req, res) => {
-   if(req.user.rol === "Admin"){
-      res.render('ajustes', {user:req.user, alert:false})
-   }else{
-      res.render('index', {user:req.user, alert:false})
-   }
+   db.query('SELECT * FROM servicios', (error, results) => {
+      if(results && req.user.rol === "Admin"){
+         res.render('ajustes', {user:req.user, results:results, alert:false})
+      }else{
+         res.render('index', {user:req.user,results:results, alert:false})
+         // throw error;
+      }
+   })
 })
 
 router.get('/eba', authController.isAuthenticated, (req, res) => {
@@ -74,30 +77,30 @@ router.get('/tarifas', authController.isAuthenticated, (req, res) => {
 
 router.get('/servicios-conf', authController.isAuthenticated, (req, res) => {
    db.query('SELECT * FROM servicios', (error, results) => {
-      if(error){
-         throw error;
-      }else{
+      if(results){
          res.render('servicios-conf', {user:req.user, results:results, alert:false})
+      }else{
+         throw error;
       }
    })
 })
 
 router.get('/tarifas-conf', authController.isAuthenticated, (req, res) => {
    db.query('SELECT * FROM tarifas', (error, results) => {
-      if(error){
-         throw error;
-      }else{
+      if(results){
          res.render('tarifas-conf', {user:req.user, alert:false, results:results, error: false})
+      }else{
+         throw error;
       }
    })
 })
 
 router.get('/usuarios-conf', authController.isAuthenticated, (req, res) => {
    db.query('SELECT * FROM usuarios', (error, results) => {
-      if(error){
-         throw error;
-      }else{
+      if(results){
          res.render('usuarios-conf', {user:req.user, alert:false, results:results, error: false})
+      }else{
+         throw error;
       }
    })
 })

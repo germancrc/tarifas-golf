@@ -146,7 +146,11 @@ border: 2px solid black;
 }
 
 .cardBottom{
-  background-color: #dfb502;
+  background-color: #514d87;
+  color: white;
+}
+
+.cardBottom a{
   color: white;
 }
 
@@ -454,6 +458,10 @@ border: 2px solid black;
 
     .logo, .logoHotel, .banderas, .domfedo{
     height: 5.5rem;
+    }
+
+    .logoHotelrate, .domfedoRate, .banderasRate, .ttooCardImgRate{
+      display: none;
     }
 
     .card-img-top{

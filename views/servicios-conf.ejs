@@ -62,6 +62,21 @@
       </button>
         <div id="mySidenav" class="sidenav">
             <div id="main">
+              <div class="dropdown btn-perfil">
+                <% if(user.rol === "Admin"){ %>
+                  <button class="btn btn-success dropdown-toggle" href="#" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <span class="text-light text-uppercase"></i><%= user.username %></span>
+                  </button>
+                    <% } else { %>
+                      <button class="btn btn-warning btn-sm dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <span class="text-dark text-uppercase"><%= user.username %></span>
+                      </button>
+                  <% } %>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item text-dark" href="#">Editar</a></li>
+                  <li><a class="dropdown-item text-dark" href="/logout">Salir</a></li>
+                </ul>
+              </div>
               <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
               <a class="nav-link" href="/">Inicio</a>
               <a class="nav-link" href="/tarifas">Tarifas</a>
@@ -110,7 +125,7 @@
                       <td data-titulo="descrip:"><%= service.descripcion %></td>
     
                       <td>
-                        <a type="button" data-bs-toggle="modal" data-bs-target="#serviceUpdate" class="btn btn-sm btn-warning btnEdit"><i class="bi bi-pencil"></i></a>
+                        <button data-bs-toggle="modal" data-bs-target="#serviceUpdate" class="btn btn-sm btn-warning btnEdit"><i class="bi bi-pencil"></i></button>
                         
                         <button class="btn btn-sm btn-danger btnDelete" onclick="return confirm('Seguro que quiere borrar el servicio <%= service.nombre %>?')"><i class="bi bi-trash"></i></button>
                       </td>

@@ -37,19 +37,15 @@
           <div class="btn-group dropstart">
             <% if(user.rol === "Admin"){ %>
               <a class="btn btn-success dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <span class="text-light "><i class="bi bi-person-fill"></i> <%= user.username %></span>
+              </a>
                 <% } else { %>
                   <a class="btn btn-warning dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <span class="text-dark "><i class="bi bi-person-fill"></i> <%= user.username %></span>
+                  </a>
               <% } %>
-              <% if(user.rol === "Admin"){ %>
-                <span class="text-light "><i class="bi bi-person-fill"></i> <%= user.username %></span>
-                <% } else { %>
-                  <span class="text-dark "><i class="bi bi-person-fill"></i> <%= user.username %></span>
-                <% } %>
-              <% if(user) { %>
-              <% } %>
-            </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Editar datos</a></li>
+              <li><a class="dropdown-item" href="#">Editar</a></li>
               <li><a class="dropdown-item" href="/logout">Salir</a></li>
             </ul>
           </div>
@@ -59,27 +55,46 @@
     <!-- NAV SM -->
     <nav class="navbar navSmall fixed-top">
       <div class="container-fluid">
-      <a class="navbar-brand" href="/index.html" ><i class="bi bi-journals"></i> Guía General</a>
+        <a class="navbar-brand" href="/"><i class="bi bi-house"></i></a><span class="text-light">TARIFA EXTRANJEROS</span>
       <button class="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation" onclick="openNav()">
         <span class="navbar-toggler-icon"></span>
       </button>
         <div id="mySidenav" class="sidenav">
-          <div id="main">
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <a class="nav-link" href="/index.html">Inicio</a>
-            <a class="nav-link active" href="/tarifas.html">Tarifas</a>
-            <a class="nav-link" href="/ezlinks.html">EZLinks</a>
-            <a class="nav-link" href="/ezlinks-pos.html">EZLinks POS</a>
-            <a class="nav-link" href="/opera.html">OPERA</a>
-            <a class="nav-link" href="/origos.html">Origos</a>
-            <a class="nav-link" href="/eba.html">EBA</a>
-            <a class="nav-link" href="#">MINI GOLF</a>
-            <a class="nav-link" href="/ajustes.html">AJUSTES</a>
+            <div id="main">
+              <div class="dropdown btn-perfil">
+                <% if(user.rol === "Admin"){ %>
+                  <button class="btn btn-success dropdown-toggle" href="#" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <span class="text-light text-uppercase"></i><%= user.username %></span>
+                  </button>
+                    <% } else { %>
+                      <button class="btn btn-warning btn-sm dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <span class="text-dark text-uppercase"><%= user.username %></span>
+                      </button>
+                  <% } %>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item text-dark" href="#">Editar</a></li>
+                  <li><a class="dropdown-item text-dark" href="/logout">Salir</a></li>
+                </ul>
+              </div>
+              <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+              <a class="nav-link" href="/">Inicio</a>
+              <a class="active" href="/tarifas">Tarifas</a>
+              <a class="nav-link" href="/ezlinks">EZLinks</a>
+              <a class="nav-link" href="/ezlinks-pos">EZLinks POS</a>
+              <a class="nav-link" href="/opera">OPERA</a>
+              <a class="nav-link" href="/origos">Origos</a>
+              <a class="nav-link" href="/eba">EBA</a>
+              <a class="nav-link" href="#">MINI GOLF</a>
+              <% if(user.rol === "Admin"){ %>
+                <a class="d-block" href="/ajustes">AJUSTES </a>
+                <% } else { %>
+                  <a class="d-none"href="/ajustes">AJUSTES </a>
+                <% } %>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    </nav>
+      </nav>
 
 
       <div class="content">

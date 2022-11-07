@@ -109,11 +109,18 @@ router.get('/logout', authController.logout)
 
 //router metodos controller usuarios
 router.post('/createUser', usuariosController.createUser)
-router.post('/createRate', ratesController.createRate)
+//router.post('/updateUser', usuariosController.createUser)
+
+
+
+//router metodos controller servicios
 router.post('/createService', servicesController.createService)
+router.post('/updateService', servicesController.updateService)
 
 
 
+//router metodos controller tarifas
+router.post('/createRate', ratesController.createRate)
 
 
 

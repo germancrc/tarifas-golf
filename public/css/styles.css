@@ -18,49 +18,9 @@ p{
   line-height: 1.9;
 }
 
-/* --------------------------------FULL PAGE TABS--------------------------------- */
-/* Set height of body and the document to 100% to enable "full page tabs" */
-body, html {
-  height: 100%;
-  margin: 0;
+.bi-house{
+  font-size: 1.3rem;
 }
-
-/* Style tab links */
-.tablink {
-  background-color: #dfb502;
-  color: white;
-  float: left;
-  border-top: 1px double #ffffff;
-border-right: 1px solid #ffffff;
-border-left: 1px solid #ffffff;
-border-bottom: none;
-  outline: none;
-  cursor: pointer;
-  padding: 10px 16px;
-  font-size: 17px;
-  width: 33%;
-  border-radius: 5px 5px 5px 5px;
--webkit-border-radius: 5px 5px 5px 5px;
--moz-border-radius: 5px 5px 5px 5px;
-}
-
-.tablink:hover {
-  background-color: #514d87;
-  color: white;
-}
-
-
-/* Style the tab content (and add height:100% for full page content) */
-.tabcontent {
-  color: black;
-  display: none;
-  padding: 60px 5px;
-  height: 100%;
-}
-
-#Servicios, #Tarifas, #Usuarios {background-color: white;}
-
-/* --------------------------------FULL PAGE TABS--------------------------------- */
 
 .login-card{
   margin: 0;
@@ -209,6 +169,10 @@ border: 2px solid black;
   -moz-box-shadow: 1px 0px 12px 1px rgba(81,77,135,0.75);
     transition: 0.15s ease;
     color: black;
+}
+
+.btnEdit, .btnDelete{
+  padding: 0.5rem 2rem 0.5rem 2rem;
 }
 
 .logo, .logoFoot, .domfedo, .banderas, .ttooCardImg{
@@ -448,6 +412,7 @@ border: 2px solid black;
 
     .navSmall a{
       color: white;
+      text-transform: uppercase;
     }
 
     .navSmall a:hover{
@@ -636,6 +601,9 @@ border: 2px solid black;
     
 
   }
+  .headerSmall{
+    display: none;
+  }
 
   @media screen and (min-width: 701px) {
     .logoFoot, .navSmall, .headerSmall{
@@ -682,9 +650,17 @@ border: 2px solid black;
 .sidenav .closebtn {
   position: absolute;
   top: 0;
-  right: 25px;
+  right: 10px;
   font-size: 36px;
   margin-left: 50px;
+}
+
+.btn-perfil{
+  position: absolute;
+  top: 7px;
+  left: 25px;
+  font-size: 36px;
+  margin-right: 50px;
 }
 
 /* Style page content - use this if you want to push the page content to the right when you open the side navigation */

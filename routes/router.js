@@ -28,7 +28,7 @@ router.get('/ajustes', authController.isAuthenticated, (req, res) => {
    if(req.user.rol === "Admin"){
       res.render('ajustes', {user:req.user, alert:false})
    }else{
-      res.render('index', {user:req.user, alert:false})
+      res.render('index')
    }
 })
 

@@ -91,7 +91,7 @@
             <!-- Button trigger modal -->
   
   
-          <div class="mt-3">
+          <div class="mt-2">
             <div class="table-responsive">
               <table class="table table-hover">
                 <thead>
@@ -102,12 +102,12 @@
                     <th scope="col" class="col">Acciones</th>
                   </tr>
                 </thead>
-                <tbody class="table-group-divider">
+                <tbody>
                   <% results.forEach((service) => { %>
                     <tr>
-                      <td><%= service.nombre %></td>
-                      <td><%= service.precio%>.00</td>
-                      <td><%= service.descripcion %></td>
+                      <td data-titulo="nombre:"><%= service.nombre %></td>
+                      <td data-titulo="precio:">USD <%= service.precio%>.00</td>
+                      <td data-titulo="descrip:"><%= service.descripcion %></td>
     
                       <td>
                         <a type="button" data-bs-toggle="modal" data-bs-target="#serviceUpdate" class="btn btn-sm btn-warning btnEdit"><i class="bi bi-pencil"></i></a>

@@ -125,7 +125,7 @@
                       <td data-titulo="descrip:"><%= service.descripcion %></td>
     
                       <td>
-                        <button data-bs-toggle="modal" data-bs-target="#serviceUpdate" class="btn btn-sm btn-warning btnEdit"><i class="bi bi-pencil"></i></button>
+                        <a href="/ajustes/servicios-conf/<%= service.id %>" data-bs-toggle="#" data-bs-target="#serviceUpdate" class="btn btn-sm btn-warning btnEdit"><i class="bi bi-pencil"></i></a>
                         
                         <button class="btn btn-sm btn-danger btnDelete" onclick="return confirm('Seguro que quiere borrar el servicio <%= service.nombre %>?')"><i class="bi bi-trash"></i></button>
                       </td>
@@ -173,6 +173,7 @@
       </div>
       
       <!-- Modal EDITAR -->
+      
       <div class="modal fade" id="serviceUpdate" tabindex="-1" aria-labelledby="serviceUpdateLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">

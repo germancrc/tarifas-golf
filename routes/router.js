@@ -11,13 +11,17 @@ const servicesController = require('../controllers/servicesController')
 
 //router de las vistas
 router.get('/', authController.isAuthenticated, (req, res) => {
-   db.query('SELECT * FROM servicios', (error, results) => {
-      if(results){
-         res.render('index', {user:req.user, results:results, alert:false})
-      }else{
-         throw error;
-      }
-   })
+   try {
+      db.query('SELECT * FROM servicios', (error, results) => {
+         if(results){
+            res.render('index', {user:req.user, results:results, alert:false})
+            console.log('Servicios INDEX recibiddos');
+         }
+      })
+   } catch (error) {
+      console.log(error);
+   }
+
 })
 
 router.get('/login', (req, res) => {
@@ -90,11 +94,16 @@ router.get('/tarifas', authController.isAuthenticated, (req, res) => {
 // VERIFICAR SI ES ADMIN O USER
 router.get('/ajustes', authController.isAuthenticated, (req, res) => {
    db.query('SELECT * FROM servicios', (error, results) => {
-      if(results && req.user.rol === "Admin"){
-         res.render('ajustes', {user:req.user, results:results, alert:false})
+      if(results){
+         if(req.user.rol === "Admin"){
+            res.render('ajustes', {user:req.user, results:results, alert:false})
+            console.log(results);
+         }else{
+            res.render('index', {user:req.user,results:results, alert:false})
+            // throw error;
+         }
       }else{
-         res.render('index', {user:req.user,results:results, alert:false})
-         // throw error;
+         throw error
       }
    })
 })

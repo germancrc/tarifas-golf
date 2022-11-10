@@ -124,9 +124,9 @@
                   <td data-titulo="Rol:"><%= user.rol %></td>
 
                   <td>
-                    <a href="/ajustes/usuarios-conf/<%= user.id %>" data-bs-toggle="#" data-bs-target="#userUpdate" class="btn btn-sm btn-warning btnEdit"><i class="bi bi-pencil"></i></a>
+                    <a href="#" data-bs-toggle="#" data-bs-target="#userUpdate" class="btn btn-sm btn-warning btnEdit"><i class="bi bi-pencil"></i></a>
                     
-                    <a href="/ajustes/usuarios-conf/deleteUser/<%= user.id %>" class="btn btn-sm btn-danger btnDelete" onclick="return confirm('Seguro que quiere borrar al usuario <%= user.nombre %>?')"><i class="bi bi-trash"></i></a>
+                    <a href="#" class="btn btn-sm btn-danger btnDelete" onclick="return confirm('Seguro que quiere borrar al usuario <%= user.nombre %>?')"><i class="bi bi-trash"></i></a>
                   </td>
                 </tr>
               <% }) %>

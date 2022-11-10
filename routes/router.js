@@ -191,17 +191,17 @@ router.get('/ajustes/usuarios-conf', authController.isAuthenticated, (req, res) 
    })
 })
 
-// MOSTRAR USUARIO A EDITAR
-router.get('/ajustes/usuarios-conf/:id', authController.isAuthenticated, (req, res) => {
-   const id = req.params.id;
-   db.query('SELECT * FROM usuarios WHERE id=?', [id], (error, results) => {
-      if(results){
-         res.render('ajustes/edit-usuario', {user:req.user, user:results[0], alert:false})
-      }else{
-         throw error;
-      }
-   })
-})
+// // MOSTRAR USUARIO A EDITAR
+// router.get('/ajustes/usuarios-conf/:id', authController.isAuthenticated, (req, res) => {
+//    const id = req.params.id;
+//    db.query('SELECT * FROM usuarios WHERE id=?', [id], (error, results) => {
+//       if(results){
+//          res.render('ajustes/edit-usuario', {user:req.user, user:results[0], alert:false})
+//       }else{
+//          throw error;
+//       }
+//    })
+// })
 
 // EDITAR USUARIO
 // router.post('/ajustes/usuarios-conf/:id', authController.isAuthenticated, (req, res) => {

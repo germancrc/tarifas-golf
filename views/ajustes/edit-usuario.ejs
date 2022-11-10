@@ -99,7 +99,7 @@
 
     <div class="content">
       
-      <div id="Servicios" class="afterNav">
+      <div id="Usuarios" class="afterNav">
         
               <div class="text-center">
                 <h4>Editar usuario</h4>
@@ -113,11 +113,11 @@
                     <form id="users-form" action="/ajustes/usuarios-conf/<%= user.id %>" method="POST">
                       <div class="mb-3">
                         <label for="userName" class="form-label">Nombre</label>
-                        <input type="text" class="form-control" name="nombre" value="<%= user.nombre %>" disabled>
+                        <input type="text" class="form-control" name="nombre" value="<%= user.nombre %>">
                       </div>
                       <div class="mb-3">
                         <label for="userNickname" class="form-label">Nombre de usuario</label>
-                        <input type="text" onkeyup="mayus(this)" class="form-control" name="username" value="<%= user.username %>" disabled>
+                        <input type="text" onkeyup="mayus(this)" class="form-control" name="username" value="<%= user.username %>">
                       </div>  
                       <div class="mb-3">
                         <div class="row">
@@ -137,7 +137,7 @@
                         <label for="userRole" class="form-label">Rol</label>
                         <select class="form-select" name="rol" aria-label="role-selector">
                           <option>Elija el rol del usuario</option>
-                          <% if(user.rol === 'Admin'){ %>
+                          <% if(user.rol == 'Admin'){ %>
                             <option selected value="Admin">Admin</option>
                             <option value="User">User</option>
                             <% } else { %>
@@ -149,7 +149,7 @@
                       </div>  
               
                       <div class="mt-5 d-grid gap-2 d-md-flex justify-content-md-end">
-                        <button type="submit" class="btn btn-warning disabled" id="modalUserName">Editar usuario</button>
+                        <button type="submit" class="btn btn-warning disabled">Editar usuario</button>
                         <a href="/ajustes/usuarios-conf" class="btn btn-danger">Cancelar</a>
                       </div>
                     </form>

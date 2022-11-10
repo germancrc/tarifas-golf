@@ -217,17 +217,17 @@ router.get('/ajustes/usuarios-conf/:id', authController.isAuthenticated, (req, r
 
 // })
 
-// ELIMINAR USUARIO
-router.get('/ajustes/usuarios-conf/deleteUser/:id', authController.isAuthenticated, (req, res) => {
-   try {
-   const {id} = req.params;
-   db.query('DELETE FROM usuarios WHERE id = ?', [id]);
-   res.redirect('/ajustes/usuarios-conf');
-   } catch (error) {
-       console.log(error);
-   }
+// // ELIMINAR USUARIO
+// router.get('/ajustes/usuarios-conf/deleteUser/:id', authController.isAuthenticated, (req, res) => {
+//    try {
+//    const {id} = req.params;
+//    db.query('DELETE FROM usuarios WHERE id = ?', [id]);
+//    res.redirect('/ajustes/usuarios-conf');
+//    } catch (error) {
+//        console.log(error);
+//    }
 
-})
+// })
 
 
 

@@ -11,17 +11,13 @@ const servicesController = require('../controllers/servicesController')
 
 //router de las vistas
 router.get('/', authController.isAuthenticated, (req, res) => {
-   try {
-      db.query('SELECT * FROM servicios', (error, results) => {
-         if(results){
-            res.render('index', {user:req.user, results:results, alert:false})
-            console.log('Servicios INDEX recibiddos');
-         }
-      })
-   } catch (error) {
-      console.log(error);
-   }
-
+   db.query('SELECT * FROM servicios', (error, results) => {
+      if(results){
+         res.render('index', {user:req.user, results:results, alert:false})
+      }else{
+         throw error;
+      }
+   })
 })
 
 router.get('/login', (req, res) => {
@@ -30,63 +26,43 @@ router.get('/login', (req, res) => {
 
 
 router.get('/eba', authController.isAuthenticated, (req, res) => {
-   if(user){
-      res.render('eba', {user:req.user, alert:false})
-   }
+   res.render('eba', {user:req.user, alert:false})
 })
 
 router.get('/ezlinks-pos', authController.isAuthenticated, (req, res) => {
-   if(user){
-      res.render('ezlinks-pos', {user:req.user, alert:false})
-   }
+   res.render('ezlinks-pos', {user:req.user, alert:false})
 })
 
 router.get('/ezlinks', authController.isAuthenticated, (req, res) => {
-   if (user){
-      res.render('ezlinks', {user:req.user, alert:false})
-   }
+   res.render('ezlinks', {user:req.user, alert:false})
 })
 
 router.get('/opera', authController.isAuthenticated, (req, res) => {
-   if(user){
-      res.render('opera', {user:req.user, alert:false})
-   }
+   res.render('opera', {user:req.user, alert:false})
 })
 
 router.get('/origos', authController.isAuthenticated, (req, res) => {
-   if(user){
-      res.render('origos', {user:req.user, alert:false})
-   }
+   res.render('origos', {user:req.user, alert:false})
 })
 
 router.get('/tarifas/tarifa-hotel', authController.isAuthenticated, (req, res) => {
-   if(user){
-      res.render('tarifas/tarifa-hotel', {user:req.user, alert:false})
-   }
+   res.render('tarifas/tarifa-hotel', {user:req.user, alert:false})
 })
 
 router.get('/tarifas/tarifa-local', authController.isAuthenticated, (req, res) => {
-   if(user){
-      res.render('tarifas/tarifa-local', {user:req.user, alert:false})
-   }
+   res.render('tarifas/tarifa-local', {user:req.user, alert:false})
 })
 
 router.get('/tarifas/tarifa-ttoo', authController.isAuthenticated, (req, res) => {
-   if(user){
-      res.render('tarifas/tarifa-ttoo', {user:req.user, alert:false})
-   }
+   res.render('tarifas/tarifa-ttoo', {user:req.user, alert:false})
 })
 
 router.get('/tarifas/tarifa-turista', authController.isAuthenticated, (req, res) => {
-   if(user){
-      res.render('tarifas/tarifa-turista', {user:req.user, alert:false})
-   }
+   res.render('tarifas/tarifa-turista', {user:req.user, alert:false})
 })
 
 router.get('/tarifas', authController.isAuthenticated, (req, res) => {
-   if(user){
-      res.render('tarifas', {user:req.user, alert:false})
-   }
+   res.render('tarifas', {user:req.user, alert:false})
 })
 
 //RUTAS AJUSTES
@@ -94,16 +70,11 @@ router.get('/tarifas', authController.isAuthenticated, (req, res) => {
 // VERIFICAR SI ES ADMIN O USER
 router.get('/ajustes', authController.isAuthenticated, (req, res) => {
    db.query('SELECT * FROM servicios', (error, results) => {
-      if(results){
-         if(req.user.rol === "Admin"){
-            res.render('ajustes', {user:req.user, results:results, alert:false})
-            console.log(results);
-         }else{
-            res.render('index', {user:req.user,results:results, alert:false})
-            // throw error;
-         }
+      if(results && req.user.rol === "Admin"){
+         res.render('ajustes', {user:req.user, results:results, alert:false})
       }else{
-         throw error
+         res.render('index', {user:req.user,results:results, alert:false})
+         // throw error;
       }
    })
 })

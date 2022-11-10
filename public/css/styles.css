@@ -407,7 +407,7 @@ border: 2px solid black;
     display: none;
   }
 
-
+  /* ------------------------------------MEDIA QUERIES------------------------------------------------ */
   
   @media screen and (max-width: 700px) {
     table{
@@ -540,6 +540,8 @@ border: 2px solid black;
     margin-top: 0.5rem;
     }
     
+
+
     footer {
       margin-left: 0px;    
     }
@@ -647,6 +649,16 @@ border: 2px solid black;
       display: none;
     }
   }
+  
+  @media screen and (min-width: 1152px) {
+    .cardEdit-container{
+      padding-left: 15rem;
+      padding-right: 15rem;
+    }
+  }
+
+
+
 
 
   /* The side navigation menu */

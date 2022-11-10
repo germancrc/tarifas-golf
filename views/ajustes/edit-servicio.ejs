@@ -104,34 +104,37 @@
               <div class="text-center">
                 <h4>Editar servicio</h4>
               </div>
-              <div class="card">
-                <div class="card-body">
+              <div class="cardEdit-container">
+
+                <div class="card">
+                  <div class="card-body">
                   <% if (service) { %>
                   
                     <form id="services-form" action="/ajustes/servicios-conf/<%= service.id %>" method="POST">
                       <div class="mb-3">
-                  <label for="service-title" class="form-label">Nombre del servicio</label>
-                  <input type="text" class="form-control" name="nombre" value="<%= service.nombre %>" placeholder="Nombre del servicio" required>
+                        <label for="service-title" class="form-label">Nombre del servicio</label>
+                        <input type="text" class="form-control" name="nombre" value="<%= service.nombre %>" placeholder="Nombre del servicio" required>
+                      </div>
+                      <div class="mb-3">
+                        <label for="serivce-price" class="form-label">Precio</label>
+                        <input type="number" class="form-control" name="precio" value="<%= service.precio %>" placeholder="Precio del servicio " required>
+                      </div>  
+                      <div class="mb-3">
+                        <label for="serivce-description" class="form-label">Descripción</label>
+                        <input type="text" class="form-control" name="descripcion" value="<%= service.descripcion %>" placeholder="Descripción del servicio " required>
+                        <!-- <div id="contador" class="mt-1"></div> -->
+                      </div>
+                      
+                      <div class="mt-4 d-grid gap-2 d-md-flex justify-content-md-start">
+                        <button type="submit" class="btn btn-warning btnEdit" id="modalServName">Editar servicio</button>
+                        <a href="/ajustes/servicios-conf" class="btn btn-danger">Cancelar</a>
+                      </div>
+                    </form>
+                    <% } %>
+                  </div>
                 </div>
-                <div class="mb-3">
-                  <label for="serivce-price" class="form-label">Precio</label>
-                  <input type="number" class="form-control" name="precio" value="<%= service.precio %>" placeholder="Precio del servicio " required>
-                </div>  
-                <div class="mb-3">
-                  <label for="serivce-description" class="form-label">Descripción</label>
-                  <input type="text" class="form-control" name="descripcion" value="<%= service.descripcion %>" placeholder="Descripción del servicio " required>
-                  <!-- <div id="contador" class="mt-1"></div> -->
-                </div>
-                
-                <div class="mt-4 d-grid gap-2 d-md-flex justify-content-md-start">
-                  <button type="submit" class="btn btn-warning btnEdit" id="modalServName">Editar servicio</button>
-                  <a href="/ajustes/servicios-conf" class="btn btn-danger">Cancelar</a>
-                </div>
-              </form>
-              <% } %>
+              </div>
             </div>
-          </div>
-        </div>
           </div>
   
   

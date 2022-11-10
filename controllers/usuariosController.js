@@ -15,7 +15,7 @@ exports.createUser = async (req, res) =>{
     
         db.query('INSERT INTO usuarios SET ?', {nombre:nombre, username:username, password:passHash, rol:rol}, (error, results) => {
             if(error){console.log(error)}
-            res.redirect('/usuarios-conf')
+            res.redirect('/ajustes/usuarios-conf')
         })
         
         } catch (error) {

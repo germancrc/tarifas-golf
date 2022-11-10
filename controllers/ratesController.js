@@ -9,7 +9,8 @@ exports.createRate = async (req, res) =>{
    
        db.query('INSERT INTO tarifas SET ?', {nombre:nombre, precio:precio}, (error, results) => {
            if(error){console.log(error)}
-           res.redirect('/tarifas-conf')
+           res.redirect('/ajustes/tarifas-conf')
+           console.log(results);
        })
        
    } catch (error) {

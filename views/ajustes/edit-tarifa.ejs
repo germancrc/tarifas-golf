@@ -34,7 +34,7 @@
       <!-- NAV LG -->
       <nav class="navbar fixed-top navi">
         <div class="container-fluid">
-          <span class="navbar-brand mb-0 h1">AJUSTES DE SERVICIOS</span>
+          <span class="navbar-brand mb-0 h1">AJUSTES DE TARIFAS</span>
           <div class="btn-group dropstart">
             <% if(user.rol === "Admin"){ %>
               <a class="btn btn-success dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -56,7 +56,7 @@
     <!-- NAV SM -->
     <nav class="navbar navSmall fixed-top">
       <div class="container-fluid">
-        <a class="navbar-brand" href="/"><i class="bi bi-house"></i></a><span class="text-light">EDITAR SERVICIOS</span>
+        <a class="navbar-brand" href="/"><i class="bi bi-house"></i></a><span class="text-light">EDITAR TARIFAS</span>
       <button class="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation" onclick="openNav()">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -100,85 +100,41 @@
     <div class="content">
       
       <div id="Servicios" class="afterNav">
-          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#serviceCreate" id="btnService">
-            <i class="bi bi-plus-circle"> NUEVO SERVICIO</i>
-          </button>
-            <!-- Button trigger modal -->
-  
-  
-          <div class="mt-2">
-            <div class="table-responsive">
-              <table class="table table-striped table-hover">
-                <thead>
-                  <tr>
-                    <th scope="col" class="col">Nombre</th>
-                    <th scope="col" class="col">Precio</th>
-                    <th scope="col" class="col">Descripción</th>
-                    <th scope="col" class="col">Acciones</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <% results.forEach((service) => { %>
-                    <tr>
-                      <td data-titulo="nombre:"><%= service.nombre %></td>
-                      <td data-titulo="precio:">USD <%= service.precio%>.00</td>
-                      <td data-titulo="descrip:"><%= service.descripcion %></td>
-    
-                      <td>
-                        <a href="/ajustes/servicios-conf/<%= service.id %>" data-bs-toggle="#" data-bs-target="#serviceUpdate" class="btn btn-sm btn-warning btnEdit"><i class="bi bi-pencil"></i></a>
-                        
-                        <a href="/ajustes/servicios-conf/deleteService/<%= service.id %>" class="btn btn-sm btn-danger btnDelete" onclick="return confirm('Seguro que quiere borrar el servicio <%= service.nombre %>?')"><i class="bi bi-trash"></i></a>
-                      </td>
-                    </tr>
-                  <% }) %>
-                </tbody>
-              </table>
-            </div>
-          </div>
-  
-  
-          <!-- Modal -->
-          <div class="modal fade" id="serviceCreate" tabindex="-1" aria-labelledby="serviceCreateLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h1 class="modal-title fs-5" id="serviceCreateLabel">Agregar servicio</h1>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                  <form id="services-form" action="/createService" method="POST">
-                    <div class="mb-3">
-                      <label for="service-title" class="form-label">Nombre del servicio</label>
-                      <input type="text" class="form-control" name="nombre" placeholder="Nombre del servicio" required>
-                    </div>
-                    <div class="mb-3">
-                      <label for="service-price" class="form-label">Precio</label>
-                      <input type="number" class="form-control" name="precio" placeholder="Precio del servicio " required>
-                    </div>  
-                    <div class="mb-3">
-                      <label for="TextareaService" class="form-label">Descripción</label>
-                      <textarea class="form-control" name="descripcion" rows="3" maxlength="50" placeholder="Descripción del servicio" required></textarea>
-                      <!-- <div id="contador" class="mt-1"></div> -->
-                    </div>
-          
-                    <div class="mt-4 d-grid gap-2 d-md-flex justify-content-md-end">
-                      <button type="submit" class="btn btn-primary" id="modalServName">Agregar servicio</button>
-                      <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
-                    </div>
-                  </form>
+        
+              <div class="text-center">
+                <h4>Editar tarifa</h4>
+              </div>
+              <div class="cardEdit-container">
+
+                <div class="card">
+                  <div class="card-body">
+                  <% if (rate) { %>
+                  
+                    <form id="services-form" action="/ajustes/tarifas-conf/<%= rate.id %>" method="POST">
+                      <div class="mb-3">
+                        <label for="rate-title" class="form-label">Nombre de la tarifa</label>
+                        <input type="text" class="form-control" name="nombre" value="<%= rate.nombre %>" placeholder="Nombre de la tarifa" required>
+                      </div>
+                      <div class="mb-3">
+                        <label for="rate-price" class="form-label">Precio</label>
+                        <input type="number" class="form-control" name="precio" value="<%= rate.precio %>" placeholder="Precio de tarifa " required>
+                      </div>  
+                      
+                      <div class="mt-4 d-grid gap-2 d-md-flex justify-content-md-start">
+                        <button type="submit" class="btn btn-warning btnEdit" id="modalServName">Editar tarifa</button>
+                        <a href="/ajustes/tarifas-conf" class="btn btn-danger">Cancelar</a>
+                      </div>
+                    </form>
+                    <% } %>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-      </div>
-      
-      
-    </div>
-
-
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+  
+  
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
     <script src="/js/main.js"></script>
     <!-- <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script type="module" src="/js/services.js"></script>

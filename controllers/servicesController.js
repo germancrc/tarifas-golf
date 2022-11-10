@@ -10,7 +10,7 @@ exports.createService = async (req, res) =>{
    
        db.query('INSERT INTO servicios SET ?', {nombre:nombre, precio:precio, descripcion:descripcion}, (error, results) => {
            if(error){console.log(error)}
-           res.redirect('/servicios-conf')
+           res.redirect('/ajustes/servicios-conf')
            console.log(results);
        })
        
@@ -19,6 +19,7 @@ exports.createService = async (req, res) =>{
        }
 
 }
+
 
     
 

@@ -14,8 +14,9 @@ exports.createUser = async (req, res) =>{
         const rol = req.body.rol
     
         db.query('INSERT INTO usuarios SET ?', {nombre:nombre, username:username, password:passHash, rol:rol}, (error, results) => {
-            if(error){console.log(error)}
-            res.redirect('/ajustes/usuarios-conf')
+            if(results){
+                res.redirect('/ajustes/usuarios-conf')
+            }
         })
         
         } catch (error) {
@@ -26,16 +27,16 @@ exports.createUser = async (req, res) =>{
 
 exports.getUsers = (req, res) =>{
     db.query('SELECT * FROM usuarios', (error, results) => {
-        if(error){
-           throw error;
+        if(results){
+            if(req.user.rol === "Admin"){
+               res.render('usuarios-conf', {user:req.user, alert:false, resultsUsers:results})
+              // console.log(resultsUsers);
+            }else{
+               res.render('index', {user:req.user, alert:false})
+              // console.log(resultsUsers);
+            }
         }else{
-           if(req.user.rol === "Admin"){
-              res.render('usuarios-conf', {user:req.user, alert:false, resultsUsers:results})
-             // console.log(resultsUsers);
-           }else{
-              res.render('index', {user:req.user, alert:false})
-             // console.log(resultsUsers);
-           }
+            throw error;
         }
      })
 

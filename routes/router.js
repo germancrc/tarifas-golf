@@ -26,43 +26,63 @@ router.get('/login', (req, res) => {
 
 
 router.get('/eba', authController.isAuthenticated, (req, res) => {
-   res.render('eba', {user:req.user, alert:false})
+   if(user){
+      res.render('eba', {user:req.user, alert:false})
+   }
 })
 
 router.get('/ezlinks-pos', authController.isAuthenticated, (req, res) => {
-   res.render('ezlinks-pos', {user:req.user, alert:false})
+   if(user){
+      res.render('ezlinks-pos', {user:req.user, alert:false})
+   }
 })
 
 router.get('/ezlinks', authController.isAuthenticated, (req, res) => {
-   res.render('ezlinks', {user:req.user, alert:false})
+   if (user){
+      res.render('ezlinks', {user:req.user, alert:false})
+   }
 })
 
 router.get('/opera', authController.isAuthenticated, (req, res) => {
-   res.render('opera', {user:req.user, alert:false})
+   if(user){
+      res.render('opera', {user:req.user, alert:false})
+   }
 })
 
 router.get('/origos', authController.isAuthenticated, (req, res) => {
-   res.render('origos', {user:req.user, alert:false})
+   if(user){
+      res.render('origos', {user:req.user, alert:false})
+   }
 })
 
 router.get('/tarifas/tarifa-hotel', authController.isAuthenticated, (req, res) => {
-   res.render('tarifas/tarifa-hotel', {user:req.user, alert:false})
+   if(user){
+      res.render('tarifas/tarifa-hotel', {user:req.user, alert:false})
+   }
 })
 
 router.get('/tarifas/tarifa-local', authController.isAuthenticated, (req, res) => {
-   res.render('tarifas/tarifa-local', {user:req.user, alert:false})
+   if(user){
+      res.render('tarifas/tarifa-local', {user:req.user, alert:false})
+   }
 })
 
 router.get('/tarifas/tarifa-ttoo', authController.isAuthenticated, (req, res) => {
-   res.render('tarifas/tarifa-ttoo', {user:req.user, alert:false})
+   if(user){
+      res.render('tarifas/tarifa-ttoo', {user:req.user, alert:false})
+   }
 })
 
 router.get('/tarifas/tarifa-turista', authController.isAuthenticated, (req, res) => {
-   res.render('tarifas/tarifa-turista', {user:req.user, alert:false})
+   if(user){
+      res.render('tarifas/tarifa-turista', {user:req.user, alert:false})
+   }
 })
 
 router.get('/tarifas', authController.isAuthenticated, (req, res) => {
-   res.render('tarifas', {user:req.user, alert:false})
+   if(user){
+      res.render('tarifas', {user:req.user, alert:false})
+   }
 })
 
 //RUTAS AJUSTES
@@ -190,45 +210,6 @@ router.get('/ajustes/usuarios-conf', authController.isAuthenticated, (req, res) 
       }
    })
 })
-
-// // MOSTRAR USUARIO A EDITAR
-// router.get('/ajustes/usuarios-conf/:id', authController.isAuthenticated, (req, res) => {
-//    const id = req.params.id;
-//    db.query('SELECT * FROM usuarios WHERE id=?', [id], (error, results) => {
-//       if(results){
-//          res.render('ajustes/edit-usuario', {user:req.user, user:results[0], alert:false})
-//       }else{
-//          throw error;
-//       }
-//    })
-// })
-
-// EDITAR USUARIO
-// router.post('/ajustes/usuarios-conf/:id', authController.isAuthenticated, (req, res) => {
-//    try {
-//    const {id} = req.params;
-//    const {nombre, precio }= req.body;
-//    const editedUser = {nombre, precio};
-//    db.query('UPDATE usuarios SET ? WHERE id = ?', [editedUser, id]);
-//    res.redirect('/ajustes/usuarios-conf');
-//    } catch (error) {
-//        console.log(error);
-//    }
-
-// })
-
-// // ELIMINAR USUARIO
-// router.get('/ajustes/usuarios-conf/deleteUser/:id', authController.isAuthenticated, (req, res) => {
-//    try {
-//    const {id} = req.params;
-//    db.query('DELETE FROM usuarios WHERE id = ?', [id]);
-//    res.redirect('/ajustes/usuarios-conf');
-//    } catch (error) {
-//        console.log(error);
-//    }
-
-// })
-
 
 
 

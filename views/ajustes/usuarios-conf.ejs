@@ -151,18 +151,21 @@
                 </div>
                 <div class="mb-3">
                   <label for="userNickname" class="form-label">Nombre de usuario</label>
-                  <input type="text" onkeyup="mayus(this)" class="form-control" name="username" placeholder="Nickname" required >
+                  <input type="text"  class="form-control" name="username" placeholder="Nickname" required >
+                  <!-- onkeyup="mayus(this)" -->
                 </div>  
                 <div class="mb-3">
                   <div class="row">
                     <div class="col">
                       <label for="userPass" class="form-label">Contraseña</label>
-                      <input type="password" class="form-control" name="password" id="password" placeholder="Escriba la Contraseña" onkeyup='checkPass();' >
+                      <input type="password" class="form-control" name="password" id="password" placeholder="Escriba la Contraseña" >
+                      <!-- onkeyup='checkPass();'  -->
                     </div>
                     <div class="col">
                       <label for="userPass-conf" class="form-label">Repita la Contraseña</label>
-                      <input type="password" class="form-control" name="pass-conf" id="pass-conf" placeholder="Repita la Contraseña" onkeyup='checkPass();' >
-                      <span id='message'></span>
+                      <input type="password" class="form-control" name="pass-conf" id="pass-conf" placeholder="Repita la Contraseña" >
+                      <!-- onkeyup='checkPass();'  -->
+                      <!-- <span id='message'></span> -->
                     </div>
                   </div>
 
@@ -179,7 +182,7 @@
                 </div>  
         
                 <div class="mt-5 d-grid gap-2 d-md-flex justify-content-md-end">
-                  <button type="submit" class="btn btn-primary disabled" id="modalUserName">Agregar usuario</button>
+                  <button type="submit" class="btn btn-primary" id="modalUserName">Agregar usuario</button>
                   <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
                 </div>
               </form>

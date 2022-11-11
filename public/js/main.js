@@ -12,26 +12,26 @@
 //     });
 // }
 
-// let checkPass = function() {
-//     if (document.getElementById('password').value ===
-//       document.getElementById('pass-conf').value) {
-//         if(document.getElementById('password').value.length != 0){
-//             document.getElementById('message').style.color = 'green';
-//             document.getElementById('message').className = 'mt-2 text-center';
-//             document.getElementById('message').innerHTML = 'Contraseñas coinciden';
-//             document.getElementById('modalUserName').className = 'btn btn-primary';
-//         }
-//     } else {
-//         document.getElementById('message').style.color = 'red';
-//         document.getElementById('message').className = 'mt-2 text-center';
-//         document.getElementById('message').innerHTML = 'No coinciden';
-//         document.getElementById('modalUserName').className = 'btn btn-primary disabled';
-//     }
-//   }
+let checkPass = function() {
+     if (document.getElementById('password').value ===
+       document.getElementById('pass-conf').value) {
+        if(document.getElementById('password').value.length != 0){
+             document.getElementById('message').style.color = 'green';
+             document.getElementById('message').className = 'mt-2 text-center';
+             document.getElementById('message').innerHTML = 'Contraseñas coinciden';
+             document.getElementById('modalUserName').className = 'btn btn-primary';
+         }
+     } else {
+         document.getElementById('message').style.color = 'red';
+         document.getElementById('message').className = 'mt-2 text-center';
+         document.getElementById('message').innerHTML = 'No coinciden';
+         document.getElementById('modalUserName').className = 'btn btn-primary disabled';
+     }
+   }
 
-//   function mayus(e) {
-//     e.value = e.value.toUpperCase();
-// }
+   function mayus(e) {
+     e.value = e.value.toUpperCase();
+ }
 
 //RUTA VP 
 function reservaVP() {

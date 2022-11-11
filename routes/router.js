@@ -13,7 +13,7 @@ const servicesController = require('../controllers/servicesController')
 router.get('/', authController.isAuthenticated, (req, res) => {
    db.query('SELECT * FROM servicios', (error, results) => {
       if(results){
-         res.render('index', {user:req.user, results:results, alert:false})
+         res.render('index', {logged:req.user, results:results, alert:false})
       }else{
          throw error;
       }
@@ -168,11 +168,11 @@ router.post('/ajustes/tarifas-conf/:id', authController.isAuthenticated, (req, r
 })
 
 // ELIMINAR TARIFA
-router.get('/ajustes/servicios-conf/deleteService/:id', authController.isAuthenticated, (req, res) => {
+router.get('/ajustes/tarifas-conf/deleteRate/:id', authController.isAuthenticated, (req, res) => {
    try {
    const {id} = req.params;
-   db.query('DELETE FROM servicios WHERE id = ?', [id]);
-   res.redirect('/ajustes/servicios-conf');
+   db.query('DELETE FROM tarifas WHERE id = ?', [id]);
+   res.redirect('/ajustes/tarifas-conf');
    } catch (error) {
        console.log(error);
    }
@@ -184,11 +184,49 @@ router.get('/ajustes/servicios-conf/deleteService/:id', authController.isAuthent
 router.get('/ajustes/usuarios-conf', authController.isAuthenticated, (req, res) => {
    db.query('SELECT * FROM usuarios', (error, results) => {
       if(results){
-         res.render('ajustes/usuarios-conf', {user:req.user, alert:false, results:results, error: false})
+         res.render('ajustes/usuarios-conf', {logged:req.user, alert:false, results:results, error: false})
       }else{
          throw error;
       }
    })
+})
+
+// MOSTRAR USUARIO A EDITAR
+router.get('/ajustes/usuarios-conf/:id', authController.isAuthenticated, (req, res) => {
+   const id = req.params.id;
+   db.query('SELECT * FROM usuarios WHERE id=?', [id], (error, results) => {
+      if(results){
+         res.render('ajustes/edit-usuario', {logged:req.user, user:results[0], alert:false})
+      }else{
+         throw error;
+      }
+   })
+})
+
+// EDITAR USUARIO
+router.post('/ajustes/usuarios-conf/:id', authController.isAuthenticated, (req, res) => {
+   try {
+   const {id} = req.params;
+   const {nombre, precio }= req.body;
+   const editedRate = {nombre, precio};
+   db.query('UPDATE usuarios SET ? WHERE id = ?', [editedRate, id]);
+   res.redirect('/ajustes/usuarios-conf');
+   } catch (error) {
+       console.log(error);
+   }
+
+})
+
+// ELIMINAR USUARIO
+router.get('/ajustes/usuarios-conf/deleteUser/:id', authController.isAuthenticated, (req, res) => {
+   try {
+   const {id} = req.params;
+   db.query('DELETE FROM usuarios WHERE id = ?', [id]);
+   res.redirect('/ajustes/usuarios-conf');
+   } catch (error) {
+       console.log(error);
+   }
+
 })
 
 

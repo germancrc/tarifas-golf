@@ -34,7 +34,7 @@
       <!-- NAV LG -->
       <nav class="navbar fixed-top navi">
         <div class="container-fluid">
-          <span class="navbar-brand mb-0 h1">AJUSTES DE TARIFAS</span>
+          <span class="navbar-brand mb-0 h1">AJUSTES DE TARIFAS CAMPO DE GOLF</span>
           <div class="btn-group dropstart">
             <% if(user.rol === "Admin"){ %>
               <a class="btn btn-success dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -120,7 +120,7 @@
                 <% results.forEach((rate) => { %>
                   <tr>
                     <td data-titulo="nombre:"><%= rate.nombre %></td>
-                    <td data-titulo="precio:"><%= rate.precio%>.00</td>
+                    <td data-titulo="precio:">USD <%= rate.precio%>.00</td>
  
                     <td>
                       <a href="/ajustes/tarifas-conf/<%= rate.id %>" data-bs-toggle="#" data-bs-target="#rateUpdate" class="btn btn-sm btn-warning btnEdit"><i class="bi bi-pencil"></i></a>

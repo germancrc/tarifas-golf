@@ -61,6 +61,24 @@ p{
 -moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.75);
 }
 
+.banner-mg {
+  background-image: url(/img/minigolf-air.jpg);
+  margin-left: 180px;
+  height: 50vh;
+  width: calc(100% -180px);
+  margin-bottom: 25px;
+
+  /* Position and center the image to scale nicely on all screens */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+
+  box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.75);
+-webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.75);
+}
+
 .navbar-brand{
   color: white;
 }
@@ -141,6 +159,11 @@ border: 2px solid black;
 
 .bodyCardZise{
   height: 8rem;
+}
+
+
+.bodyCardZiseMG{
+  height: 4.5rem;
 }
 
 .cardShadow{
@@ -473,7 +496,7 @@ border: 2px solid black;
       width: 22rem;
     }
 
-    .banner {
+    .banner, .banner-mg {
       margin-left: 0px;
       margin-top: 56px;
       height: 25vh;

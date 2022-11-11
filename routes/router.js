@@ -6,6 +6,7 @@ const db = require('../database/db')
 const authController = require('../controllers/authController')
 const usuariosController = require('../controllers/usuariosController')
 const ratesController = require('../controllers/ratesController')
+const ratesMgController = require('../controllers/ratesMgController')
 const servicesController = require('../controllers/servicesController')
 
 
@@ -13,12 +14,16 @@ const servicesController = require('../controllers/servicesController')
 router.get('/', authController.isAuthenticated, (req, res) => {
    db.query('SELECT * FROM servicios', (error, results) => {
       if(results){
-         res.render('index', {logged:req.user, results:results, alert:false})
+         res.render('index', {user:req.user, results:results, alert:false})
       }else{
          throw error;
       }
    })
 })
+
+// router.get("*", authController.isAuthenticated, (req, res) => {
+//    res.render('404', {user:req.user,  alert:false})
+// })
 
 router.get('/login', (req, res) => {
    res.render('login', {alert:false})
@@ -43,6 +48,16 @@ router.get('/opera', authController.isAuthenticated, (req, res) => {
 
 router.get('/origos', authController.isAuthenticated, (req, res) => {
    res.render('origos', {user:req.user, alert:false})
+})
+
+router.get('/minigolf', authController.isAuthenticated, (req, res) => {
+   db.query('SELECT * FROM tarifasmg', (error, results) => {
+      if(results){
+         res.render('minigolf', {user:req.user, results:results, alert:false})
+      }else{
+         throw error;
+      }
+   })
 })
 
 router.get('/tarifas/tarifa-hotel', authController.isAuthenticated, (req, res) => {
@@ -179,6 +194,57 @@ router.get('/ajustes/tarifas-conf/deleteRate/:id', authController.isAuthenticate
 
 })
 
+//------------------------------------------------------------TARIFAS MINI GOLF----------------------------------------------------------
+// MOSTRAR LISTA DE TARIFAS
+router.get('/ajustes/tarifas-mg', authController.isAuthenticated, (req, res) => {
+   db.query('SELECT * FROM tarifasmg', (error, results) => {
+      if(results){
+         res.render('ajustes/tarifas-mg', {user:req.user, alert:false, results:results, error: false})
+      }else{
+         throw error;
+      }
+   })
+})
+
+// MOSTRAR TARIFA A EDITAR
+router.get('/ajustes/tarifas-mg/:id', authController.isAuthenticated, (req, res) => {
+   const id = req.params.id;
+   db.query('SELECT * FROM tarifasmg WHERE id=?', [id], (error, results) => {
+      if(results){
+         res.render('ajustes/edit-tarifa-mg', {user:req.user, rate:results[0], alert:false})
+      }else{
+         throw error;
+      }
+   })
+})
+
+// EDITAR TARIFA
+router.post('/ajustes/tarifas-mg/:id', authController.isAuthenticated, (req, res) => {
+   try {
+   const {id} = req.params;
+   const {nombre, precio }= req.body;
+   const editedRate = {nombre, precio};
+   db.query('UPDATE tarifasmg SET ? WHERE id = ?', [editedRate, id]);
+   res.redirect('/ajustes/tarifas-mg');
+   } catch (error) {
+       console.log(error);
+   }
+
+})
+
+// ELIMINAR TARIFA
+router.get('/ajustes/tarifas-mg/deleteRateMg/:id', authController.isAuthenticated, (req, res) => {
+   try {
+   const {id} = req.params;
+   db.query('DELETE FROM tarifasmg WHERE id = ?', [id]);
+   res.redirect('/ajustes/tarifas-mg');
+   } catch (error) {
+       console.log(error);
+   }
+
+})
+
+
 //----------------------------------------------------------USUARIOS------------------------------------------------------------------
 // MOSTRAR LISTA DE USUARIOS
 router.get('/ajustes/usuarios-conf', authController.isAuthenticated, (req, res) => {
@@ -256,6 +322,10 @@ router.post('/createRate', ratesController.createRate)
 // router.post('/updateRate/:id', ratesController.updateRate)
 // router.post('/deleteRate/:id', ratesController.deleteRate)
 
+//router metodos controller tarifas
+router.post('/createRateMg', ratesMgController.createRateMg)
+// router.post('/updateRate/:id', ratesController.updateRate)
+// router.post('/deleteRate/:id', ratesController.deleteRate)
 
 
 module.exports = router

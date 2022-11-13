@@ -103,6 +103,10 @@ p{
   color: black;
 }
 
+#start-again{
+  display: none;
+}
+
 .center{
   display: block;
   margin-left: auto;
@@ -131,14 +135,10 @@ p{
 }
 
 .btnHotel{
-  /* width: 10rem;
-  height: 7rem;
-  padding: 2rem 0 2rem 0; */
-
   text-align: center;
   padding: 1.2rem;
-  width: 10rem;
-  height: 6rem;
+  width: 16rem;
+  height: 4rem;
   margin: 0 1.3rem 1.3rem 1.3rem;
   background-color: #514d87;
   color: white;
@@ -358,19 +358,27 @@ border: 2px solid black;
     width: calc(100% -180px);
   }
 
+  .logoHotelrate, .domfedoRate, .banderasRate, .ttooCardImgRate{
+    box-shadow: 0px 7px 11px 1px rgba(0,0,0,0.45);
+    -webkit-box-shadow: 0px 7px 11px 1px rgba(0,0,0,0.45);
+    -moz-box-shadow: 0px 7px 11px 1px rgba(0,0,0,0.45);
+  }
+
   footer{
     margin-left: 180px;
     width: calc(100% -180px);
   }
 
   .botonReload{
-    margin-left: 180px;
+    margin-left: 0px;
     margin-top: 1rem;
+    justify-content:space-evenly;  
+    
   }
 
-  #backRates, #recarga{
+  #backRates, #start-again{
     height: 4rem;
-    width: 12rem;
+    width: 11rem;
     padding-top: 1.2rem;
   }
 
@@ -505,16 +513,9 @@ border: 2px solid black;
     .miFirma{
       text-align: center;
     }
-  
-    
-    .btnHotel, .btnAnswer{
-      height: 4rem;
-      padding: 1rem;
-    }
 
     .botonReload{
-      margin-left: 0px;
-      margin-bottom: 2rem;
+      justify-content: space-around;
     }
        
     .sidebar {
@@ -553,10 +554,6 @@ border: 2px solid black;
 
     .navi{
       display: none;
-    }
-    
-    .btnHotel{
-      width: 16rem;
     }
     
     .afterNav{
@@ -611,13 +608,7 @@ border: 2px solid black;
   @media screen and (max-width: 400px) {
     .logo, .logoHotel, .banderas, .domfedo{
     height: 5.5rem;
-    }
-    
-    .btnHotel, .btnAnswer{
-      height: 4rem;
-      padding: 1rem;
-    }
-    
+    }   
     
     .bannerGolf{
       height: 30vh;
@@ -651,10 +642,10 @@ border: 2px solid black;
       margin-top: 0.5rem;
     }
     
-     #backRates{
+     /* #backRates, #start-again{
       margin-top: 1.2rem;
       margin-bottom: 2rem;
-    }
+    } */
 
     .miFirma{
       text-align: center;

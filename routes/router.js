@@ -274,8 +274,8 @@ router.post('/ajustes/usuarios-conf/:id', authController.isAuthenticated, (req, 
    try {
    const {id} = req.params;
    const {nombre, precio }= req.body;
-   const editedRate = {nombre, precio};
-   db.query('UPDATE usuarios SET ? WHERE id = ?', [editedRate, id]);
+   const editedUser = {nombre, precio};
+   db.query('UPDATE usuarios SET ? WHERE id = ?', [editedUser, id]);
    res.redirect('/ajustes/usuarios-conf');
    } catch (error) {
        console.log(error);

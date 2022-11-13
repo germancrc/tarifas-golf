@@ -35,18 +35,16 @@ let checkPass = function() {
 
 //RUTA VP 
 function reservaVP() {
-    document.querySelector(
-    "#formBgroup").style.display = "none";
-    document.querySelector(
-    "#tarVP").style.display = "block";
+    document.querySelector("#formBgroup").style.display = "none";
+    document.querySelector("#start-again").style.display = "block";
+    document.querySelector("#tarVP").style.display = "block";
 }
 
 //RUTA HARD ROCK LISA P
 function hrGolf() {
-    document.querySelector(
-    "#formBgroup").style.display = "none";
-    document.querySelector(
-    "#tarHRlp").style.display = "block";
+    document.querySelector("#formBgroup").style.display = "none";
+    document.querySelector("#start-again").style.display = "block";
+    document.querySelector("#tarHRlp").style.display = "block";
 }
 
 function reservaLisa(){

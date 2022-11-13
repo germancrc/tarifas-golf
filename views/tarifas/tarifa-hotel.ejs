@@ -103,20 +103,6 @@
 
 
         <!-- <div class="container"> -->
-          <div class="form-center d-none">
-            <form>
-              <div class="col mt-3">
-                <div class="row">
-                  <h5 class="text-center">¿Cuál es la tarifa base?</h5>
-                </div>
-                <div class="row">
-                    <div class="input-group mb-3 mt-2 input-group-lg">
-                      <input type="number" class="form-control inputBase text-center" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-                    </div>
-                </div>
-              </div>
-            </form>
-          </div>
 
           <div class="form-center container" id="formBgroup">
             <form>      
@@ -129,7 +115,7 @@
                    <a role="button" onclick=reservaVP() class="btnHotel" id="vp">Vacation Planners (VP)</a>                 
                     <a role="button" onclick=hrGolf() class="btnHotel" id="hardRock">Hard Rock (Recep. Golf)</a>                           
                     <a role="button" onclick=hrGolfAdmin() class="btnHotel" id="golfAdmin">Hard Rock Adm (Golf Ofic)</a>
-                    <a role="button" onclick=webGolf() class="btnHotel" id="web">Web Hard Rock (Web del hotel)</a>  
+                    <a role="button" onclick=webGolf() class="btnHotel" id="web">Web Hard Rock (Web hotel)</a>  
                     <a role="button" onclick=ezGolf() class="btnHotel" id="ezlinkWeb">EZLinks -Res Center</a>
                 </div>
                 </div>
@@ -137,7 +123,7 @@
             </form>
           </div>
 
-
+          <!-- -----------------------PREGUNTAS--------------------------------- -->
     
 
           <div id="rutaVP">
@@ -357,13 +343,15 @@
             </div>
           </div>
 
+          <div class="form-center botonReload">
+            <a class="btn btn-success" href="./tarifa-hotel" id="start-again"></i> Empezar de nuevo</a>  
+            <!-- <i class="bi bi-arrow-clockwise"></i> -->
+            <a class="btn btn-danger" href="/tarifas" id="backRates"> Cambiar tipo cliente</a>  
+            <!-- <i class="bi bi-back"></i> -->
+          </div>
 
         </div>
 
-        <div class="text-center botonReload">
-                <a class="btn btn-success" href="/tarifa-hotel" id="recarga"><i class="bi bi-arrow-clockwise"></i> Empezar de nuevo</a>  
-                <a class="btn btn-danger" href="/tarifas" id="backRates"><i class="bi bi-back"></i> Cambiar tipo cliente</a>  
-        </div>
 
         <footer>
           <hr>

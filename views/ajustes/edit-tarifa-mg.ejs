@@ -118,7 +118,11 @@
                       <div class="mb-3">
                         <label for="rate-price" class="form-label">Precio</label>
                         <input type="number" class="form-control" name="precio" value="<%= rate.precio %>" placeholder="Precio de tarifa " required>
-                      </div>  
+                      </div> 
+                      <div class="mb-3">
+                        <label for="rate-opera" class="form-label">Código Opera</label>
+                        <input type="number" class="form-control" name="cod_opera" value="<%= rate.cod_opera %>" placeholder="Código de Opera">
+                      </div>    
                       
                       <div class="mt-4 d-grid gap-2 d-md-flex justify-content-md-start">
                         <button type="submit" class="btn btn-warning btnEdit" id="modalServName">Editar tarifa</button>

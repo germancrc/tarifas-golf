@@ -113,6 +113,7 @@
                   <tr>
                     <th scope="col" class="col">Nombre</th>
                     <th scope="col" class="col">Precio</th>
+                    <th scope="col" class="col">Cod. Opera</th>
                     <th scope="col" class="col">Descripción</th>
                     <th scope="col" class="col">Acciones</th>
                   </tr>
@@ -122,6 +123,7 @@
                     <tr>
                       <td data-titulo="nombre:"><%= service.nombre %></td>
                       <td data-titulo="precio:">USD <%= service.precio%>.00</td>
+                      <td data-titulo="precio:"><%= service.cod_opera%></td>
                       <td data-titulo="descrip:"><%= service.descripcion %></td>
     
                       <td>
@@ -155,6 +157,10 @@
                       <label for="service-price" class="form-label">Precio</label>
                       <input type="number" class="form-control" name="precio" placeholder="Precio del servicio " required>
                     </div>  
+                    <div class="mb-3">
+                      <label for="service-opera" class="form-label">Código Opera</label>
+                      <input type="number" class="form-control" name="cod_opera" placeholder="Código de Opera">
+                    </div> 
                     <div class="mb-3">
                       <label for="TextareaService" class="form-label">Descripción</label>
                       <textarea class="form-control" name="descripcion" rows="3" maxlength="75" placeholder="Descripción del servicio" required></textarea>

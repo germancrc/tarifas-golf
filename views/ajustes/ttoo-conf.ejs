@@ -34,7 +34,7 @@
       <!-- NAV LG -->
       <nav class="navbar fixed-top navi">
         <div class="container-fluid">
-          <span class="navbar-brand mb-0 h1">AJUSTES</span>
+          <span class="navbar-brand mb-0 h1">AJUSTES DE TARIFAS TTOO</span>
           <div class="btn-group dropstart">
             <% if(user.rol === "Admin"){ %>
               <a class="btn btn-success dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -56,7 +56,7 @@
     <!-- NAV SM -->
     <nav class="navbar navSmall fixed-top">
       <div class="container-fluid">
-        <a class="navbar-brand" href="/"><i class="bi bi-house"></i></a><span class="text-light">AJUSTES</span>
+        <a class="navbar-brand" href="/"><i class="bi bi-house"></i></a><span class="text-light">EDITAR TARIFAS TTOO</span>
       <button class="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation" onclick="openNav()">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -98,88 +98,86 @@
       </nav>
 
     <div class="content">
-      <div class="container afterNav">
-        <div class="row text-center">
-          <h5>Seleccione lo que desea editar:</h5>
-        </div>
-        <div class="row row-cols-1 row-cols-sm-1 row-cols-md-3">
-          <!-- SERVICIOS -->
-          <div class="col">
-            <div class="card cardRate mt-3" id="cardServices">
-              <a href="/ajustes/servicios-conf">
-              <img src="img/servicios-conf.jpg" class="logoHotel card-img-top" alt="">
-            </a>
-              <div class="card-body cardBottom">
-                <div class="text-center">
-                  <a href="/ajustes/servicios-conf" class="linkTarifa fw-bold">SERVICIOS</a>
-                </div>
-                <!-- <p class="card-text">Verificar si tiene algún tipo de beneficios como huésped.</p> -->
+      
+      <div id="Tarifas" class="afterNav">   
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ttooModal" id="btnRate">
+            <i class="bi bi-plus-circle"> NUEVA TARIFA TTOO</i>
+          </button>
+           <!-- Button trigger modal -->
+    
+    
+          <div class="mt-2">
+            <div class="table-responsive">
+            <table class="table table-striped table-hover">
+              <thead>
+                <tr>
+                  <th scope="col" class="col">Nombre</th>
+                  <th scope="col" class="col">Precio</th>
+                  <th scope="col" class="col">Cod. Opera</th>
+                  <th scope="col" class="col">Operación</th>
+                  <th scope="col" class="col">Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% results.forEach((ttoo) => { %>
+                  <tr>
+                    <td data-titulo="nombre:"><%= ttoo.nombre %></td>
+                    <td data-titulo="precio:">USD <%= ttoo.precio%></td>
+                    <td data-titulo="Opera:"><%= ttoo.cod_opera%></td>
+                    <td data-titulo="Ticket:"><%= ttoo.operacion%></td>
+ 
+                    <td>
+                      <a href="/ajustes/ttoo-conf/<%= ttoo.id %>" data-bs-toggle="#" data-bs-target="#ttooUpdate" class="btn btn-sm btn-warning btnEdit"><i class="bi bi-pencil"></i></a>
+                      
+                      <a href="/ajustes/ttoo-conf/deleteTtoo/<%= ttoo.id %>" class="btn btn-sm btn-danger btnDelete" onclick="return confirm('Seguro que quiere borrar el Tour operador <%= ttoo.nombre %>?')"><i class="bi bi-trash"></i></a>
+                    </td>
+                  </tr>
+                <% }) %>
+              </tbody>
+            </table>
+          </div>
+          </div>
+          
+          <!-- Modal -->
+          <div class="modal fade" id="ttooModal" tabindex="-1" aria-labelledby="ttooModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="ttooModalLabel">Agregar Tour Operador</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <form id="rates-form" action="/createTtoo" method="POST">
+                  <div class="mb-3">
+                    <label for="ttoo-title" class="form-label">Nombre TTOO</label>
+                    <input type="text" class="form-control" name="nombre" placeholder="Escriba el nombre del TTOO">
+                  </div>
+                  <div class="mb-3">
+                    <label for="ttoo-price" class="form-label">Precio</label>
+                    <input type="number" step="0.01" class="form-control" name="precio" placeholder="Precio contratado">
+                  </div>  
+                  <div class="mb-3">
+                    <label for="ttoo-opera" class="form-label">Cod. Opera</label>
+                    <input type="text" class="form-control" name="cod_opera" placeholder="Código de Opera">
+                  </div>  
+                  <div class="mb-3">
+                    <label for="ttoo-operacion" class="form-label">Operación</label>
+                    <input type="text" class="form-control" name="operacion" placeholder="Cómo facturarlo:">
+                  </div>  
+                  
+                  <div class="mt-4 d-grid gap-2 d-md-flex justify-content-md-end">
+                    <button type="submit" class="btn btn-primary" id="modalRateName">Agregar tarifa</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                  </div>
+                </form>
               </div>
             </div>
           </div>
-          <!-- TARIFAS CG -->
-          <div class="col">
-            <div class="card cardRate mt-3" id="cardTarifas">
-              <a href="/ajustes/tarifas-conf">
-              <img src="/img/tarifas-conf.jpg" class="domfedo card-img-top" alt="">
-            </a>
-              <div class="card-body cardBottom">
-                <div class="text-center">
-                  <a href="/ajustes/tarifas-conf" class="linkTarifa fw-bold">TARIFAS CAMPO DE GOLF</a>
-                </div>
-                <!-- <p class="card-text">Ver si está afiliado a FEDOGOLF, si es nacido aqui o si es un extranjero residente.</p> -->
-              </div>
-            </div>
           </div>
-          <!-- TARIFAS MG -->
-          <div class="col">
-            <div class="card cardRate mt-3" id="cardTarifas">
-              <a href="/ajustes/tarifas-mg">
-              <img src="/img/minigolf.jpg" class="domfedo card-img-top" alt="">
-            </a>
-              <div class="card-body cardBottom">      
-                <div class="text-center">
-                  <a href="/ajustes/tarifas-mg" class="linkTarifa fw-bold">TARIFAS MINI GOLF</a>
-                </div>
-                <!-- <p class="card-text">Ver si está afiliado a FEDOGOLF, si es nacido aqui o si es un extranjero residente.</p> -->
-              </div>
-            </div>
-          </div>
-          <!-- TTOO -->
-          <div class="col">
-            <div class="card cardRate mt-3" id="cardTarifas">
-              <a href="/ajustes/ttoo-conf">
-              <img src="/img/ttoo.png" class="domfedo card-img-top" alt="">
-            </a>
-              <div class="card-body cardBottom">
-                <div class="text-center">
-                  <a href="/ajustes/ttoo-conf" class="linkTarifa fw-bold">TARIFAS TTOO</a>
-                </div>
-                <!-- <p class="card-text">Ver si está afiliado a FEDOGOLF, si es nacido aqui o si es un extranjero residente.</p> -->
-              </div>
-            </div>
-          </div>
-          <!-- usuarios -->
-          <div class="col">
-            <div class="card cardRate mt-3" id="cardUsers">
-              <a href="/ajustes/usuarios-conf">
-              <img src="/img/usuarios.webp" class="banderas card-img-top" alt="">
-            </a>
-              <div class="card-body cardBottom">
-                
-                <div class="text-center">
-                  <a href="/ajustes/usuarios-conf" class="linkTarifa fw-bold">USUARIOS</a>
-                </div>
-                <!-- <p class="card-text">Verificar si reserva el cliente o alguien en su lugar.</p> -->
-              </div>
-            </div>
-          </div>
-        </div>
-
       </div>
 
     </div>
-      
+
     <footer>
       <hr>
       <div class="container">

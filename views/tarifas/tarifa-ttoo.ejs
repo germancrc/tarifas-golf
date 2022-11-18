@@ -101,8 +101,26 @@
         <h5 class="text-center mt-4"><strong>TOUR OPERADORES</strong></h5>
 
         <div class="container">
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore facere corrupti consectetur veritatis exercitationem? Maxime totam molestias ipsum optio dignissimos commodi numquam pariatur officiis, facere dolorum distinctio recusandae vitae. Culpa, rem laboriosam delectus voluptatum illo nulla laudantium modi, atque similique quas dolorum aliquid aspernatur nostrum esse sint vitae necessitatibus maxime.</p>
+          <div class="row row-cols-1 row-cols-sm-1 row-cols-md-3 mt-3" id="servicesHomePage">
+            <% results.forEach((ttoo) => { %>
+              <div class="col">
+                <div class="card mb-4 cardShadow" id="serviceTest">
+                    <div class="card-header fixSizeHead">
+                      <h5 class="my-0 font-weight-normal text-center"><%= ttoo.nombre %></h5>
+                  </div>
+                  <div class="card-body bodyCardZise">
+                      <h3 class="card-title pricing-card-title text-center">USD <%= ttoo.precio %>.00 <small class="text-muted">p/p</small></h3>
+                      <div class="text-center">
+                        <h5>Código de Opera: <strong><%= ttoo.cod_opera %></strong></h5>
+                        <p>Cómo facturalo: <strong><%= ttoo.operacion %></strong></p>
+                      </div>
+                  </div>
+  
+                </div>
+              </div>
+                <% }) %>
 
+          </div>
         </div>
 
 

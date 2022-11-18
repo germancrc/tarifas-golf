@@ -7,6 +7,7 @@ const authController = require('../controllers/authController')
 const usuariosController = require('../controllers/usuariosController')
 const ratesController = require('../controllers/ratesController')
 const ratesMgController = require('../controllers/ratesMgController')
+const ttooController = require('../controllers/ttooController')
 const servicesController = require('../controllers/servicesController')
 
 
@@ -69,7 +70,13 @@ router.get('/tarifas/tarifa-local', authController.isAuthenticated, (req, res) =
 })
 
 router.get('/tarifas/tarifa-ttoo', authController.isAuthenticated, (req, res) => {
-   res.render('tarifas/tarifa-ttoo', {user:req.user, alert:false})
+   db.query('SELECT * FROM ttooRates', (error, results) => {
+      if(results){
+         res.render('tarifas/tarifa-ttoo', {user:req.user, results:results, alert:false})
+      }else{
+         throw error;
+      }
+   })
 })
 
 router.get('/tarifas/tarifa-turista', authController.isAuthenticated, (req, res) => {
@@ -244,6 +251,59 @@ router.get('/ajustes/tarifas-mg/deleteRateMg/:id', authController.isAuthenticate
 
 })
 
+//-------------------------------------------TOUR OPERADORES-------------------------------------------
+// MOSTRAR LISTA DE TTOO
+router.get('/ajustes/ttoo-conf', authController.isAuthenticated, (req, res) => {
+   db.query('SELECT * FROM ttooRates', (error, results) => {
+      if(results){
+         res.render('ajustes/ttoo-conf', {user:req.user, alert:false, results:results, error: false})
+      }else{
+         throw error;
+      }
+   })
+})
+
+// MOSTRAR TTOO A EDITAR
+router.get('/ajustes/ttoo-conf/:id', authController.isAuthenticated, (req, res) => {
+   const id = req.params.id;
+   db.query('SELECT * FROM ttooRates WHERE id=?', [id], (error, results) => {
+      if(results){
+         res.render('ajustes/edit-ttoo', {user:req.user, ttoo:results[0], alert:false})
+      }else{
+         throw error;
+      }
+   })
+})
+
+// EDITAR TTOO
+router.post('/ajustes/ttoo-conf/:id', authController.isAuthenticated, (req, res) => {
+   try {
+   const {id} = req.params;
+   const {nombre, precio, cod_opera, operacion}= req.body;
+   const editedTtoo = {nombre, precio, cod_opera, operacion};
+   db.query('UPDATE ttooRates SET ? WHERE id = ?', [editedTtoo, id]);
+   res.redirect('/ajustes/ttoo-conf');
+   } catch (error) {
+       console.log(error);
+   }
+
+})
+
+// ELIMINAR TTOO
+router.get('/ajustes/ttoo-conf/deleteTtoo/:id', authController.isAuthenticated, (req, res) => {
+   try {
+   const {id} = req.params;
+   db.query('DELETE FROM ttooRates WHERE id = ?', [id]);
+   res.redirect('/ajustes/ttoo-conf');
+   } catch (error) {
+       console.log(error);
+   }
+
+})
+
+
+//-------------------------------------------TOUR OPERADORES-------------------------------------------
+
 
 //----------------------------------------------------------USUARIOS------------------------------------------------------------------
 // MOSTRAR LISTA DE USUARIOS
@@ -322,8 +382,13 @@ router.post('/createRate', ratesController.createRate)
 // router.post('/updateRate/:id', ratesController.updateRate)
 // router.post('/deleteRate/:id', ratesController.deleteRate)
 
-//router metodos controller tarifas
+//router metodos controller tarifas MINI GOLF
 router.post('/createRateMg', ratesMgController.createRateMg)
+// router.post('/updateRate/:id', ratesController.updateRate)
+// router.post('/deleteRate/:id', ratesController.deleteRate)
+
+//router metodos controller tarifas MINI GOLF
+router.post('/createTtoo', ttooController.createTtoo)
 // router.post('/updateRate/:id', ratesController.updateRate)
 // router.post('/deleteRate/:id', ratesController.deleteRate)
 

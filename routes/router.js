@@ -13,7 +13,7 @@ const servicesController = require('../controllers/servicesController')
 
 //router de las vistas
 router.get('/', authController.isAuthenticated, (req, res) => {
-   db.query('SELECT * FROM servicios', (error, results) => {
+   db.query('SELECT * FROM servicios ORDER BY nombre desc', (error, results) => {
       if(results){
          res.render('index', {user:req.user, results:results, alert:false})
       }else{
@@ -80,7 +80,14 @@ router.get('/tarifas/tarifa-ttoo', authController.isAuthenticated, (req, res) =>
 })
 
 router.get('/tarifas/tarifa-turista', authController.isAuthenticated, (req, res) => {
-   res.render('tarifas/tarifa-turista', {user:req.user, alert:false})
+   db.query('SELECT * FROM tarifas where cliente="extranjero"', (error, results) => {
+      if(results){
+         res.render('tarifas/tarifa-turista', {user:req.user, results:results,  alert:false})
+         console.log(results);
+      }else{
+         throw error;
+      }
+   })
 })
 
 router.get('/tarifas', authController.isAuthenticated, (req, res) => {
@@ -104,7 +111,7 @@ router.get('/ajustes', authController.isAuthenticated, (req, res) => {
 //--------------------------------------SERVICIOS-------------------------------------------------------------------------------------
 // MOSTRAR LISTA SERVICIOS
 router.get('/ajustes/servicios-conf', authController.isAuthenticated, (req, res) => {
-   db.query('SELECT * FROM servicios', (error, results) => {
+   db.query('SELECT * FROM servicios ORDER BY nombre asc', (error, results) => {
       if(results){
          res.render('ajustes/servicios-conf', {user:req.user, results:results, alert:false})
       }else{
@@ -154,7 +161,7 @@ router.get('/ajustes/servicios-conf/deleteService/:id', authController.isAuthent
 //------------------------------------------------------------TARIFAS----------------------------------------------------------
 // MOSTRAR LISTA DE TARIFAS
 router.get('/ajustes/tarifas-conf', authController.isAuthenticated, (req, res) => {
-   db.query('SELECT * FROM tarifas', (error, results) => {
+   db.query('SELECT * FROM tarifas ORDER BY nombre asc', (error, results) => {
       if(results){
          res.render('ajustes/tarifas-conf', {user:req.user, alert:false, results:results, error: false})
       }else{
@@ -179,8 +186,8 @@ router.get('/ajustes/tarifas-conf/:id', authController.isAuthenticated, (req, re
 router.post('/ajustes/tarifas-conf/:id', authController.isAuthenticated, (req, res) => {
    try {
    const {id} = req.params;
-   const {nombre, precio }= req.body;
-   const editedRate = {nombre, precio};
+   const {nombre, precio, cod_opera, cliente, tips }= req.body;
+   const editedRate = {nombre, precio, cod_opera, cliente, tips};
    db.query('UPDATE tarifas SET ? WHERE id = ?', [editedRate, id]);
    res.redirect('/ajustes/tarifas-conf');
    } catch (error) {

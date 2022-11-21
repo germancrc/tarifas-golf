@@ -102,45 +102,51 @@
         <h5 class="text-center mt-4"><strong>EXTRANJERO / CANA BAY</strong></h5>
 
         <div class="container">
-          <form id="cTurista" class="mt-5">
-            <div class="row row-cols-1">
-              <div class="col col-sm-12 col-md-6">
-                  <label for="nacionalidad" class="form-label">La reserva fue hecha por el cliente o por otra persona en su lugar (concierge / mayordomo)?</label>
-              </div>
-              <div class="col col-sm-12 col-md-6">
-                <select class="form-select form-select-sm" id="clExtranj" aria-label="select nation" onchange="clExtranj(this)">
-                      <option selected>Elija uno</option>
-                      <option value="1">Cliente</option>
-                      <option value="2">Concierge / Mayordomo</option>
-                      <option value="3">Tour Operador</option>
-                      </select>
-                      </div>
+          <div class="row row-cols-1 row-cols-sm-1 row-cols-md-3 mt-3" id="servicesHomePage">
+            <% results.forEach((turista) => { %>
+              <div class="col">
+                <div class="card mb-4 cardShadow" id="serviceTest">
+                    <div class="card-header fixSizeHead">
+                      <h6 class="my-0 font-weight-normal text-center"><%= turista.nombre %></h6>
                   </div>
-                </form>
+                  <div class="card-body bodyCardZiseTurista">
+                      <h5 class="card-title pricing-card-title text-center precio-tur">USD <%= turista.precio %>.00 <small class="text-muted">p/p</small></h5>
+                      <div class="text-center">
+                        <h6>Código de Opera: <strong><%= turista.cod_opera %></strong></h6>
+                        <button class="btn btn-warning btn-sm">VER TIPS</button>
+                      </div>
 
+                  </div>
+  
+                </div>
+              </div>
+                <% }) %>
+
+          </div>
         </div>
 
-        <div class="form-center botonReload">
-          <a class="btn btn-success" href="./tarifa-hotel" id="start-again"></i> Empezar de nuevo</a>  
-          <!-- <i class="bi bi-arrow-clockwise"></i> -->
-          <a class="btn btn-danger" href="/tarifas" id="backRates"> Cambiar tipo cliente</a>  
-          <!-- <i class="bi bi-back"></i> -->
-        </div>
 
 
+
+
+      <div class="form-center botonReload">
+        <a class="btn btn-success" href="./tarifa-hotel" id="start-again"></i> Empezar de nuevo</a>  
+        <!-- <i class="bi bi-arrow-clockwise"></i> -->
+        <a class="btn btn-danger" href="/tarifas" id="backRates"> Cambiar tipo cliente</a>  
+        <!-- <i class="bi bi-back"></i> -->
+      </div>
         
       </div>
-      
-      
-              <footer>
-                <hr>
-                <div class="container foot">
-                  <div class="container">
-                    <img src="/img/golflogo.png" class="logoFoot" alt="">
-                  </div>
-                      <p class="text-muted miFirma">© 2022 German Cruz - Reception Team</p>
-                </div>
-              </footer>
+        
+        <footer>
+          <hr>
+          <div class="container foot">
+          <div class="container">
+            <img src="/img/golflogo.png" class="logoFoot" alt="">
+          </div>
+              <p class="text-muted miFirma">© 2022 German Cruz - Reception Team</p>
+        </div>
+      </footer>
 
 
       

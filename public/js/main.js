@@ -12,6 +12,7 @@
 //     });
 // }
 
+
 let checkPass = function() {
      if (document.getElementById('password').value ===
        document.getElementById('pass-conf').value) {

@@ -115,14 +115,44 @@
                         <label for="rate-title" class="form-label">Nombre de la tarifa</label>
                         <input type="text" class="form-control" name="nombre" value="<%= rate.nombre %>" placeholder="Nombre de la tarifa" required>
                       </div>
-                      <div class="mb-3">
-                        <label for="rate-price" class="form-label">Precio</label>
-                        <input type="number" class="form-control" name="precio" value="<%= rate.precio %>" placeholder="Precio de tarifa " required>
-                      </div> 
-                      <div class="mb-3">
-                        <label for="rate-opera" class="form-label">Código Opera</label>
-                        <input type="number" class="form-control" name="cod_opera" value="<%= rate.cod_opera %>" placeholder="Código de Opera">
-                      </div>   
+                      <div class="row">
+                        <div class="col">
+                          <div class="mb-3">
+                            <label for="rate-price" class="form-label">Precio</label>
+                            <input type="number" class="form-control" name="precio" value="<%= rate.precio %>" placeholder="Precio de tarifa " required>
+                          </div> 
+                        </div>
+                        <div class="col">
+                          <div class="mb-3">
+                            <label for="rate-opera" class="form-label">Código Opera</label>
+                            <input type="number" class="form-control" name="cod_opera"  value="<%=rate.cod_opera %>" placeholder="Código de Opera">
+                          </div>   
+                        </div>
+                      </div>
+                      <label for="rate-cliente" class="form-label">Tipo de cliente</label>
+                      <select class="form-select mb-3" name="cliente" aria-label="cliente-selector" required >
+                        <!-- <option selected>Elegir:</option> -->
+                        <% if(rate.cliente === "Hotel"){ %>
+                          <option selected value="Hotel">Cliente Hotel</option>
+                          <option value="Local">Local / Residente</option>
+                          <option value="Extranjero">Extranjero</option>
+                            <% } else if(rate.cliente === "Local") { %>
+                          <option value="Hotel">Cliente Hotel</option>
+                          <option selected value="Local">Local / Residente</option>
+                          <option value="Extranjero">Extranjero</option>
+                            <% } else { %>
+                          <option value="Hotel">Cliente Hotel</option>
+                          <option value="Local">Local / Residente</option>
+                          <option selected value="Extranjero">Extranjero</option>
+                            <% } %>                        
+                      </select>
+
+                      <div class="form-group">
+                        <label class="mb-2" for="rate-tips">Tips</label>
+                        <textarea  class="form-control" rows="3"><%=rate.tips %></textarea>
+                      </div>
+
+
                       
                       <div class="mt-4 d-grid gap-2 d-md-flex justify-content-md-start">
                         <button type="submit" class="btn btn-warning btnEdit" id="modalServName">Editar tarifa</button>

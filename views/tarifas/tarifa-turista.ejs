@@ -107,13 +107,24 @@
               <div class="col">
                 <div class="card mb-4 cardShadow" id="serviceTest">
                     <div class="card-header fixSizeHead">
-                      <h6 class="my-0 font-weight-normal text-center"><%= turista.nombre %></h6>
+                      <h5 class="my-0 font-weight-normal text-center"><%= turista.nombre %></h5>
                   </div>
-                  <div class="card-body bodyCardZiseTurista">
+                  <div class="card-body">
                       <h5 class="card-title pricing-card-title text-center precio-tur">USD <%= turista.precio %>.00 <small class="text-muted">p/p</small></h5>
                       <div class="text-center">
                         <h6>Código de Opera: <strong><%= turista.cod_opera %></strong></h6>
-                        <button class="btn btn-warning btn-sm">VER TIPS</button>
+                        <div class="accordion" id="accordionFlushExample">
+                          <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-headingOne">
+                              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne<%= turista.id %>" aria-expanded="false" aria-controls="flush-collapseOne">
+                               VER TIPS
+                              </button>
+                            </h2>
+                            <div id="flush-collapseOne<%= turista.id %>" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                              <div class="accordion-body"><%= turista.tips %></div>
+                            </div>
+                          </div>
+                        </div>
                       </div>
 
                   </div>

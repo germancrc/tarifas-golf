@@ -166,10 +166,6 @@ border: 2px solid black;
   height: 6.5rem;
 }
 
-.bodyCardZiseTurista{
-  height: 6.8rem;
-}
-
 .precio-tur{
   margin-top: -8px;
 }
@@ -745,3 +741,5 @@ border: 2px solid black;
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
 }
+
+

@@ -13,7 +13,7 @@ const servicesController = require('../controllers/servicesController')
 
 //router de las vistas
 router.get('/', authController.isAuthenticated, (req, res) => {
-   db.query('SELECT * FROM servicios ORDER BY nombre desc', (error, results) => {
+   db.query('SELECT * FROM servicios ORDER BY nombre asc', (error, results) => {
       if(results){
          res.render('index', {user:req.user, results:results, alert:false})
       }else{
@@ -62,11 +62,23 @@ router.get('/minigolf', authController.isAuthenticated, (req, res) => {
 })
 
 router.get('/tarifas/tarifa-hotel', authController.isAuthenticated, (req, res) => {
-   res.render('tarifas/tarifa-hotel', {user:req.user, alert:false})
+   db.query('SELECT * FROM tarifas where cliente IN ("hotel", "varios") ORDER BY nombre asc', (error, results) => {
+      if(results){
+         res.render('tarifas/tarifa-hotel', {user:req.user, results:results,  alert:false})
+      }else{
+         throw error;
+      }
+   })
 })
 
 router.get('/tarifas/tarifa-local', authController.isAuthenticated, (req, res) => {
-   res.render('tarifas/tarifa-local', {user:req.user, alert:false})
+   db.query('SELECT * FROM tarifas where cliente IN ("local", "varios") ORDER BY nombre asc', (error, results) => {
+      if(results){
+         res.render('tarifas/tarifa-local', {user:req.user, results:results, alert:false})
+      }else{
+         throw error;
+      }
+   })
 })
 
 router.get('/tarifas/tarifa-ttoo', authController.isAuthenticated, (req, res) => {
@@ -80,10 +92,9 @@ router.get('/tarifas/tarifa-ttoo', authController.isAuthenticated, (req, res) =>
 })
 
 router.get('/tarifas/tarifa-turista', authController.isAuthenticated, (req, res) => {
-   db.query('SELECT * FROM tarifas where cliente="extranjero"', (error, results) => {
+   db.query('SELECT * FROM tarifas where cliente IN ("extranjero", "varios") ORDER BY nombre asc', (error, results) => {
       if(results){
          res.render('tarifas/tarifa-turista', {user:req.user, results:results,  alert:false})
-         console.log(results);
       }else{
          throw error;
       }

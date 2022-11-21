@@ -11,7 +11,7 @@ exports.createRateMg = async (req, res) =>{
        db.query('INSERT INTO tarifasmg SET ?', {nombre:nombre, precio:precio, cod_opera:cod_opera}, (error,  results) => {
            if(error){console.log(error)}
            res.redirect('/ajustes/tarifas-mg')
-           console.log(results);
+        //    console.log(results);
        })
        
    } catch (error) {

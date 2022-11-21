@@ -147,8 +147,8 @@ router.get('/ajustes/servicios-conf/:id', authController.isAuthenticated, (req, 
 router.post('/ajustes/servicios-conf/:id', authController.isAuthenticated, (req, res) => {
    try {
    const {id} = req.params;
-   const {nombre, precio, descripcion }= req.body;
-   const editedServ = {nombre, precio, descripcion };
+   const {nombre, precio, cod_opera, descripcion }= req.body;
+   const editedServ = {nombre, precio, cod_opera, descripcion };
    db.query('UPDATE servicios SET ? WHERE id = ?', [editedServ, id]);
    res.redirect('/ajustes/servicios-conf');
    } catch (error) {

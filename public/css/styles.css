@@ -157,6 +157,12 @@ border: 2px solid black;
   color: white;
 }
 
+.fixSizeHeadEdit{
+  height: 2.5rem;
+  background-color: #514d87;
+  color: white;
+}
+
 .bodyCardZise{
   height: 8rem;
 }
@@ -166,9 +172,9 @@ border: 2px solid black;
   height: 6.5rem;
 }
 
-.precio-tur{
+/* .precio-tur{
   margin-top: -8px;
-}
+} */
 
 .cardShadow{
   box-shadow: 9px 10px 20px -12px rgba(0,0,0,0.64);
@@ -438,14 +444,21 @@ border: 2px solid black;
     display: block;
   }
 
-  .onMobile{
+  .onMobile, .tabla-mobile{
     display: none;
   }
 
   /* ------------------------------------MEDIA QUERIES------------------------------------------------ */
   
   @media screen and (max-width: 700px) {
-    table{
+    .tabla-desktop{
+      display: none;
+    }
+
+    .tabla-mobile{
+      display: block;
+    }
+    /* table{
       width: 100%;
     }
 
@@ -471,7 +484,7 @@ border: 2px solid black;
       width: 85px;
       font-weight: bold;
       text-transform: uppercase;
-    }
+    } */
 
     .login-card{
       padding: 2rem;

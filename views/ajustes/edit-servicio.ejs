@@ -120,6 +120,10 @@
                         <input type="number" class="form-control" name="precio" value="<%= service.precio %>" placeholder="Precio del servicio " required>
                       </div>  
                       <div class="mb-3">
+                        <label for="service-opera" class="form-label">Código Opera</label>
+                        <input type="number" class="form-control" name="cod_opera"  value="<%=service.cod_opera %>" placeholder="Código de Opera" required>
+                      </div>
+                      <div class="mb-3">
                         <label for="serivce-description" class="form-label">Descripción</label>
                         <input type="text" class="form-control" name="descripcion" value="<%= service.descripcion %>" placeholder="Descripción del servicio " required>
                         <!-- <div id="contador" class="mt-1"></div> -->
@@ -131,6 +135,7 @@
                       </div>
                     </form>
                     <% } %>
+                  </div>  
                   </div>
                 </div>
               </div>

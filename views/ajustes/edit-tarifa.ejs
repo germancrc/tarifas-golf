@@ -136,20 +136,28 @@
                           <option selected value="Hotel">Cliente Hotel</option>
                           <option value="Local">Local / Residente</option>
                           <option value="Extranjero">Extranjero</option>
-                            <% } else if(rate.cliente === "Local") { %>
-                          <option value="Hotel">Cliente Hotel</option>
-                          <option selected value="Local">Local / Residente</option>
-                          <option value="Extranjero">Extranjero</option>
+                          <option value="Varios">Varios</option>
+                          <% } else if(rate.cliente === "Local") { %>
+                            <option value="Hotel">Cliente Hotel</option>
+                            <option selected value="Local">Local / Residente</option>
+                            <option value="Extranjero">Extranjero</option>
+                            <option value="Varios">Varios</option>
+                          <% } else if(rate.cliente === "Extranjero") { %>
+                            <option value="Hotel">Cliente Hotel</option>
+                            <option value="Local">Local / Residente</option>
+                            <option selected value="Extranjero">Extranjero</option>
+                            <option value="Varios">Varios</option>
                             <% } else { %>
-                          <option value="Hotel">Cliente Hotel</option>
-                          <option value="Local">Local / Residente</option>
-                          <option selected value="Extranjero">Extranjero</option>
+                              <option value="Hotel">Cliente Hotel</option>
+                              <option value="Local">Local / Residente</option>
+                              <option value="Extranjero">Extranjero</option>
+                              <option selected value="Varios">Varios</option>
                             <% } %>                        
                       </select>
 
                       <div class="form-group">
                         <label class="mb-2" for="rate-tips">Tips</label>
-                        <textarea  class="form-control" rows="3"><%=rate.tips %></textarea>
+                        <textarea  class="form-control" name="tips" rows="3"><%=rate.tips %></textarea>
                       </div>
 
 

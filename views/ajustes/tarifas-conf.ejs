@@ -126,7 +126,7 @@
                     <td data-titulo="precio:">USD <%= rate.precio%>.00</td>
                     <td data-titulo="Opera:"><%= rate.cod_opera%></td>
                     <td data-titulo="Cliente:"><%= rate.cliente%></td>
-                    <td data-titulo="Tips:"><%= rate.tips %></td>
+                    <td data-titulo="Tips:" class="col-4"><%= rate.tips %></td>
  
                     <td>
                       <a href="/ajustes/tarifas-conf/<%= rate.id %>" data-bs-toggle="#" data-bs-target="#rateUpdate" class="btn btn-sm btn-warning btnEdit"><i class="bi bi-pencil"></i></a>
@@ -179,7 +179,7 @@
                   </select>
                   <div class="mb-3">
                     <label for="rate-tips" class="form-label">Tips</label>
-                    <input type="text" class="form-control" name="tips" placeholder="Consejos sobre la tarifa">
+                    <textarea class="form-control" id="tips" name="tips" placeholder="Consejos sobre la tarifa" rows="3"></textarea>
                   </div>
                   
                   <div class="mt-4 d-grid gap-2 d-md-flex justify-content-md-end">

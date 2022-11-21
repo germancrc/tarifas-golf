@@ -123,57 +123,42 @@
             <hr>
 
             <div class="container">
-              <div class="row row-cols-1 row-cols-sm-1 row-cols-md-3 mt-2" id="servicesHomePage">
+              <div class="row row-cols-1 row-cols-sm-1 row-cols-md-3 mt-3" id="servicesHomePage">
                 <% results.forEach((service) => { %>
                   <div class="col">
                     <div class="card mb-4 cardShadow" id="serviceTest">
                         <div class="card-header fixSizeHead">
                           <h5 class="my-0 font-weight-normal text-center"><%= service.nombre %></h5>
                       </div>
-                      <div class="card-body bodyCardZise">
-                          <h3 class="card-title pricing-card-title text-center">USD <%= service.precio %>.00 <small class="text-muted">p/p</small></h3>
-                          <h5>Código de Opera: <strong><%= service.cod_opera %></strong></h5>
-                          <p><%= service.descripcion %></p>
+                      <div class="card-body">
+                          <h5 class="card-title pricing-card-title text-center precio-tur">USD <%= service.precio %>.00 <small class="text-muted">p/p</small></h5>
+                          <div class="text-center">
+                            <h6>Código de Opera: <strong><%= service.cod_opera %></strong></h6>
+                            <div class="accordion" id="accordionFlushExample">
+                              <div class="accordion-item">
+                                <h2 class="accordion-header" id="flush-headingOne">
+                                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne<%= service.id %>" aria-expanded="false" aria-controls="flush-collapseOne">
+                                   Más Información
+                                  </button>
+                                </h2>
+                                <div id="flush-collapseOne<%= service.id %>" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                  <div class="accordion-body"><%= service.descripcion %></div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+    
                       </div>
       
                     </div>
                   </div>
                     <% }) %>
-
+    
               </div>
             </div>
 
-            <!-- <h3 class="mb-2 fw-bold">Tarifas con descuento hasta:</h3>
-            <hr>
 
-            <div class="container">
-              <div class="row row-cols-1 row-cols-sm-1 row-cols-md-3 mt-2" id="servicesHomePage">
-                  <div class="col">
-                    <div class="card mb-4 cardShadow" id="serviceTest">
-                        <div class="card-header fixSizeHead">
-                          <h5 class="my-0 font-weight-normal text-center">Green Fee</h5>
-                      </div>
-                      <div class="card-body bodyCardZise">
-                          <h3 class="card-title pricing-card-title text-center">USD <strong>150.00</strong> <small class="text-muted">p/p</small></h3>
-                      </div>
-      
-                    </div>
-                  </div>
-                  <div class="col">
-                    <div class="card mb-4 cardShadow" id="serviceTest">
-                        <div class="card-header fixSizeHead">
-                          <h5 class="my-0 font-weight-normal text-center">Twilight</h5>
-                      </div>
-                      <div class="card-body bodyCardZise">
-                          <h3 class="card-title pricing-card-title text-center">USD <strong>90.00</strong> <small class="text-muted">p/p</small></h3>
-                      </div>
-      
-                    </div>
-                  </div>
-              </div>
-            </div> -->
-
-          <h4 class="fw-bold">Otros Servicios </h4>
+          <h4 class="fw-bold">OTROS SERVICIOS </h4>
           <hr>
 
           <div class="container">

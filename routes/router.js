@@ -131,6 +131,22 @@ router.get('/ajustes/servicios-conf', authController.isAuthenticated, (req, res)
    })
 })
 
+
+
+//BUSCAR SERVICIO
+router.get('/ajustes/servicios-conf/buscar', authController.isAuthenticated, (req, res) => {
+   const {nombre}= req.query;
+   console.log(nombre);
+   // db.query('SELECT * FROM servicios where nombre like '%nombre%'', (error, results) => {
+   //     if(results){
+   //        res.render('ajustes/servicios-conf', {user:req.user, results:results, alert:false})
+   //     }else{
+   //        throw error;
+   //     }
+   //  })
+})
+
+
 // MOSTRAR SERVICIO A EDITAR
 router.get('/ajustes/servicios-conf/:id', authController.isAuthenticated, (req, res) => {
    const id = req.params.id;

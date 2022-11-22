@@ -106,8 +106,8 @@
               <i class="bi bi-plus-circle"></i> NUEVO SERVICIO
             </button>
               <!-- Button trigger modal -->
-            <form class="d-flex" role="search">
-              <input class="form-control me-2" type="search" placeholder="Buscar servicio" aria-label="Search">
+            <form class="d-flex" role="search" action="/ajustes/servicios-conf/buscar">
+              <input class="form-control me-2" type="search" name="" placeholder="Buscar servicio" aria-label="Search">
               <button class="btn btn-primary" type="submit"><i class="bi bi-search"></i></button>
             </form>
           </div>
@@ -173,9 +173,11 @@
                                 <div class="accordion-body">
                                  <h6><%= service.descripcion %></h6>
                                  <hr>
-                                 <a href="/ajustes/servicios-conf/<%= service.id %>" data-bs-toggle="#" data-bs-target="#serviceUpdate" class="btn btn-sm btn-warning btnEdit"><i class="bi bi-pencil"></i></a>
-                        
-                                 <a href="/ajustes/servicios-conf/deleteService/<%= service.id %>" class="btn btn-sm btn-danger btnDelete" onclick="return confirm('Seguro que quiere borrar el servicio <%= service.nombre %>?')"><i class="bi bi-trash"></i></a>
+                                 <div class="d-flex justify-content-between">
+                                   <a href="/ajustes/servicios-conf/<%= service.id %>" data-bs-toggle="#" data-bs-target="#serviceUpdate" class="btn btn-sm btn-warning btnEdit"><i class="bi bi-pencil"></i></a>
+                          
+                                   <a href="/ajustes/servicios-conf/deleteService/<%= service.id %>" class="btn btn-sm btn-danger btnDelete" onclick="return confirm('Seguro que quiere borrar el servicio <%= service.nombre %>?')"><i class="bi bi-trash"></i></a>
+                                 </div>
                                 </div>
                               </div>
                             </div>

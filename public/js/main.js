@@ -38,13 +38,12 @@ function myFunction() {
     const cards = document.getElementsByClassName('card');
     
     for(let i = 0; i < cards.length; i++){
-        let title = cards[i].querySelector("div.card-title");
+        let title = cards[i].querySelectorAll('div.card-title');
         
         if(title.innerText.toUpperCase().indexOf(inputMobile) > -1){
             cards[i].style.display = "block";
         }else{
             cards[i].style.display = "none";
-            cards.innerHTML = "No hay resultados"
         }
     }
 

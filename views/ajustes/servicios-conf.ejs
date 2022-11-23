@@ -134,7 +134,7 @@
                     <tr>
                       <td><%= service.nombre %></td>
                       <td><%= service.precio%>.00</td>
-                      <td><%= service.cod_opera%></tdlo=>
+                      <td><%= service.cod_opera%></td>
                       <% if(service.descripcion.length > 40) { %>
                         <td><%= service.descripcion.slice(0,40) %>...</td>
                         
@@ -173,7 +173,7 @@
                               </h2>
                               <div id="flush-collapseOne<%= service.id %>" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                                 <div class="accordion-body">
-                                 <h6><%= service.descripcion %></h6>
+                                 <%= service.descripcion %>
                                  <hr>
                                  <div class="d-flex justify-content-between">
                                    <a href="/ajustes/servicios-conf/<%= service.id %>" data-bs-toggle="#" data-bs-target="#serviceUpdate" class="btn btn-sm btn-warning btnEdit"><i class="bi bi-pencil"></i></a>

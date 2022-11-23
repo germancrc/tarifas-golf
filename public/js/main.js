@@ -44,6 +44,7 @@ function myFunction() {
             cards[i].style.display = "block";
         }else{
             cards[i].style.display = "none";
+            cards.innerHTML = "No hay resultados"
         }
     }
 

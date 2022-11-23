@@ -98,43 +98,45 @@
       </nav>
 
     <div class="content">
-      
+            
       <div id="Servicios" class="afterNav">
-        <nav class="navbar">
-          <div class="container-fluid">
+        <div class="row d-flex justify-content-between">
+          <div class="col-5">
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#serviceCreate" id="btnService">
-              <i class="bi bi-plus-circle"></i> NUEVO SERVICIO
+              <i class="bi bi-plus-circle"></i> AGREGAR
             </button>
               <!-- Button trigger modal -->
-            <form class="d-flex" role="search" action="/ajustes/servicios-conf/buscar">
-              <input class="form-control me-2" type="search" name="" placeholder="Buscar servicio" aria-label="Search">
-              <button class="btn btn-primary" type="submit"><i class="bi bi-search"></i></button>
+          </div>
+          <div class="col-5">
+            <form role="search">
+              <input class="form-control me-2" type="search" id="myInput" onkeyup="myFunction()"  placeholder="Buscar servicio" aria-label="Search">
             </form>
           </div>
-        </nav>
+        </div>
 
-  
+        
+
   
           <div class="mt-2 tabla-desktop">
             <div class="table-responsive">
-              <table class="table table-striped">
-                <thead>
+              <table class="table table-striped" id="myTable">
+                <thead id="tabla-vacia">
                   <tr>
-                    <th scope="col" class="col">Nombre</th>
-                    <th scope="col" class="col">Precio</th>
-                    <th scope="col" class="col">Cod. Opera</th>
-                    <th scope="col" class="col">Descripción</th>
-                    <th scope="col" class="col">Acciones</th>
+                    <th scope="col" class="col-3">Nombre</th>
+                    <th scope="col" class="col">Precio USD</th>
+                    <th scope="col" class="col">Opera</th>
+                    <th scope="col" class="col-4">Descripción</th>
+                    <th scope="col" class="col-2">Acciones</th>
                   </tr>
                 </thead>
                 <tbody>
                   <% results.forEach((service) => { %>
                     <tr>
-                      <td data-titulo="nombre:"><%= service.nombre %></td>
-                      <td data-titulo="precio:">USD <%= service.precio%>.00</td>
-                      <td data-titulo="Opera:"><%= service.cod_opera%></td>
+                      <td><%= service.nombre %></td>
+                      <td><%= service.precio%>.00</td>
+                      <td><%= service.cod_opera%></tdlo=>
                       <% if(service.descripcion.length > 40) { %>
-                        <td data-titulo="descrip:"><%= service.descripcion.slice(0,40) %>...</td>
+                        <td><%= service.descripcion.slice(0,40) %>...</td>
                         
                         <% } else { %>
                           <td data-titulo="descrip:"><%= service.descripcion %></td>
@@ -153,13 +155,13 @@
           </div>
 
           <!-- *****************************MOBILE CARDS EDIT****************************** -->
-          <div class="container tabla-mobile">
+          <div class="container tabla-mobile" id="tabla-mobile">
             <div class="row row-cols-1 row-cols-sm-1 row-cols-md-3 mt-3" id="servicesHomePage">
               <% results.forEach((service) => { %>
                 <div class="col">
                   <div class="card mb-2 cardShadow" id="serviceTest">
                       <div class="card-header fixSizeHeadEdit">
-                        <h6 class="my-0 font-weight-normal text-center"><%= service.nombre %> | USD <%= service.precio %>.00 <small>p/p</small></h6>
+                        <div class="my-0 text-center card-title"><%= service.nombre %> | USD <%= service.precio %>.00 <small>p/p</small></div>
                     </div>
                     <div class="card-body">
                           <div class="accordion" id="accordionFlushExample">
@@ -188,13 +190,12 @@
                   </div>
                 </div>
                   <% }) %>
-  
             </div>
           </div>
 
-
-
-  
+          <!-- *************************SIN RESULTADOS********************-->
+            <img src="/img/noResults.PNG" alt="" id="noResults">
+         <!--  *************************SIN RESULTADOS******************** -->
   
           <!-- Modal -->
           <div class="modal fade" id="serviceCreate" tabindex="-1" aria-labelledby="serviceCreateLabel" aria-hidden="true">
@@ -234,6 +235,7 @@
             </div>
           </div>
       </div>
+
       
       
     </div>

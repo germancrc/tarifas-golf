@@ -12,6 +12,46 @@
 //     });
 // }
 
+//*****************************BUSQUEDA EN TABLAS********************************/
+function myFunction() {
+    // Declare variables
+    let input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("myTable");
+    tr = table.getElementsByTagName("tr");
+  
+    // Loop through all table rows, and hide those who don't match the search query
+    for (i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td")[0];
+      if (td) {
+        txtValue = td.textContent || td.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+        } else {
+            tr[i].style.display = "none";
+        }
+      }
+    }
+
+    const inputMobile = document.getElementById('myInput').value.toUpperCase();
+    const cards = document.getElementsByClassName('card');
+    
+    for(let i = 0; i < cards.length; i++){
+        let title = cards[i].querySelector("div.card-title");
+        
+        if(title.innerText.toUpperCase().indexOf(inputMobile) > -1){
+            cards[i].style.display = "block";
+        }else{
+            cards[i].style.display = "none";
+        }
+    }
+
+}
+
+
+//*****************************BUSQUEDA EN TABLAS********************************/
+
 let checkPass = function() {
      if (document.getElementById('password').value ===
        document.getElementById('pass-conf').value) {
@@ -32,120 +72,4 @@ let checkPass = function() {
    function mayus(e) {
      e.value = e.value.toUpperCase();
  }
-
-//RUTA VP 
-function reservaVP() {
-    document.querySelector("#formBgroup").style.display = "none";
-    document.querySelector("#start-again").style.display = "block";
-    document.querySelector("#tarVP").style.display = "block";
-}
-
-//RUTA HARD ROCK LISA P
-function hrGolf() {
-    document.querySelector("#formBgroup").style.display = "none";
-    document.querySelector("#start-again").style.display = "block";
-    document.querySelector("#tarHRlp").style.display = "block";
-}
-
-function reservaLisa(){
-    document.querySelector(
-        "#rutaHR").style.display = "none";
-        document.querySelector(
-        "#tarVP").style.display = "block";
-}
-
-//reserva recepcion
-function noFueLisa(){
-    document.querySelector(
-        "#tarHRlp").style.display = "none";
-        document.querySelector(
-        "#tieneCortesia").style.display = "block";
-}
-
-function noCortesia(){
-    document.querySelector(
-        "#tieneCortesia").style.display = "none";
-        document.querySelector(
-        "#clienteCasino").style.display = "block";
-}
-
-function noCasino(){
-    document.querySelector(
-    "#clienteCasino").style.display = "none";
-    document.querySelector(
-    "#verificarSocio").style.display = "block";
-}
-
-function esSocio(){
-    document.querySelector(
-    "#verificarSocio").style.display = "none";
-    document.querySelector(
-    "#socioLeg").style.display = "block";
-}
-function tieneEba(){
-    document.querySelector(
-    "#verificarSocio").style.display = "none";
-    document.querySelector(
-    "#socioLeg").style.display = "block";
-}
-
-
-
-
-
-
-
-function hrGolfAdmin() {
-    let element = document.getElementById("hardGolfAdmin");
-    document.getElementById("hardGolfAdmin").className = "btnHotelNew";
-    console.log(element);
-    document.querySelector(
-    "#vp").style.display = "none";
-    document.querySelector(
-    "#hardRock").style.display = "none";
-    document.querySelector(
-    "#web").style.display = "none";
-    document.querySelector(
-    "#ezlinkWeb").style.display = "none";
-}
-function webGolf() {
-    let element = document.getElementById("paginaWeb");
-    document.getElementById("paginaWeb").className = "btnHotelNew";
-    console.log(element);
-    document.querySelector(
-    "#vp").style.display = "none";
-    document.querySelector(
-    "#hardRock").style.display = "none";
-    document.querySelector(
-    "#golfAdmin").style.display = "none";
-    document.querySelector(
-    "#ezlinkWeb").style.display = "none";
-}
-function ezGolf() {
-    let element = document.getElementById("ezGolfBook");
-    document.getElementById("ezGolfBook").className = "btnHotelNew";
-    console.log(element);
-    document.querySelector(
-    "#vp").style.display = "none";
-    document.querySelector(
-    "#hardRock").style.display = "none";
-    document.querySelector(
-    "#golfAdmin").style.display = "none";
-    document.querySelector(
-    "#web").style.display = "none";
-}
-
-
-
-/* Set the width of the side navigation to 250px */
-function openNav() {
-    document.getElementById("mySidenav").style.width = "250px";
-  }
-  
-  /* Set the width of the side navigation to 0 */
-  function closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
-  }
-
-  
 

@@ -172,6 +172,13 @@ border: 2px solid black;
   height: 6.5rem;
 }
 
+
+/* #noResults {
+  display: flex;
+  justify-content: center;
+} */
+
+
 /* .precio-tur{
   margin-top: -8px;
 } */
@@ -468,6 +475,7 @@ border: 2px solid black;
 
     .tabla-mobile{
       display: block;
+      margin-top: 1.5rem;
     }
     /* table{
       width: 100%;
@@ -585,7 +593,7 @@ border: 2px solid black;
     }
     
     .afterNav{
-    margin-top: 0.5rem;
+    margin-top: 0.8rem;
     }
     
 
@@ -667,7 +675,7 @@ border: 2px solid black;
     }
     
     .afterNav{
-      margin-top: 0.5rem;
+      margin-top: 0.8rem;
     }
     
      /* #backRates, #start-again{

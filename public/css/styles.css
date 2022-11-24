@@ -403,6 +403,12 @@ border: 2px solid black;
     text-align: right;
   }
 
+  /* .form-control{
+    box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.75);
+-webkit-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.75);
+  } */
+
   /* POR APLICACION */
 
   /* ----------------------------- ORIGOS----------------------------------- */

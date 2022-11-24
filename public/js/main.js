@@ -1,16 +1,12 @@
-// document.getElementById("nameGuide").innerHTML = "Guía General";
+/* Set the width of the side navigation to 250px */
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+}
 
-// const mensaje = document.getElementById('TextareaService');
-// const contador = document.getElementById('contador');
-
-// if(mensaje){
-//     mensaje.addEventListener('input', function(e) {
-//         const target = e.target;
-//         const longitudMax = target.getAttribute('maxlength');
-//         const longitudAct = target.value.length;
-//         contador.innerHTML = `${longitudAct}/${longitudMax}`;
-//     });
-// }
+/* Set the width of the side navigation to 0 */
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+}
 
 //*****************************BUSQUEDA EN TABLAS********************************/
 function myFunction() {
@@ -38,7 +34,7 @@ function myFunction() {
     const cards = document.getElementsByClassName('card');
     
     for(let i = 0; i < cards.length; i++){
-        let title = cards[i].querySelectorAll('div.card-title');
+        let title = cards[i].querySelector('div.card-title');
         
         if(title.innerText.toUpperCase().indexOf(inputMobile) > -1){
             cards[i].style.display = "block";
@@ -49,8 +45,34 @@ function myFunction() {
 
 }
 
+function buscarServicio(){
+  const inputMobile = document.getElementById('myInput').value.toUpperCase();
+  const cards = document.getElementsByClassName('cardHome');
+  
+  for(let i = 0; i < cards.length; i++){
+      let title = cards[i].querySelector('div.card-title');
+      
+      
+      if(title.innerText.toUpperCase().indexOf(inputMobile) > -1){
+          cards[i].style.display = "";
+      }else{
+          cards[i].style.display = "none";
+      }
+  }
+}
 
-//*****************************BUSQUEDA EN TABLAS********************************/
+//VER SI ES MOVIL O PC
+if ("ontouchstart" in document.documentElement)
+{
+  document.getElementById("inputBuscar").className = "col-7";
+}
+else
+{
+  document.getElementById("inputBuscar").className = "col-5";
+}
+
+
+//*****************************FIN BUSQUEDA EN TABLAS********************************/
 
 let checkPass = function() {
      if (document.getElementById('password').value ===

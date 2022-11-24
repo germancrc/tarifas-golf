@@ -121,17 +121,23 @@
             
             <h3 class="mb-2 fw-bold">Servicios que ofrecemos:</h3>
             <hr>
+            <span id="inputBuscar"></span>
+            <div class="d-flex justify-content-center">
+              <form role="search">
+                <input class="form-control me-5" type="search" id="myInput" onkeyup="buscarServicio()"  placeholder="Buscar servicio" aria-label="Search">
+              </form>
+            </div>
 
             <div class="container">
               <div class="row row-cols-1 row-cols-sm-1 row-cols-md-3 mt-3" id="servicesHomePage">
                 <% results.forEach((service) => { %>
                   <div class="col">
-                    <div class="card mb-4 cardShadow" id="serviceTest">
+                    <div class="card cardHome mb-4 cardShadow" id="serviceTest">
                         <div class="card-header fixSizeHead">
-                          <h5 class="my-0 font-weight-normal text-center"><%= service.nombre %></h5>
+                          <div class="card-title my-0 text-center"><%= service.nombre %></div>
                       </div>
                       <div class="card-body">
-                          <h5 class="card-title pricing-card-title text-center precio-tur">USD <%= service.precio %>.00 <small class="text-muted">p/p</small></h5>
+                          <h5 class="text-center precio-tur">USD <%= service.precio %>.00 <small class="text-muted">p/p</small></h5>
                           <div class="text-center">
                             <h6>Código de Opera: <strong><%= service.cod_opera %></strong></h6>
                             <div class="accordion" id="accordionFlushExample">

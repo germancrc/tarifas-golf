@@ -99,24 +99,26 @@
 
     <div class="content">
       <div id="Tarifas" class="afterNav">
-        <nav class="navbar">
-          <div class="container-fluid">
+        <div class="row d-flex justify-content-between">
+          <div class="col-5">
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ratesModal" id="btnRate">
-              <i class="bi bi-plus-circle"></i> NUEVA TARIFA
+              <i class="bi bi-plus-circle"></i> AGREGAR
             </button>
               <!-- Button trigger modal -->
-            <form class="d-flex" role="search" action="/ajustes/tarifas-conf/buscar">
-              <input class="form-control me-2" type="search" name="" placeholder="Buscar tarifa" aria-label="Search">
-              <button class="btn btn-primary" type="submit"><i class="bi bi-search"></i></button>
+          </div>
+          <div class="" id="inputBuscar">
+            <form role="search">
+              <input class="form-control me-2" type="search" id="myInput" onkeyup="myFunction()"  placeholder="Buscar tarifa" aria-label="Search">
             </form>
           </div>
-        </nav>
-           <!-- Button trigger modal -->
+        </div>
+
+
     
     
           <div class="mt-2 tabla-desktop">
             <div class="table-responsive">
-            <table class="table table-striped table-hover">
+              <table class="table table-striped" id="myTable">
               <thead>
                 <tr>
                   <th scope="col" class="col">Nombre</th>
@@ -159,9 +161,9 @@
     <% results.forEach((rate) => { %>
       <div class="col">
         <div class="card mb-2 cardShadow" id="rateTest">
-            <div class="card-header fixSizeHeadEdit">
-              <h6 class="my-0 font-weight-normal text-center"><%= rate.nombre %> | USD <%= rate.precio %>.00</h6>
-          </div>
+          <div class="card-header fixSizeHeadEdit">
+            <div class="my-0 text-center card-title"><%= rate.nombre %> | USD <%= rate.precio %>.00 <small>p/p</small></div>
+        </div>
           <div class="card-body">
                 <div class="accordion" id="accordionFlushExample">
                   <div class="accordion-item">

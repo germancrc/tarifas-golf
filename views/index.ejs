@@ -160,7 +160,7 @@
                           <% if(service.descripcion.length > 50) { %>
                           <button class="btn btn-sm btn-success btnEdit" onclick="return alert('<%= service.nombre %>: <%= service.descripcion %>')"><i class="bi bi-info-circle"></i></button>
                           <% } else { %>
-                          <button class="btn btn-sm btn-success btnEdit" disabled><i class="bi bi-info-circle"></i></i></button>
+                          <button class="btn btn-sm btn-success btnEdit d-none"><i class="bi bi-info-circle"></i></i></button>
                           <% }  %>
                         </td>
                       </tr>

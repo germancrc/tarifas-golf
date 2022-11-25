@@ -12,7 +12,7 @@ exports.createService = async (req, res) =>{
        db.query('INSERT INTO servicios SET ?', {nombre:nombre, precio:precio, descripcion:descripcion, cod_opera:cod_opera}, (error, results) => {
            if(error){console.log(error)}
            res.redirect('/ajustes/servicios-conf')
-           console.log(results);
+        //    console.log(results);
        })
        
        } catch (error) {

@@ -71,9 +71,10 @@ function buscarServicio(){
   
   for(let i = 0; i < cards.length; i++){
       let title = cards[i].querySelector('div.card-title');
+      let descrip = cards[i].querySelector('div.accordion-body');
       
       
-      if(title.innerText.toUpperCase().indexOf(inputMobile) > -1){
+      if(title.innerText.toUpperCase().indexOf(inputMobile) > -1 || descrip.innerText.toUpperCase().indexOf(inputMobile) > -1) {
           cards[i].style.display = "";
       }else{
           cards[i].style.display = "none";
@@ -81,15 +82,15 @@ function buscarServicio(){
   }
 }
 
-//VER SI ES MOVIL O PC
-if ("ontouchstart" in document.documentElement)
-{
-  document.getElementById("inputBuscar").className = "col-7";
-}
-else
-{
-  document.getElementById("inputBuscar").className = "col-5";
-}
+// //VER SI ES MOVIL O PC
+// if ("ontouchstart" in document.documentElement)
+// {
+//   document.getElementById("myInput").className = "col form-control me-5";
+// }
+// else
+// {
+//   document.getElementById("inputBuscar").className = "col-5";
+// }
 
 
 

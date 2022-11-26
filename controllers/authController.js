@@ -3,6 +3,23 @@ const bcrypt = require('bcryptjs')
 const db = require('../database/db')
 const {promisify} = require('util')
 
+exports.isAuthenticated = async (req, res, next) => {
+    if(req.cookies.jwt){
+        try {
+            const decodificada = await promisify(jwt.verify)(req.cookies.jwt, process.env.JWT_SECRETO)
+            db.query('SELECT*FROM usuarios WHERE id = ?', [decodificada.id], (error, results) => {
+                if(!results){return next()}
+                req.user = results[0]
+                return next()
+            })
+        } catch (error) {
+            console.log(error);
+            return next()
+        }
+    }else{
+        res.redirect('/login')
+    }
+}
 
 
 exports.login = async (req, res) =>{
@@ -46,8 +63,8 @@ exports.login = async (req, res) =>{
                     res.cookie('jwt', token, cookiesOptions)
                     res.render('login', {
                         alert: true,
-                        alertTitle: "Bienvenido",
-                        alertMessage: [user],
+                        alertTitle: [user],
+                        alertMessage: "Bienvenido",
                         alertIcon: 'success',
                         showConfirmButton: false,
                         timer: 1000,
@@ -59,24 +76,6 @@ exports.login = async (req, res) =>{
         
     } catch (error) {
         console.log(error);
-    }
-}
-
-exports.isAuthenticated = async (req, res, next) => {
-    if(req.cookies.jwt){
-        try {
-            const decodificada = await promisify(jwt.verify)(req.cookies.jwt, process.env.JWT_SECRETO)
-            db.query('SELECT*FROM usuarios WHERE id = ?', [decodificada.id], (error, results) => {
-                if(!results){return next()}
-                req.user = results[0]
-                return next()
-            })
-        } catch (error) {
-            console.log(error);
-            return next()
-        }
-    }else{
-        res.redirect('/login')
     }
 }
 

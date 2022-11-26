@@ -16,7 +16,7 @@
         <div class="container mb-3 mt-3">
             <img src="/img/golflogo.png" class="logo" alt="">
 
-        </div>        
+        </div>
         <a class="active" href="/">Inicio <i class="bi bi-chevron-right flecha"></i></a>
         <a href="/tarifas">Tarifas <i class="bi bi-chevron-right flecha"></i></a>
         <a href="/ezlinks">EZLinks <i class="bi bi-chevron-right flecha"></i></a>
@@ -53,7 +53,7 @@
           </div>
         </div>
       </nav>
-    
+
     <!-- NAV SM -->
     <nav class="navbar navSmall fixed-top">
       <div class="container-fluid">
@@ -61,7 +61,7 @@
       <button class="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation" onclick="openNav()">
         <span class="navbar-toggler-icon"></span>
       </button>
-      
+
         <div id="mySidenav" class="sidenav">
             <div id="main">
               <div class="dropdown btn-perfil">
@@ -99,7 +99,7 @@
       </div>
       </nav>
 
-      
+
       <div class="banner">
 
       </div>
@@ -116,19 +116,17 @@
             </p>
 
             <p class="text-center">
-              Tenemos un snack Bar ¨ El hoyo 19¨. Es Open Bar. Tambien se incluye el carro bar que circula por el campo. 
+              Tenemos un snack Bar ¨ El hoyo 19¨. Es Open Bar. Tambien se incluye el carro bar que circula por el campo.
             </p>
             
-            <h3 class="mb-2 fw-bold">Servicios que ofrecemos:</h3>
-            
+            <hr>
+            <h3 class="mb-3 fw-bold">Servicios que ofrecemos:</h3>
+
           </div>
 
-            <hr>
-
-            <span id="inputBuscar"></span>
-            <div class="d-flex justify-content-center">
+            <div class="mb-1">
               <form role="search">
-                <input class="form-control me-5" type="search" id="myInput" onkeyup="buscarServicio()"  placeholder="Buscar servicio" aria-label="Search">
+                <input class="col form-control me-5" type="search" id="myInput" onkeyup="buscarServicio()"  placeholder="Buscar servicio" aria-label="Search">
               </form>
             </div>
 
@@ -147,20 +145,20 @@
                   <tbody>
                     <% results.forEach((service) => { %>
                       <tr>
-                        <td><%= service.nombre %></td>
+                        <td class="rowName"><%= service.nombre %></td>
                         <td><%= service.precio%>.00</td>
                         <td><%= service.cod_opera%></td>
-                        <% if(service.descripcion.length > 50) { %>
-                          <td><%= service.descripcion.slice(0,50) %>...</td>
-                          
+                        <% if(service.descripcion.length > 55) { %>
+                          <td class="rowService"><%= service.descripcion.slice(0,55) %>...</td>
+
                           <% } else { %>
-                            <td data-titulo="descrip:"><%= service.descripcion %></td>
+                            <td class="rowService"><%= service.descripcion %></td>
                             <% }  %>
                         <td>
-                          <% if(service.descripcion.length > 50) { %>
+                          <% if(service.descripcion.length > 55) { %>
                           <button class="btn btn-sm btn-success btnEdit" onclick="return alert('<%= service.nombre %>: <%= service.descripcion %>')"><i class="bi bi-info-circle"></i></button>
                           <% } else { %>
-                          <button class="btn btn-sm btn-success btnEdit d-none"><i class="bi bi-info-circle"></i></i></button>
+                          <button class="btn btn-sm btn-success btnEdit invisible"><i class="bi bi-info-circle"></i></i></button>
                           <% }  %>
                         </td>
                       </tr>
@@ -197,27 +195,30 @@
                               </div>
                             </div>
                           </div>
-    
+
                       </div>
-      
+
                     </div>
                   </div>
                     <% }) %>
-    
+
               </div>
             </div>
 
+            <!-- <div class="d-none" id="noResults">
+              <img src="/img/noResults.png" alt="">
+            </div> -->
 
         </div>
 
 
-        
-        
 
 
-                
+
+
+
 </div>
-      
+
       <footer>
         <hr>
         <div class="container">

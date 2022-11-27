@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hard Rock Golf PC - Guía de procedimientos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+  </head>
+
+  <body>
+
+    <div class="sidebar scrollmenu">
+        <div class="container mb-3 mt-3">
+            <img src="/img/golflogo.png" class="logo" alt="">
+        </div>        
+        <a href="/">Inicio <i class="bi bi-chevron-right flecha"></i></a>
+        <a href="/tarifas">Tarifas <i class="bi bi-chevron-right flecha"></i></a>
+        <a href="/ezlinks">EZLinks <i class="bi bi-chevron-right flecha"></i></a>
+        <a href="/ezlinks-pos">EZLinks POS <i class="bi bi-chevron-right flecha"></i></a>
+        <a href="/opera">OPERA <i class="bi bi-chevron-right flecha"></i></a>
+        <a href="/origos">Origos <i class="bi bi-chevron-right flecha"></i></a>
+        <a href="/eba">EBA <i class="bi bi-chevron-right flecha"></i></a>
+        <a href="/minigolf">MINI GOLF <i class="bi bi-chevron-right flecha"></i></a>
+        <% if(user.rol === "Admin"){ %>
+          <a class="d-block active"href="/ajustes">AJUSTES <i class="bi bi-chevron-right flecha"></i></a>
+          <% } else { %>
+            <a class="d-none"href="/ajustes">AJUSTES <i class="bi bi-chevron-right flecha"></i></a>
+          <% } %>
+      </div>
+
+      <!-- NAV LG -->
+      <nav class="navbar fixed-top navi">
+        <div class="container-fluid">
+          <span class="navbar-brand mb-0 h1">AJUSTES CODIGOS OPERA</span>
+          <div class="btn-group dropstart">
+            <% if(user.rol === "Admin"){ %>
+              <a class="btn btn-success dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <span class="text-light "><i class="bi bi-person-fill"></i> <%= user.username %></span>
+              </a>
+                <% } else { %>
+                  <a class="btn btn-warning dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <span class="text-dark "><i class="bi bi-person-fill"></i> <%= user.username %></span>
+                  </a>
+              <% } %>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Editar</a></li>
+              <li><a class="dropdown-item" href="/logout">Salir</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    
+    <!-- NAV SM -->
+    <nav class="navbar navSmall fixed-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/"><i class="bi bi-house"></i></a><span class="text-light">EDITAR CODIGOS OPERA </span>
+      <button class="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation" onclick="openNav()">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+        <div id="mySidenav" class="sidenav">
+            <div id="main">
+              <div class="dropdown btn-perfil">
+                <% if(user.rol === "Admin"){ %>
+                  <button class="btn btn-success dropdown-toggle" href="#" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <span class="text-light text-uppercase"></i><%= user.username %></span>
+                  </button>
+                    <% } else { %>
+                      <button class="btn btn-warning btn-sm dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <span class="text-dark text-uppercase"><%= user.username %></span>
+                      </button>
+                  <% } %>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item text-dark" href="#">Editar</a></li>
+                  <li><a class="dropdown-item text-dark" href="/logout">Salir</a></li>
+                </ul>
+              </div>
+              <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+              <a class="nav-link" href="/">Inicio</a>
+              <a class="nav-link" href="/tarifas">Tarifas</a>
+              <a class="nav-link" href="/ezlinks">EZLinks</a>
+              <a class="nav-link" href="/ezlinks-pos">EZLinks POS</a>
+              <a class="nav-link" href="/opera">OPERA</a>
+              <a class="nav-link" href="/origos">Origos</a>
+              <a class="nav-link" href="/eba">EBA</a>
+              <a class="nav-link" href="/minigolf">MINI GOLF</a>
+              <% if(user.rol === "Admin"){ %>
+                <a class="d-block active"href="/ajustes">AJUSTES </a>
+                <% } else { %>
+                  <a class="d-none"href="/ajustes">AJUSTES </a>
+                <% } %>
+            </div>
+          </div>
+        </div>
+      </div>
+      </nav>
+
+    <div class="content">
+      
+      <div id="Codigos" class="afterNav">
+        <div class="row d-flex justify-content-between">
+          <div class="col-5">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#codeModal" id="btnRate">
+              <i class="bi bi-plus-circle"></i> AGREGAR
+            </button>
+              <!-- Button trigger modal -->
+          </div>
+          <div class="" id="inputBuscar">
+            <form role="search">
+              <input class="form-control me-2" type="search" id="myInput" onkeyup="buscarCodigo()"  placeholder="Buscar Código OPERA" aria-label="Search">
+            </form>
+          </div>
+        </div>  
+    
+          <div class="mt-2 tabla-desktop">
+            <div class="table-responsive">
+              <table class="table table-striped" id="myTable">
+              <thead>
+                <tr>
+                  <th scope="col" class="col">Código</th>
+                  <th scope="col" class="col">Nombre</th>
+                  <th scope="col" class="col">Uso</th>
+                  <th scope="col" class="col-5">Descripción</th>
+                  <th scope="col" class="col">Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% results.forEach((code) => { %>
+                  <tr>
+                    <td><%= code.codigo %></td>
+                    <td><%= code.nombre %></td>
+                    <td><%= code.uso %></td>
+                    <% if(code.descripcion.length > 50) { %>
+                      <td data-titulo="Tips:"><%= code.descripcion.slice(0,50) %>...</td>
+                      
+                      <% } else { %>
+                        <td data-titulo="Tips:"><%= code.descripcion %></td>
+                        <% }  %>
+ 
+                    <td>
+                      <a href="/ajustes/opera-codes/<%= code.id %>" data-bs-toggle="#" data-bs-target="#rateUpdate" class="btn btn-sm btn-warning btnEdit"><i class="bi bi-pencil"></i></a>
+                      
+                      <a href="/ajustes/opera-codes/deleteCode/<%= code.id %>" class="btn btn-sm btn-danger btnDelete" onclick="return confirm('Seguro que quiere borrar el Código <%= code.nombre %>?')"><i class="bi bi-trash"></i></a>
+                    </td>
+                  </tr>
+                <% }) %>
+              </tbody>
+            </table>
+          </div>
+          </div>
+
+<!-- *****************************MOBILE CARDS EDIT****************************** -->
+<div class="container tabla-mobile" id="tabla-mobile">
+  <div class="row row-cols-1 row-cols-sm-1 row-cols-md-3 mt-3" id="servicesHomePage">
+    <% results.forEach((code) => { %>
+      <div class="col">
+        <div class="card mb-2 cardHome cardShadow" id="opera-codes">
+            <div class="card-header fixSizeHeadEdit">
+              <div class="my-0 text-center card-title"><%= code.codigo %> | <%= code.nombre %></div>
+          </div>
+          <div class="card-body">
+                <div class="accordion" id="accordionFlushExample">
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-headingOne">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne<%= code.id %>" aria-expanded="false" aria-controls="flush-collapseOne">
+                       Más Información
+                      </button>
+                    </h2>
+                    <div id="flush-collapseOne<%= code.id %>" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                      <div class="accordion-body">
+                        <p><strong>Uso: </strong><%= code.uso %></p>
+                        <p><strong>Descripción: </strong><%= code.descripcion %></p>
+                        
+                       <hr>
+                       <div class="d-flex justify-content-between">
+                         <a href="/ajustes/opera-codes/<%= code.id %>" data-bs-toggle="#" data-bs-target="#serviceUpdate" class="btn btn-sm btn-warning btnEdit"><i class="bi bi-pencil"></i></a>
+                
+                         <a href="/ajustes/opera-codes/deleteService/<%= code.id %>" class="btn btn-sm btn-danger btnDelete" onclick="return confirm('Seguro que quiere borrar el servicio <%= code.nombre %>?')"><i class="bi bi-trash"></i></a>
+                       </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+          </div>
+
+        </div>
+      </div>
+        <% }) %>
+  </div>
+</div>
+
+<!-- *************************SIN RESULTADOS********************
+  <img src="/img/noResults.PNG" alt="" id="noResults">
+*************************SIN RESULTADOS******************** -->
+
+
+          
+          <!-- Modal -->
+          <div class="modal fade" id="codeModal"  data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="codeModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="codeModalLabel">Agregar Código OPERA</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <form id="code-form" action="/createCode" method="POST">
+                  <div class="mb-3">
+                    <label for="codeTitle" id="codeTitle" class="form-label">Código</label>
+                    <input type="text" class="form-control" name="codigo" placeholder="Escriba el Código">
+                  </div>
+                  <div class="mb-3">
+                    <label for="codeName" id="codeName" class="form-label">Nombre</label>
+                    <input type="text" class="form-control" name="nombre" placeholder="Escriba el Nombre">
+                  </div> 
+                  <div class="mb-3">
+                    <label for="code-use" class="form-label">Dónde se usa?</label>
+                    <select class="form-select mb-3" name="uso" aria-label="uso-selector" required >
+                      <option selected>Elegir:</option>
+                      <option value="NO APLICA">NO APLICA</option>
+                      <option value="Campo Golf">Campo Golf</option>
+                      <option value="Mini Golf">Mini Golf</option>
+                      <option value="Pagos">Pagos</option>
+                    </select>
+                  </div>
+                  <div class="mb-3">
+                    <label for="code-desc" class="form-label">Descripción</label>
+                    <textarea class="form-control" id="descripcion" name="descripcion" placeholder="Descripción" rows="3"></textarea>
+                  </div>
+                  
+                  <div class="mt-4 d-grid gap-2 d-md-flex justify-content-md-end">
+                    <button type="submit" class="btn btn-primary" id="modalCodeName">Agregar Código</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          </div>
+      </div> 
+
+    </div>
+
+    <footer>
+      <hr>
+      <div class="container">
+        <div class="container">
+          <img src="/img/golflogo.png" class="logoFoot" alt="">
+        </div>
+            <p class="text-muted miFirma">© 2022 German Cruz - Reception Team</p>
+      </div>
+    </footer>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <script src="/js/main.js"></script>
+    <!-- <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="module" src="/js/services.js"></script>
+    <script type="module" src="/js/rates.js"></script> -->
+  </body>
+</html>

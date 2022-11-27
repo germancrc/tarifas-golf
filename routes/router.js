@@ -4,11 +4,12 @@ const router = express.Router()
 const db = require('../database/db')
 
 const authController = require('../controllers/authController')
-const usuariosController = require('../controllers/usuariosController')
+const codesController = require('../controllers/codesController')
 const ratesController = require('../controllers/ratesController')
 const ratesMgController = require('../controllers/ratesMgController')
-const ttooController = require('../controllers/ttooController')
 const servicesController = require('../controllers/servicesController')
+const ttooController = require('../controllers/ttooController')
+const usuariosController = require('../controllers/usuariosController')
 
 
 //router de las vistas
@@ -334,9 +335,58 @@ router.get('/ajustes/ttoo-conf/deleteTtoo/:id', authController.isAuthenticated, 
    }
 
 })
+//-------------------------------------------CODIGOS OPERA-------------------------------------------
+// MOSTRAR LISTA DE CODIGOS OPERA
+router.get('/ajustes/opera-codes', authController.isAuthenticated, (req, res) => {
+   db.query('SELECT * FROM opera_codes order by uso asc', (error, results) => {
+      if(results){
+         res.render('ajustes/opera-codes', {user:req.user, alert:false, results:results, error: false})
+      }else{
+         throw error;
+      }
+   })
+})
+
+// MOSTRAR CODIGO OPERA A EDITAR
+router.get('/ajustes/opera-codes/:id', authController.isAuthenticated, (req, res) => {
+   const id = req.params.id;
+   db.query('SELECT * FROM opera_codes WHERE id=?', [id], (error, results) => {
+      if(results){
+         res.render('ajustes/edit-codes', {user:req.user, code:results[0], alert:false})
+      }else{
+         throw error;
+      }
+   })
+})
+
+// EDITAR CODIGOS OPERA
+router.post('/ajustes/opera-codes/:id', authController.isAuthenticated, (req, res) => {
+   try {
+   const {id} = req.params;
+   const {codigo,nombre,uso, descripcion}= req.body;
+   const editedCode = {codigo, nombre, uso, descripcion};
+   db.query('UPDATE opera_codes SET ? WHERE id = ?', [editedCode, id]);
+   res.redirect('/ajustes/opera-codes');
+   } catch (error) {
+       console.log(error);
+   }
+
+})
+
+// ELIMINAR CODIGOS OPERA
+router.get('/ajustes/opera-codes/deleteCode/:id', authController.isAuthenticated, (req, res) => {
+   try {
+   const {id} = req.params;
+   db.query('DELETE FROM opera_codes WHERE id = ?', [id]);
+   res.redirect('/ajustes/opera-codes');
+   } catch (error) {
+       console.log(error);
+   }
+
+})
 
 
-//-------------------------------------------TOUR OPERADORES-------------------------------------------
+//-------------------------------------------FON CODIGOS OPERA-------------------------------------------
 
 
 //----------------------------------------------------------USUARIOS------------------------------------------------------------------
@@ -421,8 +471,13 @@ router.post('/createRateMg', ratesMgController.createRateMg)
 // router.post('/updateRate/:id', ratesController.updateRate)
 // router.post('/deleteRate/:id', ratesController.deleteRate)
 
-//router metodos controller tarifas MINI GOLF
+//router metodos controller tarifas TTOO
 router.post('/createTtoo', ttooController.createTtoo)
+// router.post('/updateRate/:id', ratesController.updateRate)
+// router.post('/deleteRate/:id', ratesController.deleteRate)
+
+//router metodos controller CODIGOS OPERA
+router.post('/createCode', codesController.createCode)
 // router.post('/updateRate/:id', ratesController.updateRate)
 // router.post('/deleteRate/:id', ratesController.deleteRate)
 

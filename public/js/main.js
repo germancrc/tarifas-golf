@@ -31,13 +31,15 @@ function myFunction() {
     }
 
     const inputMobile = document.getElementById('myInput').value.toUpperCase();
-    const cards = document.getElementsByClassName('card');
+    const cards = document.getElementsByClassName('cardHome');
     
     for(let i = 0; i < cards.length; i++){
         let title = cards[i].querySelector('div.card-title');
+        let descrip = cards[i].querySelector('div.accordion-body');
         
-        if(title.innerText.toUpperCase().indexOf(inputMobile) > -1){
-            cards[i].style.display = "block";
+        
+        if(title.innerText.toUpperCase().indexOf(inputMobile) > -1 || descrip.innerText.toUpperCase().indexOf(inputMobile) > -1) {
+            cards[i].style.display = "";
         }else{
             cards[i].style.display = "none";
         }
@@ -45,41 +47,43 @@ function myFunction() {
 
 }
 
-function buscarServicio(){
-      // Declare variables
-      let input, filter, table, tr, td, i, txtValue;
-      input = document.getElementById("myInput");
-      filter = input.value.toUpperCase();
-      table = document.getElementById("myTable");
-      tr = table.getElementsByTagName("tr");
-    
-      // Loop through all table rows, and hide those who don't match the search query
-      for (i = 0; i < tr.length; i++) {
-        td = tr[i].getElementsByTagName("td")[0];
-        if (td) {
-          txtValue = td.textContent || td.innerText;
-          if (txtValue.toUpperCase().indexOf(filter) > -1) {
-            tr[i].style.display = "";
-          } else {
-              tr[i].style.display = "none";
-          }
-        }
-      }
-      
-  const inputMobile = document.getElementById('myInput').value.toUpperCase();
-  const cards = document.getElementsByClassName('cardHome');
-  
-  for(let i = 0; i < cards.length; i++){
-      let title = cards[i].querySelector('div.card-title');
-      let descrip = cards[i].querySelector('div.accordion-body');
-      
-      
-      if(title.innerText.toUpperCase().indexOf(inputMobile) > -1 || descrip.innerText.toUpperCase().indexOf(inputMobile) > -1) {
-          cards[i].style.display = "";
-      }else{
-          cards[i].style.display = "none";
-      }
-  }
+function buscarCodigo(){
+
+   // Declare variables
+   let input, filter, table, tr, td, i, txtValue;
+   input = document.getElementById("myInput");
+   filter = input.value.toUpperCase();
+   table = document.getElementById("myTable");
+   tr = table.getElementsByTagName("tr");
+ 
+   // Loop through all table rows, and hide those who don't match the search query
+   for (i = 0; i < tr.length; i++) {
+     td = tr[i].getElementsByTagName("td")[1];
+     if (td) {
+       txtValue = td.textContent || td.innerText;
+       if (txtValue.toUpperCase().indexOf(filter) > -1) {
+         tr[i].style.display = "";
+       } else {
+           tr[i].style.display = "none";
+       }  
+     }
+   }
+
+   const inputMobile = document.getElementById('myInput').value.toUpperCase();
+   const cards = document.getElementsByClassName('cardHome');
+   
+   for(let i = 0; i < cards.length; i++){
+       let title = cards[i].querySelector('div.card-title');
+       let descrip = cards[i].querySelector('div.accordion-body');
+       
+       
+       if(title.innerText.toUpperCase().indexOf(inputMobile) > -1 || descrip.innerText.toUpperCase().indexOf(inputMobile) > -1) {
+           cards[i].style.display = "";
+       }else{
+           cards[i].style.display = "none";
+       }
+   }   
+
 }
 
 // //VER SI ES MOVIL O PC

@@ -108,12 +108,13 @@
           Rock Star Mini Golf
         </h4>
 
+        
+
         <div class="container">
+          
           <div class="row text-center mt-3">
-            <!-- <h4 class="fw-bold">Informaciones generales</h4>
-            <p class="text-center">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt consequuntur recusandae aliquid, laborum tempore assumenda saepe nobis voluptates illum architecto.
-            </p> -->
+
+            <h4 class="mb-4"><span class="text-danger">TODOS</span>  los clientes <span class="text-danger">DEBEN PAGAR.</span>   Ningún tipo de membresía tiene el mini golf incluido. </h4>
             
             <h3 class="mb-2 fw-bold">Tarifas:</h3>
             <hr>
@@ -122,13 +123,25 @@
               <div class="row row-cols-1 row-cols-sm-1 row-cols-md-3 mt-2" id="ratesMG">
                 <% results.forEach((rateMg) => { %>
                   <div class="col">
-                    <div class="card mb-4 cardShadow" id="serviceTest">
+                    <div class="card cardHome mb-4 cardShadow" id="serviceTest">
                         <div class="card-header fixSizeHead">
                           <h5 class="my-0 font-weight-normal text-center"><%= rateMg.nombre %></h5>
                       </div>
-                      <div class="card-body bodyCardZiseMG">
+                      <div class="card-body">
                           <h3 class="card-title pricing-card-title text-center">USD <%= rateMg.precio %> <small class="text-muted">p/p</small></h3>
                           <h5>Código Opera: <strong><%= rateMg.cod_opera %></strong></h5>
+                          <div class="accordion" id="accordionFlushExample">
+                            <div class="accordion-item">
+                              <h2 class="accordion-header" id="flush-headingOne">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne<%= rateMg.id %>" aria-expanded="false" aria-controls="flush-collapseOne">
+                                 Más Información
+                                </button>
+                              </h2>
+                              <div id="flush-collapseOne<%= rateMg.id %>" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body"><%= rateMg.descripcion %></div>
+                              </div>
+                            </div>
+                          </div>
                       </div>
       
                     </div>
@@ -137,8 +150,6 @@
 
               </div>
             </div>
-
-            <h4 class="fw-bold mt-4">NOTA: <span class="text-danger">TODOS</span>  los clientes <span class="text-danger">DEBEN PAGAR.</span>   Ningún tipo de membresía tiene el mini golf incluido. </h4>
 
           </div>
         </div>

@@ -237,7 +237,7 @@ router.get('/ajustes/tarifas-conf/deleteRate/:id', authController.isAuthenticate
 })
 
 //------------------------------------------------------------TARIFAS MINI GOLF----------------------------------------------------------
-// MOSTRAR LISTA DE TARIFAS
+// MOSTRAR LISTA DE TARIFAS MINI GOLF
 router.get('/ajustes/tarifas-mg', authController.isAuthenticated, (req, res) => {
    db.query('SELECT * FROM tarifasmg', (error, results) => {
       if(results){
@@ -248,9 +248,9 @@ router.get('/ajustes/tarifas-mg', authController.isAuthenticated, (req, res) => 
    })
 })
 
-//RUTA NUEVA TARIFA
+//RUTA NUEVA TARIFA MINI GOLF
 router.get('/ajustes/new-tarifas-mg', authController.isAuthenticated, (req, res) => {
-   db.query('SELECT * FROM opera_codes where uso = "pagos"', (error, results) => {
+   db.query('SELECT * FROM opera_codes where uso = "mini golf"', (error, results) => {
       if(results){
          res.render('ajustes/new-tarifas-mg', {user:req.user, alert:false, results:results, error: false})
       }else{
@@ -260,7 +260,7 @@ router.get('/ajustes/new-tarifas-mg', authController.isAuthenticated, (req, res)
 })
 
 
-// MOSTRAR TARIFA A EDITAR
+// MOSTRAR TARIFA A EDITAR MINI GOLF
 router.get('/ajustes/tarifas-mg/:id', authController.isAuthenticated, (req, res) => {
    const id = req.params.id;
    db.query('SELECT * FROM tarifasmg WHERE id=?', [id], (error, results) => {
@@ -272,12 +272,12 @@ router.get('/ajustes/tarifas-mg/:id', authController.isAuthenticated, (req, res)
    })
 })
 
-// EDITAR TARIFA
+// EDITAR TARIFA MINI GOLF
 router.post('/ajustes/tarifas-mg/:id', authController.isAuthenticated, (req, res) => {
    try {
    const {id} = req.params;
-   const {nombre, precio }= req.body;
-   const editedRate = {nombre, precio};
+   const {nombre, precio, cod_opera, descripcion }= req.body;
+   const editedRate = {nombre, precio, cod_opera, descripcion};
    db.query('UPDATE tarifasmg SET ? WHERE id = ?', [editedRate, id]);
    res.redirect('/ajustes/tarifas-mg');
    } catch (error) {
@@ -286,7 +286,7 @@ router.post('/ajustes/tarifas-mg/:id', authController.isAuthenticated, (req, res
 
 })
 
-// ELIMINAR TARIFA
+// ELIMINAR TARIFA MINI GOLF
 router.get('/ajustes/tarifas-mg/deleteRateMg/:id', authController.isAuthenticated, (req, res) => {
    try {
    const {id} = req.params;

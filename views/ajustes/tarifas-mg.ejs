@@ -37,7 +37,7 @@
           <span class="navbar-brand mb-0 h1">AJUSTES TARIFAS MINI GOLF</span>
           <div class="btn-group dropstart">
             <% if(user.rol === "Admin"){ %>
-              <a class="btn btn-success dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <a class="btn btn-success dropdown-toggle editShadow" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <span class="text-light "><i class="bi bi-person-fill"></i> <%= user.username %></span>
               </a>
                 <% } else { %>
@@ -143,9 +143,9 @@
                         <% }  %>
  
                     <td>
-                      <a href="/ajustes/tarifas-mg/<%= rate.id %>" data-bs-toggle="#" data-bs-target="#rateUpdate" class="btn btn-sm btn-warning btnEdit"><i class="bi bi-pencil"></i></a>
+                      <a href="/ajustes/tarifas-mg/<%= rate.id %>" data-bs-toggle="#" data-bs-target="#rateUpdate" class="btn btn-sm btn-warning btnEdit editShadow"><i class="bi bi-pencil"></i></a>
                       
-                      <a href="/ajustes/tarifas-mg/deleteRateMg/<%= rate.id %>" class="btn btn-sm btn-danger btnDelete" onclick="return confirm('Seguro que quiere borrar la tarifa <%= rate.nombre %>?')"><i class="bi bi-trash"></i></a>
+                      <a href="/ajustes/tarifas-mg/deleteRateMg/<%= rate.id %>" class="btn btn-sm btn-danger btnDelete editShadow" onclick="return confirm('Seguro que quiere borrar la tarifa <%= rate.nombre %>?')"><i class="bi bi-trash"></i></a>
                     </td>
                   </tr>
                 <% }) %>

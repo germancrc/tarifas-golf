@@ -101,12 +101,12 @@
       
       <div id="Tarifas" class="afterNav">   
         
-        <div class="text-center">
+        <div class="text-center mb-3">
           <h4>Nueva tarifa Mini Golf</h4>
         </div>
         <div class="cardEdit-container">
 
-          <div class="card">
+          <div class="card editShadow">
             <div class="card-body">
 
                 <form id="rates-form" action="/createRateMg" method="POST">
@@ -118,12 +118,8 @@
                     <label for="rate-price" class="form-label">Precio</label>
                     <input type="number" step="0.01" class="form-control" name="precio" placeholder="Monto de la tarifa">
                   </div>  
-                  <!-- <div class="mb-3">
-                    <label for="rate-opera" class="form-label">Código Opera</label>
-                    <input type="number" class="form-control" name="cod_opera" placeholder="Código de Opera">
-                  </div>   -->
-                  <label for="rate-cliente" class="form-label">Código OPERA </label>
-                  <select class="form-select mb-3" name="cliente" aria-label="cliente-selector" required >
+                  <label for="rate-opera" class="form-label">Código OPERA </label>
+                  <select class="form-select mb-3" name="cod_opera" aria-label="cliente-selector" required >
                     <option selected>Elegir:</option>
                     <% results.forEach(code => { %>
                       <option value="<%= code.codigo %>"><%= code.codigo %> - <%= code.nombre %></option>
@@ -137,8 +133,8 @@
                   </div>
                   
                   <div class="mt-4 d-grid gap-2 d-md-flex justify-content-md-start">
-                    <button type="submit" class="btn btn-success" id="modalRateName"><i class="bi bi-check-lg"></i> Agregar tarifa</button>
-                    <a href="/ajustes/tarifas-mg" type="button" class="btn btn-danger"><i class="bi bi-x-lg"></i> Cancelar</a>
+                    <button type="submit" class="btn btn-success btnEdit editShadow" id="modalRateName"><i class="bi bi-check-lg"></i> Agregar tarifa</button>
+                    <a href="/ajustes/tarifas-mg" type="button" class="btn btn-danger btnCancel editShadow"><i class="bi bi-x-lg"></i> Cancelar</a>
                   </div>
                 </form>
                 </div>

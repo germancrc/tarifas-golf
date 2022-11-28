@@ -34,7 +34,7 @@
       <!-- NAV LG -->
       <nav class="navbar fixed-top navi">
         <div class="container-fluid">
-          <span class="navbar-brand mb-0 h1">AJUSTES DE TARIFAS MINI GOLF</span>
+          <span class="navbar-brand mb-0 h1">AJUSTES TARIFAS MINI GOLF</span>
           <div class="btn-group dropstart">
             <% if(user.rol === "Admin"){ %>
               <a class="btn btn-success dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -56,7 +56,7 @@
     <!-- NAV SM -->
     <nav class="navbar navSmall fixed-top">
       <div class="container-fluid">
-        <a class="navbar-brand" href="/"><i class="bi bi-house"></i></a><span class="text-light">EDITAR TARIFAS MINI GOLF</span>
+        <a class="navbar-brand" href="/"><i class="bi bi-house"></i></a><span class="text-light">AJUSTES TARIFAS MINI GOLF</span>
       <button class="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation" onclick="openNav()">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -102,12 +102,12 @@
       <div id="Tarifas" class="afterNav">   
         <div class="row d-flex justify-content-between">
           <div class="col-5">
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ratesMgModal" id="btnRate">
+            <a href="/ajustes/new-tarifas-mg" type="button" class="btn btn-primary" id="btnRate">
               <i class="bi bi-plus-circle"></i> AGREGAR
-            </button>
+            </a>
              <!-- Button trigger modal -->
           </div>
-          <div class="" id="inputBuscar">
+          <div class="col-7" id="inputBuscar">
             <form role="search">
               <input class="form-control me-2" type="search" id="myInput" onkeyup="myFunction()"  placeholder="Buscar tarifa minigolf" aria-label="Search">
             </form>
@@ -215,10 +215,16 @@
                     <label for="rate-price" class="form-label">Precio</label>
                     <input type="number" step="0.01" class="form-control" name="precio" placeholder="Monto de la tarifa">
                   </div>  
-                  <div class="mb-3">
+                  <!-- <div class="mb-3">
                     <label for="rate-opera" class="form-label">Código Opera</label>
                     <input type="number" class="form-control" name="cod_opera" placeholder="Código de Opera">
-                  </div>  
+                  </div>   -->
+                  <label for="rate-cliente" class="form-label">Tipo de cliente</label>
+                  <select class="form-select mb-3" name="cliente" aria-label="cliente-selector" required >
+                    <option selected>Elegir:</option>
+
+                  <!-- for loop code end -->
+                  </select>
                   <div class="mb-3">
                     <label for="TextareaService" class="form-label">Descripción</label>
                     <textarea class="form-control" name="descripcion" rows="3" maxlength="75" placeholder="Descripción de la tarifa" required></textarea>

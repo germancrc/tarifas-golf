@@ -248,6 +248,18 @@ router.get('/ajustes/tarifas-mg', authController.isAuthenticated, (req, res) => 
    })
 })
 
+//RUTA NUEVA TARIFA
+router.get('/ajustes/new-tarifas-mg', authController.isAuthenticated, (req, res) => {
+   db.query('SELECT * FROM opera_codes where uso = "pagos"', (error, results) => {
+      if(results){
+         res.render('ajustes/new-tarifas-mg', {user:req.user, alert:false, results:results, error: false})
+      }else{
+         throw error;
+      }
+   })
+})
+
+
 // MOSTRAR TARIFA A EDITAR
 router.get('/ajustes/tarifas-mg/:id', authController.isAuthenticated, (req, res) => {
    const id = req.params.id;

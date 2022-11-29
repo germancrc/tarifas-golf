@@ -114,7 +114,7 @@ p{
 }
 
 .afterNav{
-  margin-top: 4.8rem;
+  margin-top: 4.6rem;
 }
 
 .bannerGolf{
@@ -204,17 +204,8 @@ border: 2px solid black;
   color: white;
 }
 
-.btnAnswer{
-  text-align: center;
-  padding: 1.2rem;
-  width: 16rem;
-  height: 6rem;
-  background-color: #514d87;
-  color: white;
-  border: 2px solid black;
-  border-radius: 10px 10px 10px 10px;
--webkit-border-radius: 10px 10px 10px 10px;
--moz-border-radius: 10px 10px 10px 10px;
+.btnService{
+  padding: 0.4rem 2rem 0.4rem 2rem;
 }
 
 .btnAnswer:hover, .btnHotel:hover{
@@ -226,7 +217,7 @@ border: 2px solid black;
     color: black;
 }
 
-.btnEdit, .btnDelete, .btnCancel{
+.btnEdit, .btnDelete, .btnCancel, .btnAdd{
   padding: 0.4rem 2rem 0.4rem 2rem;
 }
 
@@ -482,10 +473,22 @@ border: 2px solid black;
   
   @media screen and (max-width: 700px) {
     .btnEdit, .btnDelete{
-      padding: 0.7rem 2rem 0.7rem 2rem;
       box-shadow: 0px 3px 5px -3px rgba(0,0,0,0.75);
       -webkit-box-shadow: 0px 3px 5px -3px rgba(0,0,0,0.75);
       -moz-box-shadow: 0px 3px 5px -3px rgba(0,0,0,0.75);
+    }
+
+    .btnEdit{
+      padding: 0.5rem 2rem 0.5rem 2rem;
+    }
+    
+    .btnAdd{
+      padding: 0.6rem 2rem 0.6rem 2rem;
+    }
+
+    .btnCancel{
+      margin-top: 10px;
+      padding: 0.6rem 2rem 0.6rem 2rem;
     }
 
     .bi-pencil, .bi-trash{

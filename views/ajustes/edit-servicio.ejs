@@ -121,7 +121,7 @@
                       </div>  
                       <div class="mb-3">
                         <label for="service-opera" class="form-label">Código Opera</label>
-                        <input type="text" class="form-control" name="cod_opera"  value="<%=service.cod_opera %>" placeholder="Código de Opera" required>
+                        <input type="number" class="form-control" name="cod_opera"  value="<%=service.cod_opera %>" placeholder="Código de Opera" required>
                       </div>
                       <div class="mb-3">
                         <label for="serivce-description" class="form-label">Descripción</label>
@@ -130,8 +130,8 @@
                       </div>
                       
                       <div class="mt-4 d-grid gap-2 d-md-flex justify-content-md-start">
-                        <button type="submit" class="btn btn-warning btnEdit editShadow" id="modalServName"><i class="bi bi-pencil"></i> EDITAR</button>
-                        <a href="/ajustes/servicios-conf" class="btn btn-danger btnCancel editShadow"><i class="bi bi-x-lg"></i> CANCELAR</a>
+                        <button type="submit" class="btn btn-warning btnEdit editShadow " id="modalServName">EDITAR</button>
+                        <a href="/ajustes/servicios-conf" class="btn btn-danger btnCancel editShadow">CANCELAR</a>
                       </div>
                     </form>
                     <% } %>

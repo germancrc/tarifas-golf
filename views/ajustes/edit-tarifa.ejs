@@ -121,7 +121,7 @@
                       </div> 
                       <div class="mb-3">
                         <label for="rate-opera" class="form-label">Código Opera</label>
-                        <input type="text" class="form-control" name="cod_opera"  value="<%=rate.cod_opera %>" placeholder="Código de Opera">
+                        <input type="number" class="form-control" name="cod_opera"  value="<%=rate.cod_opera %>" placeholder="Código de Opera">
                       </div>   
                       <label for="rate-cliente" class="form-label">Tipo de cliente</label>
                       <select class="form-select mb-3" name="cliente" aria-label="cliente-selector" required >
@@ -150,7 +150,7 @@
                       </select>
 
                       <div class="form-group">
-                        <label class="mb-2" for="rate-tips">Tips</label>
+                        <label class="mb-2" for="rate-tips">Descripción</label>
                         <textarea  class="form-control" name="tips" rows="3"><%=rate.tips %></textarea>
                       </div>
 

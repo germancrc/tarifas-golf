@@ -120,7 +120,7 @@
                   </div>  
                   <label for="rate-opera" class="form-label">Código OPERA </label>
                   <select class="form-select mb-3" name="cod_opera" aria-label="cliente-selector" required >
-                    <option selected>Elegir:</option>
+                    <option selected value="000000">Elegir:</option>
                     <% results.forEach(code => { %>
                       <option value="<%= code.codigo %>"><%= code.codigo %> - <%= code.nombre %></option>
                     <% }) %>
@@ -128,7 +128,7 @@
                   </select>
                   <div class="mb-3">
                     <label for="TextareaService" class="form-label">Descripción</label>
-                    <textarea class="form-control" name="descripcion" rows="3" maxlength="75" placeholder="Descripción de la tarifa" required></textarea>
+                    <textarea class="form-control" name="descripcion" rows="3" placeholder="Descripción de la tarifa" required></textarea>
                     <!-- <div id="contador" class="mt-1"></div> -->
                   </div>
                   

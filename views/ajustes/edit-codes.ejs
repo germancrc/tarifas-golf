@@ -113,7 +113,7 @@
                     <form id="services-form" action="/ajustes/opera-codes/<%= code.id %>" method="POST">
                       <div class="mb-3">
                         <label for="code-codigo" class="form-label">Código</label>
-                        <input type="text" class="form-control" name="codigo" value="<%= code.codigo %>" placeholder="Código" required>
+                        <input type="number" class="form-control" name="codigo" value="<%= code.codigo %>" placeholder="Código" required>
                       </div>
                       <div class="mb-3">
                         <label for="code-name" class="form-label">Nombre</label>
@@ -122,23 +122,15 @@
                       <div class="mb-3">
                         <label for="code-uso" class="form-label">Dónde se usa?</label>
                         <select class="form-select" name="uso" aria-label="use-selector" required >
-                          <% if(code.uso === "NO APLICA"){ %>
-                            <option selected value="NO APLICA">NO APLICA</option>
-                            <option value="Campo Golf">Campo Golf</option>
-                            <option value="Mini Golf">Mini Golf</option>
-                            <option value="Pagos">Pagos</option>
-                          <% } else if(code.uso === "Campo Golf") { %>
-                            <option value="NO APLICA">NO APLICA</option>
+                          <% } if(code.uso === "Campo Golf") { %>
                             <option selected value="Campo Golf">Campo Golf</option>
                             <option value="Mini Golf">Mini Golf</option>
                             <option value="Pagos">Pagos</option>
                           <% } else if(code.uso === "Mini Golf") { %>
-                            <option value="NO APLICA">NO APLICA</option>
                             <option value="Campo Golf">Campo Golf</option>
                             <option selected value="Mini Golf">Mini Golf</option>
                             <option value="Pagos">Pagos</option>
                           <% } else { %>
-                            <option value="NO APLICA">NO APLICA</option>
                             <option value="Campo Golf">Campo Golf</option>
                             <option value="Mini Golf">Mini Golf</option>
                             <option selected value="Pagos">Pagos</option>

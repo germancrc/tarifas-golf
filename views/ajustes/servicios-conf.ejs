@@ -102,10 +102,10 @@
       <div id="Servicios" class="afterNav">
         <div class="row d-flex justify-content-between">
           <div class="col-5">
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#serviceCreate" id="btnService">
+            <a href="/ajustes/new-servicio" type="button" class="btn btn-success editShadow" id="btnService">
               <i class="bi bi-plus-circle"></i> AGREGAR
-            </button>
-              <!-- Button trigger modal -->
+            </a>
+             <!-- Button trigger modal -->
           </div>
           <div class="col-7" id="inputBuscar">
             <form role="search">
@@ -117,49 +117,51 @@
         
 
   
-          <div class="mt-2 tabla-desktop">
-            <div class="table-responsive">
-              <table class="table table-striped" id="myTable">
-                <thead id="tabla-vacia">
-                  <tr>
-                    <th scope="col" class="col-3">Nombre</th>
-                    <th scope="col" class="col">Precio USD</th>
-                    <th scope="col" class="col">Opera</th>
-                    <th scope="col" class="col-4">Descripción</th>
-                    <th scope="col" class="col-2">Acciones</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <% results.forEach((service) => { %>
-                    <tr>
-                      <td><%= service.nombre %></td>
-                      <td><%= service.precio%>.00</td>
-                      <td><%= service.cod_opera%></td>
-                      <% if(service.descripcion.length > 40) { %>
-                        <td><%= service.descripcion.slice(0,40) %>...</td>
-                        
-                        <% } else { %>
-                          <td data-titulo="descrip:"><%= service.descripcion %></td>
-                          <% }  %>
-    
-                      <td>
-                        <a href="/ajustes/servicios-conf/<%= service.id %>" data-bs-toggle="#" data-bs-target="#serviceUpdate" class="btn btn-sm btn-warning btnEdit"><i class="bi bi-pencil"></i></a>
-                        
-                        <a href="/ajustes/servicios-conf/deleteService/<%= service.id %>" class="btn btn-sm btn-danger btnDelete" onclick="return confirm('Seguro que quiere borrar el servicio <%= service.nombre %>?')"><i class="bi bi-trash"></i></a>
-                      </td>
-                    </tr>
-                  <% }) %>
-                </tbody>
-              </table>
-            </div>
+        <div class="card editShadow mt-4 tabla-desktop">
+          <div class="card-body">
+                <div class="table-responsive">
+                  <table class="table" id="myTable">
+                    <thead id="tabla-vacia">
+                      <tr>
+                        <th scope="col" class="col-3">Nombre</th>
+                        <th scope="col" class="col">Precio USD</th>
+                        <th scope="col" class="col">Cod. Opera</th>
+                        <th scope="col" class="col-4">Descripción</th>
+                        <th scope="col" class="col-2">Acciones</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <% results.forEach((service) => { %>
+                        <tr>
+                          <td><%= service.nombre %></td>
+                          <td><%= service.precio%>.00</td>
+                          <td><%= service.cod_opera%></td>
+                          <% if(service.descripcion.length > 40) { %>
+                            <td><%= service.descripcion.slice(0,40) %>...</td>
+                            
+                            <% } else { %>
+                              <td data-titulo="descrip:"><%= service.descripcion %></td>
+                              <% }  %>
+        
+                          <td>
+                            <a href="/ajustes/servicios-conf/<%= service.id %>" data-bs-toggle="#" data-bs-target="#serviceUpdate" class="btn btn-sm btn-warning btnEdit"><i class="bi bi-pencil editShadow"></i></a>
+                            
+                            <a href="/ajustes/servicios-conf/deleteService/<%= service.id %>" class="btn btn-sm btn-danger btnDelete editShadow" onclick="return confirm('Seguro que quiere borrar el servicio <%= service.nombre %>?')"><i class="bi bi-trash"></i></a>
+                          </td>
+                        </tr>
+                      <% }) %>
+                    </tbody>
+                  </table>
+                </div> 
           </div>
+        </div>
 
           <!-- *****************************MOBILE CARDS EDIT****************************** -->
           <div class="container tabla-mobile" id="tabla-mobile">
             <div class="row row-cols-1 row-cols-sm-1 row-cols-md-3 mt-3" id="servicesHomePage">
               <% results.forEach((service) => { %>
                 <div class="col">
-                  <div class="card mb-2 cardShadow" id="serviceTest">
+                  <div class="card cardHome mb-4 editShadow" id="serviceTest">
                       <div class="card-header fixSizeHeadEdit">
                         <div class="my-0 text-center card-title"><%= service.nombre %> | USD <%= service.precio %>.00 <small>p/p</small></div>
                     </div>
@@ -176,9 +178,9 @@
                                  <%= service.descripcion %>
                                  <hr>
                                  <div class="d-flex justify-content-between">
-                                   <a href="/ajustes/servicios-conf/<%= service.id %>" data-bs-toggle="#" data-bs-target="#serviceUpdate" class="btn btn-sm btn-warning btnEdit"><i class="bi bi-pencil"></i></a>
+                                   <a href="/ajustes/servicios-conf/<%= service.id %>" data-bs-toggle="#" data-bs-target="#serviceUpdate" class="btn btn-sm btn-warning btnEdit"><i class="bi bi-pencil editShadow"></i></a>
                           
-                                   <a href="/ajustes/servicios-conf/deleteService/<%= service.id %>" class="btn btn-sm btn-danger btnDelete" onclick="return confirm('Seguro que quiere borrar el servicio <%= service.nombre %>?')"><i class="bi bi-trash"></i></a>
+                                   <a href="/ajustes/servicios-conf/deleteService/<%= service.id %>" class="btn btn-sm btn-danger btnDelete editShadow" onclick="return confirm('Seguro que quiere borrar el servicio <%= service.nombre %>?')"><i class="bi bi-trash"></i></a>
                                  </div>
                                 </div>
                               </div>
@@ -197,47 +199,7 @@
             <img src="/img/noResults.PNG" alt="" id="noResults">
          *************************SIN RESULTADOS******************** -->
   
-          <!-- Modal -->
-          <div class="modal fade" id="serviceCreate" tabindex="-1" aria-labelledby="serviceCreateLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h1 class="modal-title fs-5" id="serviceCreateLabel">Agregar servicio</h1>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                  <form id="services-form" action="/createService" method="POST">
-                    <div class="mb-3">
-                      <label for="service-title" class="form-label">Nombre del servicio</label>
-                      <input type="text" class="form-control" name="nombre" placeholder="Nombre del servicio" required>
-                    </div>
-                    <div class="mb-3">
-                      <label for="service-price" class="form-label">Precio</label>
-                      <input type="number" class="form-control" name="precio" placeholder="Precio del servicio " required>
-                    </div>  
-                    <div class="mb-3">
-                      <label for="service-opera" class="form-label">Código Opera</label>
-                      <input type="number" class="form-control" name="cod_opera" placeholder="Código de Opera">
-                    </div> 
-                    <div class="mb-3">
-                      <label for="TextareaService" class="form-label">Descripción</label>
-                      <textarea class="form-control" name="descripcion" rows="3" maxlength="75" placeholder="Descripción del servicio" required></textarea>
-                      <!-- <div id="contador" class="mt-1"></div> -->
-                    </div>
-          
-                    <div class="mt-4 d-grid gap-2 d-md-flex justify-content-md-end">
-                      <button type="submit" class="btn btn-primary" id="modalServName">Agregar servicio</button>
-                      <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
       </div>
-
-      
-      
     </div>
 
     <footer>

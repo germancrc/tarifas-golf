@@ -101,7 +101,7 @@
       <div id="Tarifas" class="afterNav">
         <div class="row d-flex justify-content-between">
           <div class="col-5">
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ratesModal" id="btnRate">
+            <button type="button" class="btn btn-success editShadow" id="btnRate">
               <i class="bi bi-plus-circle"></i> AGREGAR
             </button>
               <!-- Button trigger modal -->
@@ -113,12 +113,10 @@
           </div>
         </div>
 
-
-    
-    
-          <div class="mt-2 tabla-desktop">
+        <div class="card editShadow mt-4 tabla-desktop">
+          <div class="card-body">
             <div class="table-responsive">
-              <table class="table table-striped" id="myTable">
+              <table class="table" id="myTable">
               <thead>
                 <tr>
                   <th scope="col" class="col">Nombre</th>
@@ -144,16 +142,21 @@
                         <% }  %>
  
                     <td>
-                      <a href="/ajustes/tarifas-conf/<%= rate.id %>" data-bs-toggle="#" data-bs-target="#rateUpdate" class="btn btn-sm btn-warning btnEdit"><i class="bi bi-pencil"></i></a>
+                      <a href="/ajustes/tarifas-conf/<%= rate.id %>" data-bs-toggle="#" data-bs-target="#rateUpdate" class="btn btn-sm btn-warning btnEdit editShadow"><i class="bi bi-pencil editShadow"></i></a>
                       
-                      <a href="/ajustes/tarifas-conf/deleteRate/<%= rate.id %>" class="btn btn-sm btn-danger btnDelete" onclick="return confirm('Seguro que quiere borrar la tarifa <%= rate.nombre %>?')"><i class="bi bi-trash"></i></a>
+                      <a href="/ajustes/tarifas-conf/deleteRate/<%= rate.id %>" class="btn btn-sm btn-danger btnDelete editShadow" onclick="return confirm('Seguro que quiere borrar la tarifa <%= rate.nombre %>?')"><i class="bi bi-trash"></i></a>
                     </td>
                   </tr>
                 <% }) %>
               </tbody>
             </table>
           </div>
-          </div>
+            </div>
+            </div>
+    
+    
+
+
 
 <!-- *****************************MOBILE CARDS EDIT****************************** -->
 <div class="container tabla-mobile">

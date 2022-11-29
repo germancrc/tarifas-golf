@@ -101,13 +101,13 @@
       
       <div id="Servicios" class="afterNav">
         
-              <div class="text-center">
-                <h4>Editar servicio</h4>
-              </div>
-              <div class="cardEdit-container">
+        <div class="text-center mb-3">
+          <h4 class="text-uppercase">Editar Servicio</h4>
+        </div>
+        <div class="cardEdit-container">
 
-                <div class="card">
-                  <div class="card-body">
+          <div class="card editShadow">
+            <div class="card-body">
                   <% if (service) { %>
                   
                     <form id="services-form" action="/ajustes/servicios-conf/<%= service.id %>" method="POST">
@@ -121,7 +121,7 @@
                       </div>  
                       <div class="mb-3">
                         <label for="service-opera" class="form-label">Código Opera</label>
-                        <input type="number" class="form-control" name="cod_opera"  value="<%=service.cod_opera %>" placeholder="Código de Opera" required>
+                        <input type="text" class="form-control" name="cod_opera"  value="<%=service.cod_opera %>" placeholder="Código de Opera" required>
                       </div>
                       <div class="mb-3">
                         <label for="serivce-description" class="form-label">Descripción</label>
@@ -130,8 +130,8 @@
                       </div>
                       
                       <div class="mt-4 d-grid gap-2 d-md-flex justify-content-md-start">
-                        <button type="submit" class="btn btn-warning btnEdit" id="modalServName">Editar servicio</button>
-                        <a href="/ajustes/servicios-conf" class="btn btn-danger">Cancelar</a>
+                        <button type="submit" class="btn btn-warning btnEdit editShadow" id="modalServName"><i class="bi bi-pencil"></i> EDITAR</button>
+                        <a href="/ajustes/servicios-conf" class="btn btn-danger btnCancel editShadow"><i class="bi bi-x-lg"></i> CANCELAR</a>
                       </div>
                     </form>
                     <% } %>

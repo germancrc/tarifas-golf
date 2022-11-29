@@ -132,6 +132,17 @@ router.get('/ajustes/servicios-conf', authController.isAuthenticated, (req, res)
    })
 })
 
+//RUTA NUEVA TARIFA MINI GOLF
+router.get('/ajustes/new-servicio', authController.isAuthenticated, (req, res) => {
+   db.query('SELECT * FROM opera_codes where uso = "campo golf"', (error, results) => {
+      if(results){
+         res.render('ajustes/new-servicio', {user:req.user, alert:false, results:results, error: false})
+      }else{
+         throw error;
+      }
+   })
+})
+
 
 
 //BUSCAR SERVICIO

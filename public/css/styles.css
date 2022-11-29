@@ -491,6 +491,10 @@ border: 2px solid black;
       padding: 0.6rem 2rem 0.6rem 2rem;
     }
 
+    #btnService{
+      padding: 0.4rem 1rem 0.4rem 1rem;
+    }
+
     .bi-pencil, .bi-trash{
       font-size: large;
     }

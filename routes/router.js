@@ -45,7 +45,13 @@ router.get('/ezlinks', authController.isAuthenticated, (req, res) => {
 })
 
 router.get('/opera', authController.isAuthenticated, (req, res) => {
-   res.render('opera', {user:req.user, alert:false})
+   db.query('SELECT * FROM opera_codes order by uso asc', (error, results) => {
+      if(results){
+         res.render('opera', {user:req.user, alert:false, results:results, error: false})
+      }else{
+         throw error;
+      }
+   })
 })
 
 router.get('/origos', authController.isAuthenticated, (req, res) => {

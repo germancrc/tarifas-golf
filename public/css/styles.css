@@ -2,7 +2,7 @@ body{
   background-color: #ffffff;
   font-family: 'roboto', sans-serif;
   /* scroll-behavior: smooth; */
-  min-height: 100vh; 
+  min-height: 100vh;
 }
 
 a{
@@ -118,7 +118,7 @@ p{
 }
 
 .bannerGolf{
-  height: 30vh;
+  height: 20vh;
   box-shadow: 5px 5px 10px 0px rgba(0,0,0,0.75);
 -webkit-box-shadow: 5px 5px 10px 0px rgba(0,0,0,0.75);
 -moz-box-shadow: 5px 5px 10px 0px rgba(0,0,0,0.75);
@@ -263,7 +263,7 @@ border: 2px solid black;
 .cardRate{
   box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
 -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
--moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);  
+-moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
 }
 
 .cardRate:hover{
@@ -307,7 +307,7 @@ border: 2px solid black;
     overflow: auto;
     border-right: 2px solid #dfdfdf;
   }
-  
+
   .sidebar a{
     display: block;
     color: black;
@@ -319,7 +319,7 @@ border: 2px solid black;
   .flecha{
     display: none;
   }
-   
+
   .sidebar a.active{
     background-color: #514d87;
     color: white;
@@ -328,7 +328,7 @@ border: 2px solid black;
   a.active .flecha{
     display: inline-block;
   }
-  
+
   .sidebar a:hover:not(.active){
     background-color: #dfb502;
     color: white;
@@ -337,7 +337,7 @@ border: 2px solid black;
 
   .sidebar a:hover .flecha{
     display: inline-block;
-    
+
     color: white;
   }
 
@@ -386,8 +386,8 @@ border: 2px solid black;
   .botonReload{
     margin-left: 0px;
     margin-top: 1rem;
-    justify-content:space-evenly;  
-    
+    justify-content:space-evenly;
+
   }
 
   #backRates, #start-again{
@@ -410,7 +410,7 @@ border: 2px solid black;
     background-color: #514d87;
     color: white;
   }
-  
+
   /* .form-control{
     box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.75);
 -webkit-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.75);
@@ -436,18 +436,18 @@ border: 2px solid black;
   .origosErrorP{
     height: 35vh;
   }
-  
+
   .origosMain{
     height: 60vh;
   }
   .origosAtn{
     height: 40vh;
   }
-  
+
   .origosDetail{
     height: 98vh;
   }
-  
+
   .origosGenSearch{
     height: 60vh;
   }
@@ -456,7 +456,7 @@ border: 2px solid black;
     height: 90vh;
   }
 
-  
+
   .tableHead{
     display: block;
   }
@@ -470,7 +470,7 @@ border: 2px solid black;
   }
 
   /* ------------------------------------MEDIA QUERIES------------------------------------------------ */
-  
+
   @media screen and (max-width: 700px) {
     .btnEdit, .btnDelete{
       box-shadow: 0px 3px 5px -3px rgba(0,0,0,0.75);
@@ -481,7 +481,7 @@ border: 2px solid black;
     .btnEdit{
       padding: 0.5rem 2rem 0.5rem 2rem;
     }
-    
+
     .btnAdd{
       padding: 0.6rem 2rem 0.6rem 2rem;
     }
@@ -498,7 +498,7 @@ border: 2px solid black;
     .bi-pencil, .bi-trash{
       font-size: large;
     }
-    
+
     .tabla-desktop{
       display: none;
     }
@@ -527,7 +527,7 @@ border: 2px solid black;
     table td[data-titulo]{
       display: flex;
     }
-    
+
     table td[data-titulo]::before{
       content: attr(data-titulo);
       width: 85px;
@@ -561,7 +561,7 @@ border: 2px solid black;
     height: 5.5rem;
     }
 
-    .logoHotelrate, .domfedoRate, .banderasRate, .ttooCardImgRate{
+    .logoHotelrate, .domfedoRate, .banderasRate, .ttooCardImgRate, .mobileLogo{
       display: none;
     }
 
@@ -583,7 +583,7 @@ border: 2px solid black;
     .botonReload{
       justify-content: space-around;
     }
-       
+
     .sidebar {
       display: none;
     }
@@ -615,21 +615,21 @@ border: 2px solid black;
 
     .bannerGolf{
       height: 30vh;
-      width: 90vw;   
+      width: 90vw;
     }
 
     .navi{
       display: none;
     }
-    
+
     .afterNav{
     margin-top: 0.8rem;
     }
-    
+
 
 
     footer {
-      margin-left: 0px;    
+      margin-left: 0px;
     }
 
       /* ----------------------------- ORIGOS----------------------------------- */
@@ -649,18 +649,18 @@ border: 2px solid black;
   .origosErrorP{
     height: 30vh;
   }
-  
+
   .origosMain{
     height: 18vh;
   }
   .origosAtn{
     height: 20vh;
   }
-  
+
   .origosDetail{
     height: 30vh;
   }
-  
+
   .origosGenSearch{
     height: 22vh;
   }
@@ -668,20 +668,20 @@ border: 2px solid black;
   .origosDescont{
     height: 30vh;
   }
-    
+
   }
-  
+
   @media screen and (max-width: 400px) {
     .logo, .logoHotel, .banderas, .domfedo{
     height: 5.5rem;
-    }   
-    
+    }
+
     .bannerGolf{
       height: 30vh;
-      width: 92vw; 
+      width: 92vw;
       margin-left: auto;
       margin-right: auto;
-      
+
     }
     .sidebar{
       display: none;
@@ -699,15 +699,15 @@ border: 2px solid black;
     .btnTarifa{
       display: none;
     }
-    
+
     .btnHotel{
       width: 16rem;
     }
-    
+
     .afterNav{
       margin-top: 0.8rem;
     }
-    
+
      /* #backRates, #start-again{
       margin-top: 1.2rem;
       margin-bottom: 2rem;
@@ -716,8 +716,8 @@ border: 2px solid black;
     .miFirma{
       text-align: center;
     }
-    
-    
+
+
 
   }
   .headerSmall{
@@ -729,7 +729,7 @@ border: 2px solid black;
       display: none;
     }
   }
-  
+
   @media screen and (min-width: 1152px) {
     .cardEdit-container{
       padding-left: 15rem;
@@ -741,7 +741,7 @@ border: 2px solid black;
 
 
 
-  /* The side navigation menu */
+  /* ***************************************************The side navigation menu */
 .sidenav {
   height: 100%; /* 100% Full-height */
   width: 0; /* 0 width - change this with JavaScript */
@@ -803,5 +803,43 @@ border: 2px solid black;
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
 }
+
+  /* ***************************************************END side navigation menu */
+
+    /* ***************************************************OPERA TABS */
+/* Set height of body and the document to 100% to enable "full page tabs" */
+
+/* Style tab links */
+.tablink {
+  background-color: #777;
+  color: white;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 17px;
+  width: 50%;
+}
+
+.tablink:hover {
+  background-color: #dfb502;
+}
+
+/* Style the tab content (and add height:100% for full page content) */
+.tabcontent {
+  color: black;
+  display: none;
+  /* padding: 100px 20px; */
+  height: 100%;
+}
+
+#code {background-color: white;}
+#use {background-color: white;}
+
+
+
+
+    /* ***************************************************OPERA TABS */
 
 

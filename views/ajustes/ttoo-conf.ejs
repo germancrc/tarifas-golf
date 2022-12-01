@@ -102,29 +102,30 @@
       <div id="Tarifas" class="afterNav">   
         <div class="row d-flex justify-content-between">
           <div class="col-5">
-            <a href="#" type="button" class="btn btn-success editShadow" id="btnService">
+            <a href="/ajustes/new-ttoo" type="button" class="btn btn-success editShadow" id="btnService">
               <i class="bi bi-plus-circle"></i> AGREGAR
             </a>
-              <!-- Button trigger modal -->
+             <!-- Button trigger modal -->
           </div>
           <div class="col-7" id="inputBuscar">
             <form role="search">
-              <input class="form-control me-2" type="search" id="myInput" onkeyup="myFunction()"  placeholder="Buscar tarifa TTOO" aria-label="Search">
+              <input class="form-control me-2" type="search" id="myInput" onkeyup="myFunction()"  placeholder="Buscar servicio" aria-label="Search">
             </form>
           </div>
         </div>
     
     
-          <div class="mt-2">
+        <div class="card editShadow mt-4 tabla-desktop">
+          <div class="card-body">
             <div class="table-responsive">
-              <table class="table table-striped" id="myTable">
+              <table class="table" id="myTable">
               <thead>
                 <tr>
                   <th scope="col" class="col">Nombre</th>
                   <th scope="col" class="col">Precio</th>
                   <th scope="col" class="col">Cod. Opera</th>
                   <th scope="col" class="col">Operación</th>
-                  <th scope="col" class="col">Acciones</th>
+                  <th scope="col" class="col-2">Acciones</th>
                 </tr>
               </thead>
               <tbody>
@@ -144,43 +145,6 @@
                 <% }) %>
               </tbody>
             </table>
-          </div>
-          </div>
-          
-          <!-- Modal -->
-          <div class="modal fade" id="ttooModal" tabindex="-1" aria-labelledby="ttooModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h1 class="modal-title fs-5" id="ttooModalLabel">Agregar Tour Operador</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                <form id="rates-form" action="/createTtoo" method="POST">
-                  <div class="mb-3">
-                    <label for="ttoo-title" class="form-label">Nombre TTOO</label>
-                    <input type="text" class="form-control" name="nombre" placeholder="Escriba el nombre del TTOO">
-                  </div>
-                  <div class="mb-3">
-                    <label for="ttoo-price" class="form-label">Precio</label>
-                    <input type="number" step="0.01" class="form-control" name="precio" placeholder="Precio contratado">
-                  </div>  
-                  <div class="mb-3">
-                    <label for="ttoo-opera" class="form-label">Cod. Opera</label>
-                    <input type="number" class="form-control" name="cod_opera" placeholder="Código de Opera">
-                  </div>  
-                  <div class="mb-3">
-                    <label for="ttoo-operacion" class="form-label">Operación</label>
-                    <input type="text" class="form-control" name="operacion" placeholder="Cómo facturarlo:">
-                  </div>  
-                  
-                  <div class="mt-4 d-grid gap-2 d-md-flex justify-content-md-end">
-                    <button type="submit" class="btn btn-primary" id="modalRateName">Agregar tarifa</button>
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
-                  </div>
-                </form>
-              </div>
-            </div>
           </div>
           </div>
       </div>

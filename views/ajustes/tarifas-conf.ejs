@@ -101,9 +101,9 @@
       <div id="Tarifas" class="afterNav">
         <div class="row d-flex justify-content-between">
           <div class="col-5">
-            <button type="button" class="btn btn-success editShadow" id="btnService">
+            <a href="/ajustes/new-tarifas-cg" type="button" class="btn btn-success editShadow" id="btnService">
               <i class="bi bi-plus-circle"></i> AGREGAR
-            </button>
+            </a>
               <!-- Button trigger modal -->
           </div>
           <div class="col-7" id="inputBuscar">
@@ -124,7 +124,7 @@
                   <th scope="col" class="col">Cod. Opera</th>
                   <th scope="col" class="col">Cliente</th>
                   <th scope="col" class="col">Info</th>
-                  <th scope="col" class="col">Acciones</th>
+                  <th scope="col" class="col-2">Acciones</th>
                 </tr>
               </thead>
               <tbody>
@@ -199,57 +199,6 @@
 </div>
 
           
-          <!-- Modal -->
-          <div class="modal fade" id="ratesModal"  data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="ratesModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h1 class="modal-title fs-5" id="ratesModalLabel">Agregar tarifa</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                <form id="rates-form" action="/createRate" method="POST">
-                  <div class="mb-3">
-                    <label for="rateTitle" id="rateTitle" class="form-label">Nombre de la tarifa</label>
-                    <input type="text" class="form-control" name="nombre" placeholder="Escriba el nombre de la tarifa">
-                  </div>
-                  <div class="row">
-                    <div class="col">
-                      <div class="mb-3">
-                        <label for="rate-price" class="form-label">Precio</label>
-                        <input type="number" class="form-control" name="precio" placeholder="Monto de la tarifa">
-                      </div>  
-                    </div>
-                    <div class="col">
-                      <div class="mb-3">
-                        <label for="rate-opera" class="form-label">Código Opera</label>
-                        <input type="number" class="form-control" name="cod_opera" placeholder="Código de Opera">
-                      </div>  
-                    </div>
-                  </div>
-                  
-                  <label for="rate-cliente" class="form-label">Tipo de cliente</label>
-                  <select class="form-select mb-3" name="cliente" aria-label="cliente-selector" required >
-                    <option selected>Elegir:</option>
-                    <option value="Hotel">Cliente Hotel</option>
-                    <option value="Local">Local / Residente</option>
-                    <option value="Extranjero">Extranjero</option>
-                    <option value="Varios">Varios</option>
-                  </select>
-                  <div class="mb-3">
-                    <label for="rate-tips" class="form-label">Tips</label>
-                    <textarea class="form-control" id="tips" name="tips" placeholder="Consejos sobre la tarifa" rows="3"></textarea>
-                  </div>
-                  
-                  <div class="mt-4 d-grid gap-2 d-md-flex justify-content-md-end">
-                    <button type="submit" class="btn btn-primary" id="modalRateName">Agregar tarifa</button>
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-          </div>
       </div>
 
     </div>

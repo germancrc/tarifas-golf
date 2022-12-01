@@ -107,26 +107,37 @@
 
           <div class="card editShadow">
             <div class="card-body">
-                  <form id="services-form" action="/createService" method="POST">
+                  <form id="services-form" class="was-validated" action="/createService" method="POST">
                     <div class="mb-3">
                       <label for="service-title" class="form-label">Nombre del servicio</label>
-                      <input type="text" class="form-control" name="nombre" placeholder="Nombre del servicio">
+                      <input type="text" class="form-control" name="nombre" placeholder="Nombre del servicio" required>
+                      <div class="invalid-feedback">
+                        Por favor escriba el nombre.
+                      </div>
                     </div>
                     <div class="mb-3">
                       <label for="service-price" class="form-label">Precio</label>
-                      <input type="number" class="form-control" name="precio" placeholder="Precio del servicio ">
+                      <input type="number" class="form-control" name="precio" placeholder="Precio del servicio " required>
+                      <div class="invalid-feedback">
+                        Por favor indique el precio.
+                      </div>
                     </div>  
                     <label for="rate-opera" class="form-label">Código OPERA </label>
-                    <select class="form-select mb-3" name="cod_opera" id="codOpera" aria-label="cliente-selector">
-                      <option disabled selected value="000000">Elegir:</option>
+                    <select class="form-select mb-3" name="cod_opera" id="codOpera" aria-label="cliente-selector" required>
+                      <option disabled selected value="">Elegir:</option>
                       <% results.forEach(code => { %>
                         <option value="<%= code.codigo %>"><%= code.codigo %> - <%= code.nombre %></option>
                       <% }) %>
-                    <!-- for loop code end -->
                     </select>
+                    <div class="invalid-feedback">
+                      Elija el código de OPERA.  
+                    </div>
                     <div class="mb-3">
                       <label for="TextareaService" class="form-label">Descripción</label>
-                      <textarea class="form-control" name="descripcion" rows="3" placeholder="Descripción del servicio"></textarea>
+                      <textarea class="form-control" name="descripcion" rows="3" placeholder="Descripción del servicio" required></textarea>
+                      <div class="invalid-feedback">
+                        Por favor escriba una descripcion del servicio.
+                      </div>
                       <!-- <div id="contador" class="mt-1"></div> -->
                     </div>
           

@@ -17,6 +17,8 @@ router.get('/', authController.isAuthenticated, (req, res) => {
    db.query('SELECT * FROM servicios ORDER BY nombre asc', (error, results) => {
       if(results){
          res.render('index', {user:req.user, results:results, alert:false})
+      }else if(!user){
+         res.render('login')
       }else{
          throw error;
       }

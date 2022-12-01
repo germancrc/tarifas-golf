@@ -21,5 +21,65 @@ exports.createCode = async (req, res) =>{
 
 }
 
+//MOSTRAR TODOS LOS CODES
+exports.getCodes = (req, res) =>{
+    try {
+        db.query('SELECT * FROM opera_codes order by uso asc', (error, results) => {
+            if(results){
+               res.render('ajustes/opera-codes', {user:req.user, alert:false, results:results, error: false})
+            }else{
+               throw error;
+            }
+         })
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+// MOSTRAR 1 CODE
+exports.getCode = (req, res) =>{
+    try {
+        const id = req.params.id;
+        db.query('SELECT * FROM opera_codes WHERE id=?', [id], (error, results) => {
+           if(results){
+              res.render('ajustes/edit-codes', {user:req.user, code:results[0], alert:false})
+           }else{
+              throw error;
+           }
+        })
+    } catch (error) {
+        console.log(error.message);
+    }
+}
+
+// EDITAR 1 CODE
+exports.updateCode = (req, res) =>{
+    try {
+        const {id} = req.params;
+        const {codigo,nombre,uso, descripcion}= req.body;
+        const editedCode = {codigo, nombre, uso, descripcion};
+        db.query('UPDATE opera_codes SET ? WHERE id = ?', [editedCode, id]);
+        res.redirect('/ajustes/opera-codes');
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+// BORRAR CODE
+exports.deleteCode = (req, res) =>{
+    try {
+        const {id} = req.params;
+        db.query('DELETE FROM opera_codes WHERE id = ?', [id]);
+        res.redirect('/ajustes/opera-codes');
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+
+
+
+
+
 
 

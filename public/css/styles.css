@@ -172,6 +172,11 @@ border: 2px solid black;
   height: 6.5rem;
 }
 
+.opera-cd{
+  margin-top: -0.6rem;
+  margin-bottom: 0.6rem;
+}
+
 
 /* #noResults {
   display: flex;

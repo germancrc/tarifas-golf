@@ -128,82 +128,13 @@ router.get('/ajustes', authController.isAuthenticated, (req, res) => {
    })
 })
 
-//--------------------------------------SERVICIOS-------------------------------------------------------------------------------------
-// MOSTRAR LISTA SERVICIOS
-router.get('/ajustes/servicios-conf', authController.isAuthenticated, (req, res) => {
-   db.query('SELECT * FROM servicios ORDER BY nombre asc', (error, results) => {
-      if(results){
-         res.render('ajustes/servicios-conf', {user:req.user, results:results, alert:false})
-      }else{
-         throw error;
-      }
-   })
-})
+//--------------------------------------SERVICIOS--------------------------------------------------------------
 
-//RUTA NUEVA TARIFA MINI GOLF
-router.get('/ajustes/new-servicio', authController.isAuthenticated, (req, res) => {
-   db.query('SELECT * FROM opera_codes where uso = "campo golf"', (error, results) => {
-      if(results){
-         res.render('ajustes/new-servicio', {user:req.user, alert:false, results:results, error: false})
-      }else{
-         throw error;
-      }
-   })
-})
-
-
-
-//BUSCAR SERVICIO
-router.get('/ajustes/servicios-conf/buscar', authController.isAuthenticated, (req, res) => {
-   const {nombre}= req.query;
-   console.log(nombre);
-   // db.query('SELECT * FROM servicios where nombre like '%nombre%'', (error, results) => {
-   //     if(results){
-   //        res.render('ajustes/servicios-conf', {user:req.user, results:results, alert:false})
-   //     }else{
-   //        throw error;
-   //     }
-   //  })
-})
-
-
-// MOSTRAR SERVICIO A EDITAR
-router.get('/ajustes/servicios-conf/:id', authController.isAuthenticated, (req, res) => {
-   const id = req.params.id;
-    db.query('SELECT * FROM servicios WHERE id=?', [id], (error, results) => {
-       if(results){
-         res.render('ajustes/edit-servicio', {user:req.user, service:results[0], alert:false})
-       }else{
-          throw error;
-       }
-    })
-})
-
-// EDITAR SERVICIO
-router.post('/ajustes/servicios-conf/:id', authController.isAuthenticated, (req, res) => {
-   try {
-   const {id} = req.params;
-   const {nombre, precio, cod_opera, descripcion }= req.body;
-   const editedServ = {nombre, precio, cod_opera, descripcion };
-   db.query('UPDATE servicios SET ? WHERE id = ?', [editedServ, id]);
-   res.redirect('/ajustes/servicios-conf');
-   } catch (error) {
-       console.log(error);
-   }
-
-})
-
-// ELIMINAR SERVICIO
-router.get('/ajustes/servicios-conf/deleteService/:id', authController.isAuthenticated, (req, res) => {
-   try {
-   const {id} = req.params;
-   db.query('DELETE FROM servicios WHERE id = ?', [id]);
-   res.redirect('/ajustes/servicios-conf');
-   } catch (error) {
-       console.log(error);
-   }
-
-})
+router.get('/ajustes/servicios-conf', authController.isAuthenticated, servicesController.getServices)
+router.get('/ajustes/new-servicio', authController.isAuthenticated, servicesController.getOperaCodes)
+router.get('/ajustes/servicios-conf/:id', authController.isAuthenticated, servicesController.getService)
+router.post('/ajustes/servicios-conf/:id', authController.isAuthenticated, servicesController.updateService)
+router.get('/ajustes/servicios-conf/deleteService/:id', authController.isAuthenticated, servicesController.deleteService)
 
 //------------------------------------------------------------TARIFAS----------------------------------------------------------
 // MOSTRAR LISTA DE TARIFAS
@@ -255,67 +186,12 @@ router.get('/ajustes/tarifas-conf/deleteRate/:id', authController.isAuthenticate
 
 })
 
-//------------------------------------------------------------TARIFAS MINI GOLF----------------------------------------------------------
-// MOSTRAR LISTA DE TARIFAS MINI GOLF
-router.get('/ajustes/tarifas-mg', authController.isAuthenticated, (req, res) => {
-   db.query('SELECT * FROM tarifasmg', (error, results) => {
-      if(results){
-         res.render('ajustes/tarifas-mg', {user:req.user, alert:false, results:results, error: false})
-      }else{
-         throw error;
-      }
-   })
-})
-
-//RUTA NUEVA TARIFA MINI GOLF
-router.get('/ajustes/new-tarifas-mg', authController.isAuthenticated, (req, res) => {
-   db.query('SELECT * FROM opera_codes where uso = "mini golf"', (error, results) => {
-      if(results){
-         res.render('ajustes/new-tarifas-mg', {user:req.user, alert:false, results:results, error: false})
-      }else{
-         throw error;
-      }
-   })
-})
-
-
-// MOSTRAR TARIFA A EDITAR MINI GOLF
-router.get('/ajustes/tarifas-mg/:id', authController.isAuthenticated, (req, res) => {
-   const id = req.params.id;
-   db.query('SELECT * FROM tarifasmg WHERE id=?', [id], (error, results) => {
-      if(results){
-         res.render('ajustes/edit-tarifa-mg', {user:req.user, rate:results[0], alert:false})
-      }else{
-         throw error;
-      }
-   })
-})
-
-// EDITAR TARIFA MINI GOLF
-router.post('/ajustes/tarifas-mg/:id', authController.isAuthenticated, (req, res) => {
-   try {
-   const {id} = req.params;
-   const {nombre, precio, cod_opera, descripcion }= req.body;
-   const editedRate = {nombre, precio, cod_opera, descripcion};
-   db.query('UPDATE tarifasmg SET ? WHERE id = ?', [editedRate, id]);
-   res.redirect('/ajustes/tarifas-mg');
-   } catch (error) {
-       console.log(error);
-   }
-
-})
-
-// ELIMINAR TARIFA MINI GOLF
-router.get('/ajustes/tarifas-mg/deleteRateMg/:id', authController.isAuthenticated, (req, res) => {
-   try {
-   const {id} = req.params;
-   db.query('DELETE FROM tarifasmg WHERE id = ?', [id]);
-   res.redirect('/ajustes/tarifas-mg');
-   } catch (error) {
-       console.log(error);
-   }
-
-})
+//-------------------------------------------TARIFAS MINI GOLF-----------------------------------
+router.get('/ajustes/tarifas-mg', authController.isAuthenticated, ratesMgController.getRatesMg)
+router.get('/ajustes/new-tarifas-mg', authController.isAuthenticated, ratesMgController.getOperaCodes)
+router.get('/ajustes/tarifas-mg/:id', authController.isAuthenticated, ratesMgController.getRateMg)
+router.post('/ajustes/tarifas-mg/:id', authController.isAuthenticated, ratesMgController.updateRateMg)
+router.get('/ajustes/tarifas-mg/deleteRateMg/:id', authController.isAuthenticated, ratesMgController.deleteRateMg)
 
 //-------------------------------------------TOUR OPERADORES-------------------------------------------
 // MOSTRAR LISTA DE TTOO
@@ -367,112 +243,21 @@ router.get('/ajustes/ttoo-conf/deleteTtoo/:id', authController.isAuthenticated, 
 
 })
 //-------------------------------------------CODIGOS OPERA-------------------------------------------
-// MOSTRAR LISTA DE CODIGOS OPERA
-router.get('/ajustes/opera-codes', authController.isAuthenticated, (req, res) => {
-   db.query('SELECT * FROM opera_codes order by uso asc', (error, results) => {
-      if(results){
-         res.render('ajustes/opera-codes', {user:req.user, alert:false, results:results, error: false})
-      }else{
-         throw error;
-      }
-   })
-})
-
-// MOSTRAR CODIGO OPERA A EDITAR
-router.get('/ajustes/opera-codes/:id', authController.isAuthenticated, (req, res) => {
-   const id = req.params.id;
-   db.query('SELECT * FROM opera_codes WHERE id=?', [id], (error, results) => {
-      if(results){
-         res.render('ajustes/edit-codes', {user:req.user, code:results[0], alert:false})
-      }else{
-         throw error;
-      }
-   })
-})
-
-// EDITAR CODIGOS OPERA
-router.post('/ajustes/opera-codes/:id', authController.isAuthenticated, (req, res) => {
-   try {
-   const {id} = req.params;
-   const {codigo,nombre,uso, descripcion}= req.body;
-   const editedCode = {codigo, nombre, uso, descripcion};
-   db.query('UPDATE opera_codes SET ? WHERE id = ?', [editedCode, id]);
-   res.redirect('/ajustes/opera-codes');
-   } catch (error) {
-       console.log(error);
-   }
-
-})
-
-// ELIMINAR CODIGOS OPERA
-router.get('/ajustes/opera-codes/deleteCode/:id', authController.isAuthenticated, (req, res) => {
-   try {
-   const {id} = req.params;
-   db.query('DELETE FROM opera_codes WHERE id = ?', [id]);
-   res.redirect('/ajustes/opera-codes');
-   } catch (error) {
-       console.log(error);
-   }
-
-})
+router.get('/ajustes/opera-codes', authController.isAuthenticated, codesController.getCodes)
+router.get('/ajustes/opera-codes/:id', authController.isAuthenticated, codesController.getCode)
+router.post('/ajustes/opera-codes/:id', authController.isAuthenticated, codesController.updateCode)
+router.get('/ajustes/opera-codes/deleteCode/:id', authController.isAuthenticated, codesController.deleteCode)
 
 
-//-------------------------------------------FON CODIGOS OPERA-------------------------------------------
-
-
-//----------------------------------------------------------USUARIOS------------------------------------------------------------------
-// MOSTRAR LISTA DE USUARIOS
-router.get('/ajustes/usuarios-conf', authController.isAuthenticated, (req, res) => {
-   db.query('SELECT * FROM usuarios', (error, results) => {
-      if(results){
-         res.render('ajustes/usuarios-conf', {logged:req.user, alert:false, results:results, error: false})
-      }else{
-         throw error;
-      }
-   })
-})
-
-// MOSTRAR USUARIO A EDITAR
-router.get('/ajustes/usuarios-conf/:id', authController.isAuthenticated, (req, res) => {
-   const id = req.params.id;
-   db.query('SELECT * FROM usuarios WHERE id=?', [id], (error, results) => {
-      if(results){
-         res.render('ajustes/edit-usuario', {logged:req.user, user:results[0], alert:false})
-      }else{
-         throw error;
-      }
-   })
-})
-
-// EDITAR USUARIO
-router.post('/ajustes/usuarios-conf/:id', authController.isAuthenticated, (req, res) => {
-   try {
-   const {id} = req.params;
-   const {nombre, precio }= req.body;
-   const editedUser = {nombre, precio};
-   db.query('UPDATE usuarios SET ? WHERE id = ?', [editedUser, id]);
-   res.redirect('/ajustes/usuarios-conf');
-   } catch (error) {
-       console.log(error);
-   }
-
-})
-
-// ELIMINAR USUARIO
-router.get('/ajustes/usuarios-conf/deleteUser/:id', authController.isAuthenticated, (req, res) => {
-   try {
-   const {id} = req.params;
-   db.query('DELETE FROM usuarios WHERE id = ?', [id]);
-   res.redirect('/ajustes/usuarios-conf');
-   } catch (error) {
-       console.log(error);
-   }
-
-})
+//-------------------------------------------USUARIOS------------------------------------------------
+router.get('/ajustes/usuarios-conf', authController.isAuthenticated, usuariosController.getUsers);
+router.get('/ajustes/usuarios-conf/:id', authController.isAuthenticated, usuariosController.getUser)
+router.post('/ajustes/usuarios-conf/:id', authController.isAuthenticated, usuariosController.updateUser)
+router.get('/ajustes/usuarios-conf/deleteUser/:id', authController.isAuthenticated, usuariosController.deleteUser)
 
 
 
-// *********************************************************METODOS CONTROLLER********************************************************* 
+// *************************************METODOS CONTROLLER************************************************** 
 
 //router metodos controller login
 router.post('/login', authController.login)
@@ -481,14 +266,20 @@ router.get('/logout', authController.logout)
 
 //router metodos controller usuarios
 router.post('/createUser', usuariosController.createUser)
-//router.post('/updateUser', usuariosController.createUser)
+router.get('/getUsers', usuariosController.getUsers)
+router.get('/getUser', usuariosController.getUsers)
+router.post('/updatetUser', usuariosController.getUsers)
+router.get('/deleteUser', usuariosController.deleteUser)
 
 
 
 //router metodos controller servicios
 router.post('/createService', servicesController.createService)
-// router.put('/updateService/:id', servicesController.updateService)
-// router.delete('/deleteService/:id', servicesController.deleteService)
+router.get('/getOperaCodes', servicesController.getOperaCodes)
+router.get('/getServices', servicesController.getServices)
+router.get('/getService', servicesController.getService)
+router.post('/updateService', servicesController.updateService)
+router.get('/deleteService', servicesController.deleteService)
 
 
 
@@ -499,8 +290,11 @@ router.post('/createRate', ratesController.createRate)
 
 //router metodos controller tarifas MINI GOLF
 router.post('/createRateMg', ratesMgController.createRateMg)
-// router.post('/updateRate/:id', ratesController.updateRate)
-// router.post('/deleteRate/:id', ratesController.deleteRate)
+router.get('/getOperaCodes', ratesMgController.getOperaCodes)
+router.get('/getRatesMg', ratesMgController.getRatesMg)
+router.get('/getRateMg', ratesMgController.getRateMg)
+router.post('/updateRateMg', ratesMgController.updateRateMg)
+router.get('/deleteRateMg', ratesMgController.deleteRateMg)
 
 //router metodos controller tarifas TTOO
 router.post('/createTtoo', ttooController.createTtoo)
@@ -509,8 +303,11 @@ router.post('/createTtoo', ttooController.createTtoo)
 
 //router metodos controller CODIGOS OPERA
 router.post('/createCode', codesController.createCode)
-// router.post('/updateRate/:id', ratesController.updateRate)
-// router.post('/deleteRate/:id', ratesController.deleteRate)
+router.get('/getCodes', codesController.getCodes)
+router.get('/getCode', codesController.getCode)
+router.post('/updateCode', codesController.updateCode)
+router.get('/deleteCode', codesController.deleteCode)
+
 
 
 module.exports = router

@@ -102,34 +102,45 @@
       <div id="Tarifas" class="afterNav">   
         
         <div class="text-center mb-3">
-          <h4>Nueva tarifa Mini Golf</h4>
+          <h4 class="text-uppercase">Nueva tarifa Mini Golf</h4>
         </div>
         <div class="cardEdit-container">
 
           <div class="card editShadow">
             <div class="card-body">
 
-                <form id="rates-form" action="/createRateMg" method="POST">
+                <form id="rates-form" class="was-validated" action="/createRateMg" method="POST">
                   <div class="mb-3">
                     <label for="rate-title" class="form-label">Nombre de la tarifa</label>
-                    <input type="text" class="form-control" name="nombre" placeholder="Escriba el nombre de la tarifa">
+                    <input type="text" class="form-control" name="nombre" placeholder="Escriba el nombre de la tarifa" required>
+                    <div class="invalid-feedback">
+                      Por favor escriba el nombre.
+                    </div>
                   </div>
                   <div class="mb-3">
                     <label for="rate-price" class="form-label">Precio</label>
-                    <input type="number" step="0.01" class="form-control" name="precio" placeholder="Monto de la tarifa">
+                    <input type="number" step="0.01" class="form-control" name="precio" placeholder="Monto de la tarifa" required>
+                    <div class="invalid-feedback">
+                      Por favor indique el precio.
+                    </div>
                   </div>  
                   <label for="rate-opera" class="form-label">Código OPERA </label>
                   <select class="form-select mb-3" name="cod_opera" aria-label="cliente-selector" required >
-                    <option selected value="000000">Elegir:</option>
+                    <option disabled selected value="">Elegir:</option>
                     <% results.forEach(code => { %>
                       <option value="<%= code.codigo %>"><%= code.codigo %> - <%= code.nombre %></option>
                     <% }) %>
                   <!-- for loop code end -->
                   </select>
+                  <div class="invalid-feedback opera-cd">
+                    Elija el código de OPERA.  
+                  </div>
                   <div class="mb-3">
                     <label for="TextareaService" class="form-label">Descripción</label>
                     <textarea class="form-control" name="descripcion" rows="3" placeholder="Descripción de la tarifa" required></textarea>
-                    <!-- <div id="contador" class="mt-1"></div> -->
+                    <div class="invalid-feedback">
+                      Por favor escriba una descripcion de la tarifa.
+                    </div>
                   </div>
                   
                   <div class="mt-4 d-grid gap-2 d-md-flex justify-content-md-start">

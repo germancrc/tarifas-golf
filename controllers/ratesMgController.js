@@ -18,8 +18,95 @@ exports.createRateMg = async (req, res) =>{
    } catch (error) {
        console.log(error);
    }
-
 }
+
+//MOSTRAR CODIGOS OPERA NUEVA TARIFA-MG
+exports.getOperaCodes = (req, res) =>{
+    try {
+        db.query('SELECT * FROM opera_codes where uso = "mini golf"', (error, results) => {
+            if(results){
+               res.render('ajustes/new-tarifas-mg', {user:req.user, alert:false, results:results, error: false})
+            }else{
+               throw error;
+            }
+         })
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+//MOSTRAR TODOS TARIFA-MG
+exports.getRatesMg = (req, res) =>{
+    try {
+        db.query('SELECT * FROM tarifasmg', (error, results) => {
+            if(results){
+               res.render('ajustes/tarifas-mg', {user:req.user, alert:false, results:results, error: false})
+            }else{
+               throw error;
+            }
+         })
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+// MOSTRAR 1 TARIFA-MG
+exports.getRateMg = (req, res) =>{
+    try {
+        const id = req.params.id;
+        db.query('SELECT * FROM tarifasmg WHERE id=?', [id], (error, results) => {
+           if(results){
+              res.render('ajustes/edit-tarifa-mg', {user:req.user, rate:results[0], alert:false})
+           }else{
+              throw error;
+           }
+        })
+    } catch (error) {
+        console.log(error.message);
+    }
+}
+
+// EDITAR 1 TARIFA-MG
+exports.updateRateMg = (req, res) =>{
+    try {
+        const {id} = req.params;
+        const {nombre, precio, cod_opera, descripcion }= req.body;
+        const editedRate = {nombre, precio, cod_opera, descripcion};
+        db.query('UPDATE tarifasmg SET ? WHERE id = ?', [editedRate, id]);
+        res.redirect('/ajustes/tarifas-mg');
+        } catch (error) {
+            console.log(error);
+        }
+}
+
+// BORRAR TARIFA-MG
+exports.deleteRateMg = (req, res) =>{
+    try {
+        const {id} = req.params;
+        db.query('DELETE FROM tarifasmg WHERE id = ?', [id]);
+        res.redirect('/ajustes/tarifas-mg');
+        } catch (error) {
+            console.log(error);
+        }
+}
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
 
 
 

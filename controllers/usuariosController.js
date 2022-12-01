@@ -2,9 +2,7 @@ const bcrypt = require('bcryptjs')
 const db = require('../database/db')
 const {promisify} = require('util')
 
-
-//metodo registro
-
+// CREAR USER
 exports.createUser = async (req, res) =>{
     try {
         const nombre = req.body.nombre
@@ -24,24 +22,60 @@ exports.createUser = async (req, res) =>{
         }
 
 }
-
+//MOSTRAR TODOS LOS USERS
 exports.getUsers = (req, res) =>{
-    db.query('SELECT * FROM usuarios', (error, results) => {
-        if(results){
-            if(req.user.rol === "Admin"){
-               res.render('usuarios-conf', {user:req.user, alert:false, resultsUsers:results})
-              // console.log(resultsUsers);
+    try {
+        db.query('SELECT * FROM usuarios', (error, results) => {
+            if(results){
+               res.render('ajustes/usuarios-conf', {logged:req.user, alert:false, results:results, error: false})
             }else{
-               res.render('index', {user:req.user, alert:false})
-              // console.log(resultsUsers);
+               throw error;
             }
-        }else{
-            throw error;
+         })
+        } catch (error) {
+            console.log(error);
         }
-     })
-
 }
 
+// MOSTRAR 1 USER
+exports.getUser = (req, res) =>{
+    try {
+        const id = req.params.id;
+        db.query('SELECT * FROM usuarios WHERE id=?', [id], (error, results) => {
+           if(results){
+              res.render('ajustes/edit-usuario', {logged:req.user, user:results[0], alert:false})
+           }else{
+              throw error;
+           }
+        })
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+// EDITAR 1 USER PENDIENTE
+exports.updateUser = (req, res) =>{
+    // try {
+    //     const {id} = req.params;
+    //     const {nombre, precio }= req.body;
+    //     const editedUser = {nombre, precio};
+    //     db.query('UPDATE usuarios SET ? WHERE id = ?', [editedUser, id]);
+    //     res.redirect('/ajustes/usuarios-conf');
+    // } catch (error) {
+    //     console.log(error);
+    // }
+}
+
+// BORRAR USER
+exports.deleteUser = (req, res) =>{
+    try {
+        const {id} = req.params;
+        db.query('DELETE FROM usuarios WHERE id = ?', [id]);
+        res.redirect('/ajustes/usuarios-conf');
+    } catch (error) {
+        console.log(error);
+    }
+}
 
 
 

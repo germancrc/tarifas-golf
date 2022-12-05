@@ -59,7 +59,7 @@ router.get('/ezlinks', authController.isAuthenticated, (req, res) => {
 })
 
 router.get('/opera', authController.isAuthenticated, (req, res) => {
-   db.query('SELECT * FROM opera_codes WHERE nombre != "no aplica" order by uso, codigo asc', (error, results) => {
+   db.query('SELECT * FROM opera_codes WHERE nombre != "NO SE POSTEA EN OPERA" order by uso, codigo asc', (error, results) => {
       if(results){
          res.render('opera', {user:req.user, alert:false, results:results, error: false})
       }else{

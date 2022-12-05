@@ -59,7 +59,7 @@ router.get('/ezlinks', authController.isAuthenticated, (req, res) => {
 })
 
 router.get('/opera', authController.isAuthenticated, (req, res) => {
-   db.query('SELECT * FROM opera_codes order by uso asc', (error, results) => {
+   db.query('SELECT * FROM opera_codes WHERE nombre != "no aplica" order by uso, codigo asc', (error, results) => {
       if(results){
          res.render('opera', {user:req.user, alert:false, results:results, error: false})
       }else{
@@ -164,6 +164,7 @@ router.get('/ajustes/ttoo-conf/deleteTtoo/:id', authController.isAuthenticated, 
 
 //---------------------------------------CODIGOS OPERA-------------------------------------------
 router.get('/ajustes/opera-codes', authController.isAuthenticated, codesController.getCodes)
+router.get('/ajustes/new-opera-codes', authController.isAuthenticated, codesController.getOperaCodes)
 router.get('/ajustes/opera-codes/:id', authController.isAuthenticated, codesController.getCode)
 router.post('/ajustes/opera-codes/:id', authController.isAuthenticated, codesController.updateCode)
 router.get('/ajustes/opera-codes/deleteCode/:id', authController.isAuthenticated, codesController.deleteCode)

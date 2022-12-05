@@ -25,7 +25,7 @@ exports.createRate = async (req, res) =>{
 //MOSTRAR CODIGOS OPERA NUEVA TARIFA CG
 exports.getOperaCodes = (req, res) =>{
     try {
-        db.query('SELECT * FROM opera_codes where uso = "campo golf"', (error, results) => {
+        db.query('SELECT * FROM opera_codes where uso = "campo golf" order by codigo asc', (error, results) => {
             if(results){
                res.render('ajustes/new-tarifas-cg', {user:req.user, alert:false, results:results, error: false})
             }else{

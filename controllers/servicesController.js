@@ -1,6 +1,4 @@
 const db = require('../database/db')
-const {promisify} = require('util')
-
 
 exports.createService = async (req, res) =>{
    try {
@@ -22,7 +20,7 @@ exports.createService = async (req, res) =>{
 //MOSTRAR CODIGOS OPERA NUEVO SERVICIO
 exports.getOperaCodes = (req, res) =>{
     try {
-        db.query('SELECT * FROM opera_codes where uso = "campo golf"', (error, results) => {
+        db.query('SELECT * FROM opera_codes where uso = "campo golf" order by codigo asc', (error, results) => {
             if(results){
                res.render('ajustes/new-servicio', {user:req.user, alert:false, results:results, error: false})
             }else{
@@ -53,14 +51,20 @@ exports.getServices = (req, res) =>{
 
 // MOSTRAR 1 SERVICIO
 exports.getService = (req, res) =>{
+    let resultsServices = [];
+    let resultsCodes = [];
     try {
-        const id = req.params.id;
-        db.query('SELECT * FROM servicios WHERE id=?', [id], (error, results) => {
-           if(results){
-             res.render('ajustes/edit-servicio', {user:req.user, service:results[0], alert:false})
-           }else{
-              throw error;
-           }
+        const {id} = req.params;
+        db.query('SELECT * FROM servicios WHERE id=?', [id], (error, resultsServices) => {
+            if(error) throw error;
+            resultsServices.push(resultsServices);
+            
+            db.query('SELECT * FROM opera_codes where uso = "campo golf" order by codigo asc', (error, resultsCodes) => {
+            if(error) throw error;
+            resultsCodes.push(resultsCodes);
+            res.render('ajustes/edit-servicio', {user:req.user, resultsServices:resultsServices[0], resultsCodes:resultsCodes, alert:false})
+            })
+
         })
     } catch (error) {
         console.log(error.message);
@@ -85,10 +89,10 @@ exports.deleteService = (req, res) =>{
     try {
         const {id} = req.params;
         db.query('DELETE FROM servicios WHERE id = ?', [id]);
-        res.render('/ajustes/servicios-conf');
-        } catch (error) {
-            console.log(error);
-        }
+        res.redirect('/ajustes/servicios-conf');
+    } catch (error) {
+        console.log(error.message);
+    }
 }
 
 

@@ -21,10 +21,19 @@ exports.createCode = async (req, res) =>{
 
 }
 
+//RENDER NEW OPERA CODE PAGE
+exports.getOperaCodes = (req, res) =>{
+    try {
+        res.render('ajustes/new-opera-codes', {user:req.user, alert:false, error: false})
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 //MOSTRAR TODOS LOS CODES
 exports.getCodes = (req, res) =>{
     try {
-        db.query('SELECT * FROM opera_codes order by uso asc', (error, results) => {
+        db.query('SELECT * FROM opera_codes order by uso, codigo asc', (error, results) => {
             if(results){
                res.render('ajustes/opera-codes', {user:req.user, alert:false, results:results, error: false})
             }else{

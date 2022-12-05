@@ -4,7 +4,9 @@ const db = require('../database/db')
 const {promisify} = require('util')
 
 exports.isAuthenticated = async (req, res, next) => {
-    if(req.cookies.jwt){
+    if(!req.cookies.jwt){
+        res.redirect('/login')
+    }else{
         try {
             const decodificada = await promisify(jwt.verify)(req.cookies.jwt, process.env.JWT_SECRETO)
             db.query('SELECT*FROM usuarios WHERE id = ?', [decodificada.id], (error, results) => {
@@ -16,8 +18,6 @@ exports.isAuthenticated = async (req, res, next) => {
             console.log(error.message);
             return next()
         }
-    }else{
-        res.redirect('/login')
     }
 }
 

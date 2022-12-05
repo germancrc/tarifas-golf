@@ -102,7 +102,7 @@
       <div id="Codigos" class="afterNav">
         <div class="row d-flex justify-content-between">
           <div class="col-5">
-            <a href="#" type="button" class="btn btn-success editShadow" id="btnService">
+            <a href="/ajustes/new-opera-codes" type="button" class="btn btn-success editShadow" id="btnService">
               <i class="bi bi-plus-circle"></i> AGREGAR
             </a>
               <!-- Button trigger modal -->
@@ -198,50 +198,6 @@
   <img src="/img/noResults.PNG" alt="" id="noResults">
 *************************SIN RESULTADOS******************** -->
 
-
-          
-          <!-- Modal -->
-          <div class="modal fade" id="codeModal"  data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="codeModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h1 class="modal-title fs-5" id="codeModalLabel">Agregar Código OPERA</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                <form id="code-form" action="/createCode" method="POST">
-                  <div class="mb-3">
-                    <label for="codeTitle" id="codeTitle" class="form-label">Código</label>
-                    <input type="text" class="form-control" name="codigo" placeholder="Escriba el Código">
-                  </div>
-                  <div class="mb-3">
-                    <label for="codeName" id="codeName" class="form-label">Nombre</label>
-                    <input type="text" class="form-control" name="nombre" placeholder="Escriba el Nombre">
-                  </div> 
-                  <div class="mb-3">
-                    <label for="code-use" class="form-label">Dónde se usa?</label>
-                    <select class="form-select mb-3" name="uso" aria-label="uso-selector" required >
-                      <option selected>Elegir:</option>
-                      <option value="NO APLICA">NO APLICA</option>
-                      <option value="Campo Golf">Campo Golf</option>
-                      <option value="Mini Golf">Mini Golf</option>
-                      <option value="Pagos">Pagos</option>
-                    </select>
-                  </div>
-                  <div class="mb-3">
-                    <label for="code-desc" class="form-label">Descripción</label>
-                    <textarea class="form-control" id="descripcion" name="descripcion" placeholder="Descripción" rows="3"></textarea>
-                  </div>
-                  
-                  <div class="mt-4 d-grid gap-2 d-md-flex justify-content-md-end">
-                    <button type="submit" class="btn btn-primary" id="modalCodeName">Agregar Código</button>
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-          </div>
       </div> 
 
     </div>

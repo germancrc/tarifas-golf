@@ -180,7 +180,7 @@
                        <h6><%= rate.tips %></h6>
                        <hr>
                        <div class="d-flex justify-content-between">
-                         <a href="/ajustes/tarifas-conf/<%= rate.id %>" data-bs-toggle="#" data-bs-target="#serviceUpdate" class="btn btn-sm btn-warning btnEdit"><i class="bi bi-pencil"></i></a>
+                         <a href="/ajustes/tarifas-conf/<%= rate.id %>" class="btn btn-sm btn-warning editShadow"><i class="bi bi-pencil"></i></a>
                 
                          <a href="/ajustes/tarifas-conf/deleteRate/<%= rate.id %>" class="btn btn-sm btn-danger btnDelete" onclick="return confirm('Seguro que quiere borrar la tarifa <%= rate.nombre %>?')"><i class="bi bi-trash"></i></a>
                        </div>

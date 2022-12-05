@@ -101,13 +101,13 @@
       
       <div id="Servicios" class="afterNav">
         
-              <div class="text-center">
-                <h4>Editar Códigos Opera</h4>
-              </div>
-              <div class="cardEdit-container">
+        <div class="text-center mb-3">
+          <h4 class="text-uppercase">Editar Códigos Opera</h4>
+        </div>
+        <div class="cardEdit-container">
 
-                <div class="card">
-                  <div class="card-body">
+          <div class="card editShadow">
+            <div class="card-body">
                   <% if (code) { %>
                   
                     <form id="services-form" action="/ajustes/opera-codes/<%= code.id %>" method="POST">
@@ -142,11 +142,11 @@
                         <textarea  class="form-control" name="descripcion" rows="3"><%=code.descripcion %></textarea>
                       </div>
               
-                    <div class="mt-4 d-grid gap-2 d-md-flex justify-content-md-start">
-                      <button type="submit" class="btn btn-warning btnEdit" id="modalServName">Editar Código</button>
-                      <a href="/ajustes/opera-codes" class="btn btn-danger">Cancelar</a>
-                    </div>
-                  </form>
+                      <div class="mt-4 d-grid gap-2 d-md-flex justify-content-md-start">
+                        <button type="submit" class="btn btn-warning btnEdit editShadow" id="modalServName"> EDITAR</button>
+                        <a href="/ajustes/opera-codes" class="btn btn-danger btnCancel editShadow"> CANCELAR</a>
+                      </div>
+                    </form>
                   <% } %>
                 </div>  
                   </div>

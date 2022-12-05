@@ -23,7 +23,7 @@ exports.createRateMg = async (req, res) =>{
 //MOSTRAR CODIGOS OPERA NUEVA TARIFA-MG
 exports.getOperaCodes = (req, res) =>{
     try {
-        db.query('SELECT * FROM opera_codes where uso = "mini golf"', (error, results) => {
+        db.query('SELECT * FROM opera_codes where uso = "mini golf" order by codigo asc', (error, results) => {
             if(results){
                res.render('ajustes/new-tarifas-mg', {user:req.user, alert:false, results:results, error: false})
             }else{

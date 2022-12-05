@@ -108,24 +108,30 @@
 
           <div class="card editShadow">
             <div class="card-body">
-                  <% if (service) { %>
+                  <% if (resultsServices) { %>
                   
-                    <form id="services-form" action="/ajustes/servicios-conf/<%= service.id %>" method="POST">
+                    <form id="services-form" action="/ajustes/servicios-conf/<%= resultsServices.id %>" method="POST">
                       <div class="mb-3">
                         <label for="service-title" class="form-label">Nombre del servicio</label>
-                        <input type="text" class="form-control" name="nombre" value="<%= service.nombre %>" placeholder="Nombre del servicio" required>
+                        <input type="text" class="form-control" name="nombre" value="<%= resultsServices.nombre %>" placeholder="Nombre del servicio" required>
                       </div>
                       <div class="mb-3">
                         <label for="serivce-price" class="form-label">Precio</label>
-                        <input type="number" class="form-control" name="precio" value="<%= service.precio %>" placeholder="Precio del servicio " required>
+                        <input type="number" class="form-control" name="precio" value="<%= resultsServices.precio %>" placeholder="Precio del servicio " required>
                       </div>  
                       <div class="mb-3">
-                        <label for="service-opera" class="form-label">Código Opera</label>
-                        <input type="number" class="form-control" name="cod_opera"  value="<%=service.cod_opera %>" placeholder="Código de Opera" required>
-                      </div>
+                      <label for="rate-opera" class="form-label">Código OPERA </label>
+                      <select class="form-select mb-3" name="cod_opera" id="codOpera" aria-label="cliente-selector" required>
+                        <option disabled selected value=""><%= resultsServices.cod_opera %></option>
+                        <% if (resultsCodes) { %>
+                          <% resultsCodes.forEach(code => { %>
+                            <option value="<%= code.codigo %>"><%= code.codigo %> - <%= code.nombre %></option>
+                          <% }) %>
+                        </select>
+                        <% } %>
                       <div class="mb-3">
                         <label for="serivce-description" class="form-label">Descripción</label>
-                        <textarea  class="form-control" name="descripcion" rows="3"><%=service.descripcion %></textarea>
+                        <textarea  class="form-control" name="descripcion" rows="3"><%=resultsServices.descripcion %></textarea>
                         <!-- <div id="contador" class="mt-1"></div> -->
                       </div>
                       

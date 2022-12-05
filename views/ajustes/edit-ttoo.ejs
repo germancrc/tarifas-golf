@@ -101,13 +101,13 @@
       
       <div id="Servicios" class="afterNav">
         
-              <div class="text-center">
-                <h4>Editar tarifa TTOO</h4>
-              </div>
-              <div class="cardEdit-container">
+        <div class="text-center mb-3">
+          <h4 class="text-uppercase">Editar TTOO</h4>
+        </div>
+        <div class="cardEdit-container">
 
-                <div class="card">
-                  <div class="card-body">
+          <div class="card editShadow">
+            <div class="card-body">
                   <% if (ttoo) { %>
                   
                     <form id="services-form" action="/ajustes/ttoo-conf/<%= ttoo.id %>" method="POST">
@@ -129,8 +129,8 @@
                       </div>    
                       
                       <div class="mt-4 d-grid gap-2 d-md-flex justify-content-md-start">
-                        <button type="submit" class="btn btn-warning btnEdit" id="modalServName">Editar tarifa</button>
-                        <a href="/ajustes/ttoo-conf" class="btn btn-danger">Cancelar</a>
+                        <button type="submit" class="btn btn-warning btnEdit editShadow" id="modalServName">EDITAR</button>
+                        <a href="/ajustes/ttoo-conf" class="btn btn-danger btnCancel editShadow">CANCELAR</a>
                       </div>
                     </form>
                     <% } %>

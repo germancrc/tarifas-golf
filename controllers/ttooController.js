@@ -12,7 +12,6 @@ exports.createTtoo = async (req, res) =>{
        db.query('INSERT INTO ttooRates SET ?', {nombre:nombre, precio:precio, cod_opera:cod_opera, operacion:operacion}, (error,  results) => {
            if(error){console.log(error)}
            res.redirect('/ajustes/ttoo-conf')
-           console.log(results);
        })
        
    } catch (error) {
@@ -24,7 +23,7 @@ exports.createTtoo = async (req, res) =>{
 //MOSTRAR CODIGOS OPERA NUEVO TTOO
 exports.getOperaCodes = (req, res) =>{
     try {
-        db.query('SELECT * FROM opera_codes WHERE descripcion LIKE "%agencia%"', (error, results) => {
+        db.query('SELECT * FROM opera_codes WHERE nombre LIKE "%agencia%"', (error, results) => {
             if(results){
                res.render('ajustes/new-ttoo', {user:req.user, alert:false, results:results, error: false})
             }else{

@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-
+const multer = require('multer')
 const db = require('../database/db')
 
 const authController = require('../controllers/authController')
@@ -10,6 +10,10 @@ const ratesMgController = require('../controllers/ratesMgController')
 const servicesController = require('../controllers/servicesController')
 const ttooController = require('../controllers/ttooController')
 const usuariosController = require('../controllers/usuariosController')
+const guiasController = require('../controllers/guiasController')
+
+//multer
+const upload = multer({storage:multer.memoryStorage()});
 
 
 // VERIFICAR SI ES ADMIN O USER
@@ -52,6 +56,10 @@ router.get('/eba', authController.isAuthenticated, (req, res) => {
 
 router.get('/ezlinks-pos', authController.isAuthenticated, (req, res) => {
    res.render('ezlinks-pos', {user:req.user, alert:false})
+})
+
+router.get('/guias', authController.isAuthenticated, (req, res) => {
+   res.render('guias', {user:req.user, alert:false})
 })
 
 router.get('/ezlinks', authController.isAuthenticated, (req, res) => {
@@ -169,6 +177,8 @@ router.get('/ajustes/opera-codes/:id', authController.isAuthenticated, codesCont
 router.post('/ajustes/opera-codes/:id', authController.isAuthenticated, codesController.updateCode)
 router.get('/ajustes/opera-codes/deleteCode/:id', authController.isAuthenticated, codesController.deleteCode)
 
+//---------------------------------------GUIAS-------------------------------------------
+router.get('/ajustes/guias-conf', authController.isAuthenticated, guiasController.getGuides)
 
 //---------------------------------------USUARIOS------------------------------------------------
 router.get('/ajustes/usuarios-conf', authController.isAuthenticated, usuariosController.getUsers);
@@ -225,6 +235,12 @@ router.get('/deleteUser', usuariosController.deleteUser)
 router.post('/createTtoo', ttooController.createTtoo)
 // router.post('/updateRate/:id', ratesController.updateRate)
 // router.post('/deleteRate/:id', ratesController.deleteRate)
+
+//router metodos controller Guias
+router.post('/uploadGuide', upload.single('archivo'), guiasController.uploadGuide)
+router.get('/getGuides', guiasController.getGuides)
+
+
 
 
 

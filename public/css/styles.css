@@ -222,7 +222,7 @@ border: 2px solid black;
     color: black;
 }
 
-.btnEdit, .btnDelete, .btnCancel, .btnAdd{
+.btnEdit, .btnDelete, .btnCancel, .btnAdd, .btnInfo{
   padding: 0.4rem 2rem 0.4rem 2rem;
 }
 
@@ -416,6 +416,14 @@ border: 2px solid black;
     color: white;
   }
 
+  .opera-desktop{
+    display: block;
+  }
+
+  .opera-mobile{
+    display: none;
+  }
+
   /* .form-control{
     box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.75);
 -webkit-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.75);
@@ -477,6 +485,14 @@ border: 2px solid black;
   /* ------------------------------------MEDIA QUERIES------------------------------------------------ */
 
   @media screen and (max-width: 700px) {
+    .opera-desktop{
+      display: none;
+    }
+  
+    .opera-mobile{
+      display: block;
+    }
+
     .btnEdit, .btnDelete{
       box-shadow: 0px 3px 5px -3px rgba(0,0,0,0.75);
       -webkit-box-shadow: 0px 3px 5px -3px rgba(0,0,0,0.75);
@@ -741,7 +757,13 @@ border: 2px solid black;
       padding-right: 15rem;
     }
   }
-
+  
+  @media screen and (min-width: 1152px) {
+    .cardEdit-container-guia{
+      padding-left: 8rem;
+      padding-right: 8rem;
+    }
+  }
 
 
 

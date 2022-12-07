@@ -4,11 +4,14 @@ const cookieParser = require('cookie-parser')
 const cors = require('cors')
 
 
+
 const app = express()
 let port = process.env.PORT || 3000
 
 //cors
 app.use(cors())
+
+
 
 
 //motor plantillas

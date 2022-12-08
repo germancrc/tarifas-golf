@@ -99,12 +99,13 @@
 
     <div class="content">
       <div id="Guias" class="afterNav">
+        <div class="card editShadow mb-3">
+          <div class="card-body">
         <div class="text-center mb-3">
           <h4 class="text-uppercase"> Subir Guías</h4>
+          <hr>
         </div>
 
-          <div class="card editShadow">
-            <div class="card-body">
               <form id="guides-form" class="was-validated" action="/uploadGuide" enctype="multipart/form-data" method="POST">
                 <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2">
                   <div class="col">
@@ -112,14 +113,14 @@
                       <!-- <label for="guide-title" class="form-label">Aplicación</label> -->
                       <input type="text" class="form-control" name="aplicacion" placeholder="Nombre de la aplicación" required>
                       <div class="invalid-feedback">
-                        Por favor escriba el nombre de la aplicación que aborda a guía.
+                        Por favor escriba el nombre de la aplicación.
                       </div>
                       </div>
                   </div>
                   <div class="col">
                     <div class="input-group">
                       <div class="input-group">
-                        <input type="file" class="form-control" id="fileGuide" name="archivo"  aria-describedby="inputGroupFileAddon04" aria-label="Upload" required>
+                        <input type="file" class="form-control" id="fileGuide" name="archivo"  accept=".pdf"aria-describedby="inputGroupFileAddon04" aria-label="Upload" required>
                         <button class="btn btn-success" type="submit" id="inputGroupFileAddon04">SUBIR</button>
                         <div class="invalid-feedback">
                           Sólo archivos .PDF permitidos.
@@ -129,19 +130,31 @@
                   </div>
                 </div>
               </form>
-              <hr>
-              <div class="text-center mb-2">
+            </div>
+          </div>
+
+          <div class="card editShadow">
+            <div class="card-body">
+              <div class="text-center">
                 <h4 class="text-uppercase"> Guías actualizadas</h4>
+                <hr>
               </div>
+
               <table class="table tabla-desktop" id="myTable">
-                <thead>
-                  <tr>
-                    <th scope="col" class="col">Aplicación</th>
-                    <th scope="col" class="col">Archivo</th>
-                    <th scope="col" class="col">Actualizado</th>
-                    <th scope="col" class="col-2">Acciones</th>
-                  </tr>
-                </thead>
+                <% if (results.length == 0) { %>
+                 <div class="text-center ">
+                  <img class="noResults" src="/img/noResults.png" alt="">
+                 </div>
+                <% }else { %>
+                  <thead>
+                    <tr>
+                      <th scope="col" class="col">Aplicación</th>
+                      <th scope="col" class="col">Archivo</th>
+                      <th scope="col" class="col">Actualizado</th>
+                      <th scope="col" class="col-2">Acciones</th>
+                    </tr>
+                  </thead>
+                  <% } %>
                 <tbody>
                   <% results.forEach(guia => { %>
                     <tr>
@@ -149,14 +162,18 @@
                       <td><%= guia.archivo %></td>
                       <td><%= guia.actualizado %></td>
                       <td>
-                        <a href="#" data-bs-toggle="#" data-bs-target="#rateUpdate" class="btn btn-sm btn-warning btnEdit"><i class="bi bi-pencil"></i></a>
-                        
-                        <a href="#" class="btn btn-sm btn-danger btnDelete" onclick="return confirm('Seguro que quiere borrar la Guia ?')"><i class="bi bi-trash"></i></a>
+                        <div class="d-flex justify-content-between">
+                          <a href="#" class="btn btn-sm btn-warning btnEdit"><i class="bi bi-pencil"></i></a>
+                          
+                          <a href="/ajustes/guias-conf/deleteGuide/<%= guia.id %>" class="btn btn-sm btn-danger btnDelete" onclick="return confirm('Seguro que quiere borrar la Guia de <%= guia.aplicacion %> ?')"><i class="bi bi-trash"></i></a>
+                        </div>
                       </td>
                     </tr>
                   <% }) %>
                 </tbody>
               </table>
+            </div>   
+          </div>
 
               <!-- *****************************MOBILE CARDS EDIT****************************** -->
             <div class="container tabla-mobile" id="tabla-mobile">
@@ -197,10 +214,8 @@
                   </div>
               </div>
             </div>
-          </div>
-        </div>
-        </div>   
 
+      </div>
       </div>
 
     <footer>

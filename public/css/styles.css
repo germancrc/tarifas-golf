@@ -178,10 +178,12 @@ border: 2px solid black;
 }
 
 
-/* #noResults {
-  display: flex;
-  justify-content: center;
-} */
+.noResults {
+  height: 30vh;
+  border-radius: 10px 10px 25px 25px;
+  -webkit-border-radius: 10px 10px 25px 25px;
+  -moz-border-radius: 10px 10px 25px 25px;
+}
 
 
 /* .precio-tur{
@@ -194,11 +196,11 @@ border: 2px solid black;
   -moz-box-shadow: 9px 10px 20px -12px rgba(0,0,0,0.64);
 }
 
-.editShadow{
+/* .editShadow{
   box-shadow: 0px 5px 13px -6px rgba(0,0,0,0.75);
 -webkit-box-shadow: 0px 5px 13px -6px rgba(0,0,0,0.75);
 -moz-box-shadow: 0px 5px 13px -6px rgba(0,0,0,0.75);
-}
+} */
 
 .cardBottom{
   background-color: #514d87;

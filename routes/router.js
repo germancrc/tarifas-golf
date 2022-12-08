@@ -59,7 +59,17 @@ router.get('/ezlinks-pos', authController.isAuthenticated, (req, res) => {
 })
 
 router.get('/guias', authController.isAuthenticated, (req, res) => {
-   res.render('guias', {user:req.user, alert:false})
+   try {
+      db.query('select aplicacion, archivo, CONVERT_TZ(actualizado,"+00:00","-04:00") as actualizado, fileData from guias_hrgolf ORDER BY aplicacion asc', (error, results) => {
+          if(results){
+             res.render('guias', {user:req.user, alert:false, results:results, error: false})
+          }else{
+             throw error;
+          }
+       })
+  } catch (error) {
+      console.log(error);
+  }
 })
 
 router.get('/ezlinks', authController.isAuthenticated, (req, res) => {
@@ -179,6 +189,7 @@ router.get('/ajustes/opera-codes/deleteCode/:id', authController.isAuthenticated
 
 //---------------------------------------GUIAS-------------------------------------------
 router.get('/ajustes/guias-conf', authController.isAuthenticated, guiasController.getGuides)
+router.get('/ajustes/guias-conf/deleteGuide/:id', authController.isAuthenticated, guiasController.deleteGuide)
 
 //---------------------------------------USUARIOS------------------------------------------------
 router.get('/ajustes/usuarios-conf', authController.isAuthenticated, usuariosController.getUsers);
@@ -239,6 +250,7 @@ router.post('/createTtoo', ttooController.createTtoo)
 //router metodos controller Guias
 router.post('/uploadGuide', upload.single('archivo'), guiasController.uploadGuide)
 router.get('/getGuides', guiasController.getGuides)
+router.get('/deleteGuide', guiasController.deleteGuide)
 
 
 

@@ -162,6 +162,7 @@ router.get('/ajustes/guias-conf/deleteGuide/:id', authController.isAuthenticated
 
 //---------------------------------------USUARIOS------------------------------------------------
 router.get('/ajustes/usuarios-conf', authController.isAuthenticated, usuariosController.getUsers);
+router.get('/ajustes/new-usuario', authController.isAuthenticated, usuariosController.newUser);
 router.get('/ajustes/usuarios-conf/:id', authController.isAuthenticated, usuariosController.getUser)
 router.post('/ajustes/usuarios-conf/:id', authController.isAuthenticated, usuariosController.updateUser)
 router.get('/ajustes/usuarios-conf/deleteUser/:id', authController.isAuthenticated, usuariosController.deleteUser)

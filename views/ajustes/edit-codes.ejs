@@ -17,13 +17,13 @@
           <img src="/img/golflogo.png" class="logo" alt="">
 
       </div>
-      <a class="active" href="/index">Inicio <i class="bi bi-chevron-right flecha"></i></a>
+      <a href="/index">Inicio <i class="bi bi-chevron-right flecha"></i></a>
       <a href="/tarifas">Tarifas <i class="bi bi-chevron-right flecha"></i></a>
       <a href="/guias">Guías <i class="bi bi-chevron-right flecha"></i></a>
       <a href="/opera">CÓDIGOS OPERA <i class="bi bi-chevron-right flecha"></i></a>
       <a href="/minigolf">MINI GOLF <i class="bi bi-chevron-right flecha"></i></a>
       <% if(user.rol === "Admin"){ %>
-        <a class="d-block"href="/ajustes">AJUSTES <i class="bi bi-chevron-right flecha"></i></a>
+        <a class="d-block active"href="/ajustes">AJUSTES <i class="bi bi-chevron-right flecha"></i></a>
         <% } else { %>
           <a class="d-none"href="/ajustes">AJUSTES <i class="bi bi-chevron-right flecha"></i></a>
         <% } %>
@@ -77,13 +77,13 @@
               </ul>
             </div>
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <a class="active" href="/index">Inicio</a>
+            <a class="nav-link" href="/index">Inicio</a>
             <a class="nav-link" href="/tarifas">Tarifas</a>
             <a class="nav-link" href="#">GUIAS</a>
             <a class="nav-link" href="/opera">CÓDIGOS OPERA</a>
             <a class="nav-link" href="/minigolf">MINI GOLF</a>
             <% if(user.rol === "Admin"){ %>
-              <a class="d-block"href="/ajustes">AJUSTES </a>
+              <a class="d-block active"href="/ajustes">AJUSTES </a>
               <% } else { %>
                 <a class="d-none"href="/ajustes">AJUSTES </a>
               <% } %>

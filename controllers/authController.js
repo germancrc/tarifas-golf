@@ -47,7 +47,7 @@ exports.login = async (req, res) =>{
                         alertIcon: "error",
                         showConfirmButton: true,
                         timer: false,
-                        ruta:'login'
+                        ruta:''
                     })
                 }else{
                     //ya entra a la pagina principal
@@ -81,18 +81,18 @@ exports.login = async (req, res) =>{
 
 exports.logout = (req, res) => {
     res.clearCookie('jwt')
-    return res.redirect('/login')
+    return res.redirect('/')
 }
 
 
 
 exports.checkAdmin = (req, res) => {
-    if(req.user.rol === "Admin"){
-        db.query('SELECT * FROM servicios', (error, results) => {
-           res.render('ajustes', {user:req.user, results:results, alert:false})
-        })
-     }else{
-        res.render('index', {user:req.user,results:results, alert:false})
-        // throw error;
-     }
+    db.query('SELECT * FROM servicios', (error, results) => {
+        if(req.user.rol === "Admin"){
+            res.render('ajustes', {user:req.user, results:results, alert:false})
+         
+      }else{
+            res.render('index', {user:req.user,results:results, alert:false})
+      }
+    })
 }

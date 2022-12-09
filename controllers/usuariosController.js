@@ -22,6 +22,13 @@ exports.createUser = async (req, res) =>{
         }
 
 }
+
+//MOSTRAR CODIGOS OPERA NUEVO TTOO
+exports.newUser = (req, res) =>{
+    res.render('ajustes/new-usuario', {user:req.user, alert:false, error: false})
+}
+
+
 //MOSTRAR TODOS LOS USERS
 exports.getUsers = (req, res) =>{
     try {

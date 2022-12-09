@@ -13,89 +13,85 @@
   <body>
 
     <div class="sidebar scrollmenu">
-        <div class="container mb-3 mt-3">
-            <img src="/img/golflogo.png" class="logo" alt="">
-        </div>        
-        <a href="/">Inicio <i class="bi bi-chevron-right flecha"></i></a>
-        <a href="/tarifas">Tarifas <i class="bi bi-chevron-right flecha"></i></a>
-        <a href="/ezlinks">EZLinks <i class="bi bi-chevron-right flecha"></i></a>
-        <a href="/ezlinks-pos">EZLinks POS <i class="bi bi-chevron-right flecha"></i></a>
-        <a href="/opera">OPERA <i class="bi bi-chevron-right flecha"></i></a>
-        <a href="/origos">Origos <i class="bi bi-chevron-right flecha"></i></a>
-        <a href="/eba">EBA <i class="bi bi-chevron-right flecha"></i></a>
-        <a href="/minigolf">MINI GOLF <i class="bi bi-chevron-right flecha"></i></a>
-        <% if(logged.rol === "Admin"){ %>
-          <a class="d-block active"href="/ajustes">AJUSTES <i class="bi bi-chevron-right flecha"></i></a>
-          <% } else { %>
-            <a class="d-none"href="/ajustes">AJUSTES <i class="bi bi-chevron-right flecha"></i></a>
-          <% } %>
-      </div>
+      <div class="container mb-3 mt-3">
+          <img src="/img/golflogo.png" class="logo" alt="">
 
-      <!-- NAV LG -->
-      <nav class="navbar fixed-top navi">
-        <div class="container-fluid">
-          <span class="navbar-brand mb-0 h1">AJUSTES DE USUARIOS</span>
-          <div class="btn-group dropstart">
-            <% if(logged.rol === "Admin"){ %>
-              <a class="btn btn-success dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <span class="text-light "><i class="bi bi-person-fill"></i> <%= logged.username %></span>
-              </a>
-                <% } else { %>
-                  <a class="btn btn-warning dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <span class="text-dark "><i class="bi bi-person-fill"></i> <%= logged.username %></span>
-                  </a>
-              <% } %>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Editar</a></li>
-              <li><a class="dropdown-item" href="/logout">Salir</a></li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    
-    <!-- NAV SM -->
-    <nav class="navbar navSmall fixed-top">
+      </div>
+      <a class="active" href="/index">Inicio <i class="bi bi-chevron-right flecha"></i></a>
+      <a href="/tarifas">Tarifas <i class="bi bi-chevron-right flecha"></i></a>
+      <a href="/guias">Guías <i class="bi bi-chevron-right flecha"></i></a>
+      <a href="/opera">CÓDIGOS OPERA <i class="bi bi-chevron-right flecha"></i></a>
+      <a href="/minigolf">MINI GOLF <i class="bi bi-chevron-right flecha"></i></a>
+      <% if(user.rol === "Admin"){ %>
+        <a class="d-block"href="/ajustes">AJUSTES <i class="bi bi-chevron-right flecha"></i></a>
+        <% } else { %>
+          <a class="d-none"href="/ajustes">AJUSTES <i class="bi bi-chevron-right flecha"></i></a>
+        <% } %>
+    </div>
+
+    <!-- NAV LG -->
+    <nav class="navbar fixed-top navi">
       <div class="container-fluid">
-        <a class="navbar-brand" href="/"><i class="bi bi-house"></i></a><span class="text-light">EDITAR USUARIO</span>
-      <button class="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation" onclick="openNav()">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-        <div id="mySidenav" class="sidenav">
-            <div id="main">
-              <div class="dropdown btn-perfil">
-                <% if(logged.rol === "Admin"){ %>
-                  <button class="btn btn-success dropdown-toggle" href="#" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <span class="text-light text-uppercase"></i><%= logged.username %></span>
-                  </button>
-                    <% } else { %>
-                      <button class="btn btn-warning btn-sm dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <span class="text-dark text-uppercase"><%= logged.username %></span>
-                      </button>
-                  <% } %>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item text-dark" href="#">Editar</a></li>
-                  <li><a class="dropdown-item text-dark" href="/logout">Salir</a></li>
-                </ul>
-              </div>
-              <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-              <a class="nav-link" href="/">Inicio</a>
-              <a class="nav-link" href="/tarifas">Tarifas</a>
-              <a class="nav-link" href="/ezlinks">EZLinks</a>
-              <a class="nav-link" href="/ezlinks-pos">EZLinks POS</a>
-              <a class="nav-link" href="/opera">OPERA</a>
-              <a class="nav-link" href="/origos">Origos</a>
-              <a class="nav-link" href="/eba">EBA</a>
-              <a class="nav-link" href="/minigolf">MINI GOLF</a>
-              <% if(logged.rol === "Admin"){ %>
-                <a class="d-block active"href="/ajustes">AJUSTES </a>
-                <% } else { %>
-                  <a class="d-none"href="/ajustes">AJUSTES </a>
+        <span class="navbar-brand mb-0 h1">Hard Rock Golf Club At Cana Bay</span>
+        <div class="btn-group dropstart">
+          <% if(user.rol === "Admin"){ %>
+            <a class="btn btn-success dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <span class="text-light "><i class="bi bi-person-fill"></i> <%= user.username %></span>
+            </a>
+              <% } else { %>
+                <a class="btn btn-warning dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <span class="text-dark "><i class="bi bi-person-fill"></i> <%= user.username %></span>
+                </a>
+            <% } %>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Editar</a></li>
+            <li><a class="dropdown-item" href="/logout">Salir</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+  <!-- NAV SM -->
+  <nav class="navbar navSmall fixed-top">
+    <div class="container-fluid">
+    <a class="navbar-brand" href="/">Guía General HR Golf</a>
+    <button class="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation" onclick="openNav()">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+      <div id="mySidenav" class="sidenav">
+          <div id="main">
+            <div class="dropdown btn-perfil">
+              <% if(user.rol === "Admin"){ %>
+                <button class="btn btn-success dropdown-toggle" href="#" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <span class="text-light text-uppercase"></i><%= user.username %></span>
+                </button>
+                  <% } else { %>
+                    <button class="btn btn-warning btn-sm dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      <span class="text-dark text-uppercase"><%= user.username %></span>
+                    </button>
                 <% } %>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item text-dark" href="#">Editar</a></li>
+                <li><a class="dropdown-item text-dark" href="/logout">Salir</a></li>
+              </ul>
             </div>
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a class="active" href="/index">Inicio</a>
+            <a class="nav-link" href="/tarifas">Tarifas</a>
+            <a class="nav-link" href="#">GUIAS</a>
+            <a class="nav-link" href="/opera">CÓDIGOS OPERA</a>
+            <a class="nav-link" href="/minigolf">MINI GOLF</a>
+            <% if(user.rol === "Admin"){ %>
+              <a class="d-block"href="/ajustes">AJUSTES </a>
+              <% } else { %>
+                <a class="d-none"href="/ajustes">AJUSTES </a>
+              <% } %>
           </div>
         </div>
       </div>
-      </nav>
+    </div>
+    </nav>
 
     <div class="content">
       

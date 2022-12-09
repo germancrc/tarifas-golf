@@ -380,9 +380,10 @@ border: 2px solid black;
   }
 
   .logoHotelrate, .domfedoRate, .banderasRate, .ttooCardImgRate{
-    box-shadow: 0px 7px 11px 1px rgba(0,0,0,0.45);
-    -webkit-box-shadow: 0px 7px 11px 1px rgba(0,0,0,0.45);
-    -moz-box-shadow: 0px 7px 11px 1px rgba(0,0,0,0.45);
+    border: 1px solid #dfdfdf;
+    border-radius: 10px 10px 10px 10px;
+-webkit-border-radius: 10px 10px 10px 10px;
+-moz-border-radius: 10px 10px 10px 10px;
   }
 
   footer{

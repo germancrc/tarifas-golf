@@ -5,57 +5,34 @@ const db = require('../database/db')
 
 const authController = require('../controllers/authController')
 const codesController = require('../controllers/codesController')
+const guiasController = require('../controllers/guiasController')
 const ratesController = require('../controllers/ratesController')
 const ratesMgController = require('../controllers/ratesMgController')
 const servicesController = require('../controllers/servicesController')
 const ttooController = require('../controllers/ttooController')
 const usuariosController = require('../controllers/usuariosController')
-const guiasController = require('../controllers/guiasController')
 
 //multer
 const upload = multer({storage:multer.memoryStorage()});
 
+router.get('/', (req, res) => {
+   res.render('login', {alert:false})
+})
 
 // VERIFICAR SI ES ADMIN O USER
-router.get('/ajustes', authController.isAuthenticated, (req, res) => {
-   db.query('SELECT * FROM servicios', (error, results) => {
-      if(results && req.user.rol === "Admin"){
-         res.render('ajustes', {user:req.user, results:results, alert:false})
-      }else{
-         res.render('index', {user:req.user,results:results, alert:false})
-         // throw error;
-      }
-   })
+router.get('/ajustes', authController.isAuthenticated, authController.checkAdmin, (req, res) => {
+
 })
 
 //router de las vistas
-router.get('/', authController.isAuthenticated, (req, res) => {
+router.get('/index', authController.isAuthenticated, (req, res) => {
    db.query('SELECT * FROM servicios ORDER BY nombre asc', (error, results) => {
       if(results){
          res.render('index', {user:req.user, results:results, alert:false})
-      }else if(!user){
-         res.render('login')
       }else{
          throw error;
       }
    })
-})
-
-// router.get("*", authController.isAuthenticated, (req, res) => {
-//     res.render('404', {user:req.user,  alert:false})
-// })
-
-router.get('/login', (req, res) => {
-   res.render('login', {alert:false})
-})
-
-//RUTAS APLICACIONES
-router.get('/eba', authController.isAuthenticated, (req, res) => {
-   res.render('eba', {user:req.user, alert:false})
-})
-
-router.get('/ezlinks-pos', authController.isAuthenticated, (req, res) => {
-   res.render('ezlinks-pos', {user:req.user, alert:false})
 })
 
 router.get('/guias', authController.isAuthenticated, (req, res) => {
@@ -72,10 +49,6 @@ router.get('/guias', authController.isAuthenticated, (req, res) => {
   }
 })
 
-router.get('/ezlinks', authController.isAuthenticated, (req, res) => {
-   res.render('ezlinks', {user:req.user, alert:false})
-})
-
 router.get('/opera', authController.isAuthenticated, (req, res) => {
    db.query('SELECT * FROM opera_codes WHERE nombre != "NO SE POSTEA EN OPERA" order by uso, codigo asc', (error, results) => {
       if(results){
@@ -84,10 +57,6 @@ router.get('/opera', authController.isAuthenticated, (req, res) => {
          throw error;
       }
    })
-})
-
-router.get('/origos', authController.isAuthenticated, (req, res) => {
-   res.render('origos', {user:req.user, alert:false})
 })
 
 router.get('/minigolf', authController.isAuthenticated, (req, res) => {

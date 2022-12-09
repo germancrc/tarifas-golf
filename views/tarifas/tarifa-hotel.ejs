@@ -14,14 +14,12 @@
     <div class="sidebar scrollmenu">
       <div class="container mb-3 mt-3">
           <img src="/img/golflogo.png" class="logo" alt="">
+
       </div>
-      <a href="/">Inicio <i class="bi bi-chevron-right flecha"></i></a>
-      <a class="active" href="/tarifas">Tarifas <i class="bi bi-chevron-right flecha"></i></a>
-      <a href="/ezlinks">EZLinks <i class="bi bi-chevron-right flecha"></i></a>
-      <a href="/ezlinks-pos">EZLinks POS <i class="bi bi-chevron-right flecha"></i></a>
-      <a href="/opera">OPERA <i class="bi bi-chevron-right flecha"></i></a>
-      <a href="/origos">Origos <i class="bi bi-chevron-right flecha"></i></a>
-      <a href="/eba">EBA <i class="bi bi-chevron-right flecha"></i></a>
+      <a class="active" href="/index">Inicio <i class="bi bi-chevron-right flecha"></i></a>
+      <a href="/tarifas">Tarifas <i class="bi bi-chevron-right flecha"></i></a>
+      <a href="/guias">Guías <i class="bi bi-chevron-right flecha"></i></a>
+      <a href="/opera">CÓDIGOS OPERA <i class="bi bi-chevron-right flecha"></i></a>
       <a href="/minigolf">MINI GOLF <i class="bi bi-chevron-right flecha"></i></a>
       <% if(user.rol === "Admin"){ %>
         <a class="d-block"href="/ajustes">AJUSTES <i class="bi bi-chevron-right flecha"></i></a>
@@ -30,78 +28,120 @@
         <% } %>
     </div>
 
-          <!-- As a heading -->
-      <nav class="navbar fixed-top navi">
-        <div class="container-fluid">
-          <span class="navbar-brand mb-0 h1">TARIFAS - Huésped del Hotel</span>
-          <div class="btn-group dropstart">
-            <% if(user.rol === "Admin"){ %>
-              <a class="btn btn-success dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <span class="text-light "><i class="bi bi-person-fill"></i> <%= user.username %></span>
-              </a>
-                <% } else { %>
-                  <a class="btn btn-warning dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <span class="text-dark "><i class="bi bi-person-fill"></i> <%= user.username %></span>
-                  </a>
-              <% } %>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Editar</a></li>
-              <li><a class="dropdown-item" href="/logout">Salir</a></li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    
-    <!-- NAV SM -->
-    <nav class="navbar navSmall fixed-top">
+    <!-- NAV LG -->
+    <nav class="navbar fixed-top navi">
       <div class="container-fluid">
-        <a class="navbar-brand" href="/"><i class="bi bi-house"></i></a><span class="text-light">TARIFA HOTEL</span>
-      <button class="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation" onclick="openNav()">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-        <div id="mySidenav" class="sidenav">
-            <div id="main">
-              <div class="dropdown btn-perfil">
-                <% if(user.rol === "Admin"){ %>
-                  <button class="btn btn-success dropdown-toggle" href="#" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <span class="text-light text-uppercase"></i><%= user.username %></span>
-                  </button>
-                    <% } else { %>
-                      <button class="btn btn-warning btn-sm dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <span class="text-dark text-uppercase"><%= user.username %></span>
-                      </button>
-                  <% } %>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item text-dark" href="#">Editar</a></li>
-                  <li><a class="dropdown-item text-dark" href="/logout">Salir</a></li>
-                </ul>
-              </div>
-              <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-              <a class="nav-link" href="/">Inicio</a>
-              <a class="active" href="/tarifas">Tarifas</a>
-              <a class="nav-link" href="/ezlinks">EZLinks</a>
-              <a class="nav-link" href="/ezlinks-pos">EZLinks POS</a>
-              <a class="nav-link" href="/opera">OPERA</a>
-              <a class="nav-link" href="/origos">Origos</a>
-              <a class="nav-link" href="/eba">EBA</a>
-              <a class="nav-link" href="/minigolf">MINI GOLF</a>
+        <span class="navbar-brand mb-0 h1">Hard Rock Golf Club At Cana Bay</span>
+        <div class="btn-group dropstart">
+          <% if(user.rol === "Admin"){ %>
+            <a class="btn btn-success dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <span class="text-light "><i class="bi bi-person-fill"></i> <%= user.username %></span>
+            </a>
+              <% } else { %>
+                <a class="btn btn-warning dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <span class="text-dark "><i class="bi bi-person-fill"></i> <%= user.username %></span>
+                </a>
+            <% } %>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Editar</a></li>
+            <li><a class="dropdown-item" href="/logout">Salir</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+  <!-- NAV SM -->
+  <nav class="navbar navSmall fixed-top">
+    <div class="container-fluid">
+    <a class="navbar-brand" href="/">Guía General HR Golf</a>
+    <button class="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation" onclick="openNav()">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+      <div id="mySidenav" class="sidenav">
+          <div id="main">
+            <div class="dropdown btn-perfil">
               <% if(user.rol === "Admin"){ %>
-                <a class="d-block"href="/ajustes">AJUSTES </a>
-                <% } else { %>
-                  <a class="d-none"href="/ajustes">AJUSTES </a>
+                <button class="btn btn-success dropdown-toggle" href="#" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <span class="text-light text-uppercase"></i><%= user.username %></span>
+                </button>
+                  <% } else { %>
+                    <button class="btn btn-warning btn-sm dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      <span class="text-dark text-uppercase"><%= user.username %></span>
+                    </button>
                 <% } %>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item text-dark" href="#">Editar</a></li>
+                <li><a class="dropdown-item text-dark" href="/logout">Salir</a></li>
+              </ul>
             </div>
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a class="active" href="/index">Inicio</a>
+            <a class="nav-link" href="/tarifas">Tarifas</a>
+            <a class="nav-link" href="#">GUIAS</a>
+            <a class="nav-link" href="/opera">CÓDIGOS OPERA</a>
+            <a class="nav-link" href="/minigolf">MINI GOLF</a>
+            <% if(user.rol === "Admin"){ %>
+              <a class="d-block"href="/ajustes">AJUSTES </a>
+              <% } else { %>
+                <a class="d-none"href="/ajustes">AJUSTES </a>
+              <% } %>
           </div>
         </div>
       </div>
-      </nav>
+    </div>
+    </nav>
 
       <div class="content"> 
         <img src="/img/hrlogo.png" class="logoHotelrate afterNav" alt="">
         <span id="bookGroup" class="mt-3 fw-bold"></span>
         <h5 class="text-center mt-4"><strong>HUÉSPED DEL HOTEL</strong></h5>
 
-        <div class="container">
+        <div class="col" id="inputBuscar">
+          <form role="search">
+            <input class="form-control me-2" type="search" id="myInput" onkeyup="myFunction()"  placeholder="Buscar tarifa huésped hotel" aria-label="Search">
+          </form>
+        </div>
+
+
+      <div class="card editShadow mt-4 tabla-desktop">
+        <div class="card-body">
+            <table class="table" id="myTable">
+                  <thead id="tabla-vacia">
+                    <tr>
+                      <th scope="col" class="col-3">Nombre</th>
+                      <th scope="col" class="col">Precio USD</th>
+                      <th scope="col" class="col">Cod. Opera</th>
+                      <th scope="col" class="col-5">Descripción</th>
+                      <th scope="col" class="col-1">Ver Desc.</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% results.forEach((hotel) => { %>
+                      <tr>
+                        <td><%= hotel.nombre %></td>
+                        <td><%= hotel.precio%>.00</td>
+                        <td><%= hotel.cod_opera%></td>
+                        <% if(hotel.tips.length > 50) { %>
+                          <td><%= hotel.tips.slice(0,50) %>...</td>
+                          
+                          <% } else { %>
+                            <td data-titulo="descrip:"><%= hotel.tips %></td>
+                            <% }  %>
+      
+                        <td>                          
+                          <a class="btn btn-sm btn-success btnDelete editShadow" onclick="return alert(' <%= hotel.tips %>')"><i class="bi bi-eye"></i></a>
+                        </td>
+                      </tr>
+                    <% }) %>
+                  </tbody>
+                </table> 
+        </div>
+      </div>
+
+
+        <!-- *****************************MOBILE CARDS EDIT****************************** -->
+        <div class="container tabla-mobile" id="tabla-mobile">
           <div class="row row-cols-1 row-cols-sm-1 row-cols-md-3 mt-3" id="servicesHomePage">
             <% results.forEach((hotel) => { %>
               <div class="col">

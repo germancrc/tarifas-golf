@@ -122,4 +122,11 @@ let checkPass = function() {
      e.value = e.value.toUpperCase();
  }
 
+//titulos
+let titulo = document.getElementById("titulo").innerHTML;
+document.getElementById("nuevoTitulo").innerHTML = titulo + '- Guía Hard Rock Golf PC';
 
+
+// titulos entre navbars
+let navbarLG = document.getElementById("navbarLG").innerHTML;
+document.getElementById("navbarSM").innerHTML = navbarLG ;

@@ -1,28 +1,42 @@
-body{
+body {
   background-color: #ffffff;
-  font-family: 'roboto', sans-serif;
+  font-family: "roboto", sans-serif;
   /* scroll-behavior: smooth; */
   min-height: 100vh;
 }
 
-a{
-    text-decoration: none;
-    color: white;
+#inputBuscar {
+  position: relative;
+  display: flex;
+  justify-content: end;
 }
 
-a:hover{
-    color: white;
+.vertical-center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
 }
 
-p{
+a {
+  text-decoration: none;
+  color: white;
+}
+
+a:hover {
+  color: white;
+}
+
+p {
   line-height: 1.9;
 }
 
-.bi-house{
+.bi-house {
   font-size: 1.3rem;
 }
 
-.login-card{
+.login-card {
   margin: 0;
   position: absolute;
   top: 40%;
@@ -31,12 +45,12 @@ p{
   transform: translate(-50%, -50%);
   padding: 2rem;
   width: 25vw;
-  box-shadow: 0px 7px 11px 1px rgba(0,0,0,0.45);
--webkit-box-shadow: 0px 7px 11px 1px rgba(0,0,0,0.45);
--moz-box-shadow: 0px 7px 11px 1px rgba(0,0,0,0.45);
+  box-shadow: 0px 7px 11px 1px rgba(0, 0, 0, 0.45);
+  -webkit-box-shadow: 0px 7px 11px 1px rgba(0, 0, 0, 0.45);
+  -moz-box-shadow: 0px 7px 11px 1px rgba(0, 0, 0, 0.45);
 }
 
-.loginPage{
+.loginPage {
   background-image: url("/img/loginBG.jpg");
   background-repeat: no-repeat;
   background-position: center;
@@ -56,9 +70,9 @@ p{
   background-size: cover;
   position: relative;
 
-  box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.75);
--webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.75);
--moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
 .banner-mg {
@@ -74,67 +88,66 @@ p{
   background-size: cover;
   position: relative;
 
-  box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.75);
--webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.75);
--moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
-.navbar-brand{
+.navbar-brand {
   color: white;
 }
 
-.navbar-brand:hover{
+.navbar-brand:hover {
   color: white;
 }
 
-.cardService{
+.cardService {
   height: 7rem;
   text-align: center;
-  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
--webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
--moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
-.linkTarifa{
+.linkTarifa {
   color: black;
 }
 
-.linkTarifa:hover{
+.linkTarifa:hover {
   color: black;
 }
 
-#start-again{
+#start-again {
   display: none;
 }
 
-.center{
+.center {
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
 
-.afterNav{
+.afterNav {
   margin-top: 4.6rem;
 }
 
-.bannerGolf{
+.bannerGolf {
   height: 20vh;
-  box-shadow: 5px 5px 10px 0px rgba(0,0,0,0.75);
--webkit-box-shadow: 5px 5px 10px 0px rgba(0,0,0,0.75);
--moz-box-shadow: 5px 5px 10px 0px rgba(0,0,0,0.75);
+  box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.75);
 }
 
-.inputBase{
+.inputBase {
   border-color: black;
-
 }
 
 .form-center {
-  display:flex;
+  display: flex;
   justify-content: center;
 }
 
-.btnHotel{
+.btnHotel {
   text-align: center;
   padding: 1.2rem;
   width: 16rem;
@@ -143,40 +156,38 @@ p{
   background-color: #514d87;
   color: white;
   border-radius: 10px 10px 10px 10px;
--webkit-border-radius: 10px 10px 10px 10px;
--moz-border-radius: 10px 10px 10px 10px;
-border: 2px solid black;
+  -webkit-border-radius: 10px 10px 10px 10px;
+  -moz-border-radius: 10px 10px 10px 10px;
+  border: 2px solid black;
 }
 
-.fixSizeHead{
+.fixSizeHead {
   height: 3rem;
-  display:flex;
-  justify-content:center;
-  align-items:center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #514d87;
   color: white;
 }
 
-.fixSizeHeadEdit{
+.fixSizeHeadEdit {
   height: 2.5rem;
   background-color: #514d87;
   color: white;
 }
 
-.bodyCardZise{
+.bodyCardZise {
   height: 8rem;
 }
 
-
-.bodyCardZiseMG{
+.bodyCardZiseMG {
   height: 6.5rem;
 }
 
-.opera-cd{
+.opera-cd {
   margin-top: -0.6rem;
   margin-bottom: 0.6rem;
 }
-
 
 .noResults {
   height: 30vh;
@@ -185,15 +196,14 @@ border: 2px solid black;
   -moz-border-radius: 10px 10px 25px 25px;
 }
 
-
 /* .precio-tur{
   margin-top: -8px;
 } */
 
-.cardShadow{
-  box-shadow: 9px 10px 20px -12px rgba(0,0,0,0.64);
-  -webkit-box-shadow: 9px 10px 20px -12px rgba(0,0,0,0.64);
-  -moz-box-shadow: 9px 10px 20px -12px rgba(0,0,0,0.64);
+.cardShadow {
+  box-shadow: 9px 10px 20px -12px rgba(0, 0, 0, 0.64);
+  -webkit-box-shadow: 9px 10px 20px -12px rgba(0, 0, 0, 0.64);
+  -moz-box-shadow: 9px 10px 20px -12px rgba(0, 0, 0, 0.64);
 }
 
 /* .editShadow{
@@ -202,85 +212,98 @@ border: 2px solid black;
 -moz-box-shadow: 0px 5px 13px -6px rgba(0,0,0,0.75);
 } */
 
-.cardBottom{
+.cardBottom {
   background-color: #514d87;
   color: white;
 }
 
-.cardBottom a{
+.cardBottom a {
   color: white;
 }
 
-.btnService{
+.btnService {
   padding: 0.4rem 2rem 0.4rem 2rem;
 }
 
-.btnAnswer:hover, .btnHotel:hover{
-  background-color:#dfb502;
-  box-shadow: 1px 0px 12px 1px rgba(81,77,135,0.75);
-  -webkit-box-shadow: 1px 0px 12px 1px rgba(81,77,135,0.75);
-  -moz-box-shadow: 1px 0px 12px 1px rgba(81,77,135,0.75);
-    transition: 0.15s ease;
-    color: black;
+.btnAnswer:hover,
+.btnHotel:hover {
+  background-color: #dfb502;
+  box-shadow: 1px 0px 12px 1px rgba(81, 77, 135, 0.75);
+  -webkit-box-shadow: 1px 0px 12px 1px rgba(81, 77, 135, 0.75);
+  -moz-box-shadow: 1px 0px 12px 1px rgba(81, 77, 135, 0.75);
+  transition: 0.15s ease;
+  color: black;
 }
 
-.btnEdit, .btnDelete, .btnCancel, .btnAdd, .btnInfo{
+.btnEdit,
+.btnDelete,
+.btnCancel,
+.btnAdd,
+.btnInfo {
   padding: 0.4rem 2rem 0.4rem 2rem;
 }
 
-.logo, .logoFoot, .domfedo, .banderas, .ttooCardImg{
-    height: 8rem;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+.logo,
+.logoFoot,
+.domfedo,
+.banderas,
+.ttooCardImg {
+  height: 8rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.logo-login{
+.logo-login {
   height: 10rem;
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
 
-.card-img-top{
+.card-img-top {
   height: 9.5rem;
   object-fit: cover;
 }
 
-.logoHotelrate{
+.logoHotelrate {
   height: 6rem;
-  display: block;
+  /* display: block;
   margin-left: auto;
-  margin-right: auto;
-
+  margin-right: auto; */
 }
 
-.testRow{
+.testRow {
   vertical-align: middle;
 }
 
-.logoFoot{
+.logoFoot {
   margin-top: 1.5rem;
 }
 
-.encabezado{
-    text-align: center;
+.encabezado {
+  text-align: center;
 }
 
-.cardRate{
-  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
--webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
--moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+.cardRate {
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
-.cardRate:hover{
-  box-shadow: 1px 0px 12px 1px rgba(81,77,135,0.75);
-  -webkit-box-shadow: 1px 0px 12px 1px rgba(81,77,135,0.75);
-  -moz-box-shadow: 1px 0px 12px 1px rgba(81,77,135,0.75);
+.cardRate:hover {
+  box-shadow: 1px 0px 12px 1px rgba(81, 77, 135, 0.75);
+  -webkit-box-shadow: 1px 0px 12px 1px rgba(81, 77, 135, 0.75);
+  -moz-box-shadow: 1px 0px 12px 1px rgba(81, 77, 135, 0.75);
   transition: 0.15s ease-in-out all;
 }
 
-#tarVP, #tarHRlp, #verificarSocio, #clienteCasino, #tieneCortesia, #socioLeg{
+#tarVP,
+#tarHRlp,
+#verificarSocio,
+#clienteCasino,
+#tieneCortesia,
+#socioLeg {
   display: none;
   animation-name: fadeInAnim;
   animation-duration: 2.2s;
@@ -295,243 +318,242 @@ border: 2px solid black;
   }
 }
 
-/* #clienteHotel, #clienteLocal, #cTurista, #modalocal1, #modalocal2{
-    display: none;
-} */
-
-.card{
+.card {
   cursor: pointer;
 }
 
-  .sidebar {
-    margin: 0;
-    padding: 0;
-    width: 180px;
-    background-color: #f0f0f0;
-    /*#f5f6fe*/
-    position: fixed;
-    height: 100%;
-    overflow: auto;
-    border-right: 2px solid #dfdfdf;
-  }
+.sidebar {
+  margin: 0;
+  padding: 0;
+  width: 180px;
+  background-color: #f0f0f0;
+  /*#f5f6fe*/
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+  border-right: 2px solid #dfdfdf;
+}
 
-  .sidebar a{
-    display: block;
-    color: black;
-    padding: 10px;
-    text-decoration: none;
-    text-transform: uppercase;
-  }
+.sidebar a {
+  display: block;
+  color: black;
+  padding: 10px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
 
-  .flecha{
-    display: none;
-  }
+.flecha {
+  display: none;
+}
 
-  .sidebar a.active{
-    background-color: #514d87;
-    color: white;
-  }
+.sidebar a.active {
+  background-color: #514d87;
+  color: white;
+}
 
-  a.active .flecha{
-    display: inline-block;
-  }
+a.active .flecha {
+  display: inline-block;
+}
 
-  .sidebar a:hover:not(.active){
-    background-color: #dfb502;
-    color: white;
-    transition: 0.20s ease;
-  }
+.sidebar a:hover:not(.active) {
+  background-color: #dfb502;
+  color: white;
+  transition: 0.2s ease;
+}
 
-  .sidebar a:hover .flecha{
-    display: inline-block;
+.sidebar a:hover .flecha {
+  display: inline-block;
 
-    color: white;
-  }
+  color: white;
+}
 
+.btnTarifa {
+  background-color: #514d87;
+  padding: 5px;
+  color: white;
+}
 
-
-  .btnTarifa{
-    background-color: #514d87;
-    padding: 5px;
-    color: white;
-  }
-
-  .navi {
-    background-color: #514d87;
-    /*f0f0f0*/
-    color: white;
-    margin-left: 180px;
-    padding: 10px 0 10px 0;
-    /* height: 1000px; */
-    width: calc(100% -180px);
-    border-bottom: 2px solid #dfdfdf;
-    /*
+.navi {
+  background-color: #514d87;
+  /*f0f0f0*/
+  color: white;
+  margin-left: 180px;
+  padding: 10px 0 10px 0;
+  /* height: 1000px; */
+  width: calc(100% -180px);
+  border-bottom: 2px solid #dfdfdf;
+  /*
     box-shadow: 2px 1px 2px 0px rgba(0,0,0,0.75);
     -webkit-box-shadow: 2px 1px 2px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 2px 1px 2px 0px rgba(0,0,0,0.75);
     */
-  }
+}
 
-  .content {
-    margin-left: 180px;
-    padding: 1px 16px;
-    /* height: 1000px; */
-    width: calc(100% -180px);
-  }
+.content {
+  margin-left: 180px;
+  padding: 1px 16px;
+  /* height: 1000px; */
+  width: calc(100% -180px);
+}
 
-  .logoHotelrate, .domfedoRate, .banderasRate, .ttooCardImgRate{
-    border: 1px solid #dfdfdf;
-    border-radius: 10px 10px 10px 10px;
--webkit-border-radius: 10px 10px 10px 10px;
--moz-border-radius: 10px 10px 10px 10px;
-  }
+.logoHotelrate,
+.domfedoRate,
+.banderasRate,
+.ttooCardImgRate {
+  border: 1px solid #dfdfdf;
+  border-radius: 10px 10px 10px 10px;
+  -webkit-border-radius: 10px 10px 10px 10px;
+  -moz-border-radius: 10px 10px 10px 10px;
+}
 
-  footer{
-    margin-left: 180px;
-    width: calc(100% -180px);
-  }
+footer {
+  margin-left: 180px;
+  width: calc(100% -180px);
+}
 
-  .botonReload{
-    margin-left: 0px;
-    margin-top: 1rem;
-    justify-content:space-evenly;
+.botonReload {
+  margin-left: 0px;
+  margin-top: 1rem;
+  justify-content: space-evenly;
+}
 
-  }
+#backRates,
+#start-again {
+  height: 4rem;
+  width: 11rem;
+  padding-top: 1.2rem;
+}
 
-  #backRates, #start-again{
-    height: 4rem;
-    width: 11rem;
-    padding-top: 1.2rem;
-  }
+.miFirma {
+  text-align: right;
+}
 
-  .miFirma{
-    text-align: right;
-  }
+.firmaBG {
+  background-color: lightgray;
+  color: black;
+  width: 100%;
+}
 
-  .firmaBG{
-    background-color: lightgray;
-    color: black;
-    width: 100%;
-  }
+.testBtn {
+  background-color: #514d87;
+  color: white;
+}
 
-  .testBtn{
-    background-color: #514d87;
-    color: white;
-  }
+.opera-desktop {
+  display: block;
+}
 
-  .opera-desktop{
-    display: block;
-  }
+.opera-mobile {
+  display: none;
+}
 
-  .opera-mobile{
-    display: none;
-  }
-
-  /* .form-control{
+/* .form-control{
     box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.75);
 -webkit-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.75);
 -moz-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.75);
   } */
 
-  /* POR APLICACION */
+/* POR APLICACION */
 
-  /* ----------------------------- ORIGOS----------------------------------- */
+/* ----------------------------- ORIGOS----------------------------------- */
 
-  .origosConnect{
-    height: 40vh;
-  }
+.origosConnect {
+  height: 40vh;
+}
 
-  .origosHost{
-    height: 70vh;
-  }
+.origosHost {
+  height: 70vh;
+}
 
-  .origosLogin{
-    height: 50vh;
-  }
+.origosLogin {
+  height: 50vh;
+}
 
-  .origosErrorP{
-    height: 35vh;
-  }
+.origosErrorP {
+  height: 35vh;
+}
 
-  .origosMain{
-    height: 60vh;
-  }
-  .origosAtn{
-    height: 40vh;
-  }
+.origosMain {
+  height: 60vh;
+}
+.origosAtn {
+  height: 40vh;
+}
 
-  .origosDetail{
-    height: 98vh;
-  }
+.origosDetail {
+  height: 98vh;
+}
 
-  .origosGenSearch{
-    height: 60vh;
-  }
+.origosGenSearch {
+  height: 60vh;
+}
 
-  .origosDescont{
-    height: 90vh;
-  }
+.origosDescont {
+  height: 90vh;
+}
 
+.tableHead {
+  display: block;
+}
 
-  .tableHead{
-    display: block;
-  }
+.onDesktop {
+  display: block;
+}
 
-  .onDesktop{
-    display: block;
-  }
+.onMobile,
+.tabla-mobile {
+  display: none;
+}
 
-  .onMobile, .tabla-mobile{
+/* ------------------------------------MEDIA QUERIES------------------------------------------------ */
+
+@media screen and (max-width: 700px) {
+  .opera-desktop {
     display: none;
   }
 
-  /* ------------------------------------MEDIA QUERIES------------------------------------------------ */
+  .opera-mobile {
+    display: block;
+  }
 
-  @media screen and (max-width: 700px) {
-    .opera-desktop{
-      display: none;
-    }
-  
-    .opera-mobile{
-      display: block;
-    }
+  .btnEdit,
+  .btnDelete {
+    box-shadow: 0px 3px 5px -3px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 0px 3px 5px -3px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 3px 5px -3px rgba(0, 0, 0, 0.75);
+  }
 
-    .btnEdit, .btnDelete{
-      box-shadow: 0px 3px 5px -3px rgba(0,0,0,0.75);
-      -webkit-box-shadow: 0px 3px 5px -3px rgba(0,0,0,0.75);
-      -moz-box-shadow: 0px 3px 5px -3px rgba(0,0,0,0.75);
-    }
+  .btnEdit {
+    padding: 0.5rem 2rem 0.5rem 2rem;
+  }
 
-    .btnEdit{
-      padding: 0.5rem 2rem 0.5rem 2rem;
-    }
+  .btnAdd {
+    padding: 0.6rem 2rem 0.6rem 2rem;
+  }
 
-    .btnAdd{
-      padding: 0.6rem 2rem 0.6rem 2rem;
-    }
+  .btnCancel {
+    margin-top: 10px;
+    padding: 0.6rem 2rem 0.6rem 2rem;
+  }
 
-    .btnCancel{
-      margin-top: 10px;
-      padding: 0.6rem 2rem 0.6rem 2rem;
-    }
+  #btnService {
+    padding: 0.4rem 1rem 0.4rem 1rem;
+  }
 
-    #btnService{
-      padding: 0.4rem 1rem 0.4rem 1rem;
-    }
+  .bi-pencil,
+  .bi-trash {
+    font-size: large;
+  }
 
-    .bi-pencil, .bi-trash{
-      font-size: large;
-    }
+  .tabla-desktop {
+    display: none;
+  }
 
-    .tabla-desktop{
-      display: none;
-    }
-
-    .tabla-mobile{
-      display: block;
-      margin-top: 1.5rem;
-    }
-    /* table{
+  .tabla-mobile {
+    display: block;
+    margin-top: 1.5rem;
+  }
+  /* table{
       width: 100%;
     }
 
@@ -559,219 +581,223 @@ border: 2px solid black;
       text-transform: uppercase;
     } */
 
-    .login-card{
-      padding: 2rem;
-      width: 75vw;
-    }
+  .login-card {
+    padding: 2rem;
+    width: 75vw;
+  }
 
-    .navSmall{
-     background-color: #514d87;
-    }
+  .navSmall {
+    background-color: #514d87;
+  }
 
-    .navSmall a{
-      color: white;
-      text-transform: uppercase;
-    }
+  .navSmall a {
+    color: white;
+    text-transform: uppercase;
+  }
 
-    .navSmall a:hover{
-      color: #dfb502;
-    }
+  .navSmall a:hover {
+    color: #dfb502;
+  }
 
-    .fixHead{
-      margin-top: -40px;
-    }
+  .fixHead {
+    margin-top: -40px;
+  }
 
-    .logo, .logoHotel, .banderas, .domfedo{
+  .logo,
+  .logoHotel,
+  .banderas,
+  .domfedo {
     height: 5.5rem;
-    }
+  }
 
-    .logoHotelrate, .domfedoRate, .banderasRate, .ttooCardImgRate, .mobileLogo{
-      display: none;
-    }
+  .logoHotelrate,
+  .domfedoRate,
+  .banderasRate,
+  .ttooCardImgRate,
+  .mobileLogo {
+    /* display: none; */
+    height: 3rem;
+  }
 
-    .card-img-top{
-      height: 12rem;
-      width: 22rem;
-    }
+  .card-img-top {
+    height: 12rem;
+    width: 22rem;
+  }
 
-    .banner, .banner-mg {
-      margin-left: 0px;
-      margin-top: 56px;
-      height: 25vh;
-    }
-
-    .miFirma{
-      text-align: center;
-    }
-
-    .botonReload{
-      justify-content: space-around;
-    }
-
-    .sidebar {
-      display: none;
-    }
-
-    div.content {
-      margin-left: 0;
-      margin-top: 64px;
-    }
-
-    .logo{
-      display: none;
-    }
-
-    .btnTarifa{
-      display: none;
-    }
-
-    .onDesktop{
-      display: none;
-    }
-
-    .onMobile{
-      display: block;
-    }
-
-    .tableHead{
-      display: none;
-    }
-
-    .bannerGolf{
-      height: 30vh;
-      width: 90vw;
-    }
-
-    .navi{
-      display: none;
-    }
-
-    .afterNav{
-    margin-top: 0.8rem;
-    }
-
-
-
-    footer {
-      margin-left: 0px;
-    }
-
-      /* ----------------------------- ORIGOS----------------------------------- */
-
-  .origosConnect{
+  .banner,
+  .banner-mg {
+    margin-left: 0px;
+    margin-top: 56px;
     height: 25vh;
   }
 
-  .origosHost{
+  .miFirma {
+    text-align: center;
+  }
+
+  .botonReload {
+    justify-content: space-around;
+  }
+
+  .sidebar {
+    display: none;
+  }
+
+  div.content {
+    margin-left: 0;
+    margin-top: 64px;
+  }
+
+  .logo {
+    display: none;
+  }
+
+  .btnTarifa {
+    display: none;
+  }
+
+  .onDesktop {
+    display: none;
+  }
+
+  .onMobile {
+    display: block;
+  }
+
+  .tableHead {
+    display: none;
+  }
+
+  .bannerGolf {
+    height: 30vh;
+    width: 90vw;
+  }
+
+  .navi {
+    display: none;
+  }
+
+  .afterNav {
+    margin-top: 0.8rem;
+  }
+
+  footer {
+    margin-left: 0px;
+  }
+
+  /* ----------------------------- ORIGOS----------------------------------- */
+
+  .origosConnect {
+    height: 25vh;
+  }
+
+  .origosHost {
     height: 55vh;
   }
 
-  .origosLogin{
+  .origosLogin {
     height: 20vh;
   }
 
-  .origosErrorP{
+  .origosErrorP {
     height: 30vh;
   }
 
-  .origosMain{
+  .origosMain {
     height: 18vh;
   }
-  .origosAtn{
+  .origosAtn {
     height: 20vh;
   }
 
-  .origosDetail{
+  .origosDetail {
     height: 30vh;
   }
 
-  .origosGenSearch{
+  .origosGenSearch {
     height: 22vh;
   }
 
-  .origosDescont{
+  .origosDescont {
     height: 30vh;
   }
+}
 
+@media screen and (max-width: 400px) {
+  .logo,
+  .logoHotel,
+  .banderas,
+  .domfedo {
+    height: 5.5rem;
   }
 
-  @media screen and (max-width: 400px) {
-    .logo, .logoHotel, .banderas, .domfedo{
-    height: 5.5rem;
-    }
+  .bannerGolf {
+    height: 30vh;
+    width: 92vw;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .sidebar {
+    display: none;
+  }
 
-    .bannerGolf{
-      height: 30vh;
-      width: 92vw;
-      margin-left: auto;
-      margin-right: auto;
+  .logo {
+    display: none;
+  }
 
-    }
-    .sidebar{
-      display: none;
-    }
+  .scrollmenu {
+    overflow: auto;
+    white-space: nowrap;
+  }
 
-    .logo{
-      display: none;
-    }
+  .btnTarifa {
+    display: none;
+  }
 
-    .scrollmenu{
-      overflow: auto;
-      white-space: nowrap;
-    }
+  .btnHotel {
+    width: 16rem;
+  }
 
-    .btnTarifa{
-      display: none;
-    }
+  .afterNav {
+    margin-top: 0.8rem;
+  }
 
-    .btnHotel{
-      width: 16rem;
-    }
-
-    .afterNav{
-      margin-top: 0.8rem;
-    }
-
-     /* #backRates, #start-again{
+  /* #backRates, #start-again{
       margin-top: 1.2rem;
       margin-bottom: 2rem;
     } */
 
-    .miFirma{
-      text-align: center;
-    }
-
-
-
+  .miFirma {
+    text-align: center;
   }
-  .headerSmall{
+}
+.headerSmall {
+  display: none;
+}
+
+@media screen and (min-width: 701px) {
+  .logoFoot,
+  .navSmall,
+  .headerSmall {
     display: none;
   }
+}
 
-  @media screen and (min-width: 701px) {
-    .logoFoot, .navSmall, .headerSmall{
-      display: none;
-    }
+@media screen and (min-width: 1152px) {
+  .cardEdit-container {
+    padding-left: 15rem;
+    padding-right: 15rem;
   }
+}
 
-  @media screen and (min-width: 1152px) {
-    .cardEdit-container{
-      padding-left: 15rem;
-      padding-right: 15rem;
-    }
+@media screen and (min-width: 1152px) {
+  .cardEdit-container-guia {
+    padding-left: 8rem;
+    padding-right: 8rem;
   }
-  
-  @media screen and (min-width: 1152px) {
-    .cardEdit-container-guia{
-      padding-left: 8rem;
-      padding-right: 8rem;
-    }
-  }
+}
 
-
-
-
-  /* ***************************************************The side navigation menu */
+/* ***************************************************The side navigation menu */
 .sidenav {
   height: 100%; /* 100% Full-height */
   width: 0; /* 0 width - change this with JavaScript */
@@ -795,7 +821,7 @@ border: 2px solid black;
   transition: 0.3s;
 }
 
-.sidenav a.active{
+.sidenav a.active {
   color: #dfb502;
   border-bottom: 1px solid #dfb502;
 }
@@ -814,7 +840,7 @@ border: 2px solid black;
   margin-left: 50px;
 }
 
-.btn-perfil{
+.btn-perfil {
   position: absolute;
   top: 7px;
   left: 25px;
@@ -824,19 +850,23 @@ border: 2px solid black;
 
 /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
 #main {
-  transition: margin-left .5s;
+  transition: margin-left 0.5s;
   padding: 20px;
 }
 
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
+  .sidenav {
+    padding-top: 15px;
+  }
+  .sidenav a {
+    font-size: 18px;
+  }
 }
 
-  /* ***************************************************END side navigation menu */
+/* ***************************************************END side navigation menu */
 
-    /* ***************************************************OPERA TABS */
+/* ***************************************************OPERA TABS */
 /* Set height of body and the document to 100% to enable "full page tabs" */
 
 /* Style tab links */
@@ -867,12 +897,11 @@ border: 2px solid black;
   height: 100%;
 }
 
-#code {background-color: white;}
-#use {background-color: white;}
+#code {
+  background-color: white;
+}
+#use {
+  background-color: white;
+}
 
-
-
-
-    /* ***************************************************OPERA TABS */
-
-
+/* ***************************************************OPERA TABS */

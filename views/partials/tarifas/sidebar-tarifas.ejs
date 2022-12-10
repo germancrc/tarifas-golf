@@ -1,0 +1,21 @@
+<div class="sidebar scrollmenu">
+  <div class="container mb-3 mt-3">
+    <img src="/img/golflogo.png" class="logo" alt="" />
+  </div>
+  <a href="/index">Inicio <i class="bi bi-chevron-right flecha"></i></a>
+  <a class="active" href="/tarifas"
+    >Tarifas <i class="bi bi-chevron-right flecha"></i
+  ></a>
+  <a href="/guias">Guías <i class="bi bi-chevron-right flecha"></i></a>
+  <a href="/opera">CÓDIGOS OPERA <i class="bi bi-chevron-right flecha"></i></a>
+  <a href="/minigolf">MINI GOLF <i class="bi bi-chevron-right flecha"></i></a>
+  <% if(user.rol === "Admin"){ %>
+  <a class="d-block" href="/ajustes"
+    >AJUSTES <i class="bi bi-chevron-right flecha"></i
+  ></a>
+  <% } else { %>
+  <a class="d-none" href="/ajustes"
+    >AJUSTES <i class="bi bi-chevron-right flecha"></i
+  ></a>
+  <% } %>
+</div>

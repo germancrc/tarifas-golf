@@ -11,7 +11,7 @@ exports.uploadGuide = async (req, res) =>{
               if(error){console.log(error)}
               res.redirect('/ajustes/guias-conf')
          })
-        console.log(aplicacion, archivo);
+        // console.log(aplicacion, archivo);
         
         } catch (error) {
             console.log(error);

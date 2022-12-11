@@ -1,89 +1,104 @@
-const bcrypt = require('bcryptjs')
-const db = require('../database/db')
-const {promisify} = require('util')
+const bcrypt = require("bcryptjs");
+const db = require("../database/db");
+const { promisify } = require("util");
 
 // CREAR USER
-exports.createUser = async (req, res) =>{
-    try {
-        const nombre = req.body.nombre
-        const username = req.body.username
-        const password = req.body.password
-        let passHash = await bcrypt.hash(password,8)
-        const rol = req.body.rol
-    
-        db.query('INSERT INTO usuarios SET ?', {nombre:nombre, username:username, password:passHash, rol:rol}, (error, results) => {
-            if(results){
-                res.redirect('/ajustes/usuarios-conf')
-            }
-        })
-        
-        } catch (error) {
-            console.log(error);
-        }
+exports.createUser = async (req, res) => {
+  try {
+    const nombre = req.body.nombre;
+    const username = req.body.username;
+    const password = req.body.password;
+    let passHash = await bcrypt.hash(password, 8);
+    const rol = req.body.rol;
 
-}
+    db.query(
+      "INSERT INTO usuarios SET ?",
+      { nombre: nombre, username: username, password: passHash, rol: rol },
+      (error, results) => {
+        if (results) {
+          res.redirect("/ajustes/usuarios-conf");
+        }
+      }
+    );
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 //MOSTRAR CODIGOS OPERA NUEVO TTOO
-exports.newUser = (req, res) =>{
-    res.render('ajustes/new-usuario', {user:req.user, alert:false, error: false})
-}
-
+exports.newUser = (req, res) => {
+  res.render("ajustes/new-usuario", {
+    user: req.user,
+    alert: false,
+    error: false,
+  });
+};
 
 //MOSTRAR TODOS LOS USERS
-exports.getUsers = (req, res) =>{
-    try {
-        db.query('SELECT * FROM usuarios', (error, results) => {
-            if(results){
-               res.render('ajustes/usuarios-conf', {logged:req.user, alert:false, results:results, error: false})
-            }else{
-               throw error;
-            }
-         })
-        } catch (error) {
-            console.log(error);
+exports.getUsers = (req, res) => {
+  try {
+    db.query(
+      "SELECT * FROM usuarios  where username != 'superuser'",
+      (error, results) => {
+        if (results) {
+          res.render("ajustes/usuarios-conf", {
+            logged: req.user,
+            alert: false,
+            results: results,
+            error: false,
+          });
+        } else {
+          throw error;
         }
-}
+      }
+    );
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 // MOSTRAR 1 USER
-exports.getUser = (req, res) =>{
-    try {
-        const id = req.params.id;
-        db.query('SELECT * FROM usuarios WHERE id=?', [id], (error, results) => {
-           if(results){
-              res.render('ajustes/edit-usuario', {logged:req.user, user:results[0], alert:false})
-           }else{
-              throw error;
-           }
-        })
-    } catch (error) {
-        console.log(error);
-    }
-}
+exports.getUser = (req, res) => {
+  try {
+    const id = req.params.id;
+    db.query("SELECT * FROM usuarios WHERE id=?", [id], (error, results) => {
+      if (results) {
+        res.render("ajustes/edit-usuario", {
+          logged: req.user,
+          user: results[0],
+          alert: false,
+        });
+      } else {
+        throw error;
+      }
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 // EDITAR 1 USER PENDIENTE
-exports.updateUser = (req, res) =>{
-    // try {
-    //     const {id} = req.params;
-    //     const {nombre, precio }= req.body;
-    //     const editedUser = {nombre, precio};
-    //     db.query('UPDATE usuarios SET ? WHERE id = ?', [editedUser, id]);
-    //     res.redirect('/ajustes/usuarios-conf');
-    // } catch (error) {
-    //     console.log(error);
-    // }
-}
+exports.updateUser = async (req, res) => {
+  //   try {
+  //     const { id } = req.params;
+  //     const password = req.body.password;
+  //     let passHash = await bcrypt.hash(password, 8);
+  //     const { nombre, username, rol } = req.body;
+  //     const editedUSer = { nombre, username, rol };
+  //     db.query("UPDATE servicios SET ? WHERE id = ?", [editedUSer, id]);
+  //     res.redirect("/ajustes/servicios-conf");
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+};
 
 // BORRAR USER
-exports.deleteUser = (req, res) =>{
-    try {
-        const {id} = req.params;
-        db.query('DELETE FROM usuarios WHERE id = ?', [id]);
-        res.redirect('/ajustes/usuarios-conf');
-    } catch (error) {
-        console.log(error);
-    }
-}
-
-
-
-
+exports.deleteUser = (req, res) => {
+  try {
+    const { id } = req.params;
+    db.query("DELETE FROM usuarios WHERE id = ?", [id]);
+    res.redirect("/ajustes/usuarios-conf");
+  } catch (error) {
+    console.log(error);
+  }
+};

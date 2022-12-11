@@ -37,6 +37,10 @@ p {
   margin-left: 8px;
 }
 
+.inputSize {
+  width: 25%;
+}
+
 .login-card {
   margin: 0;
   position: absolute;
@@ -506,9 +510,19 @@ footer {
   display: none;
 }
 
-/* ------------------------------------MEDIA QUERIES------------------------------------------------ */
+/* ****************************************************MEDIA QUERIES------------------------------------------------ */
+
+@media (min-width: 700px) and (max-width: 1152px) {
+  .inputSize {
+    width: 100%;
+  }
+}
 
 @media screen and (max-width: 700px) {
+  .inputSize {
+    width: 100%;
+  }
+
   .opera-desktop {
     display: none;
   }

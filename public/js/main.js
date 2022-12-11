@@ -131,3 +131,23 @@ document.getElementById("nuevoTitulo").innerHTML =
 // titulos entre navbars
 let navbarLG = document.getElementById("navbarLG").innerHTML;
 document.getElementById("navbarSM").innerHTML = navbarLG;
+
+//Show / Hide pass changes
+function openPassEdit() {
+  const passChange = document.getElementById("passEdit");
+  if (passChange.className == "d-block") {
+    passChange.className = "d-none";
+  } else {
+    passChange.className = "d-block";
+  }
+}
+
+//Show / Hide rol changes
+function openRolEdit() {
+  const rolChange = document.getElementById("rolEdit");
+  if (rolChange.className == "d-block") {
+    rolChange.className = "d-none";
+  } else {
+    rolChange.className = "d-block";
+  }
+}

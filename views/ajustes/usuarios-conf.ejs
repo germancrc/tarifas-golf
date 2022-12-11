@@ -86,6 +86,7 @@
 
     <div class="content">
       <div id="usuarios" class="afterNav">
+        <h4 class="text-uppercase d-none" id="titulo">AJUSTES - USUARIOS</h4>
         <div class="row d-flex justify-content-between">
           <div class="col-5">
             <a href="/ajustes/new-usuario" type="button" class="btn btn-success editShadow" id="btnService">
@@ -121,9 +122,15 @@
                   <td data-titulo="Rol:"><%= user.rol %></td>
 
                   <td>
-                    <a href="/ajustes/usuarios-conf/<%= user.id %>" data-bs-toggle="#" data-bs-target="#userUpdate" class="btn btn-sm btn-warning btnEdit"><i class="bi bi-pencil"></i></a>
-                    
-                    <a href="/ajustes/usuarios-conf/deleteUser/<%= user.id %>" class="btn btn-sm btn-danger btnDelete" onclick="return confirm('Seguro que quiere borrar al usuario <%= user.nombre %>?')"><i class="bi bi-trash"></i></a>
+                    <% if (logged.username == user.username) { %>
+                          <a href="/ajustes/usuarios-conf/<%= user.id %>" class="btn btn-sm btn-warning btnEdit" ><i class="bi bi-pencil"></i></a>
+                          
+                          <a href="/ajustes/usuarios-conf/deleteUser/<%= user.id %>" class="btn btn-sm btn-danger btnDelete invisible" onclick="return confirm('Seguro que quiere borrar al usuario <%= user.nombre %>?')"><i class="bi bi-trash"></i></a>
+                      <% } else {%>
+                          <a href="/ajustes/usuarios-conf/<%= user.id %>" class="btn btn-sm btn-warning btnEdit"><i class="bi bi-pencil"></i></a>
+                          
+                          <a href="/ajustes/usuarios-conf/deleteUser/<%= user.id %>" class="btn btn-sm btn-danger btnDelete" onclick="return confirm('Seguro que quiere borrar al usuario <%= user.nombre %>?')"><i class="bi bi-trash"></i></a>
+                    <% } %>
                   </td>
                 </tr>
               <% }) %>
@@ -132,6 +139,54 @@
         </div>
         </div>
         </div>
+        
+         <!-- *****************************MOBILE CARDS EDIT****************************** -->
+<div class="container tabla-mobile" id="tabla-mobile">
+  <div class="row row-cols-1 row-cols-sm-1 row-cols-md-3 mt-3" id="servicesHomePage">
+    <% results.forEach((user) => { %>
+      <div class="col">
+        <div class="card mb-2 cardHome cardShadow" id="opera-codes">
+            <div class="card-header fixSizeHeadEdit">
+              <div class="my-0 text-center card-title"><%= user.nombre %></div>
+          </div>
+          <div class="card-body">
+                <div class="accordion" id="accordionFlushExample">
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-headingOne">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne<%= user.id %>" aria-expanded="false" aria-controls="flush-collapseOne">
+                       Más Información
+                      </button>
+                    </h2>
+                    <div id="flush-collapseOne<%= user.id %>" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                      <div class="accordion-body">
+                        <p><strong>Username: </strong><%= user.username %></p>
+                        <p><strong>Rol: </strong><%= user.rol %></p>
+                        
+                       <hr>
+                       <div class="d-flex justify-content-between">
+                        <% if (logged.username == user.username) { %>
+                          <a href="/ajustes/usuarios-conf/<%= user.id %>" class="btn btn-sm btn-warning btnEdit" ><i class="bi bi-pencil"></i></a>
+                          
+                          <a href="/ajustes/usuarios-conf/deleteUser/<%= user.id %>" class="btn btn-sm btn-danger btnDelete invisible" onclick="return confirm('Seguro que quiere borrar al usuario <%= user.nombre %>?')"><i class="bi bi-trash"></i></a>
+                          
+                      <% } else {%>
+                          <a href="/ajustes/usuarios-conf/<%= user.id %>" class="btn btn-sm btn-warning btnEdit"><i class="bi bi-pencil"></i></a>
+                          
+                          <a href="/ajustes/usuarios-conf/deleteUser/<%= user.id %>" class="btn btn-sm btn-danger btnDelete" onclick="return confirm('Seguro que quiere borrar al usuario <%= user.nombre %>?')"><i class="bi bi-trash"></i></a>
+                    <% } %>
+                       </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+          </div>
+
+        </div>
+      </div>
+        <% }) %>
+  </div>
+</div>
         
         
       </div>

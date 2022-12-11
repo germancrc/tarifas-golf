@@ -32,8 +32,9 @@ p {
   line-height: 1.9;
 }
 
-.bi-house {
-  font-size: 1.3rem;
+.bi-house-up {
+  font-size: 1.5rem;
+  margin-left: 8px;
 }
 
 .login-card {

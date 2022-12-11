@@ -93,8 +93,7 @@
                   <% }) %>
                 </tbody>
               </table>
-            </div>   
-          </div>
+ 
 
             <!-- *****************************MOBILE CARDS EDIT****************************** -->
 <div class="container tabla-mobile" id="tabla-mobile">
@@ -120,9 +119,9 @@
                         
                        <hr>
                        <div class="d-flex justify-content-between">
-                         <a href="/ajustes/guia-conf/<%= guia.id %>" data-bs-toggle="#" data-bs-target="#serviceUpdate" class="btn btn-sm btn-warning btnEdit"><i class="bi bi-pencil"></i></a>
+                         <a href="/ajustes/guias-conf/<%= guia.id %>" data-bs-toggle="#" data-bs-target="#serviceUpdate" class="btn btn-sm btn-warning btnEdit"><i class="bi bi-pencil"></i></a>
                 
-                         <a href="/ajustes/guia-conf/deleteGuide/<%= guia.id %>" class="btn btn-sm btn-danger btnDelete" onclick="return confirm('Seguro que quiere borrar la guía de <%= guia.aplicacion %>?')"><i class="bi bi-trash"></i></a>
+                         <a href="/ajustes/guias-conf/deleteGuide/<%= guia.id %>" class="btn btn-sm btn-danger btnDelete" onclick="return confirm('Seguro que quiere borrar la guía de <%= guia.aplicacion %>?')"><i class="bi bi-trash"></i></a>
                        </div>
                       </div>
                     </div>
@@ -135,6 +134,8 @@
       </div>
         <% }) %>
   </div>
+</div>
+</div>   
 </div>
 
       </div>

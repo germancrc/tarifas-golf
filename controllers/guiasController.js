@@ -83,9 +83,8 @@ exports.downloadGuide = (req, res) => {
       [id],
       (error, data) => {
         if (data) {
-          const descarga = { data: data[0].fileData };
-          res.send(descarga);
-          // console.log(descarga);
+          res.send({ data: data[0].fileData });
+          console.log(data[0].fileData);
         } else {
           throw error;
         }

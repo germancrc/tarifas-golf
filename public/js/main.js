@@ -118,7 +118,7 @@ let checkPass = function () {
       "btn btn-primary disabled";
   }
 };
-
+// PONER TEXTO MAYUSCULAS EN FORMS
 function mayus(e) {
   e.value = e.value.toUpperCase();
 }

@@ -43,8 +43,8 @@
                   <div class="col">
                     <div class="input-group">
                       <div class="input-group">
-                        <input type="file" class="form-control" id="fileGuide" name="archivo"  accept=".pdf"aria-describedby="inputGroupFileAddon04" aria-label="Upload" required>
-                        <button class="btn btn-success" type="submit" id="inputGroupFileAddon04">SUBIR</button>
+                        <input type="file" class="form-control" id="fileGuide" name="archivo"  accept=".pdf" aria-describedby="inputGroupFileAddon04" aria-label="Upload" required>
+                        <button class="btn btn-success" id="upload" type="submit" id="inputGroupFileAddon04">SUBIR</button>
                         <div class="invalid-feedback">
                           Sólo archivos .PDF permitidos.
                         </div>
@@ -53,6 +53,11 @@
                   </div>
                 </div>
               </form>
+              <!-- SPINNER SUBIENDO -->
+              <!-- <div class="d-flex align-items-center mt-1">
+                <strong>Subiendo archivo...</strong>
+                <div class="spinner-border ms-auto text-danger" role="status" aria-hidden="true"></div>
+              </div> -->
             </div>
           </div>
 
@@ -95,7 +100,7 @@
                       <td><%= guia.archivo %></td>
                       <td><%= guia.actualizado %></td>
                       <td>
-                          <a href="#" class="btn btn-sm btn-warning btnEdit"><i class="bi bi-pencil"></i></a>
+                        <a href="/ajustes/guias-conf/<%= guia.id %>" class="btn btn-sm btn-warning btnEdit"><i class="bi bi-pencil"></i></a>
                           
                           <a href="/ajustes/guias-conf/deleteGuide/<%= guia.id %>" class="btn btn-sm btn-danger btnDelete" onclick="return confirm('Seguro que quiere borrar la Guia de <%= guia.aplicacion %> ?')"><i class="bi bi-trash"></i></a>
                       </td>

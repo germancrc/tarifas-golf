@@ -1,21 +1,21 @@
 <%- include ('./partials/head-edits.ejs') %> 
 
-    <div class="sidebar scrollmenu">
-      <div class="container mb-3 mt-3">
-          <img src="/img/golflogo.png" class="logo" alt="">
+<div class="sidebar scrollmenu">
+  <div class="container mb-3 mt-3">
+      <img src="/img/golflogo.png" class="logo" alt="">
 
-      </div>
-      <a href="/index">Inicio <i class="bi bi-chevron-right flecha"></i></a>
-      <a href="/tarifas">Tarifas <i class="bi bi-chevron-right flecha"></i></a>
-      <a class="active" href="/guias">Guías <i class="bi bi-chevron-right flecha"></i></a>
-      <a href="/opera">CÓDIGOS OPERA <i class="bi bi-chevron-right flecha"></i></a>
-      <a href="/minigolf">MINI GOLF <i class="bi bi-chevron-right flecha"></i></a>
-      <% if(user.rol === "Admin"){ %>
-        <a class="d-block"href="/ajustes">AJUSTES <i class="bi bi-chevron-right flecha"></i></a>
-        <% } else { %>
-          <a class="d-none"href="/ajustes">AJUSTES <i class="bi bi-chevron-right flecha"></i></a>
-        <% } %>
-    </div>
+  </div>
+  <a href="/index"><i class="bi bi-house-check"></i> Inicio <i class="bi bi-chevron-right flecha"></i></a>
+  <a href="/tarifas"><i class="bi bi-currency-dollar"></i> Tarifas <i class="bi bi-chevron-right flecha"></i></a>
+  <a class="active" href="/guias"> <i class="bi bi-journal-text"></i> Guías <i class="bi bi-chevron-right flecha"></i></a>
+  <a href="/opera"> <i class="bi bi-upc-scan"></i> CÓD. OPERA <i class="bi bi-chevron-right flecha"></i></a>
+  <a href="/minigolf"> <i class="bi bi-houses"></i> MINI GOLF <i class="bi bi-chevron-right flecha"></i></a>
+  <% if(user.rol === "Admin"){ %>
+    <a class="d-block"href="/ajustes"><i class="bi bi-gear"></i> AJUSTES <i class="bi bi-chevron-right flecha"></i></a>
+    <% } else { %>
+      <a class="d-none"href="/ajustes">AJUSTES <i class="bi bi-chevron-right flecha"></i></a>
+    <% } %>
+</div>
 
     <!-- NAV LG -->
     <nav class="navbar fixed-top navi">
@@ -54,8 +54,8 @@
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             <a class="active" href="/index">Inicio</a>
             <a class="nav-link" href="/tarifas">Tarifas</a>
-            <a class="nav-link" href="#">GUIAS</a>
-            <a class="nav-link" href="/opera">CÓDIGOS OPERA</a>
+            <a class="nav-link" href="/guias">GUIAS</a>
+            <a class="nav-link" href="/opera">CÓD. OPERA</a>
             <a class="nav-link" href="/minigolf">MINI GOLF</a>
             <% if(user.rol === "Admin"){ %>
               <a class="d-block"href="/ajustes">AJUSTES </a>
@@ -118,7 +118,7 @@
                         <td><%= guia.actualizado %></td>
                         <td>
                           <div class="d-flex justify-content-between">
-                            <a href="#" class="btn btn-sm btn-success btnEdit"><i class="bi bi-arrow-down-circle"></i></a>
+                            <a href="/downloadGuide/<%= guia.id %>" class="btn btn-sm btn-success btnEdit"><i class="bi bi-arrow-down-circle"></i></a>
                           </div>
                         </td>
                       </tr>

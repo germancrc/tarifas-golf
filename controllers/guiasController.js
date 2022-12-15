@@ -7,15 +7,22 @@ exports.uploadGuide = async (req, res) => {
     const aplicacion = req.body.aplicacion;
     const archivo = req.file.originalname;
     const fileData = req.file.buffer.toString("base64");
+    const fileSize = req.file.size;
 
     db.query(
       "INSERT INTO guias_hrgolf SET ?",
-      { aplicacion: aplicacion, archivo: archivo, fileData: fileData },
+      {
+        aplicacion: aplicacion,
+        archivo: archivo,
+        fileData: fileData,
+        fileSize: fileSize,
+      },
       (error, results) => {
         if (error) {
           console.log(error);
         }
         res.redirect("/ajustes/guias-conf");
+        // console.log(fileData);
       }
     );
     // console.log(aplicacion, archivo);
@@ -28,7 +35,7 @@ exports.uploadGuide = async (req, res) => {
 exports.getGuides = (req, res) => {
   try {
     db.query(
-      'select id, aplicacion, archivo, CONVERT_TZ(actualizado,"+00:00","-04:00") as actualizado from guias_hrgolf ORDER BY aplicacion asc, actualizado desc',
+      'select id, aplicacion, archivo, CONVERT_TZ(actualizado,"+00:00","-04:00") as actualizado, fileSize from guias_hrgolf ORDER BY aplicacion asc, actualizado desc',
       (error, results) => {
         if (results) {
           res.render("ajustes/guias-conf", {
@@ -79,12 +86,18 @@ exports.downloadGuide = (req, res) => {
   try {
     const id = req.params.id;
     db.query(
-      "SELECT archivo, fileData FROM guias_hrgolf WHERE id=?",
+      "SELECT aplicacion, fileData FROM guias_hrgolf WHERE id=?",
       [id],
       (error, data) => {
         if (data) {
-          res.send({ data: data[0].fileData });
-          console.log(data[0].fileData);
+          let archivo = data[0].aplicacion;
+          let datos = data[0].fileData;
+          res.type("application/pdf");
+          res.header(
+            "Content-Disposition",
+            `attachment; filename="${archivo}-guia.pdf"`
+          );
+          res.send(Buffer.from(datos, "base64"));
         } else {
           throw error;
         }

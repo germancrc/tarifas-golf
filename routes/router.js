@@ -47,7 +47,7 @@ router.get("/index", authController.isAuthenticated, (req, res) => {
 router.get("/guias", authController.isAuthenticated, (req, res) => {
   try {
     db.query(
-      'select id, aplicacion, archivo, CONVERT_TZ(actualizado,"+00:00","-04:00") as actualizado, fileData from guias_hrgolf ORDER BY aplicacion asc',
+      'select id, aplicacion, archivo, CONVERT_TZ(actualizado,"+00:00","-04:00") as actualizado, fileSize from guias_hrgolf ORDER BY aplicacion asc',
       (error, results) => {
         if (results) {
           res.render("guias", {

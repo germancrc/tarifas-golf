@@ -39,7 +39,7 @@
             <div class="dropdown btn-perfil">
               <% if(user.rol === "Admin"){ %>
                 <button class="btn btn-success dropdown-toggle" href="#" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  <span class="text-light text-uppercase"></i><%= user.username %></span>
+                  <span class="text-light text-uppercase"><%= user.username %></span>
                 </button>
                   <% } else { %>
                     <button class="btn btn-warning btn-sm dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -65,7 +65,6 @@
           </div>
         </div>
       </div>
-    </div>
     </nav>
 
       <div class="content">
@@ -105,8 +104,9 @@
                     <tr>
                       <th scope="col" class="col">Aplicación</th>
                       <th scope="col" class="col">Archivo</th>
+                      <th scope="col" class="col">Tamaño</th>
                       <th scope="col" class="col">Actualizado</th>
-                      <th scope="col" class="col-2">Descargar</th>
+                      <th scope="col" class="col-1">Descargar</th>
                     </tr>
                   </thead>
                   <% } %>
@@ -115,10 +115,17 @@
                       <tr>
                         <td><%= guia.aplicacion %> </td>
                         <td><%= guia.archivo %></td>
+                        <% if (guia.fileSize >= 1000000) { %>
+                          <td><%= (guia.fileSize/1000000).toFixed(2); %> MB</td>
+                        <% } else if (guia.fileSize >= 1000) { %>
+                          <td><%= (guia.fileSize/1000).toFixed(2); %> KB</td>
+                        <% } else { %>
+                          <td><%= guia.fileSize %> bytes</td>
+                        <% } %>
                         <td><%= guia.actualizado %></td>
                         <td>
                           <div class="d-flex justify-content-between">
-                            <a href="/downloadGuide/<%= guia.id %>" class="btn btn-sm btn-success btnEdit"><i class="bi bi-arrow-down-circle"></i></a>
+                            <a href="/downloadGuide/<%= guia.id %>" target="_blank" class="btn btn-sm btn-success btnEdit"><i class="bi bi-arrow-down-circle"></i></a>
                           </div>
                         </td>
                       </tr>
@@ -139,13 +146,20 @@
                               <div class="accordion" id="accordionFlushExample">
                                 <div class="accordion-item">
                                   <h2 class="accordion-header" id="flush-headingOne">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOneID" aria-expanded="false" aria-controls="flush-collapseOne">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne<%= guia.id %>" aria-expanded="false" aria-controls="flush-collapseOne">
                                     Más Información
                                     </button>
                                   </h2>
-                                  <div id="flush-collapseOneID" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                  <div id="flush-collapseOne<%= guia.id %>" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                                     <div class="accordion-body">
                                       <p><strong>Archivo:</strong> <%= guia.archivo %> </p>
+                                      <% if (guia.fileSize >= 1000000) { %>
+                                        <p><strong>Tamaño:</strong> <%= (guia.fileSize/1000000).toFixed(2); %> MB </p>
+                                        <% } else if (guia.fileSize >= 1000) { %>
+                                          <p><strong>Tamaño:</strong> <%= (guia.fileSize/1000).toFixed(2); %> KB </p>
+                                          <% } else { %>
+                                            <p><strong>Tamaño:</strong> <%= guia.fileSize %> bytes </p>
+                                      <% } %>
                                       <p><strong>Actualizado:</strong><%= guia.actualizado %> </p>
 
 

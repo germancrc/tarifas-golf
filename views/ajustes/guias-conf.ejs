@@ -88,17 +88,25 @@
                     <tr>
                       <th scope="col" class="col">Aplicación</th>
                       <th scope="col" class="col">Archivo</th>
+                      <th scope="col" class="col">Tamaño</th>
                       <th scope="col" class="col">Actualizado</th>
-                      <th scope="col" class="col-2">Acciones</th>
+                      <th scope="col" class="col-2">Descargar</th>
                     </tr>
                   </thead>
                   <% } %>
-                <tbody>
-                  <% results.forEach(guia => { %>
-                    <tr>
-                      <td><%= guia.aplicacion %> </td>
-                      <td><%= guia.archivo %></td>
-                      <td><%= guia.actualizado %></td>
+                  <tbody>
+                    <% results.forEach(guia => { %>
+                      <tr>
+                        <td><%= guia.aplicacion %> </td>
+                        <td><%= guia.archivo %></td>
+                        <% if (guia.fileSize >= 1000000) { %>
+                          <td><%= (guia.fileSize/1000000).toFixed(2); %> MB</td>
+                        <% } else if (guia.fileSize >= 1000) { %>
+                          <td><%= (guia.fileSize/1000).toFixed(2); %> KB</td>
+                        <% } else { %>
+                          <td><%= guia.fileSize %> bytes</td>
+                        <% } %>
+                        <td><%= guia.actualizado %></td>
                       <td>
                         <a href="/ajustes/guias-conf/<%= guia.id %>" class="btn btn-sm btn-warning btnEdit"><i class="bi bi-pencil"></i></a>
                           
@@ -129,8 +137,15 @@
                     </h2>
                     <div id="flush-collapseOne<%= guia.id %>" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                       <div class="accordion-body">
-                        <p><strong>Archivo: </strong><%= guia.archivo %></p>
-                        <p><strong>Actualizado el: </strong><%= guia.actualizado %></p>
+                        <p><strong>Archivo:</strong> <%= guia.archivo %> </p>
+                        <% if (guia.fileSize >= 1000000) { %>
+                          <p><strong>Tamaño:</strong> <%= (guia.fileSize/1000000).toFixed(2); %> MB </p>
+                          <% } else if (guia.fileSize >= 1000) { %>
+                            <p><strong>Tamaño:</strong> <%= (guia.fileSize/1000).toFixed(2); %> KB </p>
+                            <% } else { %>
+                              <p><strong>Tamaño:</strong> <%= guia.fileSize %> bytes </p>
+                        <% } %>
+                        <p><strong>Actualizado:</strong><%= guia.actualizado %> </p>
                         
                        <hr>
                        <div class="d-flex justify-content-between">

@@ -1,96 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+	<%- include ('../partials/head-edits.ejs') %>
 
-  <%- include ('../partials/head-edits.ejs') %> 
-  
-  <body>
-    
-    <% if (user) { %>
-      <%- include ('../partials/ajustes/sidebar-ajustes.ejs') %>
-      
-      <!-- NAV LG -->
-      <nav class="navbar fixed-top navi">
-        <div class="container-fluid">
-          <span class="navbar-brand mb-0 h1" id="navbarLG">AJUSTES - TARIFAS CAMPO GOLF</span>
-          <%- include ('../partials/ajustes/navbar-lg.ejs') %> 
-          
-        </nav>
-        
-        <!-- NAV SM -->
-        <nav class="navbar navSmall fixed-top">  
-          <%- include ('../partials/ajustes/navbar-sm.ejs') %> 
-        </nav>
-    <% } %>  
+	<body>
+		<% if (user) { %> <%- include ('../partials/ajustes/sidebar-ajustes.ejs') %>
 
-    <div class="content">
-      
-      <div id="Servicios" class="afterNav">
-        
-              <div class="text-center mb-3">
-                <h4 class="text-uppercase" id="titulo">Editar Tarifa Campo de Golf</h4>
-              </div>
-              <div class="cardEdit-container">
+		<!-- NAV LG -->
+		<nav class="navbar fixed-top navi">
+			<div class="container-fluid">
+				<span class="navbar-brand mb-0 h1" id="navbarLG"
+					>AJUSTES - TARIFAS CAMPO GOLF</span
+				>
+				<%- include ('../partials/ajustes/navbar-lg.ejs') %>
+			</div>
+		</nav>
 
-                <div class="card editShadow">
-                  <div class="card-body">
-                  <% if (rate) { %>
-                  
-                    <form id="services-form" action="/ajustes/tarifas-conf/<%= rate.id %>" method="POST">
-                      <div class="mb-3">
-                        <label for="rate-title" class="form-label">Nombre de la tarifa</label>
-                        <input type="text" class="form-control" name="nombre" value="<%= rate.nombre %>" placeholder="Nombre de la tarifa" required>
-                      </div>
-                      <div class="mb-3">
-                        <label for="rate-price" class="form-label">Precio</label>
-                        <input type="number" class="form-control" name="precio" value="<%= rate.precio %>" placeholder="Precio de tarifa " required>
-                      </div> 
-                      <div class="mb-3">
-                        <label for="rate-opera" class="form-label">Código Opera</label>
-                        <input type="number" class="form-control" name="cod_opera"  value="<%=rate.cod_opera %>" placeholder="Código de Opera">
-                      </div>   
-                      <label for="rate-cliente" class="form-label">Tipo de cliente</label>
-                      <select class="form-select mb-3" name="cliente" aria-label="cliente-selector" required >
-                        <!-- <option selected>Elegir:</option> -->
-                        <% if(rate.cliente === "Hotel"){ %>
-                          <option selected value="Hotel">Cliente Hotel</option>
-                          <option value="Local">Local / Residente</option>
-                          <option value="Extranjero">Extranjero</option>
-                          <option value="Varios">Varios</option>
-                          <% } else if(rate.cliente === "Local") { %>
-                            <option value="Hotel">Cliente Hotel</option>
-                            <option selected value="Local">Local / Residente</option>
-                            <option value="Extranjero">Extranjero</option>
-                            <option value="Varios">Varios</option>
-                          <% } else if(rate.cliente === "Extranjero") { %>
-                            <option value="Hotel">Cliente Hotel</option>
-                            <option value="Local">Local / Residente</option>
-                            <option selected value="Extranjero">Extranjero</option>
-                            <option value="Varios">Varios</option>
-                            <% } else { %>
-                              <option value="Hotel">Cliente Hotel</option>
-                              <option value="Local">Local / Residente</option>
-                              <option value="Extranjero">Extranjero</option>
-                              <option selected value="Varios">Varios</option>
-                            <% } %>                        
-                      </select>
+		<!-- NAV SM -->
+		<nav class="navbar navSmall fixed-top">
+			<%- include ('../partials/ajustes/navbar-sm.ejs') %>
+		</nav>
+		<% } %>
 
-                      <div class="form-group">
-                        <label class="mb-2" for="rate-tips">Descripción</label>
-                        <textarea  class="form-control" name="tips" rows="3"><%=rate.tips %></textarea>
-                      </div>
+		<div class="content">
+			<div id="Servicios" class="afterNav">
+				<div class="text-center mb-3">
+					<h4 class="text-uppercase" id="titulo">
+						Editar Tarifa Campo de Golf
+					</h4>
+				</div>
+				<div class="cardEdit-container">
+					<div class="card editShadow">
+						<div class="card-body">
+							<% if (rate) { %>
 
+							<form
+								id="services-form"
+								action="/ajustes/tarifas-conf/<%= rate.id %>"
+								method="POST"
+							>
+								<div class="mb-3">
+									<label for="rate-title" class="form-label"
+										>Nombre de la tarifa</label
+									>
+									<input
+										type="text"
+										class="form-control"
+										name="nombre"
+										value="<%= rate.nombre %>"
+										placeholder="Nombre de la tarifa"
+										required
+									/>
+								</div>
+								<div class="mb-3">
+									<label for="rate-price" class="form-label">Precio</label>
+									<input
+										type="number"
+										class="form-control"
+										name="precio"
+										value="<%= rate.precio %>"
+										placeholder="Precio de tarifa "
+										required
+									/>
+								</div>
+								<div class="mb-3">
+									<label for="rate-opera" class="form-label"
+										>Código Opera</label
+									>
+									<input
+										type="number"
+										class="form-control"
+										name="cod_opera"
+										value="<%=rate.cod_opera %>"
+										placeholder="Código de Opera"
+									/>
+								</div>
+								<label for="rate-cliente" class="form-label"
+									>Tipo de cliente</label
+								>
+								<select
+									class="form-select mb-3"
+									name="cliente"
+									aria-label="cliente-selector"
+									required
+								>
+									<!-- <option selected>Elegir:</option> -->
+									<% if(rate.cliente === "Hotel"){ %>
+									<option selected value="Hotel">Cliente Hotel</option>
+									<option value="Local">Local / Residente</option>
+									<option value="Extranjero">Extranjero</option>
+									<option value="Varios">Varios</option>
+									<% } else if(rate.cliente === "Local") { %>
+									<option value="Hotel">Cliente Hotel</option>
+									<option selected value="Local">Local / Residente</option>
+									<option value="Extranjero">Extranjero</option>
+									<option value="Varios">Varios</option>
+									<% } else if(rate.cliente === "Extranjero") { %>
+									<option value="Hotel">Cliente Hotel</option>
+									<option value="Local">Local / Residente</option>
+									<option selected value="Extranjero">Extranjero</option>
+									<option value="Varios">Varios</option>
+									<% } else { %>
+									<option value="Hotel">Cliente Hotel</option>
+									<option value="Local">Local / Residente</option>
+									<option value="Extranjero">Extranjero</option>
+									<option selected value="Varios">Varios</option>
+									<% } %>
+								</select>
 
-                      
-                      <div class="mt-4 d-grid gap-2 d-md-flex justify-content-md-start">
-                        <button type="submit" class="btn btn-warning btnEdit editShadow" id="modalServName"><i class="bi bi-pencil"></i> EDITAR</button>
-                        <a href="/ajustes/tarifas-conf" class="btn btn-danger btnCancel editShadow"><i class="bi bi-x-lg"></i> CANCELAR</a>
-                      </div>
-                    </form>
-                    <% } %>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+								<div class="form-group">
+									<label class="mb-2" for="rate-tips">Descripción</label>
+									<textarea class="form-control" name="tips" rows="3">
+<%=rate.tips %></textarea
+									>
+								</div>
 
-          <%- include ('../partials/footer.ejs') %> 
-  </body>
+								<div
+									class="mt-4 d-grid gap-2 d-md-flex justify-content-md-start"
+								>
+									<button
+										type="submit"
+										class="btn btn-warning btnEdit editShadow"
+										id="modalServName"
+									>
+										<i class="bi bi-pencil"></i> EDITAR
+									</button>
+									<a
+										href="/ajustes/tarifas-conf"
+										class="btn btn-danger btnCancel editShadow"
+										><i class="bi bi-x-lg"></i> CANCELAR</a
+									>
+								</div>
+							</form>
+							<% } %>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<%- include ('../partials/footer.ejs') %>
+	</body>
 </html>

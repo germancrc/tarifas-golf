@@ -1,136 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+	<%- include ('../partials/head-edits.ejs') %>
 
-  <%- include ('../partials/head-edits.ejs') %> 
-  
-  <body>
-    
-    <% if (user) { %>
-      <%- include ('../partials/ajustes/sidebar-ajustes.ejs') %>
-      
-      <!-- NAV LG -->
-      <nav class="navbar fixed-top navi">
-        <div class="container-fluid">
-          <span class="navbar-brand mb-0 h1" id="navbarLG">AJUSTES - CÓDIGOS OPERA</span>
-          <%- include ('../partials/ajustes/navbar-lg.ejs') %> 
-          
-        </nav>
-        
-        <!-- NAV SM -->
-        <nav class="navbar navSmall fixed-top">  
-          <%- include ('../partials/ajustes/navbar-sm.ejs') %> 
-        </nav>
-    <% } %>  
+	<body>
+		<% if (user) { %> <%- include ('../partials/ajustes/sidebar-ajustes.ejs') %>
 
+		<!-- NAV LG -->
+		<nav class="navbar fixed-top navi">
+			<div class="container-fluid">
+				<span class="navbar-brand mb-0 h1" id="navbarLG"
+					>AJUSTES - CÓDIGOS OPERA</span
+				>
+				<%- include ('../partials/ajustes/navbar-lg.ejs') %>
+			</div>
+		</nav>
 
-    <div class="content">
-      
-      <div id="Codigos" class="afterNav">
-        <div class="text-center mb-3">
-          <h4 class="text-uppercase d-none" id="titulo">AJUSTES - CÓDIGOS OPERA</h4>
-        </div>
-        <div class="row d-flex justify-content-between">
-          <div class="col-5">
-            <a href="/ajustes/new-opera-codes" type="button" class="btn btn-success editShadow" id="btnService">
-              <i class="bi bi-plus-circle"></i> AGREGAR
-            </a>
-              <!-- Button trigger modal -->
-          </div>
-          <div class="col-7" id="inputBuscar">
-            <form role="search">
-              <div class="input-group">
-                <span class="input-group-text" id="basic-addon1"><i class="bi bi-search"></i></span>
-                <input class="form-control " type="search" id="myInput" onkeyup="buscarCodigo()" placeholder="Buscar Código" aria-label="Search">
-              </div>
-          </div>
-        </div>  
-    
-        <div class="card editShadow mt-4 tabla-desktop">
-          <div class="card-body">
-            <div class="table-responsive">
-              <table class="table" id="myTable">
-              <thead>
-                <tr>
-                  <th scope="col" class="col">Código</th>
-                  <th scope="col" class="col">Nombre</th>
-                  <th scope="col" class="col">Uso</th>
-                  <th scope="col" class="col-5">Descripción</th>
-                  <th scope="col" class="col-2">Acciones</th>
-                </tr>
-              </thead>
-              <tbody>
-                <% results.forEach((code) => { %>
-                  <tr>
-                    <td><%= code.codigo %></td>
-                    <td><%= code.nombre %></td>
-                    <td><%= code.uso %></td>
-                    <% if(code.descripcion.length > 50) { %>
-                      <td data-titulo="Tips:"><%= code.descripcion.slice(0,50) %>...</td>
-                      
-                      <% } else { %>
-                        <td data-titulo="Tips:"><%= code.descripcion %></td>
-                        <% }  %>
- 
-                    <td>
-                      <a href="/ajustes/opera-codes/<%= code.id %>" data-bs-toggle="#" data-bs-target="#rateUpdate" class="btn btn-sm btn-warning btnEdit"><i class="bi bi-pencil"></i></a>
-                      
-                      <a href="/ajustes/opera-codes/deleteCode/<%= code.id %>" class="btn btn-sm btn-danger btnDelete" onclick="return confirm('Seguro que quiere borrar el Código <%= code.nombre %>?')"><i class="bi bi-trash"></i></a>
-                    </td>
-                  </tr>
-                <% }) %>
-              </tbody>
-            </table>
-          </div>
-          </div>
-          </div>
+		<!-- NAV SM -->
+		<nav class="navbar navSmall fixed-top">
+			<%- include ('../partials/ajustes/navbar-sm.ejs') %>
+		</nav>
+		<% } %>
 
-<!-- *****************************MOBILE CARDS EDIT****************************** -->
-<div class="container tabla-mobile" id="tabla-mobile">
-  <div class="row row-cols-1 row-cols-sm-1 row-cols-md-3 mt-3" id="servicesHomePage">
-    <% results.forEach((code) => { %>
-      <div class="col">
-        <div class="card mb-2 cardHome cardShadow" id="opera-codes">
-            <div class="card-header fixSizeHeadEdit">
-              <div class="my-0 text-center card-title"><%= code.codigo %> | <%= code.nombre %></div>
-          </div>
-          <div class="card-body">
-                <div class="accordion" id="accordionFlushExample">
-                  <div class="accordion-item">
-                    <h2 class="accordion-header" id="flush-headingOne">
-                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne<%= code.id %>" aria-expanded="false" aria-controls="flush-collapseOne">
-                       Más Información
-                      </button>
-                    </h2>
-                    <div id="flush-collapseOne<%= code.id %>" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                      <div class="accordion-body">
-                        <p><strong>Uso: </strong><%= code.uso %></p>
-                        <p><strong>Descripción: </strong><%= code.descripcion %></p>
-                        
-                       <hr>
-                       <div class="d-flex justify-content-between">
-                         <a href="/ajustes/opera-codes/<%= code.id %>" data-bs-toggle="#" data-bs-target="#serviceUpdate" class="btn btn-sm btn-warning btnEdit"><i class="bi bi-pencil"></i></a>
-                
-                         <a href="/ajustes/opera-codes/deleteService/<%= code.id %>" class="btn btn-sm btn-danger btnDelete" onclick="return confirm('Seguro que quiere borrar el servicio <%= code.nombre %>?')"><i class="bi bi-trash"></i></a>
-                       </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+		<div class="content">
+			<div id="Codigos" class="afterNav">
+				<div class="text-center mb-3">
+					<h4 class="text-uppercase d-none" id="titulo">
+						AJUSTES - CÓDIGOS OPERA
+					</h4>
+				</div>
+				<div class="row d-flex justify-content-between">
+					<div class="col-5">
+						<a
+							href="/ajustes/new-opera-codes"
+							type="button"
+							class="btn btn-success editShadow"
+							id="btnService"
+						>
+							<i class="bi bi-plus-circle"></i> AGREGAR
+						</a>
+						<!-- Button trigger modal -->
+					</div>
+					<div class="col-7" id="inputBuscar">
+						<form role="search">
+							<div class="input-group">
+								<span class="input-group-text" id="basic-addon1"
+									><i class="bi bi-search"></i
+								></span>
+								<input
+									class="form-control"
+									type="search"
+									id="myInput"
+									onkeyup="buscarCodigo()"
+									placeholder="Buscar Código"
+									aria-label="Search"
+								/>
+							</div>
+						</form>
 
-          </div>
+						<div class="card editShadow mt-4 tabla-desktop">
+							<div class="card-body">
+								<div class="table-responsive">
+									<table class="table" id="myTable">
+										<thead>
+											<tr>
+												<th scope="col" class="col">Código</th>
+												<th scope="col" class="col">Nombre</th>
+												<th scope="col" class="col">Uso</th>
+												<th scope="col" class="col-5">Descripción</th>
+												<th scope="col" class="col-2">Acciones</th>
+											</tr>
+										</thead>
+										<tbody>
+											<% results.forEach((code) => { %>
+											<tr>
+												<td><%= code.codigo %></td>
+												<td><%= code.nombre %></td>
+												<td><%= code.uso %></td>
+												<% if(code.descripcion.length > 50) { %>
+												<td data-titulo="Tips:">
+													<%= code.descripcion.slice(0,50) %>...
+												</td>
 
-        </div>
-      </div>
-        <% }) %>
-  </div>
-</div>
+												<% } else { %>
+												<td data-titulo="Tips:"><%= code.descripcion %></td>
+												<% } %>
 
-<!-- *************************SIN RESULTADOS********************
+												<td>
+													<a
+														href="/ajustes/opera-codes/<%= code.id %>"
+														data-bs-toggle="#"
+														data-bs-target="#rateUpdate"
+														class="btn btn-sm btn-warning btnEdit"
+														><i class="bi bi-pencil"></i
+													></a>
+
+													<a
+														href="/ajustes/opera-codes/deleteCode/<%= code.id %>"
+														class="btn btn-sm btn-danger btnDelete"
+														onclick="return confirm('Seguro que quiere borrar el Código <%= code.nombre %>?')"
+														><i class="bi bi-trash"></i
+													></a>
+												</td>
+											</tr>
+											<% }) %>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+
+						<!-- *****************************MOBILE CARDS EDIT****************************** -->
+						<div class="container tabla-mobile" id="tabla-mobile">
+							<div
+								class="row row-cols-1 row-cols-sm-1 row-cols-md-3 mt-3"
+								id="servicesHomePage"
+							>
+								<% results.forEach((code) => { %>
+								<div class="col">
+									<div class="card mb-2 cardHome cardShadow" id="opera-codes">
+										<div class="card-header fixSizeHeadEdit">
+											<div class="my-0 text-center card-title">
+												<%= code.codigo %> | <%= code.nombre %>
+											</div>
+										</div>
+										<div class="card-body">
+											<div class="accordion" id="accordionFlushExample">
+												<div class="accordion-item">
+													<h2 class="accordion-header" id="flush-headingOne">
+														<button
+															class="accordion-button collapsed"
+															type="button"
+															data-bs-toggle="collapse"
+															data-bs-target="#flush-collapseOne<%= code.id %>"
+															aria-expanded="false"
+															aria-controls="flush-collapseOne"
+														>
+															Más Información
+														</button>
+													</h2>
+													<div
+														id="flush-collapseOne<%= code.id %>"
+														class="accordion-collapse collapse"
+														aria-labelledby="flush-headingOne"
+														data-bs-parent="#accordionFlushExample"
+													>
+														<div class="accordion-body">
+															<p><strong>Uso: </strong><%= code.uso %></p>
+															<p>
+																<strong>Descripción: </strong><%=
+																code.descripcion %>
+															</p>
+
+															<hr />
+															<div class="d-flex justify-content-between">
+																<a
+																	href="/ajustes/opera-codes/<%= code.id %>"
+																	data-bs-toggle="#"
+																	data-bs-target="#serviceUpdate"
+																	class="btn btn-sm btn-warning btnEdit"
+																	><i class="bi bi-pencil"></i
+																></a>
+
+																<a
+																	href="/ajustes/opera-codes/deleteService/<%= code.id %>"
+																	class="btn btn-sm btn-danger btnDelete"
+																	onclick="return confirm('Seguro que quiere borrar el servicio <%= code.nombre %>?')"
+																	><i class="bi bi-trash"></i
+																></a>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<% }) %>
+							</div>
+						</div>
+
+						<!-- *************************SIN RESULTADOS********************
   <img src="/img/noResults.PNG" alt="" id="noResults">
 *************************SIN RESULTADOS******************** -->
+					</div>
+				</div>
+			</div>
+		</div>
 
-      </div> 
-
-    </div>
-
-    <%- include ('../partials/footer.ejs') %> 
-  </body>
+		<%- include ('../partials/footer.ejs') %>
+	</body>
 </html>

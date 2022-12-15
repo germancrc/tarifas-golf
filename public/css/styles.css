@@ -1,204 +1,204 @@
 body {
-  background-color: #ffffff;
-  font-family: "roboto", sans-serif;
-  /* scroll-behavior: smooth; */
-  min-height: 100vh;
+	background-color: #ffffff;
+	font-family: 'roboto', sans-serif;
+	/* scroll-behavior: smooth; */
+	min-height: 100vh;
 }
 
 #inputBuscar {
-  position: relative;
-  display: flex;
-  justify-content: end;
+	position: relative;
+	display: flex;
+	justify-content: end;
 }
 
 .vertical-center {
-  margin: 0;
-  position: absolute;
-  top: 50%;
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
+	margin: 0;
+	position: absolute;
+	top: 50%;
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
 }
 
 a {
-  text-decoration: none;
-  color: white;
+	text-decoration: none;
+	color: white;
 }
 
 a:hover {
-  color: white;
+	color: white;
 }
 
 p {
-  line-height: 1.9;
+	line-height: 1.9;
 }
 
 .bi-house-up {
-  font-size: 1.5rem;
-  margin-left: 8px;
+	font-size: 1.5rem;
+	margin-left: 8px;
 }
 
 .inputSize {
-  width: 25%;
+	width: 25%;
 }
 
 .login-card {
-  margin: 0;
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  padding: 2rem;
-  width: 25vw;
-  box-shadow: 0px 7px 11px 1px rgba(0, 0, 0, 0.45);
-  -webkit-box-shadow: 0px 7px 11px 1px rgba(0, 0, 0, 0.45);
-  -moz-box-shadow: 0px 7px 11px 1px rgba(0, 0, 0, 0.45);
+	margin: 0;
+	position: absolute;
+	top: 40%;
+	left: 50%;
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	padding: 2rem;
+	width: 25vw;
+	box-shadow: 0px 7px 11px 1px rgba(0, 0, 0, 0.45);
+	-webkit-box-shadow: 0px 7px 11px 1px rgba(0, 0, 0, 0.45);
+	-moz-box-shadow: 0px 7px 11px 1px rgba(0, 0, 0, 0.45);
 }
 
 .loginPage {
-  background-image: url("/img/loginBG.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+	background-image: url('/img/loginBG.jpg');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
 }
 
 .banner {
-  background-image: url(/img/hardRock.jpg);
-  margin-left: 180px;
-  height: 40vh;
-  width: calc(100% -180px);
-  margin-bottom: 25px;
+	background-image: url(/img/hardRock.jpg);
+	margin-left: 180px;
+	height: 40vh;
+	width: calc(100% -180px);
+	margin-bottom: 25px;
 
-  /* Position and center the image to scale nicely on all screens */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
+	/* Position and center the image to scale nicely on all screens */
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
 
-  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75);
-  -webkit-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75);
+	box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75);
+	-webkit-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75);
+	-moz-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
 .banner-mg {
-  background-image: url(/img/minigolf-air.jpg);
-  margin-left: 180px;
-  height: 40vh;
-  width: calc(100% -180px);
-  margin-bottom: 25px;
+	background-image: url(/img/minigolf-air.jpg);
+	margin-left: 180px;
+	height: 40vh;
+	width: calc(100% -180px);
+	margin-bottom: 25px;
 
-  /* Position and center the image to scale nicely on all screens */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
+	/* Position and center the image to scale nicely on all screens */
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
 
-  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75);
-  -webkit-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75);
+	box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75);
+	-webkit-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75);
+	-moz-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
 .navbar-brand {
-  color: white;
+	color: white;
 }
 
 .navbar-brand:hover {
-  color: white;
+	color: white;
 }
 
 .cardService {
-  height: 7rem;
-  text-align: center;
-  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
-  -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+	height: 7rem;
+	text-align: center;
+	box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+	-webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+	-moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
 .linkTarifa {
-  color: black;
+	color: black;
 }
 
 .linkTarifa:hover {
-  color: black;
+	color: black;
 }
 
 #start-again {
-  display: none;
+	display: none;
 }
 
 .center {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .afterNav {
-  margin-top: 4.6rem;
+	margin-top: 4.6rem;
 }
 
 .bannerGolf {
-  height: 20vh;
-  box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.75);
-  -webkit-box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.75);
+	height: 20vh;
+	box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.75);
+	-webkit-box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.75);
+	-moz-box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.75);
 }
 
 .inputBase {
-  border-color: black;
+	border-color: black;
 }
 
 .form-center {
-  display: flex;
-  justify-content: center;
+	display: flex;
+	justify-content: center;
 }
 
 .btnHotel {
-  text-align: center;
-  padding: 1.2rem;
-  width: 16rem;
-  height: 4rem;
-  margin: 0 1.3rem 1.3rem 1.3rem;
-  background-color: #514d87;
-  color: white;
-  border-radius: 10px 10px 10px 10px;
-  -webkit-border-radius: 10px 10px 10px 10px;
-  -moz-border-radius: 10px 10px 10px 10px;
-  border: 2px solid black;
+	text-align: center;
+	padding: 1.2rem;
+	width: 16rem;
+	height: 4rem;
+	margin: 0 1.3rem 1.3rem 1.3rem;
+	background-color: #514d87;
+	color: white;
+	border-radius: 10px 10px 10px 10px;
+	-webkit-border-radius: 10px 10px 10px 10px;
+	-moz-border-radius: 10px 10px 10px 10px;
+	border: 2px solid black;
 }
 
 .fixSizeHead {
-  height: 3rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #514d87;
-  color: white;
+	height: 3rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #514d87;
+	color: white;
 }
 
 .fixSizeHeadEdit {
-  height: 2.5rem;
-  background-color: #514d87;
-  color: white;
+	height: 2.5rem;
+	background-color: #514d87;
+	color: white;
 }
 
 .bodyCardZise {
-  height: 8rem;
+	height: 8rem;
 }
 
 .bodyCardZiseMG {
-  height: 6.5rem;
+	height: 6.5rem;
 }
 
 .opera-cd {
-  margin-top: -0.6rem;
-  margin-bottom: 0.6rem;
+	margin-top: -0.6rem;
+	margin-bottom: 0.6rem;
 }
 
 .noResults {
-  height: 30vh;
-  border-radius: 10px 10px 25px 25px;
-  -webkit-border-radius: 10px 10px 25px 25px;
-  -moz-border-radius: 10px 10px 25px 25px;
+	height: 30vh;
+	border-radius: 10px 10px 25px 25px;
+	-webkit-border-radius: 10px 10px 25px 25px;
+	-moz-border-radius: 10px 10px 25px 25px;
 }
 
 /* .precio-tur{
@@ -206,9 +206,9 @@ p {
 } */
 
 .cardShadow {
-  box-shadow: 9px 10px 20px -12px rgba(0, 0, 0, 0.64);
-  -webkit-box-shadow: 9px 10px 20px -12px rgba(0, 0, 0, 0.64);
-  -moz-box-shadow: 9px 10px 20px -12px rgba(0, 0, 0, 0.64);
+	box-shadow: 9px 10px 20px -12px rgba(0, 0, 0, 0.64);
+	-webkit-box-shadow: 9px 10px 20px -12px rgba(0, 0, 0, 0.64);
+	-moz-box-shadow: 9px 10px 20px -12px rgba(0, 0, 0, 0.64);
 }
 
 /* .editShadow{
@@ -218,26 +218,26 @@ p {
 } */
 
 .cardBottom {
-  background-color: #514d87;
-  color: white;
+	background-color: #514d87;
+	color: white;
 }
 
 .cardBottom a {
-  color: white;
+	color: white;
 }
 
 .btnService {
-  padding: 0.4rem 2rem 0.4rem 2rem;
+	padding: 0.4rem 2rem 0.4rem 2rem;
 }
 
 .btnAnswer:hover,
 .btnHotel:hover {
-  background-color: #dfb502;
-  box-shadow: 1px 0px 12px 1px rgba(81, 77, 135, 0.75);
-  -webkit-box-shadow: 1px 0px 12px 1px rgba(81, 77, 135, 0.75);
-  -moz-box-shadow: 1px 0px 12px 1px rgba(81, 77, 135, 0.75);
-  transition: 0.15s ease;
-  color: black;
+	background-color: #dfb502;
+	box-shadow: 1px 0px 12px 1px rgba(81, 77, 135, 0.75);
+	-webkit-box-shadow: 1px 0px 12px 1px rgba(81, 77, 135, 0.75);
+	-moz-box-shadow: 1px 0px 12px 1px rgba(81, 77, 135, 0.75);
+	transition: 0.15s ease;
+	color: black;
 }
 
 .btnEdit,
@@ -245,7 +245,7 @@ p {
 .btnCancel,
 .btnAdd,
 .btnInfo {
-  padding: 0.4rem 2rem 0.4rem 2rem;
+	padding: 0.4rem 2rem 0.4rem 2rem;
 }
 
 .logo,
@@ -253,54 +253,54 @@ p {
 .domfedo,
 .banderas,
 .ttooCardImg {
-  height: 8rem;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+	height: 8rem;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .logo-login {
-  height: 10rem;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+	height: 10rem;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .card-img-top {
-  height: 9.5rem;
-  object-fit: cover;
+	height: 9.5rem;
+	object-fit: cover;
 }
 
 .logoHotelrate {
-  height: 6rem;
-  /* display: block;
+	height: 6rem;
+	/* display: block;
   margin-left: auto;
   margin-right: auto; */
 }
 
 .testRow {
-  vertical-align: middle;
+	vertical-align: middle;
 }
 
 .logoFoot {
-  margin-top: 1.5rem;
+	margin-top: 1.5rem;
 }
 
 .encabezado {
-  text-align: center;
+	text-align: center;
 }
 
-.cardRate {
+/* .cardRate {
   box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
   -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
-}
+} */
 
 .cardRate:hover {
-  box-shadow: 1px 0px 12px 1px rgba(81, 77, 135, 0.75);
-  -webkit-box-shadow: 1px 0px 12px 1px rgba(81, 77, 135, 0.75);
-  -moz-box-shadow: 1px 0px 12px 1px rgba(81, 77, 135, 0.75);
-  transition: 0.15s ease-in-out all;
+	box-shadow: 1px 0px 12px 1px rgba(81, 77, 135, 0.75);
+	-webkit-box-shadow: 1px 0px 12px 1px rgba(81, 77, 135, 0.75);
+	-moz-box-shadow: 1px 0px 12px 1px rgba(81, 77, 135, 0.75);
+	transition: 0.15s ease-in-out all;
 }
 
 #tarVP,
@@ -309,85 +309,85 @@ p {
 #clienteCasino,
 #tieneCortesia,
 #socioLeg {
-  display: none;
-  animation-name: fadeInAnim;
-  animation-duration: 2.2s;
+	display: none;
+	animation-name: fadeInAnim;
+	animation-duration: 2.2s;
 }
 
 @keyframes fadeInAnim {
-  from {
-    opacity: 0%;
-  }
-  to {
-    opacity: 100%;
-  }
+	from {
+		opacity: 0%;
+	}
+	to {
+		opacity: 100%;
+	}
 }
 
 .card {
-  cursor: pointer;
+	cursor: pointer;
 }
 
 .sidebar {
-  margin: 0;
-  padding: 0;
-  width: 180px;
-  background-color: #f0f0f0;
-  /*#f5f6fe*/
-  position: fixed;
-  height: 100%;
-  overflow: auto;
-  border-right: 2px solid #dfdfdf;
+	margin: 0;
+	padding: 0;
+	width: 180px;
+	background-color: #f0f0f0;
+	/*#f5f6fe*/
+	position: fixed;
+	height: 100%;
+	overflow: auto;
+	border-right: 2px solid #dfdfdf;
 }
 
 .sidebar a {
-  display: block;
-  color: black;
-  padding: 10px;
-  text-decoration: none;
-  text-transform: uppercase;
+	display: block;
+	color: black;
+	padding: 10px;
+	text-decoration: none;
+	text-transform: uppercase;
 }
 
 .flecha {
-  display: none;
+	display: none;
 }
 
 .sidebar a.active {
-  background-color: #514d87;
-  color: white;
+	background-color: #514d87;
+	color: white;
 }
 
 a.active .flecha {
-  display: inline-block;
+	display: inline-block;
 }
 
 .sidebar a:hover:not(.active) {
-  background-color: #dfb502;
-  color: white;
-  transition: 0.2s ease;
+	background-color: #dfb502;
+	color: white;
+	transition: 0.2s ease;
 }
 
 .sidebar a:hover .flecha {
-  display: inline-block;
+	display: inline-block;
 
-  color: white;
+	color: white;
 }
 
 .btnTarifa {
-  background-color: #514d87;
-  padding: 5px;
-  color: white;
+	background-color: #514d87;
+	padding: 5px;
+	color: white;
 }
 
 .navi {
-  background-color: #514d87;
-  /*f0f0f0*/
-  color: white;
-  margin-left: 180px;
-  padding: 10px 0 10px 0;
-  /* height: 1000px; */
-  width: calc(100% -180px);
-  border-bottom: 2px solid #dfdfdf;
-  /*
+	background-color: #514d87;
+	/*f0f0f0*/
+	color: white;
+	margin-left: 180px;
+	padding: 10px 0 10px 0;
+	/* height: 1000px; */
+	width: calc(100% -180px);
+	border-bottom: 2px solid #dfdfdf;
+	/*
     box-shadow: 2px 1px 2px 0px rgba(0,0,0,0.75);
     -webkit-box-shadow: 2px 1px 2px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 2px 1px 2px 0px rgba(0,0,0,0.75);
@@ -395,61 +395,62 @@ a.active .flecha {
 }
 
 .content {
-  margin-left: 180px;
-  padding: 1px 16px;
-  /* height: 1000px; */
-  width: calc(100% -180px);
+	margin-left: 180px;
+	padding: 1px 16px;
+	/* height: 1000px; */
+	width: calc(100% -180px);
 }
 
 .logoHotelrate,
 .domfedoRate,
 .banderasRate,
 .ttooCardImgRate {
-  border: 1px solid #dfdfdf;
-  border-radius: 10px 10px 10px 10px;
-  -webkit-border-radius: 10px 10px 10px 10px;
-  -moz-border-radius: 10px 10px 10px 10px;
+	border: 1px solid #dfdfdf;
+	border-radius: 10px 10px 10px 10px;
+	-webkit-border-radius: 10px 10px 10px 10px;
+	-moz-border-radius: 10px 10px 10px 10px;
 }
 
 footer {
-  margin-left: 180px;
-  width: calc(100% -180px);
+	margin-left: 180px;
+	width: calc(100% -180px);
 }
 
 .botonReload {
-  margin-left: 0px;
-  margin-top: 1rem;
-  justify-content: space-evenly;
+	margin-left: 0px;
+	margin-top: 1rem;
+	justify-content: space-evenly;
 }
 
 #backRates,
 #start-again {
-  height: 4rem;
-  width: 11rem;
-  padding-top: 1.2rem;
+	height: 4rem;
+	width: 11rem;
+	padding-top: 1.2rem;
 }
 
 .miFirma {
-  text-align: right;
+	text-align: right;
+	margin-top: 0.5rem;
 }
 
 .firmaBG {
-  background-color: lightgray;
-  color: black;
-  width: 100%;
+	background-color: lightgray;
+	color: black;
+	width: 100%;
 }
 
 .testBtn {
-  background-color: #514d87;
-  color: white;
+	background-color: #514d87;
+	color: white;
 }
 
 .opera-desktop {
-  display: block;
+	display: block;
 }
 
 .opera-mobile {
-  display: none;
+	display: none;
 }
 
 /* .form-control{
@@ -463,112 +464,112 @@ footer {
 /* ----------------------------- ORIGOS----------------------------------- */
 
 .origosConnect {
-  height: 40vh;
+	height: 40vh;
 }
 
 .origosHost {
-  height: 70vh;
+	height: 70vh;
 }
 
 .origosLogin {
-  height: 50vh;
+	height: 50vh;
 }
 
 .origosErrorP {
-  height: 35vh;
+	height: 35vh;
 }
 
 .origosMain {
-  height: 60vh;
+	height: 60vh;
 }
 .origosAtn {
-  height: 40vh;
+	height: 40vh;
 }
 
 .origosDetail {
-  height: 98vh;
+	height: 98vh;
 }
 
 .origosGenSearch {
-  height: 60vh;
+	height: 60vh;
 }
 
 .origosDescont {
-  height: 90vh;
+	height: 90vh;
 }
 
 .tableHead {
-  display: block;
+	display: block;
 }
 
 .onDesktop {
-  display: block;
+	display: block;
 }
 
 .onMobile,
 .tabla-mobile {
-  display: none;
+	display: none;
 }
 
 /* ****************************************************MEDIA QUERIES------------------------------------------------ */
 
 @media (min-width: 700px) and (max-width: 1152px) {
-  .inputSize {
-    width: 100%;
-  }
+	.inputSize {
+		width: 100%;
+	}
 }
 
 @media screen and (max-width: 700px) {
-  .inputSize {
-    width: 100%;
-  }
+	.inputSize {
+		width: 100%;
+	}
 
-  .opera-desktop {
-    display: none;
-  }
+	.opera-desktop {
+		display: none;
+	}
 
-  .opera-mobile {
-    display: block;
-  }
+	.opera-mobile {
+		display: block;
+	}
 
-  .btnEdit,
-  .btnDelete {
-    box-shadow: 0px 3px 5px -3px rgba(0, 0, 0, 0.75);
-    -webkit-box-shadow: 0px 3px 5px -3px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 0px 3px 5px -3px rgba(0, 0, 0, 0.75);
-  }
+	.btnEdit,
+	.btnDelete {
+		box-shadow: 0px 3px 5px -3px rgba(0, 0, 0, 0.75);
+		-webkit-box-shadow: 0px 3px 5px -3px rgba(0, 0, 0, 0.75);
+		-moz-box-shadow: 0px 3px 5px -3px rgba(0, 0, 0, 0.75);
+	}
 
-  .btnEdit {
-    padding: 0.5rem 2rem 0.5rem 2rem;
-  }
+	.btnEdit {
+		padding: 0.5rem 2rem 0.5rem 2rem;
+	}
 
-  .btnAdd {
-    padding: 0.6rem 2rem 0.6rem 2rem;
-  }
+	.btnAdd {
+		padding: 0.6rem 2rem 0.6rem 2rem;
+	}
 
-  .btnCancel {
-    margin-top: 10px;
-    padding: 0.6rem 2rem 0.6rem 2rem;
-  }
+	.btnCancel {
+		margin-top: 10px;
+		padding: 0.6rem 2rem 0.6rem 2rem;
+	}
 
-  #btnService {
-    padding: 0.4rem 1rem 0.4rem 1rem;
-  }
+	#btnService {
+		padding: 0.4rem 1rem 0.4rem 1rem;
+	}
 
-  .bi-pencil,
-  .bi-trash {
-    font-size: large;
-  }
+	.bi-pencil,
+	.bi-trash {
+		font-size: large;
+	}
 
-  .tabla-desktop {
-    display: none;
-  }
+	.tabla-desktop {
+		display: none;
+	}
 
-  .tabla-mobile {
-    display: block;
-    margin-top: 1.5rem;
-  }
-  /* table{
+	.tabla-mobile {
+		display: block;
+		margin-top: 1.5rem;
+	}
+	/* table{
       width: 100%;
     }
 
@@ -596,287 +597,287 @@ footer {
       text-transform: uppercase;
     } */
 
-  .login-card {
-    padding: 2rem;
-    width: 75vw;
-  }
+	.login-card {
+		padding: 2rem;
+		width: 75vw;
+	}
 
-  .navSmall {
-    background-color: #514d87;
-  }
+	.navSmall {
+		background-color: #514d87;
+	}
 
-  .navSmall a {
-    color: white;
-    text-transform: uppercase;
-  }
+	.navSmall a {
+		color: white;
+		text-transform: uppercase;
+	}
 
-  .navSmall a:hover {
-    color: #dfb502;
-  }
+	.navSmall a:hover {
+		color: #dfb502;
+	}
 
-  .fixHead {
-    margin-top: -40px;
-  }
+	.fixHead {
+		margin-top: -40px;
+	}
 
-  .logo,
-  .logoHotel,
-  .banderas,
-  .domfedo {
-    height: 5.5rem;
-  }
+	.logo,
+	.logoHotel,
+	.banderas,
+	.domfedo {
+		height: 5.5rem;
+	}
 
-  .logoHotelrate,
-  .domfedoRate,
-  .banderasRate,
-  .ttooCardImgRate,
-  .mobileLogo {
-    /* display: none; */
-    height: 3rem;
-  }
+	.logoHotelrate,
+	.domfedoRate,
+	.banderasRate,
+	.ttooCardImgRate,
+	.mobileLogo {
+		/* display: none; */
+		height: 3rem;
+	}
 
-  .card-img-top {
-    height: 12rem;
-    width: 22rem;
-  }
+	.card-img-top {
+		height: 12rem;
+		width: 100%;
+	}
 
-  .banner,
-  .banner-mg {
-    margin-left: 0px;
-    margin-top: 56px;
-    height: 25vh;
-  }
+	.banner,
+	.banner-mg {
+		margin-left: 0px;
+		margin-top: 56px;
+		height: 25vh;
+	}
 
-  .miFirma {
-    text-align: center;
-  }
+	.miFirma {
+		text-align: center;
+	}
 
-  .botonReload {
-    justify-content: space-around;
-  }
+	.botonReload {
+		justify-content: space-around;
+	}
 
-  .sidebar {
-    display: none;
-  }
+	.sidebar {
+		display: none;
+	}
 
-  div.content {
-    margin-left: 0;
-    margin-top: 64px;
-  }
+	div.content {
+		margin-left: 0;
+		margin-top: 64px;
+	}
 
-  .logo {
-    display: none;
-  }
+	.logo {
+		display: none;
+	}
 
-  .btnTarifa {
-    display: none;
-  }
+	.btnTarifa {
+		display: none;
+	}
 
-  .onDesktop {
-    display: none;
-  }
+	.onDesktop {
+		display: none;
+	}
 
-  .onMobile {
-    display: block;
-  }
+	.onMobile {
+		display: block;
+	}
 
-  .tableHead {
-    display: none;
-  }
+	.tableHead {
+		display: none;
+	}
 
-  .bannerGolf {
-    height: 30vh;
-    width: 90vw;
-  }
+	.bannerGolf {
+		height: 30vh;
+		width: 90vw;
+	}
 
-  .navi {
-    display: none;
-  }
+	.navi {
+		display: none;
+	}
 
-  .afterNav {
-    margin-top: 0.8rem;
-  }
+	.afterNav {
+		margin-top: 0.8rem;
+	}
 
-  footer {
-    margin-left: 0px;
-  }
+	footer {
+		margin-left: 0px;
+	}
 
-  /* ----------------------------- ORIGOS----------------------------------- */
+	/* ----------------------------- ORIGOS----------------------------------- */
 
-  .origosConnect {
-    height: 25vh;
-  }
+	.origosConnect {
+		height: 25vh;
+	}
 
-  .origosHost {
-    height: 55vh;
-  }
+	.origosHost {
+		height: 55vh;
+	}
 
-  .origosLogin {
-    height: 20vh;
-  }
+	.origosLogin {
+		height: 20vh;
+	}
 
-  .origosErrorP {
-    height: 30vh;
-  }
+	.origosErrorP {
+		height: 30vh;
+	}
 
-  .origosMain {
-    height: 18vh;
-  }
-  .origosAtn {
-    height: 20vh;
-  }
+	.origosMain {
+		height: 18vh;
+	}
+	.origosAtn {
+		height: 20vh;
+	}
 
-  .origosDetail {
-    height: 30vh;
-  }
+	.origosDetail {
+		height: 30vh;
+	}
 
-  .origosGenSearch {
-    height: 22vh;
-  }
+	.origosGenSearch {
+		height: 22vh;
+	}
 
-  .origosDescont {
-    height: 30vh;
-  }
+	.origosDescont {
+		height: 30vh;
+	}
 }
 
 @media screen and (max-width: 400px) {
-  .logo,
-  .logoHotel,
-  .banderas,
-  .domfedo {
-    height: 5.5rem;
-  }
+	.logo,
+	.logoHotel,
+	.banderas,
+	.domfedo {
+		height: 5.5rem;
+	}
 
-  .bannerGolf {
-    height: 30vh;
-    width: 92vw;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .sidebar {
-    display: none;
-  }
+	.bannerGolf {
+		height: 30vh;
+		width: 92vw;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.sidebar {
+		display: none;
+	}
 
-  .logo {
-    display: none;
-  }
+	.logo {
+		display: none;
+	}
 
-  .scrollmenu {
-    overflow: auto;
-    white-space: nowrap;
-  }
+	.scrollmenu {
+		overflow: auto;
+		white-space: nowrap;
+	}
 
-  .btnTarifa {
-    display: none;
-  }
+	.btnTarifa {
+		display: none;
+	}
 
-  .btnHotel {
-    width: 16rem;
-  }
+	.btnHotel {
+		width: 16rem;
+	}
 
-  .afterNav {
-    margin-top: 0.8rem;
-  }
+	.afterNav {
+		margin-top: 0.8rem;
+	}
 
-  /* #backRates, #start-again{
+	/* #backRates, #start-again{
       margin-top: 1.2rem;
       margin-bottom: 2rem;
     } */
 
-  .miFirma {
-    text-align: center;
-  }
+	.miFirma {
+		text-align: center;
+	}
 }
 .headerSmall {
-  display: none;
+	display: none;
 }
 
 @media screen and (min-width: 701px) {
-  .logoFoot,
-  .navSmall,
-  .headerSmall {
-    display: none;
-  }
+	.logoFoot,
+	.navSmall,
+	.headerSmall {
+		display: none;
+	}
 }
 
 @media screen and (min-width: 1152px) {
-  .cardEdit-container {
-    padding-left: 15rem;
-    padding-right: 15rem;
-  }
+	.cardEdit-container {
+		padding-left: 15rem;
+		padding-right: 15rem;
+	}
 }
 
 @media screen and (min-width: 1152px) {
-  .cardEdit-container-guia {
-    padding-left: 8rem;
-    padding-right: 8rem;
-  }
+	.cardEdit-container-guia {
+		padding-left: 8rem;
+		padding-right: 8rem;
+	}
 }
 
 /* ***************************************************The side navigation menu */
 .sidenav {
-  height: 100%; /* 100% Full-height */
-  width: 0; /* 0 width - change this with JavaScript */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Stay on top */
-  top: 0; /* Stay at the top */
-  left: 0;
-  background-color: #514d87; /* Black*/
-  overflow-x: hidden; /* Disable horizontal scroll */
-  padding-top: 60px; /* Place content 60px from the top */
-  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+	height: 100%; /* 100% Full-height */
+	width: 0; /* 0 width - change this with JavaScript */
+	position: fixed; /* Stay in place */
+	z-index: 1; /* Stay on top */
+	top: 0; /* Stay at the top */
+	left: 0;
+	background-color: #514d87; /* Black*/
+	overflow-x: hidden; /* Disable horizontal scroll */
+	padding-top: 60px; /* Place content 60px from the top */
+	transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
 }
 
 /* The navigation menu links */
 .sidenav a {
-  padding: 8px 8px 8px 32px;
-  text-decoration: none;
-  font-size: 20px;
-  color: white;
-  display: block;
-  transition: 0.5s;
+	padding: 8px 8px 8px 32px;
+	text-decoration: none;
+	font-size: 20px;
+	color: white;
+	display: block;
+	transition: 0.5s;
 }
 
 .sidenav a.active {
-  color: #dfb502;
-  border-bottom: 1px solid #dfb502;
+	color: #dfb502;
+	border-bottom: 1px solid #dfb502;
 }
 
 /* When you mouse over the navigation links, change their color */
 .sidenav a:hover {
-  color: #dfb502;
+	color: #dfb502;
 }
 
 /* Position and style the close button (top right corner) */
 .sidenav .closebtn {
-  position: absolute;
-  top: 0;
-  right: 10px;
-  font-size: 36px;
-  margin-left: 50px;
+	position: absolute;
+	top: 0;
+	right: 10px;
+	font-size: 36px;
+	margin-left: 50px;
 }
 
 .btn-perfil {
-  position: absolute;
-  top: 7px;
-  left: 25px;
-  font-size: 36px;
-  margin-right: 50px;
+	position: absolute;
+	top: 7px;
+	left: 25px;
+	font-size: 36px;
+	margin-right: 50px;
 }
 
 /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
 #main {
-  transition: margin-left 0.5s;
-  padding: 20px;
+	transition: margin-left 0.5s;
+	padding: 20px;
 }
 
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {
-  .sidenav {
-    padding-top: 15px;
-  }
-  .sidenav a {
-    font-size: 18px;
-  }
+	.sidenav {
+		padding-top: 15px;
+	}
+	.sidenav a {
+		font-size: 18px;
+	}
 }
 
 /* ***************************************************END side navigation menu */

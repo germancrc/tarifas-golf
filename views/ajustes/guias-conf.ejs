@@ -1,176 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+	<%- include ('../partials/head-edits.ejs') %>
 
-  <%- include ('../partials/head-edits.ejs') %> 
-  
-  <body>
-    
-    <% if (user) { %>
-      <%- include ('../partials/ajustes/sidebar-ajustes.ejs') %>
-      
-      <!-- NAV LG -->
-      <nav class="navbar fixed-top navi">
-        <div class="container-fluid">
-          <span class="navbar-brand mb-0 h1 text-uppercase" id="navbarLG">AJUSTES - guías </span>
-          <%- include ('../partials/ajustes/navbar-lg.ejs') %> 
-          
-        </nav>
-        
-        <!-- NAV SM -->
-        <nav class="navbar navSmall fixed-top">  
-          <%- include ('../partials/ajustes/navbar-sm.ejs') %> 
-        </nav>
-    <% } %>  
+	<body>
+		<% if (user) { %> <%- include
+		('../partials/ajustes/sidebar-ajustes.ejs') %>
 
-    <div class="content">
-      <div id="Guias" class="afterNav">
+		<!-- NAV LG -->
+		<nav class="navbar fixed-top navi">
+			<div class="container-fluid">
+				<span class="navbar-brand mb-0 h1 text-uppercase" id="navbarLG"
+					>AJUSTES - guías
+				</span>
+				<%- include ('../partials/ajustes/navbar-lg.ejs') %>
+			</div>
+		</nav>
 
-        <div class="card editShadow mb-3">
-          <div class="card-body">
-        <div class="text-center mb-3">
-          <h4 class="text-uppercase" id="titulo"> Subir Guías</h4>
-          <hr>
-        </div>
+		<!-- NAV SM -->
+		<nav class="navbar navSmall fixed-top">
+			<%- include ('../partials/ajustes/navbar-sm.ejs') %>
+		</nav>
+		<% } %>
 
-              <form id="guides-form" class="was-validated" action="/uploadGuide" enctype="multipart/form-data" method="POST">
-                <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2">
-                  <div class="col">
-                    <div class="mb-3">
-                      <input type="text" class="form-control" name="aplicacion" placeholder="Nombre de la aplicación" required required onkeyup="mayus(this)">
-                      <div class="invalid-feedback">
-                        Por favor escriba el nombre de la aplicación.
-                      </div>
-                      </div>
-                  </div>
-                  <div class="col">
-                    <div class="input-group">
-                      <div class="input-group">
-                        <input type="file" class="form-control" id="fileGuide" name="archivo"  accept=".pdf" aria-describedby="inputGroupFileAddon04" aria-label="Upload" required>
-                        <button class="btn btn-success" id="upload" type="submit" id="inputGroupFileAddon04">SUBIR</button>
-                        <div class="invalid-feedback">
-                          Sólo archivos .PDF permitidos.
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </form>
-              <!-- SPINNER SUBIENDO -->
-              <!-- <div class="d-flex align-items-center mt-1">
+		<div class="content">
+			<div id="Guias" class="afterNav">
+				<div class="card editShadow mb-3">
+					<div class="card-body">
+						<div class="text-center mb-3">
+							<h4 class="text-uppercase" id="titulo">
+								Subir Guías
+							</h4>
+							<hr />
+						</div>
+
+						<form
+							id="guides-form"
+							class="was-validated"
+							action="/uploadGuide"
+							enctype="multipart/form-data"
+							method="POST"
+						>
+							<div
+								class="row row-cols-1 row-cols-sm-1 row-cols-md-2"
+							>
+								<div class="col">
+									<div class="mb-3">
+										<input
+											type="text"
+											class="form-control"
+											name="aplicacion"
+											placeholder="Nombre de la aplicación"
+											required
+											required
+											onkeyup="mayus(this)"
+										/>
+										<div class="invalid-feedback">
+											Por favor escriba el nombre de la
+											aplicación.
+										</div>
+									</div>
+								</div>
+								<div class="col">
+									<div class="input-group">
+										<div class="input-group">
+											<input
+												type="file"
+												class="form-control"
+												id="fileGuide"
+												name="archivo"
+												accept=".pdf"
+												aria-describedby="inputGroupFileAddon04"
+												aria-label="Upload"
+												required
+											/>
+											<button
+												class="btn btn-success"
+												id="upload"
+												type="submit"
+												id="inputGroupFileAddon04"
+											>
+												SUBIR
+											</button>
+											<div class="invalid-feedback">
+												Sólo archivos .PDF permitidos.
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</form>
+						<a
+							href="https://drive.google.com/drive/folders/1CMxxgG371jXmxJcPug3FEXpx2LLaLmtP?usp=sharing"
+							target="_blank"
+							class="btn btn-success mt-2"
+							>Ver Guias base
+						</a>
+						<!-- SPINNER SUBIENDO -->
+						<!-- <div class="d-flex align-items-center mt-1">
                 <strong>Subiendo archivo...</strong>
                 <div class="spinner-border ms-auto text-danger" role="status" aria-hidden="true"></div>
               </div> -->
-            </div>
-          </div>
+					</div>
+				</div>
 
-          <div class="card editShadow">
-            <div class="card-body">
-              <div class="text-center">
-                <h4 class="text-uppercase"> Guías actualizadas</h4>
-                <hr>
-              </div>
+				<div class="card editShadow">
+					<div class="card-body">
+						<div class="text-center">
+							<h4 class="text-uppercase">Guías actualizadas</h4>
+							<hr />
+						</div>
 
-              <div class="mb-3 inputSize">
-                <form role="search">
-                  <div class="input-group">
-                    <span class="input-group-text" id="basic-addon1"><i class="bi bi-search"></i></span>
-                    <input class="form-control " type="search" id="myInput" onkeyup="myFunction()"  placeholder="Buscar Guia" aria-label="Search">
-                  </div>
-                </form>
-              </div>
+						<div class="mb-3 inputSize">
+							<form role="search">
+								<div class="input-group">
+									<span
+										class="input-group-text"
+										id="basic-addon1"
+										><i class="bi bi-search"></i
+									></span>
+									<input
+										class="form-control"
+										type="search"
+										id="myInput"
+										onkeyup="myFunction()"
+										placeholder="Buscar Guia"
+										aria-label="Search"
+									/>
+								</div>
+							</form>
+						</div>
 
-              <table class="table tabla-desktop" id="myTable">
-                <% if (results.length == 0) { %>
-                 <div class="text-center ">
-                  <img class="noResults" src="/img/noResults.PNG" alt="">
-                  <h4 class="text-uppercase mt-3"> No hay resultados</h4>
-                 </div>
-                <% }else { %>
-                  <thead>
-                    <tr>
-                      <th scope="col" class="col">Aplicación</th>
-                      <th scope="col" class="col">Archivo</th>
-                      <th scope="col" class="col">Tamaño</th>
-                      <th scope="col" class="col">Actualizado</th>
-                      <th scope="col" class="col-2">Descargar</th>
-                    </tr>
-                  </thead>
-                  <% } %>
-                  <tbody>
-                    <% results.forEach(guia => { %>
-                      <tr>
-                        <td><%= guia.aplicacion %> </td>
-                        <td><%= guia.archivo %></td>
-                        <% if (guia.fileSize >= 1000000) { %>
-                          <td><%= (guia.fileSize/1000000).toFixed(2); %> MB</td>
-                        <% } else if (guia.fileSize >= 1000) { %>
-                          <td><%= (guia.fileSize/1000).toFixed(2); %> KB</td>
-                        <% } else { %>
-                          <td><%= guia.fileSize %> bytes</td>
-                        <% } %>
-                        <td><%= guia.actualizado %></td>
-                      <td>
-                        <a href="/ajustes/guias-conf/<%= guia.id %>" class="btn btn-sm btn-warning btnEdit"><i class="bi bi-pencil"></i></a>
-                          
-                          <a href="/ajustes/guias-conf/deleteGuide/<%= guia.id %>" class="btn btn-sm btn-danger btnDelete" onclick="return confirm('Seguro que quiere borrar la Guia de <%= guia.aplicacion %> ?')"><i class="bi bi-trash"></i></a>
-                      </td>
-                    </tr>
-                  <% }) %>
-                </tbody>
-              </table>
- 
+						<table class="table tabla-desktop" id="myTable">
+							<% if (results.length == 0) { %>
+							<div class="text-center">
+								<img
+									class="noResults"
+									src="/img/noResults.PNG"
+									alt=""
+								/>
+								<h4 class="text-uppercase mt-3">
+									No hay resultados
+								</h4>
+							</div>
+							<% }else { %>
+							<thead>
+								<tr>
+									<th scope="col" class="col">Aplicación</th>
+									<th scope="col" class="col">Archivo</th>
+									<th scope="col" class="col">Tamaño</th>
+									<th scope="col" class="col">Actualizado</th>
+									<th scope="col" class="col-2">Descargar</th>
+								</tr>
+							</thead>
+							<% } %>
+							<tbody>
+								<% results.forEach(guia => { %>
+								<tr>
+									<td><%= guia.aplicacion %></td>
+									<td><%= guia.archivo %></td>
+									<% if (guia.fileSize >= 1000000) { %>
+									<td>
+										<%= (guia.fileSize/1000000).toFixed(2);
+										%> MB
+									</td>
+									<% } else if (guia.fileSize >= 1000) { %>
+									<td>
+										<%= (guia.fileSize/1000).toFixed(2); %>
+										KB
+									</td>
+									<% } else { %>
+									<td><%= guia.fileSize %> bytes</td>
+									<% } %>
+									<td><%= guia.actualizado %></td>
+									<td>
+										<a
+											href="/ajustes/guias-conf/<%= guia.id %>"
+											class="btn btn-sm btn-warning btnEdit"
+											><i class="bi bi-pencil"></i
+										></a>
 
-            <!-- *****************************MOBILE CARDS EDIT****************************** -->
-<div class="container tabla-mobile" id="tabla-mobile">
-  <div class="row row-cols-1 row-cols-sm-1 row-cols-md-3 mt-3" id="servicesHomePage">
-    <% results.forEach((guia) => { %>
-      <div class="col">
-        <div class="card mb-2 cardHome cardShadow" id="opera-codes">
-            <div class="card-header fixSizeHeadEdit">
-              <div class="my-0 text-center card-title"><%= guia.aplicacion %></div>
-          </div>
-          <div class="card-body">
-                <div class="accordion" id="accordionFlushExample">
-                  <div class="accordion-item">
-                    <h2 class="accordion-header" id="flush-headingOne">
-                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne<%= guia.id %>" aria-expanded="false" aria-controls="flush-collapseOne">
-                       Más Información
-                      </button>
-                    </h2>
-                    <div id="flush-collapseOne<%= guia.id %>" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                      <div class="accordion-body">
-                        <p><strong>Archivo:</strong> <%= guia.archivo %> </p>
-                        <% if (guia.fileSize >= 1000000) { %>
-                          <p><strong>Tamaño:</strong> <%= (guia.fileSize/1000000).toFixed(2); %> MB </p>
-                          <% } else if (guia.fileSize >= 1000) { %>
-                            <p><strong>Tamaño:</strong> <%= (guia.fileSize/1000).toFixed(2); %> KB </p>
-                            <% } else { %>
-                              <p><strong>Tamaño:</strong> <%= guia.fileSize %> bytes </p>
-                        <% } %>
-                        <p><strong>Actualizado:</strong><%= guia.actualizado %> </p>
-                        
-                       <hr>
-                       <div class="d-flex justify-content-between">
-                         <a href="/ajustes/guias-conf/<%= guia.id %>" data-bs-toggle="#" data-bs-target="#serviceUpdate" class="btn btn-sm btn-warning btnEdit"><i class="bi bi-pencil"></i></a>
-                
-                         <a href="/ajustes/guias-conf/deleteGuide/<%= guia.id %>" class="btn btn-sm btn-danger btnDelete" onclick="return confirm('Seguro que quiere borrar la guía de <%= guia.aplicacion %>?')"><i class="bi bi-trash"></i></a>
-                       </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+										<a
+											href="/ajustes/guias-conf/deleteGuide/<%= guia.id %>"
+											class="btn btn-sm btn-danger btnDelete"
+											onclick="return confirm('Seguro que quiere borrar la Guia de <%= guia.aplicacion %> ?')"
+											><i class="bi bi-trash"></i
+										></a>
+									</td>
+								</tr>
+								<% }) %>
+							</tbody>
+						</table>
 
-          </div>
+						<!-- *****************************MOBILE CARDS EDIT****************************** -->
+						<div class="container tabla-mobile" id="tabla-mobile">
+							<div
+								class="row row-cols-1 row-cols-sm-1 row-cols-md-3 mt-3"
+								id="servicesHomePage"
+							>
+								<% results.forEach((guia) => { %>
+								<div class="col">
+									<div
+										class="card mb-2 cardHome cardShadow"
+										id="opera-codes"
+									>
+										<div
+											class="card-header fixSizeHeadEdit"
+										>
+											<div
+												class="my-0 text-center card-title"
+											>
+												<%= guia.aplicacion %>
+											</div>
+										</div>
+										<div class="card-body">
+											<div
+												class="accordion"
+												id="accordionFlushExample"
+											>
+												<div class="accordion-item">
+													<h2
+														class="accordion-header"
+														id="flush-headingOne"
+													>
+														<button
+															class="accordion-button collapsed"
+															type="button"
+															data-bs-toggle="collapse"
+															data-bs-target="#flush-collapseOne<%= guia.id %>"
+															aria-expanded="false"
+															aria-controls="flush-collapseOne"
+														>
+															Más Información
+														</button>
+													</h2>
+													<div
+														id="flush-collapseOne<%= guia.id %>"
+														class="accordion-collapse collapse"
+														aria-labelledby="flush-headingOne"
+														data-bs-parent="#accordionFlushExample"
+													>
+														<div
+															class="accordion-body"
+														>
+															<p>
+																<strong
+																	>Archivo:</strong
+																>
+																<%= guia.archivo
+																%>
+															</p>
+															<% if (guia.fileSize
+															>= 1000000) { %>
+															<p>
+																<strong
+																	>Tamaño:</strong
+																>
+																<%=
+																(guia.fileSize/1000000).toFixed(2);
+																%> MB
+															</p>
+															<% } else if
+															(guia.fileSize >=
+															1000) { %>
+															<p>
+																<strong
+																	>Tamaño:</strong
+																>
+																<%=
+																(guia.fileSize/1000).toFixed(2);
+																%> KB
+															</p>
+															<% } else { %>
+															<p>
+																<strong
+																	>Tamaño:</strong
+																>
+																<%=
+																guia.fileSize %>
+																bytes
+															</p>
+															<% } %>
+															<p>
+																<strong
+																	>Actualizado:</strong
+																><%=
+																guia.actualizado
+																%>
+															</p>
 
-        </div>
-      </div>
-        <% }) %>
-  </div>
-</div>
-</div>   
-</div>
+															<hr />
+															<div
+																class="d-flex justify-content-between"
+															>
+																<a
+																	href="/ajustes/guias-conf/<%= guia.id %>"
+																	data-bs-toggle="#"
+																	data-bs-target="#serviceUpdate"
+																	class="btn btn-sm btn-warning btnEdit"
+																	><i
+																		class="bi bi-pencil"
+																	></i
+																></a>
 
-      </div>
-      </div>
+																<a
+																	href="/ajustes/guias-conf/deleteGuide/<%= guia.id %>"
+																	class="btn btn-sm btn-danger btnDelete"
+																	onclick="return confirm('Seguro que quiere borrar la guía de <%= guia.aplicacion %>?')"
+																	><i
+																		class="bi bi-trash"
+																	></i
+																></a>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<% }) %>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 
-      <%- include ('../partials/footer.ejs') %> 
-  </body>
+		<%- include ('../partials/footer.ejs') %>
+	</body>
 </html>

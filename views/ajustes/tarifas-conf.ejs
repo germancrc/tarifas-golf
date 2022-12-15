@@ -1,138 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+	<%- include ('../partials/head-edits.ejs') %>
 
-  <%- include ('../partials/head-edits.ejs') %> 
-  
-  <body>
-    
-    <% if (user) { %>
-      <%- include ('../partials/ajustes/sidebar-ajustes.ejs') %>
-      
-      <!-- NAV LG -->
-      <nav class="navbar fixed-top navi">
-        <div class="container-fluid">
-          <span class="navbar-brand mb-0 h1" id="navbarLG">AJUSTES - TARIFAS CAMPO GOLF</span>
-          <%- include ('../partials/ajustes/navbar-lg.ejs') %> 
-          
-        </nav>
-        
-        <!-- NAV SM -->
-        <nav class="navbar navSmall fixed-top">  
-          <%- include ('../partials/ajustes/navbar-sm.ejs') %> 
-        </nav>
-    <% } %>  
+	<body>
+		<% if (user) { %> <%- include ('../partials/ajustes/sidebar-ajustes.ejs') %>
 
+		<!-- NAV LG -->
+		<nav class="navbar fixed-top navi">
+			<div class="container-fluid">
+				<span class="navbar-brand mb-0 h1" id="navbarLG"
+					>AJUSTES - TARIFAS CAMPO GOLF</span
+				>
+				<%- include ('../partials/ajustes/navbar-lg.ejs') %>
+			</div>
+		</nav>
 
-    <div class="content">
-      <div id="Tarifas" class="afterNav">
-        <div class="text-center mb-3">
-          <h4 class="text-uppercase d-none" id="titulo">AJUSTES - TARIFAS CAMPO GOLF</h4>
-        </div>
-        <div class="row d-flex justify-content-between">
-          <div class="col-5">
-            <a href="/ajustes/new-tarifas-cg" type="button" class="btn btn-success editShadow" id="btnService">
-              <i class="bi bi-plus-circle"></i> AGREGAR
-            </a>
-              <!-- Button trigger modal -->
-          </div>
-          <div class="col-7" id="inputBuscar">
-            <form role="search">
-              <div class="input-group">
-                <span class="input-group-text" id="basic-addon1"><i class="bi bi-search"></i></span>
-                <input class="form-control " type="search" id="myInput" onkeyup="myFunction()"  placeholder="Buscar Tarifas" aria-label="Search">
-              </div>
-            </form>
-          </div>
-        </div>
+		<!-- NAV SM -->
+		<nav class="navbar navSmall fixed-top">
+			<%- include ('../partials/ajustes/navbar-sm.ejs') %>
+		</nav>
+		<% } %>
 
-        <div class="card editShadow mt-4 tabla-desktop">
-          <div class="card-body">
-            <div class="table-responsive">
-              <table class="table" id="myTable">
-              <thead>
-                <tr>
-                  <th scope="col" class="col">Nombre</th>
-                  <th scope="col" class="col">Precio</th>
-                  <th scope="col" class="col">Cod. Opera</th>
-                  <th scope="col" class="col">Cliente</th>
-                  <th scope="col" class="col">Info</th>
-                  <th scope="col" class="col-2">Acciones</th>
-                </tr>
-              </thead>
-              <tbody>
-                <% results.forEach((rate) => { %>
-                  <tr>
-                    <td data-titulo="nombre:"><%= rate.nombre %></td>
-                    <td data-titulo="precio:">USD <%= rate.precio%>.00</td>
-                    <td data-titulo="Opera:"><%= rate.cod_opera%></td>
-                    <td data-titulo="Cliente:"><%= rate.cliente%></td>
-                    <% if(rate.tips.length > 40) { %>
-                      <td data-titulo="Tips:"><%= rate.tips.slice(0,40) %>...</td>
-                      
-                      <% } else { %>
-                        <td data-titulo="Tips:"><%= rate.tips %></td>
-                        <% }  %>
- 
-                    <td>
-                      <a href="/ajustes/tarifas-conf/<%= rate.id %>" data-bs-toggle="#" data-bs-target="#rateUpdate" class="btn btn-sm btn-warning btnEdit editShadow"><i class="bi bi-pencil editShadow"></i></a>
-                      
-                      <a href="/ajustes/tarifas-conf/deleteRate/<%= rate.id %>" class="btn btn-sm btn-danger btnDelete editShadow" onclick="return confirm('Seguro que quiere borrar la tarifa <%= rate.nombre %>?')"><i class="bi bi-trash"></i></a>
-                    </td>
-                  </tr>
-                <% }) %>
-              </tbody>
-            </table>
-          </div>
-            </div>
-            </div>
-    
-    
+		<div class="content">
+			<div id="Tarifas" class="afterNav">
+				<div class="text-center mb-3">
+					<h4 class="text-uppercase d-none" id="titulo">
+						AJUSTES - TARIFAS CAMPO GOLF
+					</h4>
+				</div>
+				<div class="row d-flex justify-content-between">
+					<div class="col-5">
+						<a
+							href="/ajustes/new-tarifas-cg"
+							type="button"
+							class="btn btn-success editShadow"
+							id="btnService"
+						>
+							<i class="bi bi-plus-circle"></i> AGREGAR
+						</a>
+						<!-- Button trigger modal -->
+					</div>
+					<div class="col-7" id="inputBuscar">
+						<form role="search">
+							<div class="input-group">
+								<span class="input-group-text" id="basic-addon1"
+									><i class="bi bi-search"></i
+								></span>
+								<input
+									class="form-control"
+									type="search"
+									id="myInput"
+									onkeyup="myFunction()"
+									placeholder="Buscar Tarifas"
+									aria-label="Search"
+								/>
+							</div>
+						</form>
+					</div>
+				</div>
 
+				<div class="card editShadow mt-4 tabla-desktop">
+					<div class="card-body">
+						<div class="table-responsive">
+							<table class="table" id="myTable">
+								<thead>
+									<tr>
+										<th scope="col" class="col">Nombre</th>
+										<th scope="col" class="col">Precio</th>
+										<th scope="col" class="col">Cod. Opera</th>
+										<th scope="col" class="col">Cliente</th>
+										<th scope="col" class="col">Info</th>
+										<th scope="col" class="col-2">Acciones</th>
+									</tr>
+								</thead>
+								<tbody>
+									<% results.forEach((rate) => { %>
+									<tr>
+										<td data-titulo="nombre:"><%= rate.nombre %></td>
+										<td data-titulo="precio:">USD <%= rate.precio%>.00</td>
+										<td data-titulo="Opera:"><%= rate.cod_opera%></td>
+										<td data-titulo="Cliente:"><%= rate.cliente%></td>
+										<% if(rate.tips.length > 40) { %>
+										<td data-titulo="Tips:"><%= rate.tips.slice(0,40) %>...</td>
 
+										<% } else { %>
+										<td data-titulo="Tips:"><%= rate.tips %></td>
+										<% } %>
 
-<!-- *****************************MOBILE CARDS EDIT****************************** -->
-<div class="container tabla-mobile">
-  <div class="row row-cols-1 row-cols-sm-1 row-cols-md-3 mt-3" id="ratesHomePage">
-    <% results.forEach((rate) => { %>
-      <div class="col">
-        <div class="card mb-2 cardShadow" id="rateTest">
-          <div class="card-header fixSizeHeadEdit">
-            <div class="my-0 text-center card-title"><%= rate.nombre %> | USD <%= rate.precio %>.00 <small>p/p</small></div>
-        </div>
-          <div class="card-body">
-                <div class="accordion" id="accordionFlushExample">
-                  <div class="accordion-item">
-                    <h2 class="accordion-header" id="flush-headingOne">
-                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne<%= rate.id %>" aria-expanded="false" aria-controls="flush-collapseOne">
-                       <span> Código de Opera: <strong> <%= rate.cod_opera %></strong></span>
-                      </button>
-                    </h2>
-                    <div id="flush-collapseOne<%= rate.id %>" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                      <div class="accordion-body">
-                       <h6><%= rate.tips %></h6>
-                       <hr>
-                       <div class="d-flex justify-content-between">
-                         <a href="/ajustes/tarifas-conf/<%= rate.id %>" class="btn btn-sm btn-warning editShadow"><i class="bi bi-pencil"></i></a>
-                
-                         <a href="/ajustes/tarifas-conf/deleteRate/<%= rate.id %>" class="btn btn-sm btn-danger btnDelete" onclick="return confirm('Seguro que quiere borrar la tarifa <%= rate.nombre %>?')"><i class="bi bi-trash"></i></a>
-                       </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+										<td>
+											<a
+												href="/ajustes/tarifas-conf/<%= rate.id %>"
+												data-bs-toggle="#"
+												data-bs-target="#rateUpdate"
+												class="btn btn-sm btn-warning btnEdit editShadow"
+												><i class="bi bi-pencil editShadow"></i
+											></a>
 
-          </div>
+											<a
+												href="/ajustes/tarifas-conf/deleteRate/<%= rate.id %>"
+												class="btn btn-sm btn-danger btnDelete editShadow"
+												onclick="return confirm('Seguro que quiere borrar la tarifa <%= rate.nombre %>?')"
+												><i class="bi bi-trash"></i
+											></a>
+										</td>
+									</tr>
+									<% }) %>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
 
-        </div>
-      </div>
-        <% }) %>
+				<!-- *****************************MOBILE CARDS EDIT****************************** -->
+				<div class="container tabla-mobile">
+					<div
+						class="row row-cols-1 row-cols-sm-1 row-cols-md-3 mt-3"
+						id="ratesHomePage"
+					>
+						<% results.forEach((rate) => { %>
+						<div class="col">
+							<div class="card mb-2 cardShadow" id="rateTest">
+								<div class="card-header fixSizeHeadEdit">
+									<div class="my-0 text-center card-title">
+										<%= rate.nombre %> | USD <%= rate.precio %>.00
+										<small>p/p</small>
+									</div>
+								</div>
+								<div class="card-body">
+									<div class="accordion" id="accordionFlushExample">
+										<div class="accordion-item">
+											<h2 class="accordion-header" id="flush-headingOne">
+												<button
+													class="accordion-button collapsed"
+													type="button"
+													data-bs-toggle="collapse"
+													data-bs-target="#flush-collapseOne<%= rate.id %>"
+													aria-expanded="false"
+													aria-controls="flush-collapseOne"
+												>
+													<span>
+														Código de Opera:
+														<strong> <%= rate.cod_opera %></strong></span
+													>
+												</button>
+											</h2>
+											<div
+												id="flush-collapseOne<%= rate.id %>"
+												class="accordion-collapse collapse"
+												aria-labelledby="flush-headingOne"
+												data-bs-parent="#accordionFlushExample"
+											>
+												<div class="accordion-body">
+													<h6><%= rate.tips %></h6>
+													<hr />
+													<div class="d-flex justify-content-between">
+														<a
+															href="/ajustes/tarifas-conf/<%= rate.id %>"
+															class="btn btn-sm btn-warning editShadow"
+															><i class="bi bi-pencil"></i
+														></a>
 
-  </div>
-</div>
+														<a
+															href="/ajustes/tarifas-conf/deleteRate/<%= rate.id %>"
+															class="btn btn-sm btn-danger btnDelete"
+															onclick="return confirm('Seguro que quiere borrar la tarifa <%= rate.nombre %>?')"
+															><i class="bi bi-trash"></i
+														></a>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<% }) %>
+					</div>
+				</div>
+			</div>
+		</div>
 
-          
-      </div>
-
-    </div>
-
-    <%- include ('../partials/footer.ejs') %> 
-  </body>
+		<%- include ('../partials/footer.ejs') %>
+	</body>
 </html>

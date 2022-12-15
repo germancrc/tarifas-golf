@@ -1,94 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+	<%- include ('./partials/head-edits.ejs') %>
 
-  <%- include ('./partials/head-edits.ejs') %> 
-  
-  <body>
-    
-    <% if (user) { %>
-      <%- include ('./partials/tarifas/sidebar-tarifas.ejs') %>
-      
-      <!-- NAV LG -->
-      <nav class="navbar fixed-top navi">
-        <div class="container-fluid">
-          <span class="navbar-brand mb-0 h1" id="navbarLG">TARIFAS</span>
-          <%- include ('./partials/tarifas/navbar-lg-tar.ejs') %> 
-          
-        </nav>
-        
-        <!-- NAV SM -->
-        <nav class="navbar navSmall fixed-top">  
-          <%- include ('./partials/tarifas/navbar-sm-tar.ejs') %> 
-        </nav>
-    <% } %>  
-   
-      <div class="content">
-        <h3 class="headerSmall p-3 text-center" id="titulo">
-          Tarifas
-        </h3>
-        <div class="container afterNav">
-          <div class="row text-center">
-            <h5>Seleccione el tipo de cliente para ver las tarifas asociadas.</h5>
-          </div>
-          <div class="row row-cols-1 row-cols-sm-1 row-cols-md-4">
-            <div class="col">
-              <div class="card cardRate mt-3" id="cardHotel">
-                <a href="/tarifas/tarifa-hotel">
-                <img src="/img/hrCard.png" class="logoHotel card-img-top" alt="">
-              </a>
-                <div class="card-body cardBottom">
+	<body>
+		<% if (user) { %> <%- include ('./partials/tarifas/sidebar-tarifas.ejs') %>
 
-                  <div class="text-center">
-                    <a href="/tarifas/tarifa-hotel" class="linkTarifa fw-bold">HUÉSPED DEL HOTEL</a>
-                  </div>
-                  <!-- <p class="card-text">Verificar si tiene algún tipo de beneficios como huésped.</p> -->
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card cardRate mt-3" id="cardLocal">
-                <a href="/tarifas/tarifa-local">
-                <img src="/img/domfedo.png" class="domfedo card-img-top" alt="">
-              </a>
-                <div class="card-body cardBottom">
-                  
-                  <div class="text-center">
-                    <a href="/tarifas/tarifa-local" class="linkTarifa fw-bold">LOCAL / RESIDENTE</a>
-                  </div>
-                  <!-- <p class="card-text">Ver si está afiliado a FEDOGOLF, si es nacido aqui o si es un extranjero residente.</p> -->
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card cardRate mt-3" id="cardExt">
-                <a href="/tarifas/tarifa-turista">
-                <img src="/img/banderas.png" class="banderas card-img-top" alt="">
-              </a>
-                <div class="card-body cardBottom">
-                  
-                  <div class="text-center">
-                    <a href="/tarifas/tarifa-turista" class="linkTarifa fw-bold">EXTRANJERO / CANA BAY</a>
-                  </div>
-                  <!-- <p class="card-text">Verificar si reserva el cliente o alguien en su lugar.</p> -->
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card cardRate mt-3 mb-3" id="cardOper">
-                <a href="/tarifas/tarifa-ttoo">
-                <img src="/img/ttoo.png" class="ttooCardImg card-img-top" alt="">
-              </a>
-                <div class="card-body cardBottom">
-                
-                  <div class="text-center">
-                    <a href="/tarifas/tarifa-ttoo" class="linkTarifa fw-bold">TOUR OPERADORES</a>
-                  </div>
-                  <!-- <p class="card-text">Verificar si reserva el cliente o alguien en su lugar.</p> -->
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <%- include ('./partials/footer.ejs') %> 
-    </body>
-  </html>
+		<!-- NAV LG -->
+		<nav class="navbar fixed-top navi">
+			<div class="container-fluid">
+				<span class="navbar-brand mb-0 h1" id="navbarLG">TARIFAS</span>
+				<%- include ('./partials/tarifas/navbar-lg-tar.ejs') %>
+			</div>
+		</nav>
+
+		<!-- NAV SM -->
+		<nav class="navbar navSmall fixed-top">
+			<%- include ('./partials/tarifas/navbar-sm-tar.ejs') %>
+		</nav>
+		<% } %>
+
+		<div class="content">
+			<h3 class="headerSmall p-3 text-center" id="titulo">Tarifas</h3>
+			<div class="container afterNav">
+				<div class="row text-center">
+					<h5>Seleccione el tipo de cliente para ver las tarifas asociadas.</h5>
+				</div>
+				<div class="row row-cols-1 row-cols-sm-1 row-cols-md-4">
+					<div class="col">
+						<div class="card cardRate mt-3" id="cardHotel">
+							<a href="/tarifas/tarifa-hotel">
+								<img
+									src="/img/hrCard.png"
+									class="logoHotel card-img-top"
+									alt=""
+								/>
+							</a>
+							<div class="card-body cardBottom">
+								<div class="text-center">
+									<a href="/tarifas/tarifa-hotel" class="linkTarifa fw-bold"
+										>HUÉSPED DEL HOTEL</a
+									>
+								</div>
+								<!-- <p class="card-text">Verificar si tiene algún tipo de beneficios como huésped.</p> -->
+							</div>
+						</div>
+					</div>
+					<div class="col">
+						<div class="card cardRate mt-3" id="cardLocal">
+							<a href="/tarifas/tarifa-local">
+								<img
+									src="/img/domfedo.png"
+									class="domfedo card-img-top"
+									alt=""
+								/>
+							</a>
+							<div class="card-body cardBottom">
+								<div class="text-center">
+									<a href="/tarifas/tarifa-local" class="linkTarifa fw-bold"
+										>LOCAL / RESIDENTE</a
+									>
+								</div>
+								<!-- <p class="card-text">Ver si está afiliado a FEDOGOLF, si es nacido aqui o si es un extranjero residente.</p> -->
+							</div>
+						</div>
+					</div>
+					<div class="col">
+						<div class="card cardRate mt-3" id="cardExt">
+							<a href="/tarifas/tarifa-turista">
+								<img
+									src="/img/banderas.png"
+									class="banderas card-img-top"
+									alt=""
+								/>
+							</a>
+							<div class="card-body cardBottom">
+								<div class="text-center">
+									<a href="/tarifas/tarifa-turista" class="linkTarifa fw-bold"
+										>EXTRANJERO / CANA BAY</a
+									>
+								</div>
+								<!-- <p class="card-text">Verificar si reserva el cliente o alguien en su lugar.</p> -->
+							</div>
+						</div>
+					</div>
+					<div class="col">
+						<div class="card cardRate mt-3 mb-3" id="cardOper">
+							<a href="/tarifas/tarifa-ttoo">
+								<img
+									src="/img/ttoo.png"
+									class="ttooCardImg card-img-top"
+									alt=""
+								/>
+							</a>
+							<div class="card-body cardBottom">
+								<div class="text-center">
+									<a href="/tarifas/tarifa-ttoo" class="linkTarifa fw-bold"
+										>TOUR OPERADORES</a
+									>
+								</div>
+								<!-- <p class="card-text">Verificar si reserva el cliente o alguien en su lugar.</p> -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<%- include ('./partials/footer.ejs') %>
+	</body>
+</html>

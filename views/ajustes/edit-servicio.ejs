@@ -1,76 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+	<%- include ('../partials/head-edits.ejs') %>
 
-  <%- include ('../partials/head-edits.ejs') %> 
-  
-  <body>
-    
-    <% if (user) { %>
-      <%- include ('../partials/ajustes/sidebar-ajustes.ejs') %>
-      
-      <!-- NAV LG -->
-      <nav class="navbar fixed-top navi">
-        <div class="container-fluid">
-          <span class="navbar-brand mb-0 h1" id="navbarLG">AJUSTES - SERVICIOS</span>
-          <%- include ('../partials/ajustes/navbar-lg.ejs') %> 
-          
-        </nav>
-        
-        <!-- NAV SM -->
-        <nav class="navbar navSmall fixed-top">  
-          <%- include ('../partials/ajustes/navbar-sm.ejs') %> 
-        </nav>
-    <% } %>  
+	<body>
+		<% if (user) { %> <%- include ('../partials/ajustes/sidebar-ajustes.ejs') %>
 
-    <div class="content">
-      
-      <div id="Servicios" class="afterNav">
-        
-        <div class="text-center mb-3">
-          <h4 class="text-uppercase" id="titulo">Editar Servicio</h4>
-        </div>
-        <div class="cardEdit-container">
+		<!-- NAV LG -->
+		<nav class="navbar fixed-top navi">
+			<div class="container-fluid">
+				<span class="navbar-brand mb-0 h1" id="navbarLG"
+					>AJUSTES - SERVICIOS</span
+				>
+				<%- include ('../partials/ajustes/navbar-lg.ejs') %>
+			</div>
+		</nav>
 
-          <div class="card editShadow">
-            <div class="card-body">
-                  <% if (resultsServices) { %>
-                  
-                    <form id="services-form" action="/ajustes/servicios-conf/<%= resultsServices.id %>" method="POST">
-                      <div class="mb-3">
-                        <label for="service-title" class="form-label">Nombre del servicio</label>
-                        <input type="text" class="form-control" name="nombre" value="<%= resultsServices.nombre %>" placeholder="Nombre del servicio" required>
-                      </div>
-                      <div class="mb-3">
-                        <label for="serivce-price" class="form-label">Precio</label>
-                        <input type="number" class="form-control" name="precio" value="<%= resultsServices.precio %>" placeholder="Precio del servicio " required>
-                      </div>  
-                      <div class="mb-3">
-                      <label for="rate-opera" class="form-label">Código OPERA </label>
-                      <select class="form-select mb-3" name="cod_opera" id="codOpera" aria-label="cliente-selector" required>
-                        <option disabled selected value=""><%= resultsServices.cod_opera %></option>
-                        <% if (resultsCodes) { %>
-                          <% resultsCodes.forEach(code => { %>
-                            <option value="<%= code.codigo %>"><%= code.codigo %> - <%= code.nombre %></option>
-                          <% }) %>
-                        </select>
-                        <% } %>
-                      <div class="mb-3">
-                        <label for="serivce-description" class="form-label">Descripción</label>
-                        <textarea  class="form-control" name="descripcion" rows="3"><%=resultsServices.descripcion %></textarea>
-                        <!-- <div id="contador" class="mt-1"></div> -->
-                      </div>
-                      
-                      <div class="mt-4 d-grid gap-2 d-md-flex justify-content-md-start">
-                        <button type="submit" class="btn btn-warning btnEdit editShadow " id="modalServName">EDITAR</button>
-                        <a href="/ajustes/servicios-conf" class="btn btn-danger btnCancel editShadow">CANCELAR</a>
-                      </div>
-                    </form>
-                    <% } %>
-                  </div>  
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+		<!-- NAV SM -->
+		<nav class="navbar navSmall fixed-top">
+			<%- include ('../partials/ajustes/navbar-sm.ejs') %>
+		</nav>
+		<% } %>
 
-          <%- include ('../partials/footer.ejs') %> 
-  </body>
+		<div class="content">
+			<div id="Servicios" class="afterNav">
+				<div class="text-center mb-3">
+					<h4 class="text-uppercase" id="titulo">Editar Servicio</h4>
+				</div>
+				<div class="cardEdit-container">
+					<div class="card editShadow">
+						<div class="card-body">
+							<% if (resultsServices) { %>
+
+							<form
+								id="services-form"
+								action="/ajustes/servicios-conf/<%= resultsServices.id %>"
+								method="POST"
+							>
+								<div class="mb-3">
+									<label for="service-title" class="form-label"
+										>Nombre del servicio</label
+									>
+									<input
+										type="text"
+										class="form-control"
+										name="nombre"
+										value="<%= resultsServices.nombre %>"
+										placeholder="Nombre del servicio"
+										required
+									/>
+								</div>
+								<div class="mb-3">
+									<label for="serivce-price" class="form-label">Precio</label>
+									<input
+										type="number"
+										class="form-control"
+										name="precio"
+										value="<%= resultsServices.precio %>"
+										placeholder="Precio del servicio "
+										required
+									/>
+								</div>
+								<div class="mb-3">
+									<label for="rate-opera" class="form-label"
+										>Código OPERA
+									</label>
+									<select
+										class="form-select mb-3"
+										name="cod_opera"
+										id="codOpera"
+										aria-label="cliente-selector"
+										required
+									>
+										<option disabled selected value="">
+											<%= resultsServices.cod_opera %>
+										</option>
+										<% if (resultsCodes) { %> <% resultsCodes.forEach(code => {
+										%>
+										<option value="<%= code.codigo %>">
+											<%= code.codigo %> - <%= code.nombre %>
+										</option>
+										<% }) %>
+									</select>
+									<% } %>
+									<div class="mb-3">
+										<label for="serivce-description" class="form-label"
+											>Descripción</label
+										>
+										<textarea class="form-control" name="descripcion" rows="3">
+<%=resultsServices.descripcion %></textarea
+										>
+										<!-- <div id="contador" class="mt-1"></div> -->
+									</div>
+
+									<div
+										class="mt-4 d-grid gap-2 d-md-flex justify-content-md-start"
+									>
+										<button
+											type="submit"
+											class="btn btn-warning btnEdit editShadow"
+											id="modalServName"
+										>
+											EDITAR
+										</button>
+										<a
+											href="/ajustes/servicios-conf"
+											class="btn btn-danger btnCancel editShadow"
+											>CANCELAR</a
+										>
+									</div>
+								</div>
+							</form>
+							<% } %>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<%- include ('../partials/footer.ejs') %>
+	</body>
 </html>

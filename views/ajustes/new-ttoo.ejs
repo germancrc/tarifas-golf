@@ -1,79 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+	<%- include ('../partials/head-edits.ejs') %>
 
-  <%- include ('../partials/head-edits.ejs') %> 
-  
-  <body>
-    
-    <% if (user) { %>
-      <%- include ('../partials/ajustes/sidebar-ajustes.ejs') %>
-      
-      <!-- NAV LG -->
-      <nav class="navbar fixed-top navi">
-        <div class="container-fluid">
-          <span class="navbar-brand mb-0 h1" id="navbarLG">AJUSTES - TTOO</span>
-          <%- include ('../partials/ajustes/navbar-lg.ejs') %> 
-          
-        </nav>
-        
-        <!-- NAV SM -->
-        <nav class="navbar navSmall fixed-top">  
-          <%- include ('../partials/ajustes/navbar-sm.ejs') %> 
-        </nav>
-    <% } %>  
+	<body>
+		<% if (user) { %> <%- include ('../partials/ajustes/sidebar-ajustes.ejs') %>
 
+		<!-- NAV LG -->
+		<nav class="navbar fixed-top navi">
+			<div class="container-fluid">
+				<span class="navbar-brand mb-0 h1" id="navbarLG">AJUSTES - TTOO</span>
+				<%- include ('../partials/ajustes/navbar-lg.ejs') %>
+			</div>
+		</nav>
 
-    <div class="content">
-            
-      <div id="Servicios" class="afterNav">
-        <div class="text-center mb-3">
-          <h4 class="text-uppercase" id="titulo"> Nuevo Tour Operador</h4>
-        </div>
-        <div class="cardEdit-container">
+		<!-- NAV SM -->
+		<nav class="navbar navSmall fixed-top">
+			<%- include ('../partials/ajustes/navbar-sm.ejs') %>
+		</nav>
+		<% } %>
 
-          <div class="card editShadow">
-            <div class="card-body">
-                  <form id="services-form" class="was-validated" action="/createTtoo" method="POST">
-                    <div class="mb-3">
-                      <label for="service-title" class="form-label">Nombre del Tour Operador</label>
-                      <input type="text" class="form-control" name="nombre" placeholder="Escriba el nombre del TTOO" required>
-                      <div class="invalid-feedback">
-                        Por favor escriba el nombre.
-                      </div>
-                    </div>
-                    <div class="mb-3">
-                      <label for="service-price" class="form-label">Precio</label>
-                      <input type="number" class="form-control" name="precio" placeholder="Precio contratado" required>
-                      <div class="invalid-feedback">
-                        Por favor indique el precio.
-                      </div>
-                    </div>  
-                    <label for="rate-opera" class="form-label">Código OPERA </label>
-                    <select class="form-select mb-3" name="cod_opera" id="codOpera" aria-label="cliente-selector" disabled>
-                      <% results.forEach(code => { %>
-                        <option value="<%= code.codigo %>"><%= code.codigo %> - <%= code.nombre %></option>
-                      <% }) %>
-                    </select>
-                    <!-- <div class="invalid-feedback opera-cd">
+		<div class="content">
+			<div id="Servicios" class="afterNav">
+				<div class="text-center mb-3">
+					<h4 class="text-uppercase" id="titulo">Nuevo Tour Operador</h4>
+				</div>
+				<div class="cardEdit-container">
+					<div class="card editShadow">
+						<div class="card-body">
+							<form
+								id="services-form"
+								class="was-validated"
+								action="/createTtoo"
+								method="POST"
+							>
+								<div class="mb-3">
+									<label for="service-title" class="form-label"
+										>Nombre del Tour Operador</label
+									>
+									<input
+										type="text"
+										class="form-control"
+										name="nombre"
+										placeholder="Escriba el nombre del TTOO"
+										required
+									/>
+									<div class="invalid-feedback">
+										Por favor escriba el nombre.
+									</div>
+								</div>
+								<div class="mb-3">
+									<label for="service-price" class="form-label">Precio</label>
+									<input
+										type="number"
+										class="form-control"
+										name="precio"
+										placeholder="Precio contratado"
+										required
+									/>
+									<div class="invalid-feedback">
+										Por favor indique el precio.
+									</div>
+								</div>
+								<label for="rate-opera" class="form-label">Código OPERA </label>
+								<select
+									class="form-select mb-3"
+									name="cod_opera"
+									id="codOpera"
+									aria-label="cliente-selector"
+									disabled
+								>
+									<% results.forEach(code => { %>
+									<option value="<%= code.codigo %>">
+										<%= code.codigo %> - <%= code.nombre %>
+									</option>
+									<% }) %>
+								</select>
+								<!-- <div class="invalid-feedback opera-cd">
                       Elija el código de OPERA.  
                     </div> -->
-                    <div class="mb-3">
-                      <label for="TextareaService" class="form-label">Descripción</label>
-                      <textarea class="form-control" name="operacion" rows="3" placeholder="Cómo facturarlo:" required></textarea>
-                      <div class="invalid-feedback">
-                        Por favor escriba como se trabaja con este TTOO.
-                      </div>
-                    </div>
-          
-                    <div class="mt-4 d-grid gap-2 d-md-flex justify-content-md-start">
-                      <button type="submit" class="btn btn-success btnAdd editShadow" id="botonAdd">AGREGAR</button>
-                      <a href="/ajustes/ttoo-conf" type="button" class="btn btn-danger btnCancel editShadow">CANCELAR</a>
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
-      </div>
+								<div class="mb-3">
+									<label for="TextareaService" class="form-label"
+										>Descripción</label
+									>
+									<textarea
+										class="form-control"
+										name="operacion"
+										rows="3"
+										placeholder="Cómo facturarlo:"
+										required
+									></textarea>
+									<div class="invalid-feedback">
+										Por favor escriba como se trabaja con este TTOO.
+									</div>
+								</div>
 
-      <%- include ('../partials/footer.ejs') %> 
-  </body>
+								<div
+									class="mt-4 d-grid gap-2 d-md-flex justify-content-md-start"
+								>
+									<button
+										type="submit"
+										class="btn btn-success btnAdd editShadow"
+										id="botonAdd"
+									>
+										AGREGAR
+									</button>
+									<a
+										href="/ajustes/ttoo-conf"
+										type="button"
+										class="btn btn-danger btnCancel editShadow"
+										>CANCELAR</a
+									>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<%- include ('../partials/footer.ejs') %>
+	</body>
 </html>

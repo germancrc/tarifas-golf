@@ -1,188 +1,283 @@
-<%- include ('./partials/head-edits.ejs') %> 
+<!DOCTYPE html>
+<html lang="en">
+	<%- include ('./partials/head-edits.ejs') %>
+	<body>
+		<div class="sidebar scrollmenu">
+			<div class="container mb-3 mt-3">
+				<img src="/img/golflogo.png" class="logo" alt="" />
+			</div>
+			<a href="/index"
+				><i class="bi bi-house-check"></i> Inicio
+				<i class="bi bi-chevron-right flecha"></i
+			></a>
+			<a href="/tarifas"
+				><i class="bi bi-currency-dollar"></i> Tarifas
+				<i class="bi bi-chevron-right flecha"></i
+			></a>
+			<a class="active" href="/guias">
+				<i class="bi bi-journal-text"></i> Guías
+				<i class="bi bi-chevron-right flecha"></i
+			></a>
+			<a href="/opera">
+				<i class="bi bi-upc-scan"></i> CÓD. OPERA
+				<i class="bi bi-chevron-right flecha"></i
+			></a>
+			<a href="/minigolf">
+				<i class="bi bi-houses"></i> MINI GOLF
+				<i class="bi bi-chevron-right flecha"></i
+			></a>
+			<% if(user.rol === "Admin"){ %>
+			<a class="d-block" href="/ajustes"
+				><i class="bi bi-gear"></i> AJUSTES
+				<i class="bi bi-chevron-right flecha"></i
+			></a>
+			<% } else { %>
+			<a class="d-none" href="/ajustes"
+				>AJUSTES <i class="bi bi-chevron-right flecha"></i
+			></a>
+			<% } %>
+		</div>
 
-<div class="sidebar scrollmenu">
-  <div class="container mb-3 mt-3">
-      <img src="/img/golflogo.png" class="logo" alt="">
+		<!-- NAV LG -->
+		<nav class="navbar fixed-top navi">
+			<div class="container-fluid">
+				<span class="navbar-brand mb-0 h1 text-uppercase" id="navbarLG"
+					>Guías</span
+				>
+				<%- include ('./partials/ajustes/navbar-lg.ejs') %>
+			</div>
+		</nav>
 
-  </div>
-  <a href="/index"><i class="bi bi-house-check"></i> Inicio <i class="bi bi-chevron-right flecha"></i></a>
-  <a href="/tarifas"><i class="bi bi-currency-dollar"></i> Tarifas <i class="bi bi-chevron-right flecha"></i></a>
-  <a class="active" href="/guias"> <i class="bi bi-journal-text"></i> Guías <i class="bi bi-chevron-right flecha"></i></a>
-  <a href="/opera"> <i class="bi bi-upc-scan"></i> CÓD. OPERA <i class="bi bi-chevron-right flecha"></i></a>
-  <a href="/minigolf"> <i class="bi bi-houses"></i> MINI GOLF <i class="bi bi-chevron-right flecha"></i></a>
-  <% if(user.rol === "Admin"){ %>
-    <a class="d-block"href="/ajustes"><i class="bi bi-gear"></i> AJUSTES <i class="bi bi-chevron-right flecha"></i></a>
-    <% } else { %>
-      <a class="d-none"href="/ajustes">AJUSTES <i class="bi bi-chevron-right flecha"></i></a>
-    <% } %>
-</div>
+		<!-- NAV SM -->
+		<nav class="navbar navSmall fixed-top">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="/index"><i class="bi bi-house-up"></i></a>
+				<span class="text-uppercase text-light" id="navbarSM">GUÍAS</span>
+				<button
+					class="navbar-toggler navbar-dark"
+					type="button"
+					data-bs-toggle="collapse"
+					data-bs-target="#navbarText"
+					aria-controls="navbarText"
+					aria-expanded="false"
+					aria-label="Toggle navigation"
+					onclick="openNav()"
+				>
+					<span class="navbar-toggler-icon"></span>
+				</button>
 
-    <!-- NAV LG -->
-    <nav class="navbar fixed-top navi">
-      <div class="container-fluid">
-        <span class="navbar-brand mb-0 h1 text-uppercase" id="navbarLG">Guías</span>
-        <%- include ('./partials/ajustes/navbar-lg.ejs') %>
-        </div>
-    </nav>
+				<div id="mySidenav" class="sidenav">
+					<div id="main">
+						<div class="dropdown btn-perfil">
+							<% if(user.rol === "Admin"){ %>
+							<button
+								class="btn btn-success dropdown-toggle"
+								href="#"
+								type="button"
+								data-bs-toggle="dropdown"
+								aria-expanded="false"
+							>
+								<span class="text-light text-uppercase"
+									><%= user.username %></span
+								>
+							</button>
+							<% } else { %>
+							<button
+								class="btn btn-warning btn-sm dropdown-toggle"
+								href="#"
+								role="button"
+								data-bs-toggle="dropdown"
+								aria-expanded="false"
+							>
+								<span class="text-dark text-uppercase"
+									><%= user.username %></span
+								>
+							</button>
+							<% } %>
+							<ul class="dropdown-menu">
+								<li><a class="dropdown-item text-dark" href="#">Editar</a></li>
+								<li>
+									<a class="dropdown-item text-dark" href="/logout">Salir</a>
+								</li>
+							</ul>
+						</div>
+						<a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
+							>&times;</a
+						>
+						<a class="active" href="/index">Inicio</a>
+						<a class="nav-link" href="/tarifas">Tarifas</a>
+						<a class="nav-link" href="/guias">GUIAS</a>
+						<a class="nav-link" href="/opera">CÓD. OPERA</a>
+						<a class="nav-link" href="/minigolf">MINI GOLF</a>
+						<% if(user.rol === "Admin"){ %>
+						<a class="d-block" href="/ajustes">AJUSTES </a>
+						<% } else { %>
+						<a class="d-none" href="/ajustes">AJUSTES </a>
+						<% } %>
+					</div>
+				</div>
+			</div>
+		</nav>
 
-  <!-- NAV SM -->
-  <nav class="navbar navSmall fixed-top">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="/index"><i class="bi bi-house-up"></i></a>
-      <span class="text-uppercase text-light" id="navbarSM">GUÍAS</span>
-    <button class="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation" onclick="openNav()">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+		<div class="content">
+			<div class="row afterNav">
+				<div class="col-3">
+					<img src="/img/manual.png" class="logoHotelrate" alt="" />
+					<h3 class="headerSmall text-uppercase" id="titulo">GUÍAS</h3>
+				</div>
 
-      <div id="mySidenav" class="sidenav">
-          <div id="main">
-            <div class="dropdown btn-perfil">
-              <% if(user.rol === "Admin"){ %>
-                <button class="btn btn-success dropdown-toggle" href="#" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  <span class="text-light text-uppercase"><%= user.username %></span>
-                </button>
-                  <% } else { %>
-                    <button class="btn btn-warning btn-sm dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      <span class="text-dark text-uppercase"><%= user.username %></span>
-                    </button>
-                <% } %>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item text-dark" href="#">Editar</a></li>
-                <li><a class="dropdown-item text-dark" href="/logout">Salir</a></li>
-              </ul>
-            </div>
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <a class="active" href="/index">Inicio</a>
-            <a class="nav-link" href="/tarifas">Tarifas</a>
-            <a class="nav-link" href="/guias">GUIAS</a>
-            <a class="nav-link" href="/opera">CÓD. OPERA</a>
-            <a class="nav-link" href="/minigolf">MINI GOLF</a>
-            <% if(user.rol === "Admin"){ %>
-              <a class="d-block"href="/ajustes">AJUSTES </a>
-              <% } else { %>
-                <a class="d-none"href="/ajustes">AJUSTES </a>
-              <% } %>
-          </div>
-        </div>
-      </div>
-    </nav>
+				<div class="col" id="inputBuscar">
+					<form role="search" class="vertical-center">
+						<div class="input-group">
+							<span class="input-group-text" id="basic-addon1"
+								><i class="bi bi-search"></i
+							></span>
+							<input
+								class="form-control"
+								type="search"
+								id="myInput"
+								onkeyup="myFunction()"
+								placeholder="Buscar guias"
+								aria-label="Search"
+							/>
+						</div>
+					</form>
+				</div>
+			</div>
 
-      <div class="content">
-        <div class="row afterNav" >
-          <div class="col-3">
-            <img src="/img/manual.png" class="logoHotelrate" alt="">
-            <h3 class="headerSmall text-uppercase" id="titulo">
-              GUÍAS
-            </h3>
-          </div>
-  
-          <div class="col" id="inputBuscar">
-            <form role="search" class="vertical-center">
-              <div class="input-group">
-                <span class="input-group-text" id="basic-addon1"><i class="bi bi-search"></i></span>
-                <input class="form-control " type="search" id="myInput" onkeyup="myFunction()"  placeholder="Buscar guias" aria-label="Search">
-              </div>
-            </form>
-          </div>
-        </div>
+			<div class="card editShadow mt-3">
+				<div class="card-body">
+					<div class="text-center">
+						<h4 class="text-uppercase">Guías actualizadas</h4>
+						<hr />
+					</div>
 
-        <div class="card editShadow mt-3">
-          <div class="card-body">
-            <div class="text-center">
-              <h4 class="text-uppercase"> Guías actualizadas</h4>
-              <hr>
-            </div>
-            
-            <table class="table tabla-desktop" id="myTable">
-              <% if (results.length == 0) { %>
-                <div class="text-center ">
-                  <img class="noResults" src="/img/noResults.PNG" alt="">
-                  <h4 class="text-uppercase mt-3"> No hay resultados</h4>
-                    </div>
-                   <% }else { %>
-                  <thead>
-                    <tr>
-                      <th scope="col" class="col">Aplicación</th>
-                      <th scope="col" class="col">Archivo</th>
-                      <th scope="col" class="col">Tamaño</th>
-                      <th scope="col" class="col">Actualizado</th>
-                      <th scope="col" class="col-1">Descargar</th>
-                    </tr>
-                  </thead>
-                  <% } %>
-                  <tbody>
-                    <% results.forEach(guia => { %>
-                      <tr>
-                        <td><%= guia.aplicacion %> </td>
-                        <td><%= guia.archivo %></td>
-                        <% if (guia.fileSize >= 1000000) { %>
-                          <td><%= (guia.fileSize/1000000).toFixed(2); %> MB</td>
-                        <% } else if (guia.fileSize >= 1000) { %>
-                          <td><%= (guia.fileSize/1000).toFixed(2); %> KB</td>
-                        <% } else { %>
-                          <td><%= guia.fileSize %> bytes</td>
-                        <% } %>
-                        <td><%= guia.actualizado %></td>
-                        <td>
-                          <div class="d-flex justify-content-between">
-                            <a href="/downloadGuide/<%= guia.id %>" target="_blank" class="btn btn-sm btn-success btnEdit"><i class="bi bi-arrow-down-circle"></i></a>
-                          </div>
-                        </td>
-                      </tr>
-                    <% }) %>
-                  </tbody>
-                </table>
+					<table class="table tabla-desktop" id="myTable">
+						<% if (results.length == 0) { %>
+						<div class="text-center">
+							<img class="noResults" src="/img/noResults.PNG" alt="" />
+							<h4 class="text-uppercase mt-3">No hay resultados</h4>
+						</div>
+						<% }else { %>
+						<thead>
+							<tr>
+								<th scope="col" class="col">Aplicación</th>
+								<th scope="col" class="col">Archivo</th>
+								<th scope="col" class="col">Tamaño</th>
+								<th scope="col" class="col">Actualizado</th>
+								<th scope="col" class="col-1">Descargar</th>
+							</tr>
+						</thead>
+						<% } %>
+						<tbody>
+							<% results.forEach(guia => { %>
+							<tr>
+								<td><%= guia.aplicacion %></td>
+								<td><%= guia.archivo %></td>
+								<% if (guia.fileSize >= 1000000) { %>
+								<td><%= (guia.fileSize/1000000).toFixed(2); %> MB</td>
+								<% } else if (guia.fileSize >= 1000) { %>
+								<td><%= (guia.fileSize/1000).toFixed(2); %> KB</td>
+								<% } else { %>
+								<td><%= guia.fileSize %> bytes</td>
+								<% } %>
+								<td><%= guia.actualizado %></td>
+								<td>
+									<div class="d-flex justify-content-between">
+										<a
+											href="/downloadGuide/<%= guia.id %>"
+											target="_blank"
+											class="btn btn-sm btn-success btnEdit"
+											><i class="bi bi-arrow-down-circle"></i
+										></a>
+									</div>
+								</td>
+							</tr>
+							<% }) %>
+						</tbody>
+					</table>
 
-                <!-- *****************************MOBILE CARDS EDIT****************************** -->
-              <div class="container tabla-mobile" id="tabla-mobile">
-                <div class="row row-cols-1 row-cols-sm-1 row-cols-md-3 mt-3" id="servicesHomePage">
-                  <% results.forEach((guia) => { %>
-                    <div class="col">
-                      <div class="card mb-2 cardHome cardShadow" id="opera-codes">
-                          <div class="card-header fixSizeHeadEdit">
-                            <div class="my-0 text-center card-title"><%= guia.aplicacion %> </div>
-                        </div>
-                        <div class="card-body">
-                              <div class="accordion" id="accordionFlushExample">
-                                <div class="accordion-item">
-                                  <h2 class="accordion-header" id="flush-headingOne">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne<%= guia.id %>" aria-expanded="false" aria-controls="flush-collapseOne">
-                                    Más Información
-                                    </button>
-                                  </h2>
-                                  <div id="flush-collapseOne<%= guia.id %>" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                                    <div class="accordion-body">
-                                      <p><strong>Archivo:</strong> <%= guia.archivo %> </p>
-                                      <% if (guia.fileSize >= 1000000) { %>
-                                        <p><strong>Tamaño:</strong> <%= (guia.fileSize/1000000).toFixed(2); %> MB </p>
-                                        <% } else if (guia.fileSize >= 1000) { %>
-                                          <p><strong>Tamaño:</strong> <%= (guia.fileSize/1000).toFixed(2); %> KB </p>
-                                          <% } else { %>
-                                            <p><strong>Tamaño:</strong> <%= guia.fileSize %> bytes </p>
-                                      <% } %>
-                                      <p><strong>Actualizado:</strong><%= guia.actualizado %> </p>
+					<!-- *****************************MOBILE CARDS EDIT****************************** -->
+					<div class="container tabla-mobile" id="tabla-mobile">
+						<div
+							class="row row-cols-1 row-cols-sm-1 row-cols-md-3 mt-3"
+							id="servicesHomePage"
+						>
+							<% results.forEach((guia) => { %>
+							<div class="col">
+								<div class="card mb-2 cardHome cardShadow" id="opera-codes">
+									<div class="card-header fixSizeHeadEdit">
+										<div class="my-0 text-center card-title">
+											<%= guia.aplicacion %>
+										</div>
+									</div>
+									<div class="card-body">
+										<div class="accordion" id="accordionFlushExample">
+											<div class="accordion-item">
+												<h2 class="accordion-header" id="flush-headingOne">
+													<button
+														class="accordion-button collapsed"
+														type="button"
+														data-bs-toggle="collapse"
+														data-bs-target="#flush-collapseOne<%= guia.id %>"
+														aria-expanded="false"
+														aria-controls="flush-collapseOne"
+													>
+														Más Información
+													</button>
+												</h2>
+												<div
+													id="flush-collapseOne<%= guia.id %>"
+													class="accordion-collapse collapse"
+													aria-labelledby="flush-headingOne"
+													data-bs-parent="#accordionFlushExample"
+												>
+													<div class="accordion-body">
+														<p><strong>Archivo:</strong> <%= guia.archivo %></p>
+														<% if (guia.fileSize >= 1000000) { %>
+														<p>
+															<strong>Tamaño:</strong> <%=
+															(guia.fileSize/1000000).toFixed(2); %> MB
+														</p>
+														<% } else if (guia.fileSize >= 1000) { %>
+														<p>
+															<strong>Tamaño:</strong> <%=
+															(guia.fileSize/1000).toFixed(2); %> KB
+														</p>
+														<% } else { %>
+														<p>
+															<strong>Tamaño:</strong> <%= guia.fileSize %>
+															bytes
+														</p>
+														<% } %>
+														<p>
+															<strong>Actualizado:</strong><%= guia.actualizado
+															%>
+														</p>
 
+														<hr />
+														<div>
+															<a
+																href="/downloadGuide/<%= guia.id %>"
+																target="_blank"
+																class="btn btn-sm btn-success btnEdit"
+																><i class="bi bi-arrow-down-circle"></i
+															></a>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<% }) %>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 
-                                    <hr>
-                                    <div>
-                                      <a href="/downloadGuide/<%= guia.id %>" target="_blank" class="btn btn-sm btn-success btnEdit"><i class="bi bi-arrow-down-circle"></i></a>
-                                    </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-
-                        </div>
-
-                      </div>
-                    </div>
-                    <% }) %>
-                </div>
-              </div>
-            </div>
-          </div>
-          </div>
-
-          <%- include ('./partials/footer.ejs') %> 
-    </body>
-  </html>
+		<%- include ('./partials/footer.ejs') %>
+	</body>
+</html>

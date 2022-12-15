@@ -1,89 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+	<%- include ('../partials/head-edits.ejs') %>
 
-  <%- include ('../partials/head-edits.ejs') %> 
-  
-  <body>
-    
-    <% if (user) { %>
-      <%- include ('../partials/ajustes/sidebar-ajustes.ejs') %>
-      
-      <!-- NAV LG -->
-      <nav class="navbar fixed-top navi">
-        <div class="container-fluid">
-          <span class="navbar-brand mb-0 h1" id="navbarLG">AJUSTES - USUARIOS</span>
-          <%- include ('../partials/ajustes/navbar-lg.ejs') %> 
-          
-        </nav>
-        
-        <!-- NAV SM -->
-        <nav class="navbar navSmall fixed-top">  
-          <%- include ('../partials/ajustes/navbar-sm.ejs') %> 
-        </nav>
-    <% } %>  
+	<body>
+		<% if (user) { %> <%- include ('../partials/ajustes/sidebar-ajustes.ejs') %>
 
+		<!-- NAV LG -->
+		<nav class="navbar fixed-top navi">
+			<div class="container-fluid">
+				<span class="navbar-brand mb-0 h1" id="navbarLG"
+					>AJUSTES - USUARIOS</span
+				>
+				<%- include ('../partials/ajustes/navbar-lg.ejs') %>
+			</div>
+		</nav>
 
-    <div class="content">
-            
-      <div id="Servicios" class="afterNav">
-        <div class="text-center mb-3">
-          <h4 class="text-uppercase"> Nuevo Usuario</h4>
-        </div>
-        <div class="cardEdit-container">
+		<!-- NAV SM -->
+		<nav class="navbar navSmall fixed-top">
+			<%- include ('../partials/ajustes/navbar-sm.ejs') %>
+		</nav>
+		<% } %>
 
-          <div class="card editShadow">
-            <div class="card-body">
-              <form id="users-form" class="was-validated"  action="/createUser" method="POST">
-                <div class="mb-3">
-                  <label for="userName" class="form-label">Nombre</label>
-                  <input type="text" class="form-control" name="nombre" class="text-capitalized" placeholder="Escriba el nombre del usuario" required >
-                  <div class="invalid-feedback">
-                    Por favor escriba el nombre.
-                  </div>
-                </div>
-                <div class="mb-3">
-                  <label for="userNickname" class="form-label">Nombre de usuario</label>
-                  <input type="text"  class="form-control" name="username" placeholder="Nickname" required onkeyup="mayus(this)" required>
-                  <div class="invalid-feedback">
-                    Por favor escriba el username.
-                  </div>
-                </div>  
-                <div class="mb-3">
-                  <div class="row">
-                    <div class="col">
-                      <label for="userPass" class="form-label">Contraseña</label>
-                      <input type="password" class="form-control" name="password" id="password" placeholder="Escriba la Contraseña" onkeyup='checkPass();' required>
-                      <div class="invalid-feedback">
-                        Ingrese la contraseña.
-                      </div>
-                    </div>
-                    <div class="col">
-                      <label for="userPass-conf" class="form-label">Repita la Contraseña</label>
-                      <input type="password" class="form-control" name="pass-conf" id="pass-conf" placeholder="Repita la Contraseña" onkeyup='checkPass();' required>     
-                      <div class="mt-2">
-                        <span id='message'></span>
-                      </div>                  
-                    </div>
-                  </div>
-                </div>  
-                <div class="mb-3">
-                  <label for="userRole" class="form-label">Rol</label>
-                  <select class="form-select" name="rol" aria-label="role-selector" required >
-                    <option selected value="">Elija el rol del usuario</option>
-                    <option value="Admin">Admin</option>
-                    <option value="User">User</option>
-                  </select>
-                </div>  
-        
-                <div class="mt-4 d-grid gap-2 d-md-flex justify-content-md-start">
-                  <button type="submit" class="btn btn-success btnAdd editShadow" id="botonAdd">AGREGAR</button>
-                  <a href="/ajustes/usuarios-conf" type="button" class="btn btn-danger btnCancel editShadow">CANCELAR</a>
-                </div>
-              </form>
-                </div>
-              </div>
-            </div>
-          </div>
-      </div>
+		<div class="content">
+			<div id="Servicios" class="afterNav">
+				<div class="text-center mb-3">
+					<h4 class="text-uppercase">Nuevo Usuario</h4>
+				</div>
+				<div class="cardEdit-container">
+					<div class="card editShadow">
+						<div class="card-body">
+							<form
+								id="users-form"
+								class="was-validated"
+								action="/createUser"
+								method="POST"
+							>
+								<div class="mb-3">
+									<label for="userName" class="form-label">Nombre</label>
+									<input
+										type="text"
+										class="form-control"
+										name="nombre"
+										class="text-capitalized"
+										placeholder="Escriba el nombre del usuario"
+										required
+									/>
+									<div class="invalid-feedback">
+										Por favor escriba el nombre.
+									</div>
+								</div>
+								<div class="mb-3">
+									<label for="userNickname" class="form-label"
+										>Nombre de usuario</label
+									>
+									<input
+										type="text"
+										class="form-control"
+										name="username"
+										placeholder="Nickname"
+										required
+										onkeyup="mayus(this)"
+										required
+									/>
+									<div class="invalid-feedback">
+										Por favor escriba el username.
+									</div>
+								</div>
+								<div class="mb-3">
+									<div class="row">
+										<div class="col">
+											<label for="userPass" class="form-label"
+												>Contraseña</label
+											>
+											<input
+												type="password"
+												class="form-control"
+												name="password"
+												id="password"
+												placeholder="Escriba la Contraseña"
+												onkeyup="checkPass();"
+												required
+											/>
+											<div class="invalid-feedback">Ingrese la contraseña.</div>
+										</div>
+										<div class="col">
+											<label for="userPass-conf" class="form-label"
+												>Repita la Contraseña</label
+											>
+											<input
+												type="password"
+												class="form-control"
+												name="pass-conf"
+												id="pass-conf"
+												placeholder="Repita la Contraseña"
+												onkeyup="checkPass();"
+												required
+											/>
+											<div class="mt-2">
+												<span id="message"></span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="mb-3">
+									<label for="userRole" class="form-label">Rol</label>
+									<select
+										class="form-select"
+										name="rol"
+										aria-label="role-selector"
+										required
+									>
+										<option selected value="">Elija el rol del usuario</option>
+										<option value="Admin">Admin</option>
+										<option value="User">User</option>
+									</select>
+								</div>
 
-      <%- include ('../partials/footer.ejs') %> 
-  </body>
+								<div
+									class="mt-4 d-grid gap-2 d-md-flex justify-content-md-start"
+								>
+									<button
+										type="submit"
+										class="btn btn-success btnAdd editShadow"
+										id="botonAdd"
+									>
+										AGREGAR
+									</button>
+									<a
+										href="/ajustes/usuarios-conf"
+										type="button"
+										class="btn btn-danger btnCancel editShadow"
+										>CANCELAR</a
+									>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<%- include ('../partials/footer.ejs') %>
+	</body>
 </html>

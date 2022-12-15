@@ -1,68 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+	<%- include ('../partials/head-edits.ejs') %>
 
-  <%- include ('../partials/head-edits.ejs') %> 
-  
-  <body>
-    
-    <% if (user) { %>
-      <%- include ('../partials/ajustes/sidebar-ajustes.ejs') %>
-      
-      <!-- NAV LG -->
-      <nav class="navbar fixed-top navi">
-        <div class="container-fluid">
-          <span class="navbar-brand mb-0 h1" id="navbarLG">AJUSTES - TTOO</span>
-          <%- include ('../partials/ajustes/navbar-lg.ejs') %> 
-          
-        </nav>
-        
-        <!-- NAV SM -->
-        <nav class="navbar navSmall fixed-top">  
-          <%- include ('../partials/ajustes/navbar-sm.ejs') %> 
-        </nav>
-    <% } %>  
+	<body>
+		<% if (user) { %> <%- include ('../partials/ajustes/sidebar-ajustes.ejs') %>
 
-    <div class="content">
-      
-      <div id="Servicios" class="afterNav">
-        
-        <div class="text-center mb-3">
-          <h4 class="text-uppercase" id="titulo">Editar TTOO</h4>
-        </div>
-        <div class="cardEdit-container">
+		<!-- NAV LG -->
+		<nav class="navbar fixed-top navi">
+			<div class="container-fluid">
+				<span class="navbar-brand mb-0 h1" id="navbarLG">AJUSTES - TTOO</span>
+				<%- include ('../partials/ajustes/navbar-lg.ejs') %>
+			</div>
+		</nav>
 
-          <div class="card editShadow">
-            <div class="card-body">
-                  <% if (ttoo) { %>
-                  
-                    <form id="services-form" action="/ajustes/ttoo-conf/<%= ttoo.id %>" method="POST">
-                      <div class="mb-3">
-                        <label for="ttoo-title" class="form-label">Nombre TTOO</label>
-                        <input type="text" class="form-control" name="nombre" value="<%= ttoo.nombre %>" placeholder="Nombre del TTOO" required>
-                      </div>
-                      <div class="mb-3">
-                        <label for="rate-price" class="form-label">Precio</label>
-                        <input type="number" class="form-control" name="precio" value="<%= ttoo.precio %>" placeholder="Precio contratado" required>
-                      </div> 
-                      <div class="mb-3">
-                        <label for="rate-opera" class="form-label">Código Opera</label>
-                        <input type="number" class="form-control" name="cod_opera" value="<%= ttoo.cod_opera %>" placeholder="Código de Opera">
-                      </div>    
-                      <div class="mb-3">
-                        <label for="rate-operacion" class="form-label">Operación</label>
-                        <input type="text" class="form-control" name="operacion" value="<%= ttoo.operacion %>" placeholder="Cómo facturarlo:">
-                      </div>    
-                      
-                      <div class="mt-4 d-grid gap-2 d-md-flex justify-content-md-start">
-                        <button type="submit" class="btn btn-warning btnEdit editShadow" id="modalServName">EDITAR</button>
-                        <a href="/ajustes/ttoo-conf" class="btn btn-danger btnCancel editShadow">CANCELAR</a>
-                      </div>
-                    </form>
-                    <% } %>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+		<!-- NAV SM -->
+		<nav class="navbar navSmall fixed-top">
+			<%- include ('../partials/ajustes/navbar-sm.ejs') %>
+		</nav>
+		<% } %>
 
-          <%- include ('../partials/footer.ejs') %> 
-  </body>
+		<div class="content">
+			<div id="Servicios" class="afterNav">
+				<div class="text-center mb-3">
+					<h4 class="text-uppercase" id="titulo">Editar TTOO</h4>
+				</div>
+				<div class="cardEdit-container">
+					<div class="card editShadow">
+						<div class="card-body">
+							<% if (ttoo) { %>
+
+							<form
+								id="services-form"
+								action="/ajustes/ttoo-conf/<%= ttoo.id %>"
+								method="POST"
+							>
+								<div class="mb-3">
+									<label for="ttoo-title" class="form-label">Nombre TTOO</label>
+									<input
+										type="text"
+										class="form-control"
+										name="nombre"
+										value="<%= ttoo.nombre %>"
+										placeholder="Nombre del TTOO"
+										required
+									/>
+								</div>
+								<div class="mb-3">
+									<label for="rate-price" class="form-label">Precio</label>
+									<input
+										type="number"
+										class="form-control"
+										name="precio"
+										value="<%= ttoo.precio %>"
+										placeholder="Precio contratado"
+										required
+									/>
+								</div>
+								<div class="mb-3">
+									<label for="rate-opera" class="form-label"
+										>Código Opera</label
+									>
+									<input
+										type="number"
+										class="form-control"
+										name="cod_opera"
+										value="<%= ttoo.cod_opera %>"
+										placeholder="Código de Opera"
+									/>
+								</div>
+								<div class="mb-3">
+									<label for="rate-operacion" class="form-label"
+										>Operación</label
+									>
+									<input
+										type="text"
+										class="form-control"
+										name="operacion"
+										value="<%= ttoo.operacion %>"
+										placeholder="Cómo facturarlo:"
+									/>
+								</div>
+
+								<div
+									class="mt-4 d-grid gap-2 d-md-flex justify-content-md-start"
+								>
+									<button
+										type="submit"
+										class="btn btn-warning btnEdit editShadow"
+										id="modalServName"
+									>
+										EDITAR
+									</button>
+									<a
+										href="/ajustes/ttoo-conf"
+										class="btn btn-danger btnCancel editShadow"
+										>CANCELAR</a
+									>
+								</div>
+							</form>
+							<% } %>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<%- include ('../partials/footer.ejs') %>
+	</body>
 </html>

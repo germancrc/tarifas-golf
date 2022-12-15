@@ -1,82 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+	<%- include ('../partials/head-edits.ejs') %>
 
-  <%- include ('../partials/head-edits.ejs') %> 
-  
-  <body>
-    
-    <% if (user) { %>
-      <%- include ('../partials/ajustes/sidebar-ajustes.ejs') %>
-      
-      <!-- NAV LG -->
-      <nav class="navbar fixed-top navi">
-        <div class="container-fluid">
-          <span class="navbar-brand mb-0 h1" id="navbarLG">AJUSTES - CÓDIGOS OPERA</span>
-          <%- include ('../partials/ajustes/navbar-lg.ejs') %> 
-          
-        </nav>
-        
-        <!-- NAV SM -->
-        <nav class="navbar navSmall fixed-top">  
-          <%- include ('../partials/ajustes/navbar-sm.ejs') %> 
-        </nav>
-    <% } %>  
+	<body>
+		<% if (user) { %> <%- include ('../partials/ajustes/sidebar-ajustes.ejs') %>
 
+		<!-- NAV LG -->
+		<nav class="navbar fixed-top navi">
+			<div class="container-fluid">
+				<span class="navbar-brand mb-0 h1" id="navbarLG"
+					>AJUSTES - CÓDIGOS OPERA</span
+				>
+				<%- include ('../partials/ajustes/navbar-lg.ejs') %>
+			</div>
+		</nav>
 
-    <div class="content">
-            
-      <div id="Servicios" class="afterNav">
-        <div class="text-center mb-3">
-          <h4 class="text-uppercase" id="titulo"> NuevO CÓDIGO OPERA</h4>
-        </div>
-        <div class="cardEdit-container">
+		<!-- NAV SM -->
+		<nav class="navbar navSmall fixed-top">
+			<%- include ('../partials/ajustes/navbar-sm.ejs') %>
+		</nav>
+		<% } %>
 
-          <div class="card editShadow">
-            <div class="card-body">
-              <form id="code-form" class="was-validated"  action="/createCode" method="POST">
-                <div class="mb-3">
-                  <label for="codeTitle" id="codeTitle" class="form-label">Código</label>
-                  <input type="text" class="form-control" name="codigo" placeholder="Escriba el Código" required>
-                  <div class="invalid-feedback">
-                    Por favor escriba el código.
-                  </div>
-                </div>
-                <div class="mb-3">
-                  <label for="codeName" id="codeName" class="form-label">Nombre</label>
-                  <input type="text" class="form-control" name="nombre" placeholder="Escriba el Nombre" required>
-                  <div class="invalid-feedback">
-                    Por favor escriba el nombre.
-                  </div>
-                </div> 
-                <div class="mb-3">
-                  <label for="code-use" class="form-label">Dónde se usa?</label>
-                  <select class="form-select mb-3" name="uso" aria-label="uso-selector" required >
-                    <option selected value="">Elegir:</option>
-                    <option value="Campo Golf">Campo Golf</option>
-                    <option value="Mini Golf">Mini Golf</option>
-                    <option value="Pagos">Pagos</option>
-                  </select>
-                  <div class="invalid-feedback opera-cd">
-                    Elija el dónde se usa el código.  
-                  </div>
-                </div>
-                <div class="mb-3">
-                  <label for="code-desc" class="form-label">Descripción</label>
-                  <textarea class="form-control" id="descripcion" name="descripcion" placeholder="Descripción" rows="3" required></textarea>
-                  <div class="invalid-feedback">
-                    Por favor escriba una descripcion del código.
-                  </div>
-                </div>
-                
-                <div class="mt-4 d-grid gap-2 d-md-flex justify-content-md-start">
-                  <button type="submit" class="btn btn-success btnAdd editShadow" id="botonAdd">AGREGAR</button>
-                  <a href="/ajustes/opera-codes" type="button" class="btn btn-danger btnCancel editShadow">CANCELAR</a>
-                </div>
-              </form>
-                </div>
-              </div>
-            </div>
-          </div>
-      </div>
+		<div class="content">
+			<div id="Servicios" class="afterNav">
+				<div class="text-center mb-3">
+					<h4 class="text-uppercase" id="titulo">NuevO CÓDIGO OPERA</h4>
+				</div>
+				<div class="cardEdit-container">
+					<div class="card editShadow">
+						<div class="card-body">
+							<form
+								id="code-form"
+								class="was-validated"
+								action="/createCode"
+								method="POST"
+							>
+								<div class="mb-3">
+									<label for="codeTitle" id="codeTitle" class="form-label"
+										>Código</label
+									>
+									<input
+										type="text"
+										class="form-control"
+										name="codigo"
+										placeholder="Escriba el Código"
+										required
+									/>
+									<div class="invalid-feedback">
+										Por favor escriba el código.
+									</div>
+								</div>
+								<div class="mb-3">
+									<label for="codeName" id="codeName" class="form-label"
+										>Nombre</label
+									>
+									<input
+										type="text"
+										class="form-control"
+										name="nombre"
+										placeholder="Escriba el Nombre"
+										required
+									/>
+									<div class="invalid-feedback">
+										Por favor escriba el nombre.
+									</div>
+								</div>
+								<div class="mb-3">
+									<label for="code-use" class="form-label">Dónde se usa?</label>
+									<select
+										class="form-select mb-3"
+										name="uso"
+										aria-label="uso-selector"
+										required
+									>
+										<option selected value="">Elegir:</option>
+										<option value="Campo Golf">Campo Golf</option>
+										<option value="Mini Golf">Mini Golf</option>
+										<option value="Pagos">Pagos</option>
+									</select>
+									<div class="invalid-feedback opera-cd">
+										Elija el dónde se usa el código.
+									</div>
+								</div>
+								<div class="mb-3">
+									<label for="code-desc" class="form-label">Descripción</label>
+									<textarea
+										class="form-control"
+										id="descripcion"
+										name="descripcion"
+										placeholder="Descripción"
+										rows="3"
+										required
+									></textarea>
+									<div class="invalid-feedback">
+										Por favor escriba una descripcion del código.
+									</div>
+								</div>
 
-      <%- include ('../partials/footer.ejs') %> 
-  </body>
+								<div
+									class="mt-4 d-grid gap-2 d-md-flex justify-content-md-start"
+								>
+									<button
+										type="submit"
+										class="btn btn-success btnAdd editShadow"
+										id="botonAdd"
+									>
+										AGREGAR
+									</button>
+									<a
+										href="/ajustes/opera-codes"
+										type="button"
+										class="btn btn-danger btnCancel editShadow"
+										>CANCELAR</a
+									>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<%- include ('../partials/footer.ejs') %>
+	</body>
 </html>

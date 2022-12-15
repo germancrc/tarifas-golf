@@ -1,39 +1,61 @@
 <div class="container-fluid">
-    <a class="navbar-brand" href="/index"><i class="bi bi-house-up"></i></a>
-    <span class="text-uppercase text-light" id="navbarSM"></span>
-    <button class="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation" onclick="openNav()">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+	<a class="navbar-brand" href="/index"><i class="bi bi-house-up"></i></a>
+	<span class="text-uppercase text-light" id="navbarSM"></span>
+	<button
+		class="navbar-toggler navbar-dark"
+		type="button"
+		data-bs-toggle="collapse"
+		data-bs-target="#navbarText"
+		aria-controls="navbarText"
+		aria-expanded="false"
+		aria-label="Toggle navigation"
+		onclick="openNav()"
+	>
+		<span class="navbar-toggler-icon"></span>
+	</button>
 
-      <div id="mySidenav" class="sidenav">
-          <div id="main">
-            <div class="dropdown btn-perfil">
-              <% if(user.rol === "Admin"){ %>
-                <button class="btn btn-success dropdown-toggle" href="#" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  <span class="text-light text-uppercase"></i><%= user.username %></span>
-                </button>
-                  <% } else { %>
-                    <button class="btn btn-warning btn-sm dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      <span class="text-dark text-uppercase"><%= user.username %></span>
-                    </button>
-                <% } %>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item text-dark" href="#">Editar</a></li>
-                <li><a class="dropdown-item text-dark" href="/logout">Salir</a></li>
-              </ul>
-            </div>
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <a class="nav-link" href="/index">Inicio</a>
-            <a class="nav-link" href="/tarifas">Tarifas</a>
-            <a class="nav-link" href="/guias">GUIAS</a>
-            <a class="nav-link" href="/opera">CÓD. OPERA</a>
-            <a class="nav-link" href="/minigolf">MINI GOLF</a>
-            <% if(user.rol === "Admin"){ %>
-              <a class="d-block active"href="/ajustes">AJUSTES </a>
-              <% } else { %>
-                <a class="d-none"href="/ajustes">AJUSTES </a>
-              <% } %>
-          </div>
-        </div>
-      </div>
-    </div>
+	<div id="mySidenav" class="sidenav">
+		<div id="main">
+			<div class="dropdown btn-perfil">
+				<% if(user.rol === "Admin"){ %>
+				<button
+					class="btn btn-success dropdown-toggle"
+					href="#"
+					type="button"
+					data-bs-toggle="dropdown"
+					aria-expanded="false"
+				>
+					<span class="text-light text-uppercase"><%= user.username %></span>
+				</button>
+				<% } else { %>
+				<button
+					class="btn btn-warning btn-sm dropdown-toggle"
+					href="#"
+					role="button"
+					data-bs-toggle="dropdown"
+					aria-expanded="false"
+				>
+					<span class="text-dark text-uppercase"><%= user.username %></span>
+				</button>
+				<% } %>
+				<ul class="dropdown-menu">
+					<li><a class="dropdown-item text-dark" href="#">Editar</a></li>
+					<li><a class="dropdown-item text-dark" href="/logout">Salir</a></li>
+				</ul>
+			</div>
+			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
+				>&times;</a
+			>
+			<a class="nav-link" href="/index">Inicio</a>
+			<a class="nav-link" href="/tarifas">Tarifas</a>
+			<a class="nav-link" href="/guias">GUIAS</a>
+			<a class="nav-link" href="/opera">CÓD. OPERA</a>
+			<a class="nav-link" href="/minigolf">MINI GOLF</a>
+			<% if(user.rol === "Admin"){ %>
+			<a class="d-block active" href="/ajustes">AJUSTES </a>
+			<% } else { %>
+			<a class="d-none" href="/ajustes">AJUSTES </a>
+			<% } %>
+		</div>
+	</div>
+</div>

@@ -35,6 +35,7 @@
 
 						<form
 							id="guides-form"
+							name="form1"
 							class="was-validated"
 							action="/uploadGuide"
 							enctype="multipart/form-data"
@@ -49,14 +50,13 @@
 											type="text"
 											class="form-control"
 											name="aplicacion"
+											id="nombreGuia"
 											placeholder="Nombre de la aplicación"
-											required
 											required
 											onkeyup="mayus(this)"
 										/>
 										<div class="invalid-feedback">
-											Por favor escriba el nombre de la
-											aplicación.
+											Nombre de la aplicación.
 										</div>
 									</div>
 								</div>
@@ -71,13 +71,15 @@
 												accept=".pdf"
 												aria-describedby="inputGroupFileAddon04"
 												aria-label="Upload"
+												onChange="inform()"
 												required
 											/>
 											<button
 												class="btn btn-success"
 												id="upload"
 												type="submit"
-												id="inputGroupFileAddon04"
+												disabled
+												onclick="showSpinner()"
 											>
 												SUBIR
 											</button>
@@ -89,17 +91,27 @@
 								</div>
 							</div>
 						</form>
-						<a
-							href="https://drive.google.com/drive/folders/1CMxxgG371jXmxJcPug3FEXpx2LLaLmtP?usp=sharing"
-							target="_blank"
-							class="btn btn-success mt-2"
-							>Ver Guias base
-						</a>
+						<hr />
+						<div id="btnGuiaBase">
+							<a
+								href="https://drive.google.com/drive/folders/1CMxxgG371jXmxJcPug3FEXpx2LLaLmtP?usp=sharing"
+								target="_blank"
+								class="btn btn-success"
+								>Ver Guias base
+							</a>
+						</div>
 						<!-- SPINNER SUBIENDO -->
-						<!-- <div class="d-flex align-items-center mt-1">
-                <strong>Subiendo archivo...</strong>
-                <div class="spinner-border ms-auto text-danger" role="status" aria-hidden="true"></div>
-              </div> -->
+						<div id="showSpin" class="d-none">
+							<div class="d-flex align-items-center mt-1">
+								<strong>Subiendo archivo...</strong>
+								<div
+									class="spinner-border me-auto text-danger"
+									id="spinnerUpload"
+									role="status"
+									aria-hidden="true"
+								></div>
+							</div>
+						</div>
 					</div>
 				</div>
 

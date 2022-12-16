@@ -165,3 +165,28 @@ function openRolEdit() {
 		rolChange.className = 'd-block'
 	}
 }
+//************************UPLOAD BUTTON DISABLED */
+function inform() {
+	let nombreGuia = document.getElementById('nombreGuia').value
+	let file = document.getElementById('fileGuide').value
+	if (file && nombreGuia) {
+		document.getElementById('upload').disabled = false
+	}
+}
+
+//************************SHOW SPINNER */
+function showSpinner() {
+	let btnGuiaBase = document.getElementById('btnGuiaBase')
+	let spinner = document.getElementById('showSpin')
+	spinner.className = 'd-block'
+	btnGuiaBase.className = 'd-none'
+}
+
+// PAGE RELOADED
+let data = window.performance.getEntriesByType('navigation')[0].type
+let btnGuiaBase = document.getElementById('btnGuiaBase')
+let spinner = document.getElementById('showSpin')
+if ((data = 'reload')) {
+	spinner.className = 'd-none'
+	btnGuiaBase.className = 'd-block'
+}

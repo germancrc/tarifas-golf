@@ -619,6 +619,10 @@ footer {
 		margin-top: -40px;
 	}
 
+	.uploading {
+		padding-left: 1rem;
+	}
+
 	.logo,
 	.logoHotel,
 	.banderas,

@@ -29,12 +29,7 @@
 				<div class="cardEdit-container">
 					<div class="card editShadow">
 						<div class="card-body">
-							<form
-								id="users-form"
-								class="was-validated"
-								action="/createUser"
-								method="POST"
-							>
+							<form id="users-form" action="/createUser" method="POST">
 								<div class="mb-3">
 									<label for="userName" class="form-label">Nombre</label>
 									<input
@@ -43,11 +38,7 @@
 										name="nombre"
 										class="text-capitalized"
 										placeholder="Escriba el nombre del usuario"
-										required
-									/>
-									<div class="invalid-feedback">
-										Por favor escriba el nombre.
-									</div>
+										required />
 								</div>
 								<div class="mb-3">
 									<label for="userNickname" class="form-label"
@@ -60,11 +51,7 @@
 										placeholder="Nickname"
 										required
 										onkeyup="mayus(this)"
-										required
-									/>
-									<div class="invalid-feedback">
-										Por favor escriba el username.
-									</div>
+										required />
 								</div>
 								<div class="mb-3">
 									<div class="row">
@@ -79,8 +66,7 @@
 												id="password"
 												placeholder="Escriba la Contraseña"
 												onkeyup="checkPass();"
-												required
-											/>
+												required />
 											<div class="invalid-feedback">Ingrese la contraseña.</div>
 										</div>
 										<div class="col">
@@ -94,8 +80,7 @@
 												id="pass-conf"
 												placeholder="Repita la Contraseña"
 												onkeyup="checkPass();"
-												required
-											/>
+												required />
 											<div class="mt-2">
 												<span id="message"></span>
 											</div>
@@ -108,8 +93,7 @@
 										class="form-select"
 										name="rol"
 										aria-label="role-selector"
-										required
-									>
+										required>
 										<option selected value="">Elija el rol del usuario</option>
 										<option value="Admin">Admin</option>
 										<option value="User">User</option>
@@ -117,13 +101,12 @@
 								</div>
 
 								<div
-									class="mt-4 d-grid gap-2 d-md-flex justify-content-md-start"
-								>
+									class="mt-4 d-grid gap-2 d-md-flex justify-content-md-start">
 									<button
 										type="submit"
 										class="btn btn-success btnAdd editShadow"
 										id="botonAdd"
-									>
+										disabled>
 										AGREGAR
 									</button>
 									<a

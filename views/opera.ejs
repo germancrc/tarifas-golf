@@ -66,8 +66,7 @@
 					aria-controls="navbarText"
 					aria-expanded="false"
 					aria-label="Toggle navigation"
-					onclick="openNav()"
-				>
+					onclick="openNav()">
 					<span class="navbar-toggler-icon"></span>
 				</button>
 
@@ -80,8 +79,7 @@
 								href="#"
 								type="button"
 								data-bs-toggle="dropdown"
-								aria-expanded="false"
-							>
+								aria-expanded="false">
 								<span class="text-light text-uppercase"
 									><%= user.username %></span
 								>
@@ -92,8 +90,7 @@
 								href="#"
 								role="button"
 								data-bs-toggle="dropdown"
-								aria-expanded="false"
-							>
+								aria-expanded="false">
 								<span class="text-dark text-uppercase"
 									><%= user.username %></span
 								>
@@ -141,10 +138,9 @@
 								class="form-control"
 								type="search"
 								id="myInput"
-								onkeyup="myFunction()"
+								onkeyup="buscarCodigo()"
 								placeholder="Buscar código"
-								aria-label="Search"
-							/>
+								aria-label="Search" />
 						</div>
 					</form>
 				</div>
@@ -172,8 +168,7 @@
 									<td>
 										<button
 											class="btn btn-sm btn-success btnEdit"
-											onclick="return alert('<%= code.codigo %> - <%= code.nombre %>: <%= code.descripcion %>')"
-										>
+											onclick="return alert('<%= code.codigo %> - <%= code.nombre %>: <%= code.descripcion %>')">
 											<i class="bi bi-info-circle"></i>
 										</button>
 									</td>

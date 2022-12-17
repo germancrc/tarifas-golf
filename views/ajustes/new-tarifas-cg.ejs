@@ -30,12 +30,7 @@
 				<div class="cardEdit-container">
 					<div class="card editShadow">
 						<div class="card-body">
-							<form
-								id="rates-form"
-								class="was-validated"
-								action="/createRateMg"
-								method="POST"
-							>
+							<form id="rates-form" action="/createRateMg" method="POST">
 								<div class="mb-3">
 									<label for="rate-title" class="form-label"
 										>Nombre de la tarifa</label
@@ -45,11 +40,7 @@
 										class="form-control"
 										name="nombre"
 										placeholder="Escriba el nombre de la tarifa"
-										required
-									/>
-									<div class="invalid-feedback">
-										Por favor escriba el nombre.
-									</div>
+										required />
 								</div>
 								<div class="mb-3">
 									<label for="rate-price" class="form-label">Precio</label>
@@ -59,19 +50,14 @@
 										class="form-control"
 										name="precio"
 										placeholder="Monto de la tarifa"
-										required
-									/>
-									<div class="invalid-feedback">
-										Por favor indique el precio.
-									</div>
+										required />
 								</div>
 								<label for="rate-opera" class="form-label">Código OPERA </label>
 								<select
 									class="form-select mb-3"
 									name="cod_opera"
 									aria-label="cliente-selector"
-									required
-								>
+									required>
 									<option disabled selected value="">Elegir:</option>
 									<% results.forEach(code => { %>
 									<option value="<%= code.codigo %>">
@@ -80,9 +66,6 @@
 									<% }) %>
 									<!-- for loop code end -->
 								</select>
-								<div class="invalid-feedback opera-cd">
-									Elija el código de OPERA.
-								</div>
 								<label for="rate-cliente" class="form-label"
 									>Tipo de cliente</label
 								>
@@ -90,17 +73,13 @@
 									class="form-select mb-3"
 									name="cliente"
 									aria-label="cliente-selector"
-									required
-								>
+									required>
 									<option selected disabled value="">Elegir:</option>
 									<option value="Hotel">Cliente Hotel</option>
 									<option value="Local">Local / Residente</option>
 									<option value="Extranjero">Extranjero</option>
 									<option value="Varios">Varios</option>
 								</select>
-								<div class="invalid-feedback opera-cd">
-									Por favor seleccione el tipo de cliente.
-								</div>
 								<div class="mb-3">
 									<label for="rate-tips" class="form-label">Descripción</label>
 									<textarea
@@ -109,21 +88,16 @@
 										name="tips"
 										rows="3"
 										placeholder="Descripción de la tarifa"
-										required
-									></textarea>
-									<div class="invalid-feedback">
-										Por favor escriba una descripcion de la tarifa.
-									</div>
+										required></textarea>
 								</div>
 
 								<div
-									class="mt-4 d-grid gap-2 d-md-flex justify-content-md-start"
-								>
+									class="mt-4 d-grid gap-2 d-md-flex justify-content-md-start">
 									<button
 										type="submit"
 										class="btn btn-success btnAdd editShadow"
 										id="botonAdd"
-									>
+										disabled>
 										AGREGAR
 									</button>
 									<a

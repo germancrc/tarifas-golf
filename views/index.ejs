@@ -1,274 +1,276 @@
 <!DOCTYPE html>
 <html lang="en">
-  <%- include ('./partials/head-edits.ejs') %>
-  <body>
-    <div class="sidebar scrollmenu">
-      <div class="container mb-3 mt-3">
-        <img src="/img/golflogo.png" class="logo" alt="" />
-      </div>
-      <a class="active" href="/index"
-        ><i class="bi bi-house-check"></i> Inicio
-        <i class="bi bi-chevron-right flecha"></i
-      ></a>
-      <a href="/tarifas"
-        ><i class="bi bi-currency-dollar"></i> Tarifas
-        <i class="bi bi-chevron-right flecha"></i
-      ></a>
-      <a href="/guias">
-        <i class="bi bi-journal-text"></i> Guías
-        <i class="bi bi-chevron-right flecha"></i
-      ></a>
-      <a href="/opera">
-        <i class="bi bi-upc-scan"></i> CÓD. OPERA
-        <i class="bi bi-chevron-right flecha"></i
-      ></a>
-      <a href="/minigolf">
-        <i class="bi bi-houses"></i> MINI GOLF
-        <i class="bi bi-chevron-right flecha"></i
-      ></a>
-      <% if(user.rol === "Admin"){ %>
-      <a class="d-block" href="/ajustes"
-        ><i class="bi bi-gear"></i> AJUSTES
-        <i class="bi bi-chevron-right flecha"></i
-      ></a>
-      <% } else { %>
-      <a class="d-none" href="/ajustes"
-        >AJUSTES <i class="bi bi-chevron-right flecha"></i
-      ></a>
-      <% } %>
-    </div>
+	<%- include ('./partials/head-edits.ejs') %>
+	<body>
+		<div class="sidebar scrollmenu">
+			<div class="container mb-3 mt-3">
+				<img src="/img/golflogo.png" class="logo" alt="" />
+			</div>
+			<a class="active" href="/index"
+				><i class="bi bi-house-check"></i> Inicio
+				<i class="bi bi-chevron-right flecha"></i
+			></a>
+			<a href="/tarifas"
+				><i class="bi bi-currency-dollar"></i> Tarifas
+				<i class="bi bi-chevron-right flecha"></i
+			></a>
+			<a href="/guias">
+				<i class="bi bi-journal-text"></i> Guías
+				<i class="bi bi-chevron-right flecha"></i
+			></a>
+			<a href="/opera">
+				<i class="bi bi-upc-scan"></i> CÓD. OPERA
+				<i class="bi bi-chevron-right flecha"></i
+			></a>
+			<a href="/minigolf">
+				<i class="bi bi-houses"></i> MINI GOLF
+				<i class="bi bi-chevron-right flecha"></i
+			></a>
+			<% if(user.rol === "Admin"){ %>
+			<a class="d-block" href="/ajustes"
+				><i class="bi bi-gear"></i> AJUSTES
+				<i class="bi bi-chevron-right flecha"></i
+			></a>
+			<% } else { %>
+			<a class="d-none" href="/ajustes"
+				>AJUSTES <i class="bi bi-chevron-right flecha"></i
+			></a>
+			<% } %>
+		</div>
 
-    <!-- NAV LG -->
-    <nav class="navbar fixed-top navi">
-      <div class="container-fluid">
-        <span class="navbar-brand mb-0 h1 text-uppercase" id="navbarLG"
-          >Guía General HR Golf</span
-        >
-        <%- include ('./partials/ajustes/navbar-lg.ejs') %>
-      </div>
-    </nav>
+		<!-- NAV LG -->
+		<nav class="navbar fixed-top navi">
+			<div class="container-fluid">
+				<span class="navbar-brand mb-0 h1 text-uppercase" id="navbarLG"
+					>Guía General HR Golf</span
+				>
+				<%- include ('./partials/ajustes/navbar-lg.ejs') %>
+			</div>
+		</nav>
 
-    <!-- NAV SM -->
-    <nav class="navbar navSmall fixed-top">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="/index"
-          ><i class="bi bi-house-up" id="titulo"></i
-        ></a>
-        <span class="text-uppercase text-light" id="navbarSM">GUÍA</span>
-        <button
-          class="navbar-toggler navbar-dark"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarText"
-          aria-controls="navbarText"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-          onclick="openNav()">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+		<!-- NAV SM -->
+		<nav class="navbar navSmall fixed-top">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="/index"
+					><i class="bi bi-house-up" id="titulo"></i
+				></a>
+				<span class="text-uppercase text-light" id="navbarSM">GUÍA</span>
+				<button
+					class="navbar-toggler navbar-dark"
+					type="button"
+					data-bs-toggle="collapse"
+					data-bs-target="#navbarText"
+					aria-controls="navbarText"
+					aria-expanded="false"
+					aria-label="Toggle navigation"
+					onclick="openNav()">
+					<span class="navbar-toggler-icon"></span>
+				</button>
 
-        <div id="mySidenav" class="sidenav">
-          <div id="main">
-            <div class="dropdown btn-perfil">
-              <% if(user.rol === "Admin"){ %>
-              <button
-                class="btn btn-success dropdown-toggle"
-                href="#"
-                type="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false">
-                <span class="text-light text-uppercase"
-                  ><%= user.username %></span
-                >
-              </button>
-              <% } else { %>
-              <button
-                class="btn btn-warning btn-sm dropdown-toggle"
-                href="#"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false">
-                <span class="text-dark text-uppercase"
-                  ><%= user.username %></span
-                >
-              </button>
-              <% } %>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item text-dark" href="#">Editar</a></li>
-                <li>
-                  <a class="dropdown-item text-dark" href="/logout">Salir</a>
-                </li>
-              </ul>
-            </div>
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
-              >&times;</a
-            >
-            <a class="active" href="/index">Inicio</a>
-            <a class="nav-link" href="/tarifas">Tarifas</a>
-            <a class="nav-link" href="/guias">GUIAS</a>
-            <a class="nav-link" href="/opera">CÓDIGOS OPERA</a>
-            <a class="nav-link" href="/minigolf">MINI GOLF</a>
-            <% if(user.rol === "Admin"){ %>
-            <a class="d-block" href="/ajustes">AJUSTES </a>
-            <% } else { %>
-            <a class="d-none" href="/ajustes">AJUSTES </a>
-            <% } %>
-          </div>
-        </div>
-      </div>
-    </nav>
+				<div id="mySidenav" class="sidenav">
+					<div id="main">
+						<div class="dropdown btn-perfil">
+							<% if(user.rol === "Admin"){ %>
+							<button
+								class="btn btn-success dropdown-toggle"
+								href="#"
+								type="button"
+								data-bs-toggle="dropdown"
+								aria-expanded="false">
+								<span class="text-light text-uppercase"
+									><%= user.username %></span
+								>
+							</button>
+							<% } else { %>
+							<button
+								class="btn btn-warning btn-sm dropdown-toggle"
+								href="#"
+								role="button"
+								data-bs-toggle="dropdown"
+								aria-expanded="false">
+								<span class="text-dark text-uppercase"
+									><%= user.username %></span
+								>
+							</button>
+							<% } %>
+							<ul class="dropdown-menu">
+								<li><a class="dropdown-item text-dark" href="#">Editar</a></li>
+								<li>
+									<a class="dropdown-item text-dark" href="/logout">Salir</a>
+								</li>
+							</ul>
+						</div>
+						<a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
+							>&times;</a
+						>
+						<a class="active" href="/index">Inicio</a>
+						<a class="nav-link" href="/tarifas">Tarifas</a>
+						<a class="nav-link" href="/guias">GUIAS</a>
+						<a class="nav-link" href="/opera">CÓDIGOS OPERA</a>
+						<a class="nav-link" href="/minigolf">MINI GOLF</a>
+						<% if(user.rol === "Admin"){ %>
+						<a class="d-block" href="/ajustes">AJUSTES </a>
+						<% } else { %>
+						<a class="d-none" href="/ajustes">AJUSTES </a>
+						<% } %>
+					</div>
+				</div>
+			</div>
+		</nav>
 
-    <div class="banner"></div>
-    <div class="content">
-      <h2 class="fixHead text-center">Hard Rock Golf Club At Cana Bay</h2>
+		<div class="banner"></div>
+		<div class="content">
+			<h2 class="fixHead text-center">Hard Rock Golf Club At Cana Bay</h2>
 
-      <div class="container">
-        <% if(results){ %>
-        <div class="row text-center mt-4">
-          <h4 class="fw-bold">Informaciones generales</h4>
-          <p class="text-center">
-            Fue diseñado por JACK NICKLAUS y tiene 18 hoyos. Un campo Par 72.
-            Con 7,253 yardas de largo desde los tees traseros.
-          </p>
+			<div class="container">
+				<% if(results){ %>
+				<div class="row text-center mt-4">
+					<h4 class="fw-bold">Informaciones generales</h4>
+					<p class="text-center">
+						Fue diseñado por JACK NICKLAUS y tiene 18 hoyos. Un campo Par 72.
+						Con 7,253 yardas de largo desde los tees traseros.
+					</p>
 
-          <p class="text-center">
-            Tenemos un snack Bar ¨ El hoyo 19¨. Es Open Bar. Tambien se incluye
-            el carro bar que circula por el campo.
-          </p>
-          <h5 class="text-center mb-2">PM Opera: <strong>9508</strong></h5>
+					<p class="text-center">
+						Tenemos un snack Bar ¨ El hoyo 19¨. Es Open Bar. Tambien se incluye
+						el carro bar que circula por el campo.
+					</p>
+					<h5 class="text-center mb-2">PM Opera: <strong>9508</strong></h5>
 
-          <hr />
-          <h3 class="mb-3 fw-bold">Servicios que ofrecemos:</h3>
-        </div>
+					<hr />
+					<h3 class="mb-3 fw-bold">Servicios que ofrecemos:</h3>
+				</div>
 
-        <div class="mb-1">
-          <form role="search">
-            <div class="input-group">
-              <span class="input-group-text" id="basic-addon1"
-                ><i class="bi bi-search"></i
-              ></span>
-              <input
-                class="form-control"
-                type="search"
-                id="myInput"
-                onkeyup="myFunction()"
-                placeholder="Buscar Servicios"
-                aria-label="Search" />
-            </div>
-          </form>
-        </div>
+				<div class="mb-1">
+					<form role="search">
+						<div class="input-group">
+							<span class="input-group-text" id="basic-addon1"
+								><i class="bi bi-search"></i
+							></span>
+							<input
+								class="form-control"
+								type="search"
+								id="myInput"
+								onkeyup="myFunction()"
+								placeholder="Buscar Servicios"
+								aria-label="Search" />
+						</div>
+					</form>
+				</div>
 
-        <div class="mt-2 tabla-desktop">
-          <div class="card">
-            <div class="card-body">
-              <div class="table-responsive">
-                <table class="table table-striped" id="myTable">
-                  <thead id="tabla-vacia">
-                    <tr>
-                      <th scope="col" class="col">Nombre</th>
-                      <th scope="col" class="col">Precio USD</th>
-                      <th scope="col" class="col">Opera</th>
-                      <th scope="col" class="col-5">Descripción</th>
-                      <th scope="col" class="col">Info compl.</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <% results.forEach((service) => { %>
-                    <tr>
-                      <td class="rowName"><%= service.nombre %></td>
-                      <td><%= service.precio%>.00</td>
-                      <td><%= service.cod_opera%></td>
-                      <% if(service.descripcion.length > 55) { %>
-                      <td class="rowService">
-                        <%= service.descripcion.slice(0,55) %>...
-                      </td>
+				<div class="mt-2 tabla-desktop">
+					<div class="card">
+						<div class="card-body">
+							<div class="table-responsive">
+								<table class="table table-striped" id="myTable">
+									<thead id="tabla-vacia">
+										<tr>
+											<th scope="col" class="col">Nombre</th>
+											<th scope="col" class="col">Precio USD</th>
+											<th scope="col" class="col">Opera</th>
+											<th scope="col" class="col-5" id="descripcion">
+												Descripción
+											</th>
+											<th scope="col" class="col">Info compl.</th>
+										</tr>
+									</thead>
+									<tbody>
+										<% results.forEach((service) => { %>
+										<tr>
+											<td class="rowName"><%= service.nombre %></td>
+											<td><%= service.precio%>.00</td>
+											<td><%= service.cod_opera%></td>
+											<% if(service.descripcion.length > 55) { %>
+											<td class="rowService">
+												<%= service.descripcion.slice(0,55) %>...
+											</td>
 
-                      <% } else { %>
-                      <td class="rowService"><%= service.descripcion %></td>
-                      <% } %>
-                      <td>
-                        <% if(service.descripcion.length > 55) { %>
-                        <button
-                          class="btn btn-sm btn-success btnEdit"
-                          onclick="return alert('<%= service.nombre %>: <%= service.descripcion %>')">
-                          <i class="bi bi-info-circle"></i>
-                        </button>
-                        <% } else { %>
-                        <button class="btn btn-sm btn-success btnEdit" disabled>
-                          <i class="bi bi-info-circle"></i>
-                        </button>
-                        <% } %>
-                      </td>
-                    </tr>
-                    <% }) %>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        </div>
+											<% } else { %>
+											<td class="rowService"><%= service.descripcion %></td>
+											<% } %>
+											<td>
+												<% if(service.descripcion.length > 55) { %>
+												<button
+													class="btn btn-sm btn-success btnEdit"
+													onclick="return alert('<%= service.nombre %>: <%= service.descripcion %>')">
+													<i class="bi bi-info-circle"></i>
+												</button>
+												<% } else { %>
+												<button class="btn btn-sm btn-success btnEdit" disabled>
+													<i class="bi bi-info-circle"></i>
+												</button>
+												<% } %>
+											</td>
+										</tr>
+										<% }) %>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
 
-        <!-- *****************************MOBILE CARDS EDIT****************************** -->
+				<!-- *****************************MOBILE CARDS EDIT****************************** -->
 
-        <div class="container tabla-mobile">
-          <div
-            class="row row-cols-1 row-cols-sm-1 row-cols-md-3 mt-3"
-            id="servicesHomePage">
-            <% results.forEach((service) => { %>
-            <div class="col">
-              <div class="card cardHome mb-4 editShadow" id="serviceTest">
-                <div class="card-header fixSizeHead">
-                  <div class="card-title my-0 text-center">
-                    <%= service.nombre %>
-                  </div>
-                </div>
-                <div class="card-body">
-                  <h5 class="text-center precio-tur">
-                    USD <%= service.precio %>.00
-                    <small class="text-muted">p/p</small>
-                  </h5>
-                  <div class="text-center">
-                    <h6>
-                      Código de Opera: <strong><%= service.cod_opera %></strong>
-                    </h6>
-                    <div class="accordion" id="accordionFlushExample">
-                      <div class="accordion-item">
-                        <h2 class="accordion-header" id="flush-headingOne">
-                          <button
-                            class="accordion-button collapsed"
-                            type="button"
-                            data-bs-toggle="collapse"
-                            data-bs-target="#flush-collapseOne<%= service.id %>"
-                            aria-expanded="false"
-                            aria-controls="flush-collapseOne">
-                            Más Información
-                          </button>
-                        </h2>
-                        <div
-                          id="flush-collapseOne<%= service.id %>"
-                          class="accordion-collapse collapse"
-                          aria-labelledby="flush-headingOne"
-                          data-bs-parent="#accordionFlushExample">
-                          <div class="accordion-body">
-                            <%= service.descripcion %>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <% }) %>
-          </div>
-        </div>
+				<div class="container tabla-mobile">
+					<div
+						class="row row-cols-1 row-cols-sm-1 row-cols-md-3 mt-3"
+						id="servicesHomePage">
+						<% results.forEach((service) => { %>
+						<div class="col">
+							<div class="card cardHome mb-4 editShadow" id="serviceTest">
+								<div class="card-header fixSizeHead">
+									<div class="card-title my-0 text-center">
+										<%= service.nombre %>
+									</div>
+								</div>
+								<div class="card-body">
+									<h5 class="text-center precio-tur">
+										USD <%= service.precio %>.00
+										<small class="text-muted">p/p</small>
+									</h5>
+									<div class="text-center">
+										<h6>
+											Código de Opera: <strong><%= service.cod_opera %></strong>
+										</h6>
+										<div class="accordion" id="accordionFlushExample">
+											<div class="accordion-item">
+												<h2 class="accordion-header" id="flush-headingOne">
+													<button
+														class="accordion-button collapsed"
+														type="button"
+														data-bs-toggle="collapse"
+														data-bs-target="#flush-collapseOne<%= service.id %>"
+														aria-expanded="false"
+														aria-controls="flush-collapseOne">
+														Más Información
+													</button>
+												</h2>
+												<div
+													id="flush-collapseOne<%= service.id %>"
+													class="accordion-collapse collapse"
+													aria-labelledby="flush-headingOne"
+													data-bs-parent="#accordionFlushExample">
+													<div class="accordion-body">
+														<%= service.descripcion %>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<% }) %>
+					</div>
+				</div>
 
-        <!-- <div class="d-none" id="noResults">
+				<!-- <div class="d-none" id="noResults">
               <img src="/img/noResults.png" alt="">
             </div> -->
-      </div>
-    </div>
+			</div>
+		</div>
 
-    <%- include ('./partials/footer.ejs') %> <% } %>
-  </body>
+		<%- include ('./partials/footer.ejs') %> <% } %>
+	</body>
 </html>

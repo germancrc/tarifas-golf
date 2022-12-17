@@ -29,12 +29,7 @@
 				<div class="cardEdit-container">
 					<div class="card editShadow">
 						<div class="card-body">
-							<form
-								id="code-form"
-								class="was-validated"
-								action="/createCode"
-								method="POST"
-							>
+							<form id="code-form" action="/createCode" method="POST">
 								<div class="mb-3">
 									<label for="codeTitle" id="codeTitle" class="form-label"
 										>Código</label
@@ -44,11 +39,7 @@
 										class="form-control"
 										name="codigo"
 										placeholder="Escriba el Código"
-										required
-									/>
-									<div class="invalid-feedback">
-										Por favor escriba el código.
-									</div>
+										required />
 								</div>
 								<div class="mb-3">
 									<label for="codeName" id="codeName" class="form-label"
@@ -59,11 +50,7 @@
 										class="form-control"
 										name="nombre"
 										placeholder="Escriba el Nombre"
-										required
-									/>
-									<div class="invalid-feedback">
-										Por favor escriba el nombre.
-									</div>
+										required />
 								</div>
 								<div class="mb-3">
 									<label for="code-use" class="form-label">Dónde se usa?</label>
@@ -71,16 +58,12 @@
 										class="form-select mb-3"
 										name="uso"
 										aria-label="uso-selector"
-										required
-									>
+										required>
 										<option selected value="">Elegir:</option>
 										<option value="Campo Golf">Campo Golf</option>
 										<option value="Mini Golf">Mini Golf</option>
 										<option value="Pagos">Pagos</option>
 									</select>
-									<div class="invalid-feedback opera-cd">
-										Elija el dónde se usa el código.
-									</div>
 								</div>
 								<div class="mb-3">
 									<label for="code-desc" class="form-label">Descripción</label>
@@ -90,21 +73,16 @@
 										name="descripcion"
 										placeholder="Descripción"
 										rows="3"
-										required
-									></textarea>
-									<div class="invalid-feedback">
-										Por favor escriba una descripcion del código.
-									</div>
+										required></textarea>
 								</div>
 
 								<div
-									class="mt-4 d-grid gap-2 d-md-flex justify-content-md-start"
-								>
+									class="mt-4 d-grid gap-2 d-md-flex justify-content-md-start">
 									<button
 										type="submit"
 										class="btn btn-success btnAdd editShadow"
 										id="botonAdd"
-									>
+										disabled>
 										AGREGAR
 									</button>
 									<a

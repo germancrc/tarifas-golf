@@ -32,8 +32,7 @@
 							href="/ajustes/new-servicio"
 							type="button"
 							class="btn btn-success editShadow"
-							id="btnService"
-						>
+							id="btnService">
 							<i class="bi bi-plus-circle"></i> AGREGAR
 						</a>
 						<!-- Button trigger modal -->
@@ -50,8 +49,7 @@
 									id="myInput"
 									onkeyup="myFunction()"
 									placeholder="Buscar Servicios"
-									aria-label="Search"
-								/>
+									aria-label="Search" />
 							</div>
 						</form>
 					</div>
@@ -65,7 +63,9 @@
 									<th scope="col" class="col-3">Nombre</th>
 									<th scope="col" class="col">Precio USD</th>
 									<th scope="col" class="col">Cod. Opera</th>
-									<th scope="col" class="col-4">Descripción</th>
+									<th scope="col" class="col-4" id="descripcion">
+										Descripción
+									</th>
 									<th scope="col" class="col-2">Acciones</th>
 								</tr>
 							</thead>
@@ -107,8 +107,7 @@
 				<div class="container tabla-mobile" id="tabla-mobile">
 					<div
 						class="row row-cols-1 row-cols-sm-1 row-cols-md-3 mt-3"
-						id="servicesHomePage"
-					>
+						id="servicesHomePage">
 						<% results.forEach((service) => { %>
 						<div class="col">
 							<div class="card cardHome mb-4 editShadow" id="serviceTest">
@@ -128,8 +127,7 @@
 													data-bs-toggle="collapse"
 													data-bs-target="#flush-collapseOne<%= service.id %>"
 													aria-expanded="false"
-													aria-controls="flush-collapseOne"
-												>
+													aria-controls="flush-collapseOne">
 													<span>
 														Código de Opera:
 														<strong> <%= service.cod_opera %></strong></span
@@ -140,8 +138,7 @@
 												id="flush-collapseOne<%= service.id %>"
 												class="accordion-collapse collapse"
 												aria-labelledby="flush-headingOne"
-												data-bs-parent="#accordionFlushExample"
-											>
+												data-bs-parent="#accordionFlushExample">
 												<div class="accordion-body">
 													<%= service.descripcion %>
 													<hr />

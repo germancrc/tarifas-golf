@@ -27,12 +27,7 @@
 				<div class="cardEdit-container">
 					<div class="card editShadow">
 						<div class="card-body">
-							<form
-								id="services-form"
-								class="was-validated"
-								action="/createTtoo"
-								method="POST"
-							>
+							<form id="services-form" action="/createTtoo" method="POST">
 								<div class="mb-3">
 									<label for="service-title" class="form-label"
 										>Nombre del Tour Operador</label
@@ -42,11 +37,7 @@
 										class="form-control"
 										name="nombre"
 										placeholder="Escriba el nombre del TTOO"
-										required
-									/>
-									<div class="invalid-feedback">
-										Por favor escriba el nombre.
-									</div>
+										required />
 								</div>
 								<div class="mb-3">
 									<label for="service-price" class="form-label">Precio</label>
@@ -55,11 +46,7 @@
 										class="form-control"
 										name="precio"
 										placeholder="Precio contratado"
-										required
-									/>
-									<div class="invalid-feedback">
-										Por favor indique el precio.
-									</div>
+										required />
 								</div>
 								<label for="rate-opera" class="form-label">Código OPERA </label>
 								<select
@@ -67,8 +54,7 @@
 									name="cod_opera"
 									id="codOpera"
 									aria-label="cliente-selector"
-									disabled
-								>
+									disabled>
 									<% results.forEach(code => { %>
 									<option value="<%= code.codigo %>">
 										<%= code.codigo %> - <%= code.nombre %>
@@ -87,21 +73,16 @@
 										name="operacion"
 										rows="3"
 										placeholder="Cómo facturarlo:"
-										required
-									></textarea>
-									<div class="invalid-feedback">
-										Por favor escriba como se trabaja con este TTOO.
-									</div>
+										required></textarea>
 								</div>
 
 								<div
-									class="mt-4 d-grid gap-2 d-md-flex justify-content-md-start"
-								>
+									class="mt-4 d-grid gap-2 d-md-flex justify-content-md-start">
 									<button
 										type="submit"
 										class="btn btn-success btnAdd editShadow"
 										id="botonAdd"
-									>
+										disabled>
 										AGREGAR
 									</button>
 									<a

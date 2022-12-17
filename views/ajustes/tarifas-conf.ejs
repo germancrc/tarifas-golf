@@ -34,8 +34,7 @@
 							href="/ajustes/new-tarifas-cg"
 							type="button"
 							class="btn btn-success editShadow"
-							id="btnService"
-						>
+							id="btnService">
 							<i class="bi bi-plus-circle"></i> AGREGAR
 						</a>
 						<!-- Button trigger modal -->
@@ -52,8 +51,7 @@
 									id="myInput"
 									onkeyup="myFunction()"
 									placeholder="Buscar Tarifas"
-									aria-label="Search"
-								/>
+									aria-label="Search" />
 							</div>
 						</form>
 					</div>
@@ -68,8 +66,10 @@
 										<th scope="col" class="col">Nombre</th>
 										<th scope="col" class="col">Precio</th>
 										<th scope="col" class="col">Cod. Opera</th>
+										<th scope="col" class="col" id="descripcion">
+											Descripción
+										</th>
 										<th scope="col" class="col">Cliente</th>
-										<th scope="col" class="col">Info</th>
 										<th scope="col" class="col-2">Acciones</th>
 									</tr>
 								</thead>
@@ -79,13 +79,13 @@
 										<td data-titulo="nombre:"><%= rate.nombre %></td>
 										<td data-titulo="precio:">USD <%= rate.precio%>.00</td>
 										<td data-titulo="Opera:"><%= rate.cod_opera%></td>
-										<td data-titulo="Cliente:"><%= rate.cliente%></td>
 										<% if(rate.tips.length > 40) { %>
 										<td data-titulo="Tips:"><%= rate.tips.slice(0,40) %>...</td>
 
 										<% } else { %>
 										<td data-titulo="Tips:"><%= rate.tips %></td>
 										<% } %>
+										<td data-titulo="Cliente:"><%= rate.cliente%></td>
 
 										<td>
 											<a
@@ -115,8 +115,7 @@
 				<div class="container tabla-mobile">
 					<div
 						class="row row-cols-1 row-cols-sm-1 row-cols-md-3 mt-3"
-						id="ratesHomePage"
-					>
+						id="ratesHomePage">
 						<% results.forEach((rate) => { %>
 						<div class="col">
 							<div class="card mb-2 cardShadow" id="rateTest">
@@ -136,8 +135,7 @@
 													data-bs-toggle="collapse"
 													data-bs-target="#flush-collapseOne<%= rate.id %>"
 													aria-expanded="false"
-													aria-controls="flush-collapseOne"
-												>
+													aria-controls="flush-collapseOne">
 													<span>
 														Código de Opera:
 														<strong> <%= rate.cod_opera %></strong></span
@@ -148,8 +146,7 @@
 												id="flush-collapseOne<%= rate.id %>"
 												class="accordion-collapse collapse"
 												aria-labelledby="flush-headingOne"
-												data-bs-parent="#accordionFlushExample"
-											>
+												data-bs-parent="#accordionFlushExample">
 												<div class="accordion-body">
 													<h6><%= rate.tips %></h6>
 													<hr />

@@ -30,8 +30,7 @@
 							href="/ajustes/new-ttoo"
 							type="button"
 							class="btn btn-success editShadow"
-							id="btnService"
-						>
+							id="btnService">
 							<i class="bi bi-plus-circle"></i> AGREGAR
 						</a>
 						<!-- Button trigger modal -->
@@ -48,8 +47,7 @@
 									id="myInput"
 									onkeyup="myFunction()"
 									placeholder="Buscar TTOO"
-									aria-label="Search"
-								/>
+									aria-label="Search" />
 							</div>
 						</form>
 					</div>
@@ -64,7 +62,7 @@
 										<th scope="col" class="col">Nombre</th>
 										<th scope="col" class="col">Precio</th>
 										<th scope="col" class="col">Cod. Opera</th>
-										<th scope="col" class="col">Operación</th>
+										<th scope="col" class="col" id="descripcion">Operación</th>
 										<th scope="col" class="col-2">Acciones</th>
 									</tr>
 								</thead>
@@ -104,8 +102,7 @@
 				<div class="container tabla-mobile" id="tabla-mobile">
 					<div
 						class="row row-cols-1 row-cols-sm-1 row-cols-md-3 mt-3"
-						id="servicesHomePage"
-					>
+						id="servicesHomePage">
 						<% results.forEach((ttoo) => { %>
 						<div class="col">
 							<div class="card mb-2 cardHome cardShadow" id="opera-codes">
@@ -124,8 +121,7 @@
 													data-bs-toggle="collapse"
 													data-bs-target="#flush-collapseOne<%= ttoo.id %>"
 													aria-expanded="false"
-													aria-controls="flush-collapseOne"
-												>
+													aria-controls="flush-collapseOne">
 													Más Información
 												</button>
 											</h2>
@@ -133,8 +129,7 @@
 												id="flush-collapseOne<%= ttoo.id %>"
 												class="accordion-collapse collapse"
 												aria-labelledby="flush-headingOne"
-												data-bs-parent="#accordionFlushExample"
-											>
+												data-bs-parent="#accordionFlushExample">
 												<div class="accordion-body">
 													<p>
 														<strong>Código Opera: </strong><%= ttoo.cod_opera %>

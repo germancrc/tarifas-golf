@@ -80,15 +80,28 @@
           <div class="row row-cols-1 row-cols-sm-1 row-cols-md-3 mt-3" id="servicesHomePage">
             <% results.forEach((ttoo) => { %>
               <div class="col">
-                <div class="card mb-4 cardShadow" id="serviceTest">
+                <div class="card cardHome mb-4 cardShadow" id="serviceTest">
                     <div class="card-header fixSizeHead">
-                      <h5 class="my-0 font-weight-normal text-center"><%= ttoo.nombre %></h5>
+                      <div class="card-title my-0 text-center">
+                        <%= ttoo.nombre %>
+                      </div>
                   </div>
                   <div class="card-body bodyCardZise">
                       <h3 class="card-title pricing-card-title text-center">USD <%= ttoo.precio %>.00 <small class="text-muted">p/p</small></h3>
                       <div class="text-center">
                         <h5>Código de Opera: <strong><%= ttoo.cod_opera %></strong></h5>
-                        <p>Cómo facturalo: <strong><%= ttoo.operacion %></strong></p>
+                        <div class="accordion" id="accordionFlushExample">
+                          <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-headingOne">
+                              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne<%= ttoo.id %>" aria-expanded="false" aria-controls="flush-collapseOne">
+                                Más información
+                              </button>
+                            </h2>
+                            <div id="flush-collapseOne<%= ttoo.id %>" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                              <div class="accordion-body"><%= ttoo.operacion %></div>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                   </div>
   

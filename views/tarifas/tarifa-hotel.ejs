@@ -99,11 +99,14 @@
 				>
 					<% results.forEach((hotel) => { %>
 					<div class="col">
-						<div class="card mb-4 cardShadow" id="serviceTest">
+						<div
+							class="card cardHome mb-4 cardShadow"
+							id="serviceTest"
+						>
 							<div class="card-header fixSizeHead">
-								<h5 class="my-0 font-weight-normal text-center">
+								<div class="card-title my-0 text-center">
 									<%= hotel.nombre %>
-								</h5>
+								</div>
 							</div>
 							<div class="card-body">
 								<h5

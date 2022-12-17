@@ -33,7 +33,7 @@ exports.uploadGuide = async (req, res) => {
 exports.getGuides = (req, res) => {
 	try {
 		db.query(
-			'select id, aplicacion, archivo, CONVERT_TZ(actualizado,"+00:00","-04:00") as actualizado, fileSize from guias_hrgolf ORDER BY aplicacion asc, actualizado desc',
+			'select id, aplicacion, archivo,  DATE_FORMAT(CONVERT_TZ(actualizado,"+00:00","-04:00"), "%d/%c/%y - %H:%i:%s") as actualizado, fileSize from guias_hrgolf ORDER BY aplicacion asc, actualizado desc',
 			(error, results) => {
 				if (results) {
 					res.render('ajustes/guias-conf', {

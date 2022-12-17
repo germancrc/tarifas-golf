@@ -3,8 +3,7 @@
 	<%- include ('../partials/head-edits.ejs') %>
 
 	<body>
-		<% if (user) { %> <%- include
-		('../partials/ajustes/sidebar-ajustes.ejs') %>
+		<% if (user) { %> <%- include ('../partials/ajustes/sidebar-ajustes.ejs') %>
 
 		<!-- NAV LG -->
 		<nav class="navbar fixed-top navi">
@@ -27,23 +26,17 @@
 				<div class="card editShadow mb-3">
 					<div class="card-body">
 						<div class="text-center mb-3">
-							<h4 class="text-uppercase" id="titulo">
-								Subir Guías
-							</h4>
+							<h4 class="text-uppercase" id="titulo">Subir Guías</h4>
 							<hr />
 						</div>
 
 						<form
 							id="guides-form"
 							name="form1"
-							class="was-validated"
 							action="/uploadGuide"
 							enctype="multipart/form-data"
-							method="POST"
-						>
-							<div
-								class="row row-cols-1 row-cols-sm-1 row-cols-md-2"
-							>
+							method="POST">
+							<div class="row row-cols-1 row-cols-sm-1 row-cols-md-2">
 								<div class="col">
 									<div class="mb-3">
 										<input
@@ -53,11 +46,7 @@
 											id="nombreGuia"
 											placeholder="Nombre de la aplicación"
 											required
-											onkeyup="mayus(this)"
-										/>
-										<div class="invalid-feedback">
-											Nombre de la aplicación.
-										</div>
+											onkeyup="mayus(this), inform()" />
 									</div>
 								</div>
 								<div class="col">
@@ -72,20 +61,15 @@
 												aria-describedby="inputGroupFileAddon04"
 												aria-label="Upload"
 												onChange="inform()"
-												required
-											/>
+												required />
 											<button
 												class="btn btn-success"
 												id="upload"
 												type="submit"
 												disabled
-												onclick="showSpinner()"
-											>
-												SUBIR
+												onclick="showSpinner()">
+												Enviar
 											</button>
-											<div class="invalid-feedback">
-												Sólo archivos .PDF permitidos.
-											</div>
 										</div>
 									</div>
 								</div>
@@ -108,8 +92,7 @@
 									class="spinner-border me-auto text-danger"
 									id="spinnerUpload"
 									role="status"
-									aria-hidden="true"
-								></div>
+									aria-hidden="true"></div>
 							</div>
 						</div>
 					</div>
@@ -125,9 +108,7 @@
 						<div class="mb-3 inputSize">
 							<form role="search">
 								<div class="input-group">
-									<span
-										class="input-group-text"
-										id="basic-addon1"
+									<span class="input-group-text" id="basic-addon1"
 										><i class="bi bi-search"></i
 									></span>
 									<input
@@ -136,8 +117,7 @@
 										id="myInput"
 										onkeyup="myFunction()"
 										placeholder="Buscar Guia"
-										aria-label="Search"
-									/>
+										aria-label="Search" />
 								</div>
 							</form>
 						</div>
@@ -145,14 +125,8 @@
 						<table class="table tabla-desktop" id="myTable">
 							<% if (results.length == 0) { %>
 							<div class="text-center">
-								<img
-									class="noResults"
-									src="/img/noResults.PNG"
-									alt=""
-								/>
-								<h4 class="text-uppercase mt-3">
-									No hay resultados
-								</h4>
+								<img class="noResults" src="/img/noResults.PNG" alt="" />
+								<h4 class="text-uppercase mt-3">No hay resultados</h4>
 							</div>
 							<% }else { %>
 							<thead>
@@ -161,7 +135,7 @@
 									<th scope="col" class="col">Archivo</th>
 									<th scope="col" class="col">Tamaño</th>
 									<th scope="col" class="col">Actualizado</th>
-									<th scope="col" class="col-2">Descargar</th>
+									<th scope="col" class="col-2">Acciones</th>
 								</tr>
 							</thead>
 							<% } %>
@@ -171,15 +145,9 @@
 									<td><%= guia.aplicacion %></td>
 									<td><%= guia.archivo %></td>
 									<% if (guia.fileSize >= 1000000) { %>
-									<td>
-										<%= (guia.fileSize/1000000).toFixed(2);
-										%> MB
-									</td>
+									<td><%= (guia.fileSize/1000000).toFixed(2); %> MB</td>
 									<% } else if (guia.fileSize >= 1000) { %>
-									<td>
-										<%= (guia.fileSize/1000).toFixed(2); %>
-										KB
-									</td>
+									<td><%= (guia.fileSize/1000).toFixed(2); %> KB</td>
 									<% } else { %>
 									<td><%= guia.fileSize %> bytes</td>
 									<% } %>
@@ -207,41 +175,26 @@
 						<div class="container tabla-mobile" id="tabla-mobile">
 							<div
 								class="row row-cols-1 row-cols-sm-1 row-cols-md-3 mt-3"
-								id="servicesHomePage"
-							>
+								id="servicesHomePage">
 								<% results.forEach((guia) => { %>
 								<div class="col">
-									<div
-										class="card mb-2 cardHome cardShadow"
-										id="opera-codes"
-									>
-										<div
-											class="card-header fixSizeHeadEdit"
-										>
-											<div
-												class="my-0 text-center card-title"
-											>
-												<%= guia.aplicacion %>
+									<div class="card mb-2 cardHome cardShadow" id="opera-codes">
+										<div class="card-header fixSizeHeadEdit">
+											<div class="my-0 text-center card-title">
+												<%= guia.aplicacion %> | <%= guia.actualizado %>
 											</div>
 										</div>
 										<div class="card-body">
-											<div
-												class="accordion"
-												id="accordionFlushExample"
-											>
+											<div class="accordion" id="accordionFlushExample">
 												<div class="accordion-item">
-													<h2
-														class="accordion-header"
-														id="flush-headingOne"
-													>
+													<h2 class="accordion-header" id="flush-headingOne">
 														<button
 															class="accordion-button collapsed"
 															type="button"
 															data-bs-toggle="collapse"
 															data-bs-target="#flush-collapseOne<%= guia.id %>"
 															aria-expanded="false"
-															aria-controls="flush-collapseOne"
-														>
+															aria-controls="flush-collapseOne">
 															Más Información
 														</button>
 													</h2>
@@ -249,78 +202,48 @@
 														id="flush-collapseOne<%= guia.id %>"
 														class="accordion-collapse collapse"
 														aria-labelledby="flush-headingOne"
-														data-bs-parent="#accordionFlushExample"
-													>
-														<div
-															class="accordion-body"
-														>
+														data-bs-parent="#accordionFlushExample">
+														<div class="accordion-body">
 															<p>
-																<strong
-																	>Archivo:</strong
-																>
-																<%= guia.archivo
-																%>
+																<strong>Archivo:</strong>
+																<%= guia.archivo %>
 															</p>
-															<% if (guia.fileSize
-															>= 1000000) { %>
+															<% if (guia.fileSize >= 1000000) { %>
 															<p>
-																<strong
-																	>Tamaño:</strong
-																>
-																<%=
-																(guia.fileSize/1000000).toFixed(2);
-																%> MB
+																<strong>Tamaño:</strong>
+																<%= (guia.fileSize/1000000).toFixed(2); %> MB
 															</p>
-															<% } else if
-															(guia.fileSize >=
-															1000) { %>
+															<% } else if (guia.fileSize >= 1000) { %>
 															<p>
-																<strong
-																	>Tamaño:</strong
-																>
-																<%=
-																(guia.fileSize/1000).toFixed(2);
-																%> KB
+																<strong>Tamaño:</strong>
+																<%= (guia.fileSize/1000).toFixed(2); %> KB
 															</p>
 															<% } else { %>
 															<p>
-																<strong
-																	>Tamaño:</strong
-																>
-																<%=
-																guia.fileSize %>
-																bytes
+																<strong>Tamaño:</strong>
+																<%= guia.fileSize %> bytes
 															</p>
 															<% } %>
 															<p>
-																<strong
-																	>Actualizado:</strong
-																><%=
-																guia.actualizado
-																%>
+																<strong>Actualizado:</strong><%=
+																guia.actualizado %>
 															</p>
 
 															<hr />
-															<div
-																class="d-flex justify-content-between"
-															>
+															<div class="d-flex justify-content-between">
 																<a
 																	href="/ajustes/guias-conf/<%= guia.id %>"
 																	data-bs-toggle="#"
 																	data-bs-target="#serviceUpdate"
 																	class="btn btn-sm btn-warning btnEdit"
-																	><i
-																		class="bi bi-pencil"
-																	></i
+																	><i class="bi bi-pencil"></i
 																></a>
 
 																<a
 																	href="/ajustes/guias-conf/deleteGuide/<%= guia.id %>"
 																	class="btn btn-sm btn-danger btnDelete"
 																	onclick="return confirm('Seguro que quiere borrar la guía de <%= guia.aplicacion %>?')"
-																	><i
-																		class="bi bi-trash"
-																	></i
+																	><i class="bi bi-trash"></i
 																></a>
 															</div>
 														</div>
@@ -339,5 +262,6 @@
 		</div>
 
 		<%- include ('../partials/footer.ejs') %>
+		<script src="/js/spinnerLoader.js"></script>
 	</body>
 </html>

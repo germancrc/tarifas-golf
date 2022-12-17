@@ -61,8 +61,7 @@
 					aria-controls="navbarText"
 					aria-expanded="false"
 					aria-label="Toggle navigation"
-					onclick="openNav()"
-				>
+					onclick="openNav()">
 					<span class="navbar-toggler-icon"></span>
 				</button>
 
@@ -75,8 +74,7 @@
 								href="#"
 								type="button"
 								data-bs-toggle="dropdown"
-								aria-expanded="false"
-							>
+								aria-expanded="false">
 								<span class="text-light text-uppercase"
 									><%= user.username %></span
 								>
@@ -87,8 +85,7 @@
 								href="#"
 								role="button"
 								data-bs-toggle="dropdown"
-								aria-expanded="false"
-							>
+								aria-expanded="false">
 								<span class="text-dark text-uppercase"
 									><%= user.username %></span
 								>
@@ -138,8 +135,7 @@
 								id="myInput"
 								onkeyup="myFunction()"
 								placeholder="Buscar guias"
-								aria-label="Search"
-							/>
+								aria-label="Search" />
 						</div>
 					</form>
 				</div>
@@ -201,14 +197,13 @@
 					<div class="container tabla-mobile" id="tabla-mobile">
 						<div
 							class="row row-cols-1 row-cols-sm-1 row-cols-md-3 mt-3"
-							id="servicesHomePage"
-						>
+							id="servicesHomePage">
 							<% results.forEach((guia) => { %>
 							<div class="col">
 								<div class="card mb-2 cardHome cardShadow" id="opera-codes">
 									<div class="card-header fixSizeHeadEdit">
 										<div class="my-0 text-center card-title">
-											<%= guia.aplicacion %>
+											<%= guia.aplicacion %> | <%= guia.actualizado %>
 										</div>
 									</div>
 									<div class="card-body">
@@ -221,8 +216,7 @@
 														data-bs-toggle="collapse"
 														data-bs-target="#flush-collapseOne<%= guia.id %>"
 														aria-expanded="false"
-														aria-controls="flush-collapseOne"
-													>
+														aria-controls="flush-collapseOne">
 														Más Información
 													</button>
 												</h2>
@@ -230,8 +224,7 @@
 													id="flush-collapseOne<%= guia.id %>"
 													class="accordion-collapse collapse"
 													aria-labelledby="flush-headingOne"
-													data-bs-parent="#accordionFlushExample"
-												>
+													data-bs-parent="#accordionFlushExample">
 													<div class="accordion-body">
 														<p><strong>Archivo:</strong> <%= guia.archivo %></p>
 														<% if (guia.fileSize >= 1000000) { %>

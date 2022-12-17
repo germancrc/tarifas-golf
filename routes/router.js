@@ -35,26 +35,23 @@ router.get(
 
 //router de las vistas
 router.get('/index', authController.isAuthenticated, (req, res) => {
-	db.query(
-		'SELECT * FROM servicios ORDER BY nombre asc',
-		(error, results) => {
-			if (results) {
-				res.render('index', {
-					user: req.user,
-					results: results,
-					alert: false,
-				})
-			} else {
-				throw error
-			}
+	db.query('SELECT * FROM servicios ORDER BY nombre asc', (error, results) => {
+		if (results) {
+			res.render('index', {
+				user: req.user,
+				results: results,
+				alert: false,
+			})
+		} else {
+			throw error
 		}
-	)
+	})
 })
 
 router.get('/guias', authController.isAuthenticated, (req, res) => {
 	try {
 		db.query(
-			'select id, aplicacion, archivo, CONVERT_TZ(actualizado,"+00:00","-04:00") as actualizado, fileSize from guias_hrgolf ORDER BY aplicacion asc',
+			'select id, aplicacion, archivo,  DATE_FORMAT(CONVERT_TZ(actualizado,"+00:00","-04:00"), "%d/%c/%y - %H:%i:%s") as actualizado, fileSize from guias_hrgolf ORDER BY aplicacion asc, actualizado desc',
 			(error, results) => {
 				if (results) {
 					res.render('guias', {

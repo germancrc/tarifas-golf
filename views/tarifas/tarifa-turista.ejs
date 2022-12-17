@@ -82,9 +82,11 @@
           <div class="row row-cols-1 row-cols-sm-1 row-cols-md-3 mt-3" id="servicesHomePage">
             <% results.forEach((turista) => { %>
               <div class="col">
-                <div class="card mb-4 cardShadow" id="serviceTest">
+                <div class="card cardHome mb-4 cardShadow" id="serviceTest">
                     <div class="card-header fixSizeHead">
-                      <h5 class="my-0 font-weight-normal text-center"><%= turista.nombre %></h5>
+                      <div class="card-title my-0 text-center">
+                        <%= turista.nombre %>
+                      </div>
                   </div>
                   <div class="card-body">
                       <h5 class="card-title pricing-card-title text-center precio-tur">USD <%= turista.precio %>.00 <small class="text-muted">p/p</small></h5>

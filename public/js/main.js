@@ -11,11 +11,12 @@ function closeNav() {
 //*****************************BUSQUEDA EN TABLAS********************************/
 function myFunction() {
 	// Declare variables
-	let input, filter, table, tr, td1, td2, i, txtValue
+	let input, filter, table, tr, td1, td2, i, txtValue, descripcion
 	input = document.getElementById('myInput')
 	filter = input.value.toUpperCase()
 	table = document.getElementById('myTable')
 	tr = table.getElementsByTagName('tr')
+	descripcion = document.getElementById('descripcion')
 
 	// Loop through all table rows, and hide those who don't match the search query
 	for (i = 0; i < tr.length; i++) {
@@ -30,14 +31,16 @@ function myFunction() {
 		}
 	}
 
-	for (i = 0; i < tr.length; i++) {
-		td2 = tr[i].getElementsByTagName('td')[3]
-		if (td2) {
-			txtValue = td2.textContent || td2.innerText
-			if (txtValue.toUpperCase().indexOf(filter) > -1) {
-				tr[i].style.display = ''
-			} else {
-				tr[i].style.display = 'none'
+	if (descripcion) {
+		for (i = 0; i < tr.length; i++) {
+			td2 = tr[i].getElementsByTagName('td')[3]
+			if (td2) {
+				txtValue = td2.textContent || td2.innerText
+				if (txtValue.toUpperCase().indexOf(filter) > -1) {
+					tr[i].style.display = ''
+				} else {
+					tr[i].style.display = 'none'
+				}
 			}
 		}
 	}
@@ -119,10 +122,8 @@ let checkPass = function () {
 		if (document.getElementById('password').value.length != 0) {
 			document.getElementById('message').style.color = 'green'
 			document.getElementById('message').className = 'mt-2 text-center'
-			document.getElementById('message').innerHTML =
-				'Contraseñas coinciden'
-			document.getElementById('modalUserName').className =
-				'btn btn-primary'
+			document.getElementById('message').innerHTML = 'Contraseñas coinciden'
+			document.getElementById('modalUserName').className = 'btn btn-primary'
 		}
 	} else {
 		document.getElementById('message').style.color = 'red'
@@ -169,24 +170,10 @@ function openRolEdit() {
 function inform() {
 	let nombreGuia = document.getElementById('nombreGuia').value
 	let file = document.getElementById('fileGuide').value
-	if (file && nombreGuia) {
+
+	if (!file || nombreGuia.length == 0) {
+		document.getElementById('upload').disabled = true
+	} else if (file && nombreGuia) {
 		document.getElementById('upload').disabled = false
 	}
-}
-
-//************************SHOW SPINNER */
-function showSpinner() {
-	let btnGuiaBase = document.getElementById('btnGuiaBase')
-	let spinner = document.getElementById('showSpin')
-	spinner.className = 'd-block'
-	btnGuiaBase.className = 'd-none'
-}
-
-// PAGE RELOADED
-let data = window.performance.getEntriesByType('navigation')[0].type
-let btnGuiaBase = document.getElementById('btnGuiaBase')
-let spinner = document.getElementById('showSpin')
-if ((data = 'reload')) {
-	spinner.className = 'd-none'
-	btnGuiaBase.className = 'd-block'
 }

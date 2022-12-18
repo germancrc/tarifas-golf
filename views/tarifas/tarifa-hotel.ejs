@@ -63,7 +63,7 @@
 							<% results.forEach((hotel) => { %>
 							<tr
 								class="info"
-								onclick="verInfo('- <%= hotel.nombre %> -\n\n <%= hotel.tips %>')">
+								onclick="alert('- <%= hotel.nombre %> -\n\n <%= hotel.tips %>')">
 								<td>
 									<%= hotel.nombre %>
 									<div class="verInfo">
@@ -148,10 +148,5 @@
 		</div>
 
 		<%- include ('../partials/footer.ejs') %>
-		<script>
-			function verInfo(id) {
-				Swal.fire(id)
-			}
-		</script>
 	</body>
 </html>

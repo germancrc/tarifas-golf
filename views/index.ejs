@@ -167,9 +167,9 @@
 								<table class="table table-hover" id="myTable">
 									<thead id="tabla-vacia">
 										<tr>
-											<th scope="col" class="col">Nombre</th>
-											<th scope="col" class="col">Precio USD</th>
-											<th scope="col" class="col">Opera</th>
+											<th scope="col" class="col-3">Nombre</th>
+											<th scope="col" class="col-2">Precio USD</th>
+											<th scope="col" class="col-2">Opera</th>
 											<th scope="col" class="col-5">Descripción</th>
 										</tr>
 									</thead>
@@ -177,22 +177,19 @@
 										<% results.forEach((service) => { %>
 										<tr
 											class="info"
-											onclick="verInfo('- <%= service.nombre %> -\n\n <%= service.descripcion %>')">
-											<td>
-												<%= service.nombre %>
-												<div class="verInfo">
+											onclick="alert('- <%= service.nombre %> -\n\n <%= service.descripcion %>')">
+											<td class="hide-text">
+												<span><%= service.nombre %></span>
+												<!-- <div class="verInfo">
 													- Ver Info
 													<i class="bi bi-info-circle"></i>
-												</div>
+												</div> -->
 											</td>
 											<td><%= service.precio%>.00</td>
 											<td><%= service.cod_opera%></td>
-
-											<% if(service.descripcion.length > 55) { %>
-											<td><%= service.descripcion.slice(0,55) %>...</td>
-											<% } else { %>
-											<td><%= service.descripcion %></td>
-											<% } %>
+											<td class="hide-text">
+												<span><%= service.descripcion %></span>
+											</td>
 										</tr>
 										<% }) %>
 									</tbody>
@@ -264,10 +261,5 @@
 		</div>
 
 		<%- include ('./partials/footer.ejs') %> <% } %>
-		<script>
-			function verInfo(id) {
-				Swal.fire(id)
-			}
-		</script>
 	</body>
 </html>

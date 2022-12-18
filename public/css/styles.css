@@ -248,12 +248,34 @@ p {
 
 .info:hover {
 	background-color: #ffffff;
-	font-weight: bold;
+	/* font-weight: bold; */
 }
 
 .info:hover .verInfo {
 	visibility: visible;
-	color: #514d87;
+	color: green;
+}
+
+table {
+	width: 100%;
+}
+
+.hide-text {
+	position: relative;
+}
+
+.hide-text:before {
+	content: ' ';
+	visibility: hidden;
+}
+
+.hide-text span {
+	position: absolute;
+	left: 0;
+	right: 0;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 .card {

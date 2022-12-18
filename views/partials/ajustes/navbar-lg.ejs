@@ -1,12 +1,11 @@
 <div class="btn-group dropstart">
 	<% if(user.rol === "Admin"){ %>
 	<a
-		class="btn btn-success dropdown-toggle"
+		class="btn btn-success dropdown-toggle btnShadow"
 		href="#"
 		role="button"
 		data-bs-toggle="dropdown"
-		aria-expanded="false"
-	>
+		aria-expanded="false">
 		<span class="text-light"
 			><i class="bi bi-person-fill"></i> <%= user.username %></span
 		>
@@ -17,8 +16,7 @@
 		href="#"
 		role="button"
 		data-bs-toggle="dropdown"
-		aria-expanded="false"
-	>
+		aria-expanded="false">
 		<span class="text-dark"
 			><i class="bi bi-person-fill"></i> <%= user.username %></span
 		>

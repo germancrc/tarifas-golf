@@ -1,130 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+	<%- include ('../partials/head-edits.ejs') %>
 
-  <%- include ('../partials/head-edits.ejs') %> 
-  
-  <body>
-    
-    <% if (user) { %>
-      <%- include ('../partials/tarifas/sidebar-tarifas.ejs') %>
-      
-      <!-- NAV LG -->
-      <nav class="navbar fixed-top navi">
-        <div class="container-fluid">
-          <span class="navbar-brand mb-0 h1 text-uppercase" id="navbarLG">TARIFAS - Cliente Local </span>
-          <%- include ('../partials/tarifas/navbar-lg-tar.ejs') %> 
-          
-        </nav>
-        
-        <!-- NAV SM -->
-        <nav class="navbar navSmall fixed-top">  
-          <%- include ('../partials/tarifas/navbar-sm-tar.ejs') %> 
-        </nav>
-    <% } %>  
+	<body>
+		<% if (user) { %> <%- include ('../partials/tarifas/sidebar-tarifas.ejs') %>
 
-      <div class="content">
-        <div class="row afterNav" >
-          <div class="col-3">
-            <img src="/img/domfedo.png" class="logoHotelrate" alt="">
-            <h3 class="headerSmall text-uppercase" id="titulo">
-              TARIFAS - Cliente Local / Residente
-            </h3>
-          </div>
+		<!-- NAV LG -->
+		<nav class="navbar fixed-top navi">
+			<div class="container-fluid">
+				<span class="navbar-brand mb-0 h1 text-uppercase" id="navbarLG"
+					>TARIFAS - Cliente Local
+				</span>
+				<%- include ('../partials/tarifas/navbar-lg-tar.ejs') %>
+			</div>
+		</nav>
 
-          <div class="col" id="inputBuscar">
-            <form role="search" class="vertical-center">
-              <div class="input-group">
-                <span class="input-group-text" id="basic-addon1"><i class="bi bi-search"></i></span>
-                <input class="form-control " type="search" id="myInput" onkeyup="myFunction()"  placeholder="Buscar tarifa" aria-label="Search">
-              </div>
-            </form>
-          </div>
-        </div>
+		<!-- NAV SM -->
+		<nav class="navbar navSmall fixed-top">
+			<%- include ('../partials/tarifas/navbar-sm-tar.ejs') %>
+		</nav>
+		<% } %>
 
-        <div class="card editShadow mt-4 tabla-desktop">
-        <div class="card-body">
-            <table class="table" id="myTable">
-                  <thead id="tabla-vacia">
-                    <tr>
-                      <th scope="col" class="col-3">Nombre</th>
-                      <th scope="col" class="col">Precio USD</th>
-                      <th scope="col" class="col">Cod. Opera</th>
-                      <th scope="col" class="col-5" id="descripcion">Descripción</th>
-                      <th scope="col" class="col-1">Ver Desc.</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <% results.forEach((local) => { %>
-                      <tr>
-                        <td><%= local.nombre %></td>
-                        <td><%= local.precio%>.00</td>
-                        <td><%= local.cod_opera%></td>
-                        <% if(local.tips.length > 50) { %>
-                          <td><%= local.tips.slice(0,50) %>...</td>
-                          
-                          <% } else { %>
-                            <td data-titulo="descrip:"><%= local.tips %></td>
-                            <% }  %>
-      
-                        <td>                          
-                          <a class="btn btn-sm btn-success btnDelete editShadow" onclick="return alert(' <%= local.tips %>')"><i class="bi bi-eye"></i></a>
-                        </td>
-                      </tr>
-                    <% }) %>
-                  </tbody>
-                </table> 
-        </div>
-      </div>
-      
-        <!-- *****************************MOBILE CARDS EDIT****************************** -->
-        <div class="container tabla-mobile" id="tabla-mobile">
-          <div class="row row-cols-1 row-cols-sm-1 row-cols-md-3 mt-3" id="servicesHomePage">
-            <% results.forEach((local) => { %>
-              <div class="col">
-                <div class="card cardHome mb-4 cardShadow" id="serviceTest">
-                    <div class="card-header fixSizeHead">
-                      <div class="card-title my-0 text-center">
-                        <%= local.nombre %>
-                      </div>
-                  </div>
-                  <div class="card-body">
-                      <h5 class="card-title pricing-card-title text-center precio-tur">USD <%= local.precio %>.00 <small class="text-muted">p/p</small></h5>
-                      <div class="text-center">
-                        <h6>Código de Opera: <strong><%= local.cod_opera %></strong></h6>
-                        <div class="accordion" id="accordionFlushExample">
-                          <div class="accordion-item">
-                            <h2 class="accordion-header" id="flush-headingOne">
-                              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne<%= local.id %>" aria-expanded="false" aria-controls="flush-collapseOne">
-                              Más información
-                              </button>
-                            </h2>
-                            <div id="flush-collapseOne<%= local.id %>" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                              <div class="accordion-body"><%= local.tips %></div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+		<div class="content">
+			<div class="row afterNav">
+				<div class="col-3">
+					<img src="/img/domfedo.png" class="logoHotelrate" alt="" />
+					<h3 class="headerSmall text-uppercase" id="titulo">
+						TARIFAS - Cliente Local / Residente
+					</h3>
+				</div>
 
-                  </div>
-  
-                </div>
-              </div>
-                <% }) %>
+				<div class="col" id="inputBuscar">
+					<form role="search" class="vertical-center">
+						<div class="input-group">
+							<span class="input-group-text" id="basic-addon1"
+								><i class="bi bi-search"></i
+							></span>
+							<input
+								class="form-control"
+								type="search"
+								id="myInput"
+								onkeyup="filtroBusqueda()"
+								placeholder="Buscar tarifa"
+								aria-label="Search" />
+						</div>
+					</form>
+				</div>
+			</div>
 
-          </div>
-        </div>
+			<div class="card editShadow mt-4 tabla-desktop">
+				<div class="card-body">
+					<table class="table" id="myTable">
+						<thead id="tabla-vacia">
+							<tr>
+								<th scope="col" class="col-3">Nombre</th>
+								<th scope="col" class="col">Precio USD</th>
+								<th scope="col" class="col">Cod. Opera</th>
+								<th scope="col" class="col-5" id="descripcion">Descripción</th>
+								<th scope="col" class="col-1">Ver Desc.</th>
+							</tr>
+						</thead>
+						<tbody>
+							<% results.forEach((local) => { %>
+							<tr>
+								<td><%= local.nombre %></td>
+								<td><%= local.precio%>.00</td>
+								<td><%= local.cod_opera%></td>
+								<% if(local.tips.length > 50) { %>
+								<td><%= local.tips.slice(0,50) %>...</td>
 
+								<% } else { %>
+								<td data-titulo="descrip:"><%= local.tips %></td>
+								<% } %>
 
+								<td>
+									<a
+										class="btn btn-sm btn-success btnDelete editShadow"
+										onclick="return alert(' <%= local.tips %>')"
+										><i class="bi bi-eye"></i
+									></a>
+								</td>
+							</tr>
+							<% }) %>
+						</tbody>
+					</table>
+				</div>
+			</div>
 
+			<!-- *****************************MOBILE CARDS EDIT****************************** -->
+			<div class="container tabla-mobile" id="tabla-mobile">
+				<div
+					class="row row-cols-1 row-cols-sm-1 row-cols-md-3 mt-3"
+					id="servicesHomePage">
+					<% results.forEach((local) => { %>
+					<div class="col">
+						<div class="card cardHome mb-4 cardShadow" id="serviceTest">
+							<div class="card-header fixSizeHead">
+								<div class="card-title my-0 text-center">
+									<%= local.nombre %>
+								</div>
+							</div>
+							<div class="card-body">
+								<h5
+									class="card-title pricing-card-title text-center precio-tur">
+									USD <%= local.precio %>.00
+									<small class="text-muted">p/p</small>
+								</h5>
+								<div class="text-center">
+									<h6>
+										Código de Opera: <strong><%= local.cod_opera %></strong>
+									</h6>
+									<div class="accordion" id="accordionFlushExample">
+										<div class="accordion-item">
+											<h2 class="accordion-header" id="flush-headingOne">
+												<button
+													class="accordion-button collapsed"
+													type="button"
+													data-bs-toggle="collapse"
+													data-bs-target="#flush-collapseOne<%= local.id %>"
+													aria-expanded="false"
+													aria-controls="flush-collapseOne">
+													Más información
+												</button>
+											</h2>
+											<div
+												id="flush-collapseOne<%= local.id %>"
+												class="accordion-collapse collapse"
+												aria-labelledby="flush-headingOne"
+												data-bs-parent="#accordionFlushExample">
+												<div class="accordion-body"><%= local.tips %></div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<% }) %>
+				</div>
+			</div>
 
-                
-                
-                
-                <div class="form-center botonReload">
-                  <a class="btn btn-danger" href="/tarifas" id="backRates"> Cambiar tipo cliente</a>  
-                  <!-- <i class="bi bi-back"></i> -->
-                </div>
-                
-              </div>
+			<div class="form-center botonReload">
+				<a class="btn btn-danger" href="/tarifas" id="backRates">
+					Cambiar tipo cliente</a
+				>
+				<!-- <i class="bi bi-back"></i> -->
+			</div>
+		</div>
 
-              <%- include ('../partials/footer.ejs') %> 
-        </body>
-      </html>
+		<%- include ('../partials/footer.ejs') %>
+	</body>
+</html>

@@ -80,6 +80,13 @@ p {
 	-moz-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
+.bannerGolf {
+	height: 20vh;
+	box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.75);
+	-webkit-box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.75);
+	-moz-box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.75);
+}
+
 .banner-mg {
 	background-image: url(/img/minigolf-air.jpg);
 	margin-left: 180px;
@@ -114,33 +121,14 @@ p {
 	-moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
-.linkTarifa {
-	color: black;
-}
-
-.linkTarifa:hover {
-	color: black;
-}
-
-#start-again {
-	display: none;
-}
-
-.center {
+/* .center {
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
-}
+} */
 
 .afterNav {
 	margin-top: 4.6rem;
-}
-
-.bannerGolf {
-	height: 20vh;
-	box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.75);
-	-webkit-box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.75);
-	-moz-box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.75);
 }
 
 .inputBase {
@@ -150,20 +138,6 @@ p {
 .form-center {
 	display: flex;
 	justify-content: center;
-}
-
-.btnHotel {
-	text-align: center;
-	padding: 1.2rem;
-	width: 16rem;
-	height: 4rem;
-	margin: 0 1.3rem 1.3rem 1.3rem;
-	background-color: #514d87;
-	color: white;
-	border-radius: 10px 10px 10px 10px;
-	-webkit-border-radius: 10px 10px 10px 10px;
-	-moz-border-radius: 10px 10px 10px 10px;
-	border: 2px solid black;
 }
 
 .fixSizeHead {
@@ -189,11 +163,6 @@ p {
 	height: 6.5rem;
 }
 
-.opera-cd {
-	margin-top: -0.6rem;
-	margin-bottom: 0.6rem;
-}
-
 .noResults {
 	height: 30vh;
 	border-radius: 10px 10px 25px 25px;
@@ -201,21 +170,11 @@ p {
 	-moz-border-radius: 10px 10px 25px 25px;
 }
 
-/* .precio-tur{
-  margin-top: -8px;
-} */
-
 .cardShadow {
 	box-shadow: 9px 10px 20px -12px rgba(0, 0, 0, 0.64);
 	-webkit-box-shadow: 9px 10px 20px -12px rgba(0, 0, 0, 0.64);
 	-moz-box-shadow: 9px 10px 20px -12px rgba(0, 0, 0, 0.64);
 }
-
-/* .editShadow{
-  box-shadow: 0px 5px 13px -6px rgba(0,0,0,0.75);
--webkit-box-shadow: 0px 5px 13px -6px rgba(0,0,0,0.75);
--moz-box-shadow: 0px 5px 13px -6px rgba(0,0,0,0.75);
-} */
 
 .cardBottom {
 	background-color: #514d87;
@@ -226,26 +185,18 @@ p {
 	color: white;
 }
 
-.btnService {
+.btnAction {
 	padding: 0.4rem 2rem 0.4rem 2rem;
 }
 
-.btnAnswer:hover,
-.btnHotel:hover {
-	background-color: #dfb502;
-	box-shadow: 1px 0px 12px 1px rgba(81, 77, 135, 0.75);
-	-webkit-box-shadow: 1px 0px 12px 1px rgba(81, 77, 135, 0.75);
-	-moz-box-shadow: 1px 0px 12px 1px rgba(81, 77, 135, 0.75);
-	transition: 0.15s ease;
-	color: black;
-}
-
-.btnEdit,
-.btnDelete,
-.btnCancel,
-.btnAdd,
 .btnInfo {
 	padding: 0.4rem 2rem 0.4rem 2rem;
+}
+
+.btnShadow {
+	box-shadow: 0px 3px 5px -3px rgba(0, 0, 0, 0.75);
+	-webkit-box-shadow: 0px 3px 5px -3px rgba(0, 0, 0, 0.75);
+	-moz-box-shadow: 0px 3px 5px -3px rgba(0, 0, 0, 0.75);
 }
 
 .logo,
@@ -290,37 +241,19 @@ p {
 	text-align: center;
 }
 
-/* .cardRate {
-  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
-  -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
-} */
-
-.cardRate:hover {
-	box-shadow: 1px 0px 12px 1px rgba(81, 77, 135, 0.75);
-	-webkit-box-shadow: 1px 0px 12px 1px rgba(81, 77, 135, 0.75);
-	-moz-box-shadow: 1px 0px 12px 1px rgba(81, 77, 135, 0.75);
-	transition: 0.15s ease-in-out all;
+.verInfo {
+	visibility: hidden;
+	display: inline-block;
 }
 
-#tarVP,
-#tarHRlp,
-#verificarSocio,
-#clienteCasino,
-#tieneCortesia,
-#socioLeg {
-	display: none;
-	animation-name: fadeInAnim;
-	animation-duration: 2.2s;
+.info:hover {
+	background-color: #ffffff;
+	font-weight: bold;
 }
 
-@keyframes fadeInAnim {
-	from {
-		opacity: 0%;
-	}
-	to {
-		opacity: 100%;
-	}
+.info:hover .verInfo {
+	visibility: visible;
+	color: #514d87;
 }
 
 .card {
@@ -354,10 +287,14 @@ p {
 .sidebar a.active {
 	background-color: #514d87;
 	color: white;
+	box-shadow: 0px 3px 5px -3px rgba(0, 0, 0, 0.75);
+	-webkit-box-shadow: 0px 3px 5px -3px rgba(0, 0, 0, 0.75);
+	-moz-box-shadow: 0px 3px 5px -3px rgba(0, 0, 0, 0.75);
 }
 
 a.active .flecha {
 	display: inline-block;
+	align-items: flex-end;
 }
 
 .sidebar a:hover:not(.active) {
@@ -369,12 +306,6 @@ a.active .flecha {
 .sidebar a:hover .flecha {
 	display: inline-block;
 
-	color: white;
-}
-
-.btnTarifa {
-	background-color: #514d87;
-	padding: 5px;
 	color: white;
 }
 
@@ -532,30 +463,6 @@ footer {
 		display: block;
 	}
 
-	.btnEdit,
-	.btnDelete {
-		box-shadow: 0px 3px 5px -3px rgba(0, 0, 0, 0.75);
-		-webkit-box-shadow: 0px 3px 5px -3px rgba(0, 0, 0, 0.75);
-		-moz-box-shadow: 0px 3px 5px -3px rgba(0, 0, 0, 0.75);
-	}
-
-	.btnEdit {
-		padding: 0.5rem 2rem 0.5rem 2rem;
-	}
-
-	.btnAdd {
-		padding: 0.6rem 2rem 0.6rem 2rem;
-	}
-
-	.btnCancel {
-		margin-top: 10px;
-		padding: 0.6rem 2rem 0.6rem 2rem;
-	}
-
-	#btnService {
-		padding: 0.4rem 1rem 0.4rem 1rem;
-	}
-
 	.bi-pencil,
 	.bi-trash {
 		font-size: large;
@@ -672,10 +579,6 @@ footer {
 		display: none;
 	}
 
-	.btnTarifa {
-		display: none;
-	}
-
 	.onDesktop {
 		display: none;
 	}
@@ -768,14 +671,6 @@ footer {
 	.scrollmenu {
 		overflow: auto;
 		white-space: nowrap;
-	}
-
-	.btnTarifa {
-		display: none;
-	}
-
-	.btnHotel {
-		width: 16rem;
 	}
 
 	.afterNav {

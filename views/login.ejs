@@ -17,8 +17,7 @@
 						name="user"
 						id="login-user"
 						placeholder="Usuario"
-						onkeyup="mayus(this)"
-					/>
+						onkeyup="mayus(this)" />
 				</div>
 				<div class="mb-3">
 					<input
@@ -26,10 +25,13 @@
 						class="form-control"
 						name="password"
 						placeholder="Contraseña"
-						id="login-pass"
-					/>
+						id="login-pass" />
 				</div>
-				<button type="submit" class="btn btn-primary w-100 mt-4">Entrar</button>
+				<button
+					type="submit"
+					class="btn btn-success text-uppercase w-100 mt-4 btnDelete">
+					Entrar
+				</button>
 			</form>
 		</div>
 
@@ -40,8 +42,7 @@
 		<script
 			src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
 			integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
-			crossorigin="anonymous"
-		></script>
+			crossorigin="anonymous"></script>
 		<script src="/js/main.js"></script>
 		<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 		<% if(alert) { %>

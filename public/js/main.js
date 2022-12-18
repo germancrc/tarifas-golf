@@ -9,74 +9,41 @@ function closeNav() {
 }
 
 //*****************************BUSQUEDA EN TABLAS********************************/
-function myFunction() {
+let delay = 0
+let delayTimeout
+
+function filtroBusqueda(secs) {
+	delay = secs * 1000
+	clearTimeout(delayTimeout)
+
+	delayTimeout = setTimeout(mySearchFunction, delay)
+}
+
+function mySearchFunction() {
 	// Declare variables
-	let input, filter, table, tr, td1, td2, i, txtValue, descripcion
+	let input, filter, table, tr, td1, td2, i
 	input = document.getElementById('myInput')
 	filter = input.value.toUpperCase()
 	table = document.getElementById('myTable')
 	tr = table.getElementsByTagName('tr')
-	descripcion = document.getElementById('descripcion')
 
 	// Loop through all table rows, and hide those who don't match the search query
 	for (i = 0; i < tr.length; i++) {
 		td1 = tr[i].getElementsByTagName('td')[0]
-		if (td1) {
-			txtValue = td1.textContent || td1.innerText
-			if (txtValue.toUpperCase().indexOf(filter) > -1) {
-				tr[i].style.display = ''
-			} else {
-				tr[i].style.display = 'none'
-			}
-		}
-	}
-
-	if (descripcion) {
-		for (i = 0; i < tr.length; i++) {
-			td2 = tr[i].getElementsByTagName('td')[3]
-			if (td2) {
-				txtValue = td2.textContent || td2.innerText
-				if (txtValue.toUpperCase().indexOf(filter) > -1) {
-					tr[i].style.display = ''
-				} else {
-					tr[i].style.display = 'none'
-				}
-			}
-		}
-	}
-
-	const inputMobile = document.getElementById('myInput').value.toUpperCase()
-	const cards = document.getElementsByClassName('cardHome')
-
-	for (let i = 0; i < cards.length; i++) {
-		let title = cards[i].querySelector('div.card-title')
-		let descrip = cards[i].querySelector('div.accordion-body')
-
-		if (
-			title.innerText.toUpperCase().indexOf(inputMobile) > -1 ||
-			descrip.innerText.toUpperCase().indexOf(inputMobile) > -1
-		) {
-			cards[i].style.display = ''
-		} else {
-			cards[i].style.display = 'none'
-		}
-	}
-}
-
-function buscarCodigo() {
-	// Declare variables
-	let input, filter, table, tr, td, i, txtValue
-	input = document.getElementById('myInput')
-	filter = input.value.toUpperCase()
-	table = document.getElementById('myTable')
-	tr = table.getElementsByTagName('tr')
-
-	// Loop through all table rows, and hide those who don't match the search query
-	for (i = 0; i < tr.length; i++) {
-		td = tr[i].getElementsByTagName('td')[1]
-		if (td) {
-			txtValue = td.textContent || td.innerText
-			if (txtValue.toUpperCase().indexOf(filter) > -1) {
+		td2 = tr[i].getElementsByTagName('td')[1]
+		td3 = tr[i].getElementsByTagName('td')[2]
+		td4 = tr[i].getElementsByTagName('td')[3]
+		if (td1 || td2) {
+			txtValue1 = td1.textContent || td1.innerText
+			txtValue2 = td2.textContent || td2.innerText
+			txtValue3 = td3.textContent || td3.innerText
+			txtValue4 = td4.textContent || td4.innerText
+			if (
+				txtValue1.toUpperCase().indexOf(filter) > -1 ||
+				txtValue2.toUpperCase().indexOf(filter) > -1 ||
+				txtValue3.toUpperCase().indexOf(filter) > -1 ||
+				txtValue4.toUpperCase().indexOf(filter) > -1
+			) {
 				tr[i].style.display = ''
 			} else {
 				tr[i].style.display = 'none'
@@ -90,10 +57,12 @@ function buscarCodigo() {
 	for (let i = 0; i < cards.length; i++) {
 		let title = cards[i].querySelector('div.card-title')
 		let descrip = cards[i].querySelector('div.accordion-body')
+		// let opera = cards[i].querySelector('span.opera')
 
 		if (
 			title.innerText.toUpperCase().indexOf(inputMobile) > -1 ||
 			descrip.innerText.toUpperCase().indexOf(inputMobile) > -1
+			// opera.innerText.toUpperCase().indexOf(inputMobile) > -1
 		) {
 			cards[i].style.display = ''
 		} else {
@@ -101,16 +70,6 @@ function buscarCodigo() {
 		}
 	}
 }
-
-// //VER SI ES MOVIL O PC
-// if ("ontouchstart" in document.documentElement)
-// {
-//   document.getElementById("myInput").className = "col form-control me-5";
-// }
-// else
-// {
-//   document.getElementById("inputBuscar").className = "col-5";
-// }
 
 //*****************************FIN BUSQUEDA EN TABLAS********************************/
 
@@ -144,8 +103,11 @@ document.getElementById('nuevoTitulo').innerHTML =
 	titulo + ' - Guía Hard Rock Golf PC'
 
 // titulos entre navbars
-let navbarLG = document.getElementById('navbarLG').innerHTML
-document.getElementById('navbarSM').innerHTML = navbarLG
+let navbarLG = ''
+if (navbarLG) {
+	let navbarLG = document.getElementById('navbarLG').innerHTML
+	document.getElementById('navbarSM').innerHTML = navbarLG
+}
 
 //Show / Hide pass changes
 function openPassEdit() {

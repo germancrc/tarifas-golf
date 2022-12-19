@@ -176,12 +176,16 @@ p {
 }
 
 .btnAction {
-	padding: 0.4rem 2rem 0.4rem 2rem;
+	/* width: 50px; */
 	height: 2.4rem;
-}
-
-.btnInfo {
+	/* background: #4e9caf; */
 	padding: 0.4rem 2rem 0.4rem 2rem;
+	text-align: center;
+	border-radius: 5px;
+	color: white;
+	/* font-weight: bold; */
+	font-size: medium;
+	line-height: 25px;
 }
 
 .btnShadow {

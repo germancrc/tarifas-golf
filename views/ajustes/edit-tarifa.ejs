@@ -36,8 +36,7 @@
 							<form
 								id="services-form"
 								action="/ajustes/tarifas-conf/<%= rate.id %>"
-								method="POST"
-							>
+								method="POST">
 								<div class="mb-3">
 									<label for="rate-title" class="form-label"
 										>Nombre de la tarifa</label
@@ -48,8 +47,7 @@
 										name="nombre"
 										value="<%= rate.nombre %>"
 										placeholder="Nombre de la tarifa"
-										required
-									/>
+										required />
 								</div>
 								<div class="mb-3">
 									<label for="rate-price" class="form-label">Precio</label>
@@ -59,8 +57,7 @@
 										name="precio"
 										value="<%= rate.precio %>"
 										placeholder="Precio de tarifa "
-										required
-									/>
+										required />
 								</div>
 								<div class="mb-3">
 									<label for="rate-opera" class="form-label"
@@ -71,8 +68,7 @@
 										class="form-control"
 										name="cod_opera"
 										value="<%=rate.cod_opera %>"
-										placeholder="Código de Opera"
-									/>
+										placeholder="Código de Opera" />
 								</div>
 								<label for="rate-cliente" class="form-label"
 									>Tipo de cliente</label
@@ -81,8 +77,7 @@
 									class="form-select mb-3"
 									name="cliente"
 									aria-label="cliente-selector"
-									required
-								>
+									required>
 									<!-- <option selected>Elegir:</option> -->
 									<% if(rate.cliente === "Hotel"){ %>
 									<option selected value="Hotel">Cliente Hotel</option>
@@ -115,19 +110,17 @@
 								</div>
 
 								<div
-									class="mt-4 d-grid gap-2 d-md-flex justify-content-md-start"
-								>
+									class="mt-4 d-grid gap-2 d-md-flex justify-content-md-start">
 									<button
 										type="submit"
-										class="btn btn-warning btnEdit editShadow"
-										id="modalServName"
-									>
-										<i class="bi bi-pencil"></i> EDITAR
+										class="btn btn-warning btnAction btnShadow"
+										id="modalServName">
+										EDITAR
 									</button>
 									<a
 										href="/ajustes/tarifas-conf"
-										class="btn btn-danger btnCancel editShadow"
-										><i class="bi bi-x-lg"></i> CANCELAR</a
+										class="btn btn-danger btnAction btnShadow"
+										>CANCELAR</a
 									>
 								</div>
 							</form>
@@ -136,8 +129,7 @@
 					</div>
 				</div>
 			</div>
+			<%- include ('../partials/footer.ejs') %>
 		</div>
-
-		<%- include ('../partials/footer.ejs') %>
 	</body>
 </html>

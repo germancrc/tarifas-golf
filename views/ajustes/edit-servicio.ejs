@@ -34,8 +34,7 @@
 							<form
 								id="services-form"
 								action="/ajustes/servicios-conf/<%= resultsServices.id %>"
-								method="POST"
-							>
+								method="POST">
 								<div class="mb-3">
 									<label for="service-title" class="form-label"
 										>Nombre del servicio</label
@@ -46,8 +45,7 @@
 										name="nombre"
 										value="<%= resultsServices.nombre %>"
 										placeholder="Nombre del servicio"
-										required
-									/>
+										required />
 								</div>
 								<div class="mb-3">
 									<label for="serivce-price" class="form-label">Precio</label>
@@ -57,8 +55,7 @@
 										name="precio"
 										value="<%= resultsServices.precio %>"
 										placeholder="Precio del servicio "
-										required
-									/>
+										required />
 								</div>
 								<div class="mb-3">
 									<label for="rate-opera" class="form-label"
@@ -69,8 +66,7 @@
 										name="cod_opera"
 										id="codOpera"
 										aria-label="cliente-selector"
-										required
-									>
+										required>
 										<option disabled selected value="">
 											<%= resultsServices.cod_opera %>
 										</option>
@@ -87,24 +83,22 @@
 											>Descripción</label
 										>
 										<textarea class="form-control" name="descripcion" rows="3">
-<%=resultsServices.descripcion %></textarea
+											<%=resultsServices.descripcion %></textarea
 										>
 										<!-- <div id="contador" class="mt-1"></div> -->
 									</div>
 
 									<div
-										class="mt-4 d-grid gap-2 d-md-flex justify-content-md-start"
-									>
+										class="mt-4 d-grid gap-2 d-md-flex justify-content-md-start">
 										<button
 											type="submit"
-											class="btn btn-warning btnEdit editShadow"
-											id="modalServName"
-										>
+											class="btn btn-warning btnAction btnShadow"
+											id="modalServName">
 											EDITAR
 										</button>
 										<a
 											href="/ajustes/servicios-conf"
-											class="btn btn-danger btnCancel editShadow"
+											class="btn btn-danger btnAction btnShadow"
 											>CANCELAR</a
 										>
 									</div>
@@ -115,8 +109,7 @@
 					</div>
 				</div>
 			</div>
+			<%- include ('../partials/footer.ejs') %>
 		</div>
-
-		<%- include ('../partials/footer.ejs') %>
 	</body>
 </html>

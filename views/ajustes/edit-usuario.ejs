@@ -34,8 +34,7 @@
 							<form
 								id="users-form"
 								action="/ajustes/usuarios-conf/<%= user.id %>"
-								method="POST"
-							>
+								method="POST">
 								<div class="mb-3">
 									<label for="userName" class="form-label">Nombre</label>
 									<input
@@ -43,8 +42,7 @@
 										class="form-control"
 										name="nombre"
 										value="<%= user.nombre %>"
-										disabled
-									/>
+										disabled />
 								</div>
 								<div class="mb-3">
 									<label for="userNickname" class="form-label"
@@ -55,8 +53,7 @@
 										class="form-control"
 										name="username"
 										value="<%= user.username %>"
-										disabled
-									/>
+										disabled />
 								</div>
 								<hr />
 								<label class="mb-3">Qué desea modificar? </label>
@@ -67,8 +64,7 @@
 											type="checkbox"
 											id="passcheck"
 											value="option1"
-											onchange="openPassEdit()"
-										/>
+											onchange="openPassEdit()" />
 										<label class="form-check-label" for="passcheck"
 											>Contraseña</label
 										>
@@ -79,8 +75,7 @@
 											type="checkbox"
 											id="rolcheck"
 											value="option2"
-											onchange="openRolEdit()"
-										/>
+											onchange="openRolEdit()" />
 										<label class="form-check-label" for="rolcheck">Rol</label>
 									</div>
 								</div>
@@ -94,8 +89,7 @@
 										class="form-control"
 										name="password"
 										id="password"
-										placeholder="Contraseña actual"
-									/>
+										placeholder="Contraseña actual" />
 									<div class="mb-3">
 										<div class="row">
 											<div class="col">
@@ -108,8 +102,7 @@
 													name="newpass"
 													id="newpass"
 													placeholder="Escriba la Contraseña"
-													onkeyup="checkPass();"
-												/>
+													onkeyup="checkPass();" />
 											</div>
 											<div class="col">
 												<label for="userPass-conf" class="form-label"
@@ -121,8 +114,7 @@
 													name="pass-conf"
 													id="pass-conf"
 													placeholder="Repita la Contraseña"
-													onkeyup="checkPass();"
-												/>
+													onkeyup="checkPass();" />
 												<span id="message"></span>
 											</div>
 										</div>
@@ -135,8 +127,7 @@
 										class="form-select"
 										name="rol"
 										aria-label="role-selector"
-										required
-									>
+										required>
 										<!-- <option>Elija el rol del usuario</option> -->
 										<% if(user.rol === "Admin"){ %>
 										<option selected value="Admin">Admin</option>
@@ -149,19 +140,17 @@
 								</div>
 
 								<div
-									class="mt-4 d-grid gap-2 d-md-flex justify-content-md-start"
-								>
+									class="mt-4 d-grid gap-2 d-md-flex justify-content-md-start">
 									<button
 										type="submit"
-										class="btn btn-warning btnEdit editShadow"
+										class="btn btn-warning btnAction btnShadow"
 										id="editUser"
-										disabled
-									>
+										disabled>
 										EDITAR
 									</button>
 									<a
 										href="/ajustes/usuarios-conf"
-										class="btn btn-danger btnCancel editShadow"
+										class="btn btn-danger btnAction btnShadow"
 										>CANCELAR</a
 									>
 								</div>
@@ -171,8 +160,7 @@
 					</div>
 				</div>
 			</div>
+			<%- include ('../partials/footer.ejs') %>
 		</div>
-
-		<%- include ('../partials/footer.ejs') %>
 	</body>
 </html>

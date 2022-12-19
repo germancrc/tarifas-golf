@@ -33,9 +33,9 @@
 						<a
 							href="/ajustes/new-tarifas-cg"
 							type="button"
-							class="btn btn-success editShadow"
+							class="btn btn-success btnAction btnShadow"
 							id="btnService">
-							<i class="bi bi-plus-circle"></i> AGREGAR
+							AGREGAR
 						</a>
 						<!-- Button trigger modal -->
 					</div>
@@ -92,13 +92,13 @@
 												href="/ajustes/tarifas-conf/<%= rate.id %>"
 												data-bs-toggle="#"
 												data-bs-target="#rateUpdate"
-												class="btn btn-sm btn-warning btnEdit editShadow"
+												class="btn btn-sm btn-warning btnAction btnShadow"
 												><i class="bi bi-pencil editShadow"></i
 											></a>
 
 											<a
 												href="/ajustes/tarifas-conf/deleteRate/<%= rate.id %>"
-												class="btn btn-sm btn-danger btnDelete editShadow"
+												class="btn btn-sm btn-danger btnAction btnShadow"
 												onclick="return confirm('Seguro que quiere borrar la tarifa <%= rate.nombre %>?')"
 												><i class="bi bi-trash"></i
 											></a>
@@ -175,8 +175,7 @@
 					</div>
 				</div>
 			</div>
+			<%- include ('../partials/footer.ejs') %>
 		</div>
-
-		<%- include ('../partials/footer.ejs') %>
 	</body>
 </html>

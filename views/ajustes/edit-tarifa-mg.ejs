@@ -3,8 +3,7 @@
 	<%- include ('../partials/head-edits.ejs') %>
 
 	<body>
-		<% if (user) { %> <%- include
-		('../partials/ajustes/sidebar-ajustes.ejs') %>
+		<% if (user) { %> <%- include ('../partials/ajustes/sidebar-ajustes.ejs') %>
 
 		<!-- NAV LG -->
 		<nav class="navbar fixed-top navi">
@@ -25,9 +24,7 @@
 		<div class="content">
 			<div id="Servicios" class="afterNav">
 				<div class="text-center mb-3">
-					<h4 class="text-uppercase" id="titulo">
-						Editar Tarifa Mini Golf
-					</h4>
+					<h4 class="text-uppercase" id="titulo">Editar Tarifa Mini Golf</h4>
 				</div>
 				<div class="cardEdit-container">
 					<div class="card editShadow">
@@ -37,8 +34,7 @@
 							<form
 								id="services-form"
 								action="/ajustes/tarifas-mg/<%= rate.id %>"
-								method="POST"
-							>
+								method="POST">
 								<div class="mb-3">
 									<label for="rate-title" class="form-label"
 										>Nombre de la tarifa</label
@@ -49,21 +45,17 @@
 										name="nombre"
 										value="<%= rate.nombre %>"
 										placeholder="Nombre de la tarifa"
-										required
-									/>
+										required />
 								</div>
 								<div class="mb-3">
-									<label for="rate-price" class="form-label"
-										>Precio</label
-									>
+									<label for="rate-price" class="form-label">Precio</label>
 									<input
 										type="number"
 										class="form-control"
 										name="precio"
 										value="<%= rate.precio %>"
 										placeholder="Precio de tarifa "
-										required
-									/>
+										required />
 								</div>
 								<div class="mb-3">
 									<label for="rate-opera" class="form-label"
@@ -74,40 +66,30 @@
 										class="form-control"
 										name="cod_opera"
 										value="<%= rate.cod_opera %>"
-										placeholder="Código de Opera"
-									/>
+										placeholder="Código de Opera" />
 								</div>
 								<div class="mb-3">
-									<label
-										for="serivce-description"
-										class="form-label"
+									<label for="serivce-description" class="form-label"
 										>Descripción</label
 									>
-									<textarea
-										class="form-control"
-										name="descripcion"
-										rows="3"
-									>
+									<textarea class="form-control" name="descripcion" rows="3">
 <%=rate.descripcion %></textarea
 									>
 									<!-- <div id="contador" class="mt-1"></div> -->
 								</div>
 
 								<div
-									class="mt-4 d-grid gap-2 d-md-flex justify-content-md-start"
-								>
+									class="mt-4 d-grid gap-2 d-md-flex justify-content-md-start">
 									<button
 										type="submit"
-										class="btn btn-warning btnEdit editShadow"
-										id="modalServName"
-									>
-										<i class="bi bi-pencil"></i> Editar
-										tarifa
+										class="btn btn-warning btnAction btnShadow"
+										id="modalServName">
+										EDITAR
 									</button>
 									<a
 										href="/ajustes/tarifas-mg"
-										class="btn btn-danger btnCancel editShadow"
-										><i class="bi bi-x-lg"></i> Cancelar</a
+										class="btn btn-danger btnAction btnShadow"
+										>CANCELAR</a
 									>
 								</div>
 							</form>
@@ -116,8 +98,7 @@
 					</div>
 				</div>
 			</div>
+			<%- include ('../partials/footer.ejs') %>
 		</div>
-
-		<%- include ('../partials/footer.ejs') %>
 	</body>
 </html>

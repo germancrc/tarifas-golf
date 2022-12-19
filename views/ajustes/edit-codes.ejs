@@ -34,8 +34,7 @@
 							<form
 								id="services-form"
 								action="/ajustes/opera-codes/<%= code.id %>"
-								method="POST"
-							>
+								method="POST">
 								<div class="mb-3">
 									<label for="code-codigo" class="form-label">Código</label>
 									<input
@@ -44,8 +43,7 @@
 										name="codigo"
 										value="<%= code.codigo %>"
 										placeholder="Código"
-										required
-									/>
+										required />
 								</div>
 								<div class="mb-3">
 									<label for="code-name" class="form-label">Nombre</label>
@@ -55,8 +53,7 @@
 										name="nombre"
 										value="<%= code.nombre %>"
 										placeholder="Nombre"
-										required
-									/>
+										required />
 								</div>
 								<div class="mb-3">
 									<label for="code-uso" class="form-label">Dónde se usa?</label>
@@ -64,8 +61,7 @@
 										class="form-select"
 										name="uso"
 										aria-label="use-selector"
-										required
-									>
+										required>
 										<% if(code.uso === "Campo Golf") { %>
 										<option selected value="Campo Golf">Campo Golf</option>
 										<option value="Mini Golf">Mini Golf</option>
@@ -89,19 +85,16 @@
 								</div>
 
 								<div
-									class="mt-4 d-grid gap-2 d-md-flex justify-content-md-start"
-								>
+									class="mt-4 d-grid gap-2 d-md-flex justify-content-md-start">
 									<button
 										type="submit"
-										class="btn btn-warning btnEdit editShadow"
-										id="modalServName"
-									>
+										class="btn btn-warning btnAction btnShadow"
+										id="modalServName">
 										EDITAR
 									</button>
 									<a
 										href="/ajustes/opera-codes"
-										class="btn btn-danger btnCancel editShadow"
-									>
+										class="btn btn-danger btnAction btnShadow">
 										CANCELAR</a
 									>
 								</div>
@@ -111,8 +104,7 @@
 					</div>
 				</div>
 			</div>
+			<%- include ('../partials/footer.ejs') %>
 		</div>
-
-		<%- include ('../partials/footer.ejs') %>
 	</body>
 </html>

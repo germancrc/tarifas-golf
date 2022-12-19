@@ -24,7 +24,7 @@
 		<div class="content">
 			<div id="Tarifas" class="afterNav">
 				<div class="row d-flex justify-content-between">
-					<div class="text-center mb-3">
+					<div class="text-center">
 						<h4 class="text-uppercase d-none" id="titulo">
 							AJUSTES - TARIFAS MINIGOLF
 						</h4>
@@ -33,9 +33,9 @@
 						<a
 							href="/ajustes/new-tarifas-mg"
 							type="button"
-							class="btn btn-success editShadow"
+							class="btn btn-success btnAction btnShadow"
 							id="btnService">
-							<i class="bi bi-plus-circle"></i> AGREGAR
+							AGREGAR
 						</a>
 						<!-- Button trigger modal -->
 					</div>
@@ -90,13 +90,13 @@
 												href="/ajustes/tarifas-mg/<%= rate.id %>"
 												data-bs-toggle="#"
 												data-bs-target="#rateUpdate"
-												class="btn btn-sm btn-warning btnEdit editShadow"
+												class="btn btn-sm btn-warning btnAction btnShadow"
 												><i class="bi bi-pencil"></i
 											></a>
 
 											<a
 												href="/ajustes/tarifas-mg/deleteRateMg/<%= rate.id %>"
-												class="btn btn-sm btn-danger btnDelete editShadow"
+												class="btn btn-sm btn-danger btnAction btnShadow"
 												onclick="return confirm('Seguro que quiere borrar la tarifa <%= rate.nombre %>?')"
 												><i class="bi bi-trash"></i
 											></a>
@@ -179,8 +179,7 @@
             <img src="/img/noResults.PNG" alt="" id="noResults">
          *************************SIN RESULTADOS******************** -->
 			</div>
+			<%- include ('../partials/footer.ejs') %>
 		</div>
-
-		<%- include ('../partials/footer.ejs') %>
 	</body>
 </html>

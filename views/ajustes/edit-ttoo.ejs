@@ -32,8 +32,7 @@
 							<form
 								id="services-form"
 								action="/ajustes/ttoo-conf/<%= ttoo.id %>"
-								method="POST"
-							>
+								method="POST">
 								<div class="mb-3">
 									<label for="ttoo-title" class="form-label">Nombre TTOO</label>
 									<input
@@ -42,8 +41,7 @@
 										name="nombre"
 										value="<%= ttoo.nombre %>"
 										placeholder="Nombre del TTOO"
-										required
-									/>
+										required />
 								</div>
 								<div class="mb-3">
 									<label for="rate-price" class="form-label">Precio</label>
@@ -53,8 +51,7 @@
 										name="precio"
 										value="<%= ttoo.precio %>"
 										placeholder="Precio contratado"
-										required
-									/>
+										required />
 								</div>
 								<div class="mb-3">
 									<label for="rate-opera" class="form-label"
@@ -65,8 +62,7 @@
 										class="form-control"
 										name="cod_opera"
 										value="<%= ttoo.cod_opera %>"
-										placeholder="Código de Opera"
-									/>
+										placeholder="Código de Opera" />
 								</div>
 								<div class="mb-3">
 									<label for="rate-operacion" class="form-label"
@@ -77,23 +73,20 @@
 										class="form-control"
 										name="operacion"
 										value="<%= ttoo.operacion %>"
-										placeholder="Cómo facturarlo:"
-									/>
+										placeholder="Cómo facturarlo:" />
 								</div>
 
 								<div
-									class="mt-4 d-grid gap-2 d-md-flex justify-content-md-start"
-								>
+									class="mt-4 d-grid gap-2 d-md-flex justify-content-md-start">
 									<button
 										type="submit"
-										class="btn btn-warning btnEdit editShadow"
-										id="modalServName"
-									>
+										class="btn btn-warning btnAction btnShadow"
+										id="modalServName">
 										EDITAR
 									</button>
 									<a
 										href="/ajustes/ttoo-conf"
-										class="btn btn-danger btnCancel editShadow"
+										class="btn btn-danger btnAction btnShadow"
 										>CANCELAR</a
 									>
 								</div>
@@ -103,8 +96,7 @@
 					</div>
 				</div>
 			</div>
+			<%- include ('../partials/footer.ejs') %>
 		</div>
-
-		<%- include ('../partials/footer.ejs') %>
 	</body>
 </html>

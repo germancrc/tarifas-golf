@@ -63,8 +63,7 @@
 					aria-controls="navbarText"
 					aria-expanded="false"
 					aria-label="Toggle navigation"
-					onclick="openNav()"
-				>
+					onclick="openNav()">
 					<span class="navbar-toggler-icon"></span>
 				</button>
 
@@ -77,8 +76,7 @@
 								href="#"
 								type="button"
 								data-bs-toggle="dropdown"
-								aria-expanded="false"
-							>
+								aria-expanded="false">
 								<span class="text-light text-uppercase"
 									><%= user.username %></span
 								>
@@ -89,8 +87,7 @@
 								href="#"
 								role="button"
 								data-bs-toggle="dropdown"
-								aria-expanded="false"
-							>
+								aria-expanded="false">
 								<span class="text-dark text-uppercase"
 									><%= user.username %></span
 								>
@@ -124,7 +121,6 @@
 		<div class="banner-mg"></div>
 		<div class="content">
 			<h2 class="fixHead text-center">Rock Star Mini Golf</h2>
-			>
 
 			<div class="container">
 				<div class="row text-center mt-3">
@@ -141,8 +137,7 @@
 					<div class="container">
 						<div
 							class="row row-cols-1 row-cols-sm-1 row-cols-md-3 mt-2"
-							id="ratesMG"
-						>
+							id="ratesMG">
 							<% results.forEach((rateMg) => { %>
 							<div class="col">
 								<div class="card cardHome mb-4 cardShadow" id="serviceTest">
@@ -168,8 +163,7 @@
 														data-bs-toggle="collapse"
 														data-bs-target="#flush-collapseOne<%= rateMg.id %>"
 														aria-expanded="false"
-														aria-controls="flush-collapseOne"
-													>
+														aria-controls="flush-collapseOne">
 														Más Información
 													</button>
 												</h2>
@@ -177,8 +171,7 @@
 													id="flush-collapseOne<%= rateMg.id %>"
 													class="accordion-collapse collapse"
 													aria-labelledby="flush-headingOne"
-													data-bs-parent="#accordionFlushExample"
-												>
+													data-bs-parent="#accordionFlushExample">
 													<div class="accordion-body">
 														<%= rateMg.descripcion %>
 													</div>
@@ -193,8 +186,7 @@
 					</div>
 				</div>
 			</div>
+			<%- include ('./partials/footer.ejs') %>
 		</div>
-
-		<%- include ('./partials/footer.ejs') %>
 	</body>
 </html>

@@ -64,9 +64,7 @@ p {
 
 .banner {
 	background-image: url(/img/hardRock.jpg);
-	margin-left: 180px;
 	height: 40vh;
-	width: calc(100% -180px);
 	margin-bottom: 25px;
 
 	/* Position and center the image to scale nicely on all screens */
@@ -89,9 +87,7 @@ p {
 
 .banner-mg {
 	background-image: url(/img/minigolf-air.jpg);
-	margin-left: 180px;
 	height: 40vh;
-	width: calc(100% -180px);
 	margin-bottom: 25px;
 
 	/* Position and center the image to scale nicely on all screens */
@@ -120,12 +116,6 @@ p {
 	-webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
 	-moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
 }
-
-/* .center {
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-} */
 
 .afterNav {
 	margin-top: 4.6rem;
@@ -229,10 +219,6 @@ p {
   margin-right: auto; */
 }
 
-.testRow {
-	vertical-align: middle;
-}
-
 .logoFoot {
 	margin-top: 1.5rem;
 }
@@ -285,7 +271,7 @@ table {
 .sidebar {
 	margin: 0;
 	padding: 0;
-	width: 180px;
+
 	background-color: #f0f0f0;
 	/*#f5f6fe*/
 	position: fixed;
@@ -335,10 +321,8 @@ a.active .flecha {
 	background-color: #514d87;
 	/*f0f0f0*/
 	color: white;
-	margin-left: 180px;
 	padding: 10px 0 10px 0;
 	/* height: 1000px; */
-	width: calc(100% -180px);
 	border-bottom: 2px solid #dfdfdf;
 	/*
     box-shadow: 2px 1px 2px 0px rgba(0,0,0,0.75);
@@ -347,11 +331,21 @@ a.active .flecha {
     */
 }
 
+.content,
+.footer,
+.banner,
+.banner-mg,
+.navi {
+	margin-left: 160px;
+	width: calc(100% -160px);
+}
+
+.sidebar {
+	width: 160px;
+}
+
 .content {
-	margin-left: 180px;
 	padding: 1px 16px;
-	/* height: 1000px; */
-	width: calc(100% -180px);
 }
 
 .logoHotelrate,
@@ -362,11 +356,6 @@ a.active .flecha {
 	border-radius: 10px 10px 10px 10px;
 	-webkit-border-radius: 10px 10px 10px 10px;
 	-moz-border-radius: 10px 10px 10px 10px;
-}
-
-footer {
-	margin-left: 180px;
-	width: calc(100% -180px);
 }
 
 .botonReload {
@@ -472,6 +461,9 @@ footer {
 	}
 }
 
+@media (min-width: 700px) and (max-width: 800px) {
+}
+
 @media screen and (max-width: 700px) {
 	.inputSize {
 		width: 100%;
@@ -498,33 +490,6 @@ footer {
 		display: block;
 		margin-top: 1.5rem;
 	}
-	/* table{
-      width: 100%;
-    }
-
-    table tr{
-      display: flex;
-      flex-direction: column;
-      margin-bottom: 1rem;
-      box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.75);
-      -webkit-box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.75);
-      -moz-box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.75);
-    }
-
-    table th{
-      display: none;
-    }
-
-    table td[data-titulo]{
-      display: flex;
-    }
-
-    table td[data-titulo]::before{
-      content: attr(data-titulo);
-      width: 85px;
-      font-weight: bold;
-      text-transform: uppercase;
-    } */
 
 	.login-card {
 		padding: 2rem;

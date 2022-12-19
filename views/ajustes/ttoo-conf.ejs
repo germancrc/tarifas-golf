@@ -29,9 +29,9 @@
 						<a
 							href="/ajustes/new-ttoo"
 							type="button"
-							class="btn btn-success editShadow"
+							class="btn btn-success btnAction btnShadow"
 							id="btnService">
-							<i class="bi bi-plus-circle"></i> AGREGAR
+							AGREGAR
 						</a>
 						<!-- Button trigger modal -->
 					</div>
@@ -79,13 +79,13 @@
 												href="/ajustes/ttoo-conf/<%= ttoo.id %>"
 												data-bs-toggle="#"
 												data-bs-target="#ttooUpdate"
-												class="btn btn-sm btn-warning btnEdit"
+												class="btn btn-sm btn-warning btnAction btnShadow"
 												><i class="bi bi-pencil"></i
 											></a>
 
 											<a
 												href="/ajustes/ttoo-conf/deleteTtoo/<%= ttoo.id %>"
-												class="btn btn-sm btn-danger btnDelete"
+												class="btn btn-sm btn-danger btnAction btnShadow"
 												onclick="return confirm('Seguro que quiere borrar el Tour operador <%= ttoo.nombre %>?')"
 												><i class="bi bi-trash"></i
 											></a>
@@ -144,13 +144,13 @@
 															href="/ajustes/ttoo-conf/<%= ttoo.id %>"
 															data-bs-toggle="#"
 															data-bs-target="#serviceUpdate"
-															class="btn btn-sm btn-warning btnEdit"
+															class="btn btn-sm btn-warning btnAction btnShadow"
 															><i class="bi bi-pencil"></i
 														></a>
 
 														<a
 															href="/ajustes/ttoo-conf/deleteTtoo/<%= ttoo.id %>"
-															class="btn btn-sm btn-danger btnDelete"
+															class="btn btn-sm btn-danger btnAction btnShadow"
 															onclick="return confirm('Seguro que quiere borrar el Tour Operador <%= ttoo.nombre %>?')"
 															><i class="bi bi-trash"></i
 														></a>
@@ -166,8 +166,7 @@
 					</div>
 				</div>
 			</div>
+			<%- include ('../partials/footer.ejs') %>
 		</div>
-
-		<%- include ('../partials/footer.ejs') %>
 	</body>
 </html>

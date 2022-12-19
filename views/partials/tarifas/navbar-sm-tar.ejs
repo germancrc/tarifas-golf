@@ -9,8 +9,7 @@
 		aria-controls="navbarText"
 		aria-expanded="false"
 		aria-label="Toggle navigation"
-		onclick="openNav()"
-	>
+		onclick="openNav()">
 		<span class="navbar-toggler-icon"></span>
 	</button>
 
@@ -23,8 +22,7 @@
 					href="#"
 					type="button"
 					data-bs-toggle="dropdown"
-					aria-expanded="false"
-				>
+					aria-expanded="false">
 					<span class="text-light text-uppercase"><%= user.username %></span>
 				</button>
 				<% } else { %>
@@ -33,8 +31,7 @@
 					href="#"
 					role="button"
 					data-bs-toggle="dropdown"
-					aria-expanded="false"
-				>
+					aria-expanded="false">
 					<span class="text-dark text-uppercase"><%= user.username %></span>
 				</button>
 				<% } %>
@@ -47,12 +44,12 @@
 				>&times;</a
 			>
 			<a class="nav-link" href="/index">Inicio</a>
-			<a class="nav-link" href="/tarifas">Tarifas</a>
+			<a class="active" href="/tarifas">Tarifas</a>
 			<a class="nav-link" href="/guias">GUIAS</a>
 			<a class="nav-link" href="/opera">CÓD. OPERA</a>
 			<a class="nav-link" href="/minigolf">MINI GOLF</a>
 			<% if(user.rol === "Admin"){ %>
-			<a class="d-block active" href="/ajustes">AJUSTES </a>
+			<a class="d-block" href="/ajustes">AJUSTES </a>
 			<% } else { %>
 			<a class="d-none" href="/ajustes">AJUSTES </a>
 			<% } %>

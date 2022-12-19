@@ -31,9 +31,9 @@
 						<a
 							href="/ajustes/new-servicio"
 							type="button"
-							class="btn btn-success editShadow"
+							class="btn btn-success btnAction btnShadow"
 							id="btnService">
-							<i class="bi bi-plus-circle"></i> AGREGAR
+							AGREGAR
 						</a>
 						<!-- Button trigger modal -->
 					</div>
@@ -85,13 +85,13 @@
 									<td>
 										<a
 											href="/ajustes/servicios-conf/<%= service.id %>"
-											class="btn btn-sm btn-warning btnEdit"
-											><i class="bi bi-pencil editShadow"></i
+											class="btn btn-sm btn-warning btnAction btnShadow"
+											><i class="bi bi-pencil"></i
 										></a>
 
 										<a
 											href="/ajustes/servicios-conf/deleteService/<%= service.id %>"
-											class="btn btn-sm btn-danger btnDelete editShadow"
+											class="btn btn-sm btn-danger btnAction btnShadow"
 											onclick="return confirm('Seguro que quiere borrar el servicio <%= service.nombre %>?')"
 											><i class="bi bi-trash"></i
 										></a>
@@ -110,7 +110,7 @@
 						id="servicesHomePage">
 						<% results.forEach((service) => { %>
 						<div class="col">
-							<div class="card cardHome mb-4 editShadow" id="serviceTest">
+							<div class="card cardHome mb-4" id="serviceTest">
 								<div class="card-header fixSizeHeadEdit">
 									<div class="my-0 text-center card-title">
 										<%= service.nombre %> | USD <%= service.precio %>.00
@@ -120,7 +120,9 @@
 								<div class="card-body">
 									<div class="accordion" id="accordionFlushExample">
 										<div class="accordion-item">
-											<h2 class="accordion-header" id="flush-headingOne">
+											<h2
+												class="accordion-header"
+												id="flush-headingOne<%= service.id %>">
 												<button
 													class="accordion-button collapsed"
 													type="button"
@@ -145,15 +147,13 @@
 													<div class="d-flex justify-content-between">
 														<a
 															href="/ajustes/servicios-conf/<%= service.id %>"
-															data-bs-toggle="#"
-															data-bs-target="#serviceUpdate"
-															class="btn btn-sm btn-warning btnEdit"
-															><i class="bi bi-pencil editShadow"></i
+															class="btn btn-sm btn-warning btnAction btnShadow"
+															><i class="bi bi-pencil"></i
 														></a>
 
 														<a
 															href="/ajustes/servicios-conf/deleteService/<%= service.id %>"
-															class="btn btn-sm btn-danger btnDelete editShadow"
+															class="btn btn-sm btn-danger btnAction btnShadow"
 															onclick="return confirm('Seguro que quiere borrar el servicio <%= service.nombre %>?')"
 															><i class="bi bi-trash"></i
 														></a>
@@ -173,8 +173,7 @@
             <img src="/img/noResults.PNG" alt="" id="noResults">
          *************************SIN RESULTADOS******************** -->
 			</div>
+			<%- include ('../partials/footer.ejs') %>
 		</div>
-
-		<%- include ('../partials/footer.ejs') %>
 	</body>
 </html>

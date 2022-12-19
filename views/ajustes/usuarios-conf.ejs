@@ -7,18 +7,30 @@
 			<div class="container mb-3 mt-3">
 				<img src="/img/golflogo.png" class="logo" alt="" />
 			</div>
-			<a href="/index">Inicio <i class="bi bi-chevron-right flecha"></i></a>
-			<a href="/tarifas">Tarifas <i class="bi bi-chevron-right flecha"></i></a>
-			<a href="/guias">Guías <i class="bi bi-chevron-right flecha"></i></a>
+			<a href="/index"
+				><i class="bi bi-house-check"></i> Inicio
+				<i class="bi bi-chevron-right flecha"></i
+			></a>
+			<a href="/tarifas"
+				><i class="bi bi-currency-dollar"></i> Tarifas
+				<i class="bi bi-chevron-right flecha"></i
+			></a>
+			<a href="/guias"
+				><i class="bi bi-journal-text"></i> Guías
+				<i class="bi bi-chevron-right flecha"></i
+			></a>
 			<a href="/opera"
-				>CÓDIGOS OPERA <i class="bi bi-chevron-right flecha"></i
+				><i class="bi bi-upc-scan"></i> CÓD. OPERA
+				<i class="bi bi-chevron-right flecha"></i
 			></a>
 			<a href="/minigolf"
-				>MINI GOLF <i class="bi bi-chevron-right flecha"></i
+				><i class="bi bi-houses"></i> MINI GOLF
+				<i class="bi bi-chevron-right flecha"></i
 			></a>
 			<% if(logged.rol === "Admin"){ %>
 			<a class="d-block active" href="/ajustes"
-				>AJUSTES <i class="bi bi-chevron-right flecha"></i
+				><i class="bi bi-gear"></i> AJUSTES
+				<i class="bi bi-chevron-right flecha"></i
 			></a>
 			<% } else { %>
 			<a class="d-none" href="/ajustes"
@@ -141,9 +153,9 @@
 						<a
 							href="/ajustes/new-usuario"
 							type="button"
-							class="btn btn-success editShadow"
+							class="btn btn-success btnAction btnShadow"
 							id="btnService">
-							<i class="bi bi-plus-circle"></i> AGREGAR
+							AGREGAR
 						</a>
 						<!-- Button trigger modal -->
 					</div>
@@ -188,26 +200,26 @@
 											<% if (logged.username == user.username) { %>
 											<a
 												href="/ajustes/usuarios-conf/<%= user.id %>"
-												class="btn btn-sm btn-warning btnEdit"
+												class="btn btn-sm btn-warning btnAction btnShadow"
 												><i class="bi bi-pencil"></i
 											></a>
 
 											<a
 												href="/ajustes/usuarios-conf/deleteUser/<%= user.id %>"
-												class="btn btn-sm btn-danger btnDelete invisible"
+												class="btn btn-sm btn-danger btnAction btnShadow invisible"
 												onclick="return confirm('Seguro que quiere borrar al usuario <%= user.nombre %>?')"
 												><i class="bi bi-trash"></i
 											></a>
 											<% } else {%>
 											<a
 												href="/ajustes/usuarios-conf/<%= user.id %>"
-												class="btn btn-sm btn-warning btnEdit"
+												class="btn btn-sm btn-warning btnAction btnShadow"
 												><i class="bi bi-pencil"></i
 											></a>
 
 											<a
 												href="/ajustes/usuarios-conf/deleteUser/<%= user.id %>"
-												class="btn btn-sm btn-danger btnDelete"
+												class="btn btn-sm btn-danger btnAction btnShadow"
 												onclick="return confirm('Seguro que quiere borrar al usuario <%= user.nombre %>?')"
 												><i class="bi bi-trash"></i
 											></a>
@@ -262,13 +274,13 @@
 														<% if (logged.username == user.username) { %>
 														<a
 															href="/ajustes/usuarios-conf/<%= user.id %>"
-															class="btn btn-sm btn-warning btnEdit"
+															class="btn btn-sm btn-warning btnAction btnShadow"
 															><i class="bi bi-pencil"></i
 														></a>
 
 														<a
 															href="/ajustes/usuarios-conf/deleteUser/<%= user.id %>"
-															class="btn btn-sm btn-danger btnDelete invisible"
+															class="btn btn-sm btn-danger btnAction btnShadow invisible"
 															onclick="return confirm('Seguro que quiere borrar al usuario <%= user.nombre %>?')"
 															><i class="bi bi-trash"></i
 														></a>
@@ -276,13 +288,13 @@
 														<% } else {%>
 														<a
 															href="/ajustes/usuarios-conf/<%= user.id %>"
-															class="btn btn-sm btn-warning btnEdit"
+															class="btn btn-sm btn-warning btnAction btnShadow"
 															><i class="bi bi-pencil"></i
 														></a>
 
 														<a
 															href="/ajustes/usuarios-conf/deleteUser/<%= user.id %>"
-															class="btn btn-sm btn-danger btnDelete"
+															class="btn btn-sm btn-danger btnAction btnShadow"
 															onclick="return confirm('Seguro que quiere borrar al usuario <%= user.nombre %>?')"
 															><i class="bi bi-trash"></i
 														></a>
@@ -299,8 +311,7 @@
 					</div>
 				</div>
 			</div>
+			<%- include ('../partials/footer.ejs') %>
 		</div>
-
-		<%- include ('../partials/footer.ejs') %>
 	</body>
 </html>

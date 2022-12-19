@@ -74,10 +74,7 @@ function mySearchFunction() {
 //*****************************FIN BUSQUEDA EN TABLAS********************************/
 
 let checkPass = function () {
-	if (
-		document.getElementById('password').value ===
-		document.getElementById('pass-conf').value
-	) {
+	if (document.getElementById('password').value === document.getElementById('pass-conf').value) {
 		if (document.getElementById('password').value.length != 0) {
 			document.getElementById('message').style.color = 'green'
 			document.getElementById('message').className = 'mt-2 text-center'
@@ -88,8 +85,7 @@ let checkPass = function () {
 		document.getElementById('message').style.color = 'red'
 		document.getElementById('message').className = 'mt-2 text-center'
 		document.getElementById('message').innerHTML = 'No coinciden'
-		document.getElementById('modalUserName').className =
-			'btn btn-primary disabled'
+		document.getElementById('modalUserName').className = 'btn btn-primary disabled'
 	}
 }
 // PONER TEXTO MAYUSCULAS EN FORMS
@@ -99,15 +95,11 @@ function mayus(e) {
 
 //titulos
 let titulo = document.getElementById('titulo').innerHTML
-document.getElementById('nuevoTitulo').innerHTML =
-	titulo + ' - Guía Hard Rock Golf PC'
+document.getElementById('nuevoTitulo').innerHTML = titulo + ' - Guía Hard Rock Golf PC'
 
 // titulos entre navbars
-let navbarLG = ''
-if (navbarLG) {
-	let navbarLG = document.getElementById('navbarLG').innerHTML
-	document.getElementById('navbarSM').innerHTML = navbarLG
-}
+let navbarLG = document.getElementById('navbarLG').innerHTML
+document.getElementById('navbarSM').innerHTML = navbarLG
 
 //Show / Hide pass changes
 function openPassEdit() {

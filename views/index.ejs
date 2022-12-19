@@ -6,44 +6,22 @@
 			<div class="container mb-3 mt-3">
 				<img src="/img/golflogo.png" class="logo" alt="" />
 			</div>
-			<a class="active" href="/index"
-				><i class="bi bi-house-check"></i> Inicio
-				<i class="bi bi-chevron-right flecha"></i
-			></a>
-			<a href="/tarifas"
-				><i class="bi bi-currency-dollar"></i> Tarifas
-				<i class="bi bi-chevron-right flecha"></i
-			></a>
-			<a href="/guias">
-				<i class="bi bi-journal-text"></i> Guías
-				<i class="bi bi-chevron-right flecha"></i
-			></a>
-			<a href="/opera">
-				<i class="bi bi-upc-scan"></i> CÓD. OPERA
-				<i class="bi bi-chevron-right flecha"></i
-			></a>
-			<a href="/minigolf">
-				<i class="bi bi-houses"></i> MINI GOLF
-				<i class="bi bi-chevron-right flecha"></i
-			></a>
+			<a class="active" href="/index"><i class="bi bi-house-check"></i> Inicio <i class="bi bi-chevron-right flecha"></i></a>
+			<a href="/tarifas"><i class="bi bi-currency-dollar"></i> Tarifas <i class="bi bi-chevron-right flecha"></i></a>
+			<a href="/guias"> <i class="bi bi-journal-text"></i> Guías <i class="bi bi-chevron-right flecha"></i></a>
+			<a href="/opera"> <i class="bi bi-upc-scan"></i> CÓD. OPERA <i class="bi bi-chevron-right flecha"></i></a>
+			<a href="/minigolf"> <i class="bi bi-houses"></i> MINI GOLF <i class="bi bi-chevron-right flecha"></i></a>
 			<% if(user.rol === "Admin"){ %>
-			<a class="d-block" href="/ajustes"
-				><i class="bi bi-gear"></i> AJUSTES
-				<i class="bi bi-chevron-right flecha"></i
-			></a>
+			<a class="d-block" href="/ajustes"><i class="bi bi-gear"></i> AJUSTES <i class="bi bi-chevron-right flecha"></i></a>
 			<% } else { %>
-			<a class="d-none" href="/ajustes"
-				>AJUSTES <i class="bi bi-chevron-right flecha"></i
-			></a>
+			<a class="d-none" href="/ajustes">AJUSTES <i class="bi bi-chevron-right flecha"></i></a>
 			<% } %>
 		</div>
 
 		<!-- NAV LG -->
 		<nav class="navbar fixed-top navi">
 			<div class="container-fluid">
-				<span class="navbar-brand mb-0 h1 text-uppercase" id="navbarLG"
-					>Guía General Hard Rock Golf club</span
-				>
+				<span class="navbar-brand mb-0 h1 text-uppercase" id="navbarLG">Guía General HR Golf club</span>
 				<%- include ('./partials/ajustes/navbar-lg.ejs') %>
 			</div>
 		</nav>
@@ -51,12 +29,8 @@
 		<!-- NAV SM -->
 		<nav class="navbar navSmall fixed-top">
 			<div class="container-fluid">
-				<a class="navbar-brand" href="/index"
-					><i class="bi bi-house-up" id="titulo"></i
-				></a>
-				<span class="text-uppercase text-light" id="navbarSM"
-					>GUÍA hard rock golf</span
-				>
+				<a class="navbar-brand" href="/index"><i class="bi bi-house-up" id="titulo"></i></a>
+				<span class="text-uppercase text-light" id="navbarSM">GUÍA hard rock golf</span>
 				<button
 					class="navbar-toggler navbar-dark"
 					type="button"
@@ -73,26 +47,12 @@
 					<div id="main">
 						<div class="dropdown btn-perfil">
 							<% if(user.rol === "Admin"){ %>
-							<button
-								class="btn btn-success dropdown-toggle"
-								href="#"
-								type="button"
-								data-bs-toggle="dropdown"
-								aria-expanded="false">
-								<span class="text-light text-uppercase"
-									><%= user.username %></span
-								>
+							<button class="btn btn-success dropdown-toggle" href="#" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+								<span class="text-light text-uppercase"><%= user.username %></span>
 							</button>
 							<% } else { %>
-							<button
-								class="btn btn-warning btn-sm dropdown-toggle"
-								href="#"
-								role="button"
-								data-bs-toggle="dropdown"
-								aria-expanded="false">
-								<span class="text-dark text-uppercase"
-									><%= user.username %></span
-								>
+							<button class="btn btn-warning btn-sm dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								<span class="text-dark text-uppercase"><%= user.username %></span>
 							</button>
 							<% } %>
 							<ul class="dropdown-menu">
@@ -102,9 +62,7 @@
 								</li>
 							</ul>
 						</div>
-						<a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
-							>&times;</a
-						>
+						<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 						<a class="active" href="/index">Inicio</a>
 						<a class="nav-link" href="/tarifas">Tarifas</a>
 						<a class="nav-link" href="/guias">GUIAS</a>
@@ -129,14 +87,10 @@
 				<div class="row text-center mt-4">
 					<h4 class="fw-bold">Informaciones generales</h4>
 					<p class="text-center">
-						Fue diseñado por JACK NICKLAUS y tiene 18 hoyos. Un campo Par 72.
-						Con 7,253 yardas de largo desde los tees traseros.
+						Fue diseñado por JACK NICKLAUS y tiene 18 hoyos. Un campo Par 72. Con 7,253 yardas de largo desde los tees traseros.
 					</p>
 
-					<p class="text-center">
-						Tenemos un snack Bar ¨ El hoyo 19¨. Es Open Bar. Tambien se incluye
-						el carro bar que circula por el campo.
-					</p>
+					<p class="text-center">Tenemos un snack Bar ¨ El hoyo 19¨. Es Open Bar. Tambien se incluye el carro bar que circula por el campo.</p>
 					<h5 class="text-center mb-2">PM Opera: <strong>9508</strong></h5>
 
 					<hr />
@@ -146,9 +100,7 @@
 				<div class="mb-1">
 					<form role="search">
 						<div class="input-group">
-							<span class="input-group-text" id="basic-addon1"
-								><i class="bi bi-search"></i
-							></span>
+							<span class="input-group-text" id="basic-addon1"><i class="bi bi-search"></i></span>
 							<input
 								class="form-control"
 								type="search"
@@ -167,27 +119,31 @@
 								<table class="table table-hover" id="myTable">
 									<thead id="tabla-vacia">
 										<tr>
-											<th scope="col" class="col-3">Nombre</th>
+											<th scope="col" class="col-4">Nombre</th>
 											<th scope="col" class="col-2">Precio USD</th>
 											<th scope="col" class="col-2">Opera</th>
-											<th scope="col" class="col-5">Descripción</th>
+											<th scope="col" class="col-4 hide-column">Descripción</th>
 										</tr>
 									</thead>
 									<tbody>
 										<% results.forEach((service) => { %>
-										<tr
-											class="info"
-											onclick="alert('- <%= service.nombre %> -\n\n <%= service.descripcion %>')">
-											<td class="hide-text">
+										<tr class="info" onclick="alert('- <%= service.nombre %> -\n\n <%= service.descripcion %>')">
+											<td>
 												<span><%= service.nombre %></span>
-												<!-- <div class="verInfo">
+												<div class="verInfo hide-column">
 													- Ver Info
 													<i class="bi bi-info-circle"></i>
-												</div> -->
+												</div>
 											</td>
 											<td><%= service.precio%>.00</td>
+											<% if (service.cod_opera == 0 && service.nombre != "Torneos") { %>
+											<td>NO POSTEAR</td>
+											<% } else if (service.cod_opera == 0 && service.nombre == "Torneos"){ %>
+											<td>VARIABLE</td>
+											<% } else { %>
 											<td><%= service.cod_opera%></td>
-											<td class="hide-text">
+											<% } %>
+											<td class="hide-text hide-column">
 												<span><%= service.descripcion %></span>
 											</td>
 										</tr>
@@ -202,16 +158,12 @@
 				<!-- *****************************MOBILE CARDS EDIT****************************** -->
 
 				<div class="container tabla-mobile">
-					<div
-						class="row row-cols-1 row-cols-sm-1 row-cols-md-3 mt-3"
-						id="servicesHomePage">
+					<div class="row row-cols-1 row-cols-sm-1 row-cols-md-3 mt-3" id="servicesHomePage">
 						<% results.forEach((service) => { %>
 						<div class="col">
 							<div class="card cardHome mb-4 editShadow" id="serviceTest">
 								<div class="card-header fixSizeHead">
-									<div class="card-title my-0 text-center">
-										<%= service.nombre %>
-									</div>
+									<div class="card-title my-0 text-center"><%= service.nombre %></div>
 								</div>
 								<div class="card-body">
 									<h5 class="text-center precio-tur">
@@ -220,7 +172,10 @@
 									</h5>
 									<div class="text-center">
 										<h6>
-											Código de Opera: <strong><%= service.cod_opera %></strong>
+											<% if (service.cod_opera == 0 && service.nombre != "Torneos") { %> Código de Opera: <strong>NO POSTEAR</strong> <% } else if
+											(service.cod_opera == 0 && service.nombre == "Torneos"){ %> Código de Opera: <strong>VARIABLE</strong> <% } else { %> Código de
+											Opera: <strong><%= service.cod_opera %></strong>
+											<% } %>
 										</h6>
 										<div class="accordion" id="accordionFlushExample">
 											<div class="accordion-item">
@@ -240,9 +195,7 @@
 													class="accordion-collapse collapse"
 													aria-labelledby="flush-headingOne"
 													data-bs-parent="#accordionFlushExample">
-													<div class="accordion-body">
-														<%= service.descripcion %>
-													</div>
+													<div class="accordion-body"><%= service.descripcion %></div>
 												</div>
 											</div>
 										</div>

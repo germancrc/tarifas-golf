@@ -8,77 +8,63 @@
 		<!-- NAV LG -->
 		<nav class="navbar fixed-top navi">
 			<div class="container-fluid">
-				<span class="navbar-brand mb-0 h1 text-uppercase" id="navbarLG"
-					>TARIFAS - Extranjeros
-				</span>
+				<span class="navbar-brand mb-0 h1 text-uppercase" id="navbarLG">TARIFAS - Extranjeros </span>
 				<%- include ('../partials/tarifas/navbar-lg-tar.ejs') %>
 			</div>
 		</nav>
 
 		<!-- NAV SM -->
-		<nav class="navbar navSmall fixed-top">
-			<%- include ('../partials/tarifas/navbar-sm-tar.ejs') %>
-		</nav>
+		<nav class="navbar navSmall fixed-top"><%- include ('../partials/tarifas/navbar-sm-tar.ejs') %></nav>
 		<% } %>
 
+		<div class="banner-tarifa-turista"></div>
 		<div class="content">
-			<div class="row afterNav">
-				<div class="col-3">
-					<img src="/img/banderas.png" class="logoHotelrate" alt="" />
-					<h3 class="headerSmall text-uppercase" id="titulo">
-						TARIFAS - Extranjeros / Canabay
-					</h3>
-				</div>
-
-				<div class="col" id="inputBuscar">
-					<form role="search" class="vertical-center">
-						<div class="input-group">
-							<span class="input-group-text" id="basic-addon1"
-								><i class="bi bi-search"></i
-							></span>
-							<input
-								class="form-control"
-								type="search"
-								id="myInput"
-								onkeyup="myFunction()"
-								placeholder="Buscar tarifa"
-								aria-label="Search" />
-						</div>
-					</form>
-				</div>
+			<div class="mb-1">
+				<form role="search">
+					<div class="input-group">
+						<span class="input-group-text" id="basic-addon1"><i class="bi bi-search"></i></span>
+						<input
+							class="form-control"
+							type="search"
+							id="myInput"
+							onkeyup="filtroBusqueda(0.6)"
+							placeholder="Buscar Tarifa Extranjeros"
+							aria-label="Search" />
+					</div>
+				</form>
 			</div>
 
-			<div class="card editShadow mt-4 tabla-desktop">
+			<div class="card editShadow mt-2 tabla-desktop">
 				<div class="card-body">
 					<table class="table" id="myTable">
 						<thead id="tabla-vacia">
 							<tr>
-								<th scope="col" class="col-3">Nombre</th>
-								<th scope="col" class="col">Precio USD</th>
-								<th scope="col" class="col">Cod. Opera</th>
-								<th scope="col" class="col-5" id="descripcion">Descripción</th>
-								<th scope="col" class="col-1">Ver Desc.</th>
+								<th scope="col" class="col-4">Nombre</th>
+								<th scope="col" class="col-2">Precio USD</th>
+								<th scope="col" class="col-2">Opera</th>
+								<th scope="col" class="col-4 hide-column">Descripción</th>
 							</tr>
 						</thead>
 						<tbody>
 							<% results.forEach((turista) => { %>
-							<tr>
-								<td><%= turista.nombre %></td>
-								<td><%= turista.precio%>.00</td>
-								<td><%= turista.cod_opera%></td>
-								<% if(turista.tips.length > 50) { %>
-								<td><%= turista.tips.slice(0,50) %>...</td>
-
-								<% } else { %>
-								<td data-titulo="descrip:"><%= turista.tips %></td>
-								<% } %>
-
+							<tr class="info" onclick="alert('- <%= turista.nombre %> -\n\n <%= turista.tips %>')">
 								<td>
-									<a
-										class="btn btn-sm btn-success btnDelete editShadow"
-										onclick="return alert(' <%= turista.tips %>')"
-										><i class="bi bi-eye"></i
-									></a>
+									<span><%= turista.nombre %></span>
+									<div class="verInfo hide-column">
+										- Ver Info
+										<i class="bi bi-info-circle"></i>
+									</div>
+								</td>
+								<td><%= turista.precio%>.00</td>
+								<% if (turista.cod_opera == 0 && turista.nombre != "Ronda de Practica Torneo") { %>
+								<td>NO POSTEAR</td>
+								<% } else if (turista.cod_opera == 0 && turista.nombre == "Ronda de Practica Torneo"){ %>
+								<td>RONDA PRACTICA</td>
+								<% } else { %>
+								<td><%= turista.cod_opera%></td>
+								<% } %>
+								<td class="hide-text hide-column">
+									<span><%= turista.tips %></span>
 								</td>
 							</tr>
 							<% }) %>
@@ -89,26 +75,25 @@
 
 			<!-- *****************************MOBILE CARDS EDIT****************************** -->
 			<div class="container tabla-mobile" id="tabla-mobile">
-				<div
-					class="row row-cols-1 row-cols-sm-1 row-cols-md-3 mt-3"
-					id="servicesHomePage">
+				<div class="row row-cols-1 row-cols-sm-1 row-cols-md-3" id="servicesHomePage">
 					<% results.forEach((turista) => { %>
 					<div class="col">
 						<div class="card cardHome mb-4 cardShadow" id="serviceTest">
 							<div class="card-header fixSizeHead">
-								<div class="card-title my-0 text-center">
-									<%= turista.nombre %>
-								</div>
+								<div class="card-title my-0 text-center"><%= turista.nombre %></div>
 							</div>
 							<div class="card-body">
-								<h5
-									class="card-title pricing-card-title text-center precio-tur">
+								<h5 class="card-title pricing-card-title text-center precio-tur">
 									USD <%= turista.precio %>.00
 									<small class="text-muted">p/p</small>
 								</h5>
 								<div class="text-center">
 									<h6>
-										Código de Opera: <strong><%= turista.cod_opera %></strong>
+										<% if (turista.cod_opera == 0 && turista.nombre != "Ronda de Practica Torneo HR") { %> Código de Opera:
+										<strong>NO POSTEAR</strong> <% } else if (turista.cod_opera == 0 && turista.nombre == "Ronda de Practica Torneo HR"){ %> Código de
+										Opera: <strong>RONDA DE PRACTICA</strong> <% } else { %> Código de Opera:
+										<strong><%= turista.cod_opera %></strong>
+										<% } %>
 									</h6>
 									<div class="accordion" id="accordionFlushExample">
 										<div class="accordion-item">
@@ -141,9 +126,7 @@
 			</div>
 
 			<div class="form-center botonReload">
-				<a class="btn btn-danger" href="/tarifas" id="backRates">
-					Cambiar tipo cliente</a
-				>
+				<a class="btn btn-danger" href="/tarifas" id="backRates"> Cambiar tipo cliente</a>
 			</div>
 			<%- include ('../partials/footer.ejs') %>
 		</div>

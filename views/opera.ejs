@@ -7,44 +7,22 @@
 			<div class="container mb-3 mt-3">
 				<img src="/img/golflogo.png" class="logo" alt="" />
 			</div>
-			<a href="/index"
-				><i class="bi bi-house-check"></i> Inicio
-				<i class="bi bi-chevron-right flecha"></i
-			></a>
-			<a href="/tarifas"
-				><i class="bi bi-currency-dollar"></i> Tarifas
-				<i class="bi bi-chevron-right flecha"></i
-			></a>
-			<a href="/guias">
-				<i class="bi bi-journal-text"></i> Guías
-				<i class="bi bi-chevron-right flecha"></i
-			></a>
-			<a class="active" href="/opera">
-				<i class="bi bi-upc-scan"></i> CÓD. OPERA
-				<i class="bi bi-chevron-right flecha"></i
-			></a>
-			<a href="/minigolf">
-				<i class="bi bi-houses"></i> MINI GOLF
-				<i class="bi bi-chevron-right flecha"></i
-			></a>
+			<a href="/index"><i class="bi bi-house-check"></i> Inicio <i class="bi bi-chevron-right flecha"></i></a>
+			<a href="/tarifas"><i class="bi bi-currency-dollar"></i> Tarifas <i class="bi bi-chevron-right flecha"></i></a>
+			<a href="/guias"> <i class="bi bi-journal-text"></i> Guías <i class="bi bi-chevron-right flecha"></i></a>
+			<a class="active" href="/opera"> <i class="bi bi-upc-scan"></i> CÓD. OPERA <i class="bi bi-chevron-right flecha"></i></a>
+			<a href="/minigolf"> <i class="bi bi-houses"></i> MINI GOLF <i class="bi bi-chevron-right flecha"></i></a>
 			<% if(user.rol === "Admin"){ %>
-			<a class="d-block" href="/ajustes"
-				><i class="bi bi-gear"></i> AJUSTES
-				<i class="bi bi-chevron-right flecha"></i
-			></a>
+			<a class="d-block" href="/ajustes"><i class="bi bi-gear"></i> AJUSTES <i class="bi bi-chevron-right flecha"></i></a>
 			<% } else { %>
-			<a class="d-none" href="/ajustes"
-				>AJUSTES <i class="bi bi-chevron-right flecha"></i
-			></a>
+			<a class="d-none" href="/ajustes">AJUSTES <i class="bi bi-chevron-right flecha"></i></a>
 			<% } %>
 		</div>
 
 		<!-- NAV LG -->
 		<nav class="navbar fixed-top navi">
 			<div class="container-fluid">
-				<span class="navbar-brand mb-0 h1 text-uppercase" id="navbarLG"
-					>códigos opera</span
-				>
+				<span class="navbar-brand mb-0 h1 text-uppercase" id="navbarLG">CÓDIGOS OPERA</span>
 				<%- include ('./partials/ajustes/navbar-lg.ejs') %>
 			</div>
 		</nav>
@@ -52,12 +30,8 @@
 		<!-- NAV SM -->
 		<nav class="navbar navSmall fixed-top">
 			<div class="container-fluid">
-				<a class="navbar-brand" href="/index"
-					><i class="bi bi-house-up" id="titulo"></i
-				></a>
-				<span class="text-uppercase text-light" id="navbarSM"
-					>CÓDIGOS OPERA</span
-				>
+				<a class="navbar-brand" href="/index"><i class="bi bi-house-up" id="titulo"></i></a>
+				<span class="text-uppercase text-light" id="navbarSM">CÓDIGOS OPERA</span>
 				<button
 					class="navbar-toggler navbar-dark"
 					type="button"
@@ -74,26 +48,12 @@
 					<div id="main">
 						<div class="dropdown btn-perfil">
 							<% if(user.rol === "Admin"){ %>
-							<button
-								class="btn btn-success dropdown-toggle"
-								href="#"
-								type="button"
-								data-bs-toggle="dropdown"
-								aria-expanded="false">
-								<span class="text-light text-uppercase"
-									><%= user.username %></span
-								>
+							<button class="btn btn-success dropdown-toggle" href="#" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+								<span class="text-light text-uppercase"><%= user.username %></span>
 							</button>
 							<% } else { %>
-							<button
-								class="btn btn-warning btn-sm dropdown-toggle"
-								href="#"
-								role="button"
-								data-bs-toggle="dropdown"
-								aria-expanded="false">
-								<span class="text-dark text-uppercase"
-									><%= user.username %></span
-								>
+							<button class="btn btn-warning btn-sm dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								<span class="text-dark text-uppercase"><%= user.username %></span>
 							</button>
 							<% } %>
 							<ul class="dropdown-menu">
@@ -103,9 +63,7 @@
 								</li>
 							</ul>
 						</div>
-						<a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
-							>&times;</a
-						>
+						<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 						<a class="active" href="/index">Inicio</a>
 						<a class="nav-link" href="/tarifas">Tarifas</a>
 						<a class="nav-link" href="/guias">GUIAS</a>
@@ -131,16 +89,8 @@
 				<div class="col" id="inputBuscar">
 					<form role="search" class="vertical-center">
 						<div class="input-group">
-							<span class="input-group-text" id="basic-addon1"
-								><i class="bi bi-search"></i
-							></span>
-							<input
-								class="form-control"
-								type="search"
-								id="myInput"
-								onkeyup="filtroBusqueda()"
-								placeholder="Buscar código"
-								aria-label="Search" />
+							<span class="input-group-text" id="basic-addon1"><i class="bi bi-search"></i></span>
+							<input class="form-control" type="search" id="myInput" onkeyup="filtroBusqueda()" placeholder="Buscar código" aria-label="Search" />
 						</div>
 					</form>
 				</div>

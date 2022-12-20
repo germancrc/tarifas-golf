@@ -176,7 +176,7 @@ p {
 .btnAction {
 	/* width: 50px; */
 	height: 2.4rem;
-	/* background: #4e9caf; */
+	background: #4e9caf;
 	padding: 0.4rem 2rem 0.4rem 2rem;
 	text-align: center;
 	border-radius: 5px;
@@ -485,7 +485,6 @@ a.active .flecha {
 
 	.tabla-mobile {
 		display: block;
-		margin-top: 1.5rem;
 	}
 
 	.login-card {
@@ -531,7 +530,7 @@ a.active .flecha {
 	}
 
 	.card-img-top {
-		height: 12rem;
+		height: 9.5rem;
 		width: 100%;
 	}
 

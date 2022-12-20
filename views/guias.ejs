@@ -128,7 +128,7 @@
 									<td><%= guia.actualizado %></td>
 									<td>
 										<div class="d-flex justify-content-between">
-											<a href="/downloadGuide/<%= guia.id %>" target="_blank" class="btn btn-sm btn-success btnEdit"
+											<a href="/downloadGuide/<%= guia.id %>" target="_blank" class="btn btn-sm btn-success btnAction btnShadow"
 												><i class="bi bi-arrow-down-circle"></i
 											></a>
 										</div>
@@ -178,11 +178,9 @@
 															<p><strong>Actualizado:</strong><%= guia.actualizado %></p>
 
 															<hr />
-															<div>
-																<a href="/downloadGuide/<%= guia.id %>" target="_blank" class="btn btn-sm btn-success btnEdit"
-																	><i class="bi bi-arrow-down-circle"></i
-																></a>
-															</div>
+															<a href="/downloadGuide/<%= guia.id %>" target="_blank" class="btn btn-sm btn-success btnAction btnShadow"
+																><i class="bi bi-arrow-down-circle"></i
+															></a>
 														</div>
 													</div>
 												</div>

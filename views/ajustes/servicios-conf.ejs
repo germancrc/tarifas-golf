@@ -8,17 +8,13 @@
 		<!-- NAV LG -->
 		<nav class="navbar fixed-top navi">
 			<div class="container-fluid">
-				<span class="navbar-brand mb-0 h1" id="navbarLG"
-					>AJUSTES - SERVICIOS</span
-				>
+				<span class="navbar-brand mb-0 h1" id="navbarLG">AJUSTES - SERVICIOS</span>
 				<%- include ('../partials/ajustes/navbar-lg.ejs') %>
 			</div>
 		</nav>
 
 		<!-- NAV SM -->
-		<nav class="navbar navSmall fixed-top">
-			<%- include ('../partials/ajustes/navbar-sm.ejs') %>
-		</nav>
+		<nav class="navbar navSmall fixed-top"><%- include ('../partials/ajustes/navbar-sm.ejs') %></nav>
 		<% } %>
 
 		<div class="content">
@@ -28,21 +24,13 @@
 				</div>
 				<div class="row d-flex justify-content-between">
 					<div class="col-5">
-						<a
-							href="/ajustes/new-servicio"
-							type="button"
-							class="btn btn-success btnAction btnShadow"
-							id="btnService">
-							AGREGAR
-						</a>
+						<a href="/ajustes/new-servicio" type="button" class="btn btn-success btnAction btnShadow" id="btnService"> AGREGAR </a>
 						<!-- Button trigger modal -->
 					</div>
 					<div class="col-7" id="inputBuscar">
 						<form role="search">
 							<div class="input-group">
-								<span class="input-group-text" id="basic-addon1"
-									><i class="bi bi-search"></i
-								></span>
+								<span class="input-group-text" id="basic-addon1"><i class="bi bi-search"></i></span>
 								<input
 									class="form-control"
 									type="search"
@@ -55,7 +43,7 @@
 					</div>
 				</div>
 
-				<div class="card editShadow mt-4 tabla-desktop">
+				<div class="card mt-3 tabla-desktop">
 					<div class="card-body">
 						<table class="table" id="myTable">
 							<thead id="tabla-vacia">
@@ -63,9 +51,7 @@
 									<th scope="col" class="col-3">Nombre</th>
 									<th scope="col" class="col">Precio USD</th>
 									<th scope="col" class="col">Cod. Opera</th>
-									<th scope="col" class="col-4" id="descripcion">
-										Descripción
-									</th>
+									<th scope="col" class="col-4" id="descripcion">Descripción</th>
 									<th scope="col" class="col-2">Acciones</th>
 								</tr>
 							</thead>
@@ -83,9 +69,7 @@
 									<% } %>
 
 									<td>
-										<a
-											href="/ajustes/servicios-conf/<%= service.id %>"
-											class="btn btn-sm btn-warning btnAction btnShadow"
+										<a href="/ajustes/servicios-conf/<%= service.id %>" class="btn btn-sm btn-warning btnAction btnShadow"
 											><i class="bi bi-pencil"></i
 										></a>
 
@@ -105,9 +89,7 @@
 
 				<!-- *****************************MOBILE CARDS EDIT****************************** -->
 				<div class="container tabla-mobile" id="tabla-mobile">
-					<div
-						class="row row-cols-1 row-cols-sm-1 row-cols-md-3 mt-3"
-						id="servicesHomePage">
+					<div class="row row-cols-1 row-cols-sm-1 row-cols-md-3 mt-3" id="servicesHomePage">
 						<% results.forEach((service) => { %>
 						<div class="col">
 							<div class="card cardHome mb-4" id="serviceTest">
@@ -120,9 +102,7 @@
 								<div class="card-body">
 									<div class="accordion" id="accordionFlushExample">
 										<div class="accordion-item">
-											<h2
-												class="accordion-header"
-												id="flush-headingOne<%= service.id %>">
+											<h2 class="accordion-header" id="flush-headingOne<%= service.id %>">
 												<button
 													class="accordion-button collapsed"
 													type="button"
@@ -145,9 +125,7 @@
 													<%= service.descripcion %>
 													<hr />
 													<div class="d-flex justify-content-between">
-														<a
-															href="/ajustes/servicios-conf/<%= service.id %>"
-															class="btn btn-sm btn-warning btnAction btnShadow"
+														<a href="/ajustes/servicios-conf/<%= service.id %>" class="btn btn-sm btn-warning btnAction btnShadow"
 															><i class="bi bi-pencil"></i
 														></a>
 

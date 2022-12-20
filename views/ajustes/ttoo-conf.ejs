@@ -14,9 +14,7 @@
 		</nav>
 
 		<!-- NAV SM -->
-		<nav class="navbar navSmall fixed-top">
-			<%- include ('../partials/ajustes/navbar-sm.ejs') %>
-		</nav>
+		<nav class="navbar navSmall fixed-top"><%- include ('../partials/ajustes/navbar-sm.ejs') %></nav>
 		<% } %>
 
 		<div class="content">
@@ -26,34 +24,20 @@
 				</div>
 				<div class="row d-flex justify-content-between">
 					<div class="col-5">
-						<a
-							href="/ajustes/new-ttoo"
-							type="button"
-							class="btn btn-success btnAction btnShadow"
-							id="btnService">
-							AGREGAR
-						</a>
+						<a href="/ajustes/new-ttoo" type="button" class="btn btn-success btnAction btnShadow" id="btnService"> AGREGAR </a>
 						<!-- Button trigger modal -->
 					</div>
 					<div class="col-7" id="inputBuscar">
 						<form role="search">
 							<div class="input-group">
-								<span class="input-group-text" id="basic-addon1"
-									><i class="bi bi-search"></i
-								></span>
-								<input
-									class="form-control"
-									type="search"
-									id="myInput"
-									onkeyup="filtroBusqueda()"
-									placeholder="Buscar TTOO"
-									aria-label="Search" />
+								<span class="input-group-text" id="basic-addon1"><i class="bi bi-search"></i></span>
+								<input class="form-control" type="search" id="myInput" onkeyup="filtroBusqueda()" placeholder="Buscar TTOO" aria-label="Search" />
 							</div>
 						</form>
 					</div>
 				</div>
 
-				<div class="card editShadow mt-4 tabla-desktop">
+				<div class="card mt-3 tabla-desktop">
 					<div class="card-body">
 						<div class="table-responsive">
 							<table class="table" id="myTable">
@@ -100,16 +84,12 @@
 
 				<!-- *****************************MOBILE CARDS EDIT****************************** -->
 				<div class="container tabla-mobile" id="tabla-mobile">
-					<div
-						class="row row-cols-1 row-cols-sm-1 row-cols-md-3 mt-3"
-						id="servicesHomePage">
+					<div class="row row-cols-1 row-cols-sm-1 row-cols-md-3 mt-3" id="servicesHomePage">
 						<% results.forEach((ttoo) => { %>
 						<div class="col">
 							<div class="card mb-2 cardHome cardShadow" id="opera-codes">
 								<div class="card-header fixSizeHeadEdit">
-									<div class="my-0 text-center card-title">
-										<%= ttoo.nombre %>
-									</div>
+									<div class="my-0 text-center card-title"><%= ttoo.nombre %></div>
 								</div>
 								<div class="card-body">
 									<div class="accordion" id="accordionFlushExample">
@@ -131,12 +111,8 @@
 												aria-labelledby="flush-headingOne"
 												data-bs-parent="#accordionFlushExample">
 												<div class="accordion-body">
-													<p>
-														<strong>Código Opera: </strong><%= ttoo.cod_opera %>
-													</p>
-													<p>
-														<strong>Descripción: </strong><%= ttoo.operacion %>
-													</p>
+													<p><strong>Código Opera: </strong><%= ttoo.cod_opera %></p>
+													<p><strong>Descripción: </strong><%= ttoo.operacion %></p>
 
 													<hr />
 													<div class="d-flex justify-content-between">

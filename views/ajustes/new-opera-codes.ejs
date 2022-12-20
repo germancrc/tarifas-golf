@@ -8,17 +8,13 @@
 		<!-- NAV LG -->
 		<nav class="navbar fixed-top navi">
 			<div class="container-fluid">
-				<span class="navbar-brand mb-0 h1" id="navbarLG"
-					>AJUSTES - CÓDIGOS OPERA</span
-				>
+				<span class="navbar-brand mb-0 h1" id="navbarLG">AJUSTES - CÓDIGOS OPERA</span>
 				<%- include ('../partials/ajustes/navbar-lg.ejs') %>
 			</div>
 		</nav>
 
 		<!-- NAV SM -->
-		<nav class="navbar navSmall fixed-top">
-			<%- include ('../partials/ajustes/navbar-sm.ejs') %>
-		</nav>
+		<nav class="navbar navSmall fixed-top"><%- include ('../partials/ajustes/navbar-sm.ejs') %></nav>
 		<% } %>
 
 		<div class="content">
@@ -31,34 +27,16 @@
 						<div class="card-body">
 							<form id="code-form" action="/createCode" method="POST">
 								<div class="mb-3">
-									<label for="codeTitle" id="codeTitle" class="form-label"
-										>Código</label
-									>
-									<input
-										type="text"
-										class="form-control"
-										name="codigo"
-										placeholder="Escriba el Código"
-										required />
+									<label for="codeTitle" id="codeTitle" class="form-label">Código</label>
+									<input type="text" class="form-control" name="codigo" placeholder="Escriba el Código" required />
 								</div>
 								<div class="mb-3">
-									<label for="codeName" id="codeName" class="form-label"
-										>Nombre</label
-									>
-									<input
-										type="text"
-										class="form-control"
-										name="nombre"
-										placeholder="Escriba el Nombre"
-										required />
+									<label for="codeName" id="codeName" class="form-label">Nombre</label>
+									<input type="text" class="form-control" name="nombre" placeholder="Escriba el Nombre" required />
 								</div>
 								<div class="mb-3">
 									<label for="code-use" class="form-label">Dónde se usa?</label>
-									<select
-										class="form-select mb-3"
-										name="uso"
-										aria-label="uso-selector"
-										required>
+									<select class="form-select mb-3" name="uso" aria-label="uso-selector" required>
 										<option selected value="">Elegir:</option>
 										<option value="Campo Golf">Campo Golf</option>
 										<option value="Mini Golf">Mini Golf</option>
@@ -67,30 +45,12 @@
 								</div>
 								<div class="mb-3">
 									<label for="code-desc" class="form-label">Descripción</label>
-									<textarea
-										class="form-control"
-										id="descripcion"
-										name="descripcion"
-										placeholder="Descripción"
-										rows="3"
-										required></textarea>
+									<textarea class="form-control" id="descripcion" name="descripcion" placeholder="Descripción" rows="3" required></textarea>
 								</div>
 
-								<div
-									class="mt-4 d-grid gap-2 d-md-flex justify-content-md-start">
-									<button
-										type="submit"
-										class="btn btn-success btnAction btnShadow"
-										id="botonAdd"
-										disabled>
-										AGREGAR
-									</button>
-									<a
-										href="/ajustes/opera-codes"
-										type="button"
-										class="btn btn-danger btnAction btnShadow"
-										>CANCELAR</a
-									>
+								<div class="new-form-button">
+									<button type="submit" class="btn btn-success btnAction btnShadow" id="botonAdd">AGREGAR</button>
+									<a href="/ajustes/opera-codes" type="button" class="btn btn-danger btnAction btnShadow">CANCELAR</a>
 								</div>
 							</form>
 						</div>

@@ -125,11 +125,11 @@
 									<% } %>
 									<td><%= guia.actualizado %></td>
 									<td>
-										<a href="/ajustes/guias-conf/<%= guia.id %>" class="btn btn-sm btn-warning btnEdit"><i class="bi bi-pencil"></i></a>
+										<a href="/ajustes/guias-conf/<%= guia.id %>" class="btn btn-sm btn-warning btnAction btnShadow"><i class="bi bi-pencil"></i></a>
 
 										<a
 											href="/ajustes/guias-conf/deleteGuide/<%= guia.id %>"
-											class="btn btn-sm btn-danger btnDelete"
+											class="btn btn-sm btn-danger btnAction btnShadow"
 											onclick="return confirm('Seguro que quiere borrar la Guia de <%= guia.aplicacion %> ?')"
 											><i class="bi bi-trash"></i
 										></a>

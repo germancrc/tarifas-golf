@@ -8,17 +8,13 @@
 		<!-- NAV LG -->
 		<nav class="navbar fixed-top navi">
 			<div class="container-fluid">
-				<span class="navbar-brand mb-0 h1" id="navbarLG"
-					>AJUSTES - USUARIOS</span
-				>
+				<span class="navbar-brand mb-0 h1" id="navbarLG">AJUSTES - USUARIOS</span>
 				<%- include ('../partials/ajustes/navbar-lg.ejs') %>
 			</div>
 		</nav>
 
 		<!-- NAV SM -->
-		<nav class="navbar navSmall fixed-top">
-			<%- include ('../partials/ajustes/navbar-sm.ejs') %>
-		</nav>
+		<nav class="navbar navSmall fixed-top"><%- include ('../partials/ajustes/navbar-sm.ejs') %></nav>
 		<% } %>
 
 		<div class="content">
@@ -41,80 +37,49 @@
 										required />
 								</div>
 								<div class="mb-3">
-									<label for="userNickname" class="form-label"
-										>Nombre de usuario</label
-									>
-									<input
-										type="text"
-										class="form-control"
-										name="username"
-										placeholder="Nickname"
-										required
-										onkeyup="mayus(this)"
-										required />
+									<label for="userNickname" class="form-label">Nombre de usuario</label>
+									<input type="text" class="form-control" name="username" placeholder="Nickname" required onkeyup="mayus(this)" required />
 								</div>
-								<div class="mb-3">
-									<div class="row">
-										<div class="col">
-											<label for="userPass" class="form-label"
-												>Contraseña</label
-											>
-											<input
-												type="password"
-												class="form-control"
-												name="password"
-												id="password"
-												placeholder="Escriba la Contraseña"
-												onkeyup="checkPass();"
-												required />
-											<div class="invalid-feedback">Ingrese la contraseña.</div>
-										</div>
-										<div class="col">
-											<label for="userPass-conf" class="form-label"
-												>Repita la Contraseña</label
-											>
-											<input
-												type="password"
-												class="form-control"
-												name="pass-conf"
-												id="pass-conf"
-												placeholder="Repita la Contraseña"
-												onkeyup="checkPass();"
-												required />
-											<div class="mt-2">
-												<span id="message"></span>
-											</div>
+								<div class="row row-cols-1 row-cols-sm-2">
+									<div class="col mb-3">
+										<label for="userPass" class="form-label">Contraseña</label>
+										<input
+											type="password"
+											class="form-control"
+											name="password"
+											id="password"
+											placeholder="Escriba la Contraseña"
+											onkeyup="checkPass();"
+											required />
+										<div class="invalid-feedback">Ingrese la contraseña.</div>
+									</div>
+									<div class="col">
+										<label for="userPass-conf" class="form-label">Repita la Contraseña</label>
+										<input
+											type="password"
+											class="form-control"
+											name="pass-conf"
+											id="pass-conf"
+											placeholder="Repita la Contraseña"
+											onkeyup="checkPass();"
+											required />
+										<div class="mt-2">
+											<span id="message"></span>
 										</div>
 									</div>
 								</div>
-								<div class="mb-3">
+								<div class="mb-4">
 									<label for="userRole" class="form-label">Rol</label>
-									<select
-										class="form-select"
-										name="rol"
-										aria-label="role-selector"
-										required>
+									<select class="form-select" name="rol" aria-label="role-selector" required>
 										<option selected value="">Elija el rol del usuario</option>
 										<option value="Admin">Admin</option>
 										<option value="User">User</option>
 									</select>
 								</div>
 
-								<div
-									class="mt-4 d-grid gap-2 d-md-flex justify-content-md-start">
-									<button
-										type="submit"
-										class="btn btn-success btnAction btnShadow"
-										id="botonAdd"
-										disabled>
-										AGREGAR
-									</button>
-									<a
-										href="/ajustes/usuarios-conf"
-										type="button"
-										class="btn btn-danger btnAction btnShadow"
-										>CANCELAR</a
-									>
+								<div class="new-form-button">
+									<button type="submit" class="btn btn-success btnAction btnShadow" id="botonAdd" disabled>AGREGAR</button>
+									<a href="/ajustes/usuarios-conf" type="button" class="btn btn-danger btnAction btnShadow">CANCELAR</a>
 								</div>
 							</form>
 						</div>

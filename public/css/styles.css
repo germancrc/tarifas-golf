@@ -5,10 +5,6 @@ body {
 	min-height: 100vh;
 }
 
-.searchbar-top {
-	margin-top: 6rem;
-}
-
 #inputBuscar {
 	position: relative;
 	display: flex;
@@ -159,9 +155,9 @@ p {
 }
 
 .cardShadow {
-	box-shadow: 9px 10px 20px -12px rgba(0, 0, 0, 0.64);
-	-webkit-box-shadow: 9px 10px 20px -12px rgba(0, 0, 0, 0.64);
-	-moz-box-shadow: 9px 10px 20px -12px rgba(0, 0, 0, 0.64);
+	box-shadow: 0px 3px 5px -3px rgba(0, 0, 0, 0.75);
+	-webkit-box-shadow: 0px 3px 5px -3px rgba(0, 0, 0, 0.75);
+	-moz-box-shadow: 0px 3px 5px -3px rgba(0, 0, 0, 0.75);
 }
 
 .cardBottom {
@@ -175,12 +171,12 @@ p {
 
 .btnAction {
 	/* width: 50px; */
-	height: 2.4rem;
-	background: #4e9caf;
-	padding: 0.4rem 2rem 0.4rem 2rem;
+	/* height: 2.4rem; */
+	/* background: #4e9caf; */
+	padding: 0.3rem 1.8rem 0.3rem 1.8rem;
 	text-align: center;
 	border-radius: 5px;
-	color: white;
+	/* color: white; */
 	/* font-weight: bold; */
 	font-size: medium;
 	line-height: 25px;
@@ -190,6 +186,10 @@ p {
 	box-shadow: 0px 3px 5px -3px rgba(0, 0, 0, 0.75);
 	-webkit-box-shadow: 0px 3px 5px -3px rgba(0, 0, 0, 0.75);
 	-moz-box-shadow: 0px 3px 5px -3px rgba(0, 0, 0, 0.75);
+}
+
+.hide-column-message {
+	display: none;
 }
 
 .logo,
@@ -236,8 +236,10 @@ p {
 }
 
 .info:hover {
+	transition: all 0.15s ease;
 	background-color: #ffffff;
-	/* font-weight: bold; */
+	font-weight: bold;
+	border-color: black;
 }
 
 .info:hover .verInfo {
@@ -447,6 +449,11 @@ a.active .flecha {
 	display: none;
 }
 
+.new-form-button {
+	display: flex;
+	justify-content: space-around;
+}
+
 /* ****************************************************MEDIA QUERIES------------------------------------------------ */
 
 @media (min-width: 700px) and (max-width: 1152px) {
@@ -459,9 +466,17 @@ a.active .flecha {
 	.hide-column {
 		display: none;
 	}
+
+	.hide-column-message {
+		display: block;
+	}
 }
 
 @media screen and (max-width: 700px) {
+	.hide-column {
+		display: none;
+	}
+
 	.inputSize {
 		width: 100%;
 	}
@@ -474,10 +489,14 @@ a.active .flecha {
 		display: block;
 	}
 
-	/* .bi-pencil,
-	.bi-trash {
+	.btnAction {
+		padding: 0.4rem 2.2rem 0.4rem 2.2rem;
+	}
+
+	.bi-trash,
+	.bi-pencil {
 		font-size: large;
-	} */
+	}
 
 	.tabla-desktop {
 		display: none;

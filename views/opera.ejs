@@ -80,48 +80,46 @@
 		</nav>
 
 		<div class="content">
-			<div class="row afterNav">
-				<div class="col-3">
-					<img src="/img/opera.png" class="logoHotelrate" alt="" />
-					<h3 class="headerSmall text-uppercase" id="titulo">CÓDIGOS OPERA</h3>
-				</div>
-
-				<div class="col" id="inputBuscar">
-					<form role="search" class="vertical-center">
-						<div class="input-group">
-							<span class="input-group-text" id="basic-addon1"><i class="bi bi-search"></i></span>
-							<input class="form-control" type="search" id="myInput" onkeyup="filtroBusqueda()" placeholder="Buscar código" aria-label="Search" />
-						</div>
-					</form>
-				</div>
+			<div class="mb-3 afterNav">
+				<form role="search">
+					<div class="input-group">
+						<span class="input-group-text" id="basic-addon1"><i class="bi bi-search"></i></span>
+						<input
+							class="form-control"
+							type="search"
+							id="myInput"
+							onkeyup="filtroBusqueda(0.6)"
+							placeholder="Buscar Código Opera"
+							aria-label="Search" />
+					</div>
+				</form>
 			</div>
 
-			<div class="card editShadow mt-3">
+			<div class="card mt-2">
 				<div class="card-body">
-					<h3>Códigos Opera</h3>
 					<div class="table-responsive">
-						<table class="table table-striped" id="myTable">
+						<table class="table table-hover" id="myTable">
 							<thead id="tabla-vacia">
 								<tr>
-									<th scope="col" class="col-1">Código</th>
+									<th scope="col" class="col-2">Código</th>
 									<th scope="col" class="col-4">Nombre</th>
 									<th scope="col" class="col-2">Uso</th>
-									<th scope="col" class="col">Descripción</th>
+									<th scope="col" class="col-4 hide-column">Descripción</th>
 								</tr>
 							</thead>
 							<tbody>
 								<% results.forEach((code) => { %>
-								<tr>
-									<td><%= code.codigo %></td>
+								<tr class="info" onclick="alert('- <%= code.nombre %> -\n\n <%= code.descripcion %>')">
+									<td>
+										<%= code.codigo %>
+										<div class="verInfo hide-column">
+											- Ver Info
+											<i class="bi bi-info-circle"></i>
+										</div>
+									</td>
 									<td><%= code.nombre%></td>
 									<td><%= code.uso%></td>
-									<td>
-										<button
-											class="btn btn-sm btn-success btnEdit"
-											onclick="return alert('<%= code.codigo %> - <%= code.nombre %>: <%= code.descripcion %>')">
-											<i class="bi bi-info-circle"></i>
-										</button>
-									</td>
+									<td class="hide-text hide-column"><span><%= code.descripcion %></span></td>
 								</tr>
 								<% }) %>
 							</tbody>

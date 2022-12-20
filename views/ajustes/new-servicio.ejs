@@ -8,17 +8,13 @@
 		<!-- NAV LG -->
 		<nav class="navbar fixed-top navi">
 			<div class="container-fluid">
-				<span class="navbar-brand mb-0 h1" id="navbarLG"
-					>AJUSTES - SERVICIOS</span
-				>
+				<span class="navbar-brand mb-0 h1" id="navbarLG">AJUSTES - SERVICIOS</span>
 				<%- include ('../partials/ajustes/navbar-lg.ejs') %>
 			</div>
 		</nav>
 
 		<!-- NAV SM -->
-		<nav class="navbar navSmall fixed-top">
-			<%- include ('../partials/ajustes/navbar-sm.ejs') %>
-		</nav>
+		<nav class="navbar navSmall fixed-top"><%- include ('../partials/ajustes/navbar-sm.ejs') %></nav>
 		<% } %>
 
 		<div class="content">
@@ -31,66 +27,28 @@
 						<div class="card-body">
 							<form id="services-form" action="/createService" method="POST">
 								<div class="mb-3">
-									<label for="service-title" class="form-label"
-										>Nombre del servicio</label
-									>
-									<input
-										type="text"
-										class="form-control"
-										name="nombre"
-										placeholder="Nombre del servicio"
-										required />
+									<label for="service-title" class="form-label">Nombre del servicio</label>
+									<input type="text" class="form-control" name="nombre" placeholder="Nombre del servicio" required />
 								</div>
 								<div class="mb-3">
 									<label for="service-price" class="form-label">Precio</label>
-									<input
-										type="number"
-										class="form-control"
-										name="precio"
-										placeholder="Precio del servicio "
-										required />
+									<input type="number" class="form-control" name="precio" placeholder="Precio del servicio " required />
 								</div>
 								<label for="rate-opera" class="form-label">Código OPERA </label>
-								<select
-									class="form-select mb-3"
-									name="cod_opera"
-									id="codOpera"
-									aria-label="cliente-selector"
-									required>
+								<select class="form-select mb-3" name="cod_opera" id="codOpera" aria-label="cliente-selector" required>
 									<option disabled selected value="">Elegir:</option>
 									<% results.forEach(code => { %>
-									<option value="<%= code.codigo %>">
-										<%= code.codigo %> - <%= code.nombre %>
-									</option>
+									<option value="<%= code.codigo %>"><%= code.codigo %> - <%= code.nombre %></option>
 									<% }) %>
 								</select>
 								<div class="mb-3">
-									<label for="TextareaService" class="form-label"
-										>Descripción</label
-									>
-									<textarea
-										class="form-control"
-										name="descripcion"
-										rows="3"
-										placeholder="Descripción del servicio"
-										required></textarea>
+									<label for="TextareaService" class="form-label">Descripción</label>
+									<textarea class="form-control" name="descripcion" rows="3" placeholder="Descripción del servicio" required></textarea>
 								</div>
 
-								<div
-									class="mt-4 d-grid gap-2 d-md-flex justify-content-md-start">
-									<button
-										type="submit"
-										class="btn btn-success btnAction btnShadow"
-										id="botonAdd"
-										disabled>
-										AGREGAR
-									</button>
-									<a
-										href="/ajustes/servicios-conf"
-										type="button"
-										class="btn btn-danger btnAction btnShadow"
-										>CANCELAR</a
-									>
+								<div class="new-form-button">
+									<button type="submit" class="btn btn-success btnAction btnShadow" id="botonAdd" disabled>AGREGAR</button>
+									<a href="/ajustes/servicios-conf" type="button" class="btn btn-danger btnAction btnShadow">CANCELAR</a>
 								</div>
 							</form>
 						</div>

@@ -5,6 +5,10 @@ body {
 	min-height: 100vh;
 }
 
+.searchbar-top {
+	margin-top: 6rem;
+}
+
 #inputBuscar {
 	position: relative;
 	display: flex;
@@ -66,21 +70,13 @@ p {
 .footer,
 .banner,
 .banner-mg,
-.navi,
-.banner-tarifa-hotel,
-.banner-tarifa-local,
-.banner-tarifa-ttoo,
-.banner-tarifa-turista {
+.navi {
 	margin-left: 160px;
 	width: calc(100% -160px);
 }
 
 .banner,
-.banner-mg,
-.banner-tarifa-hotel,
-.banner-tarifa-local,
-.banner-tarifa-ttoo,
-.banner-tarifa-turista {
+.banner-mg {
 	margin-bottom: 25px;
 	/* Position and center the image to scale nicely on all screens */
 	background-position: center;
@@ -98,36 +94,9 @@ p {
 	height: 40vh;
 }
 
-/* .bannerGolf {
-	height: 20vh;
-	box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.75);
-	-webkit-box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.75);
-	-moz-box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.75);
-} */
-
 .banner-mg {
 	background-image: url(/img/minigolf-air.jpg);
 	height: 40vh;
-}
-
-.banner-tarifa-hotel {
-	background-image: url(/img/hrlogo.png);
-	height: 25vh;
-}
-
-.banner-tarifa-local {
-	background-image: url(/img/domfedo.png);
-	height: 25vh;
-}
-
-.banner-tarifa-ttoo {
-	background-image: url(/img/ttoo.png);
-	height: 25vh;
-}
-
-.banner-tarifa-turista {
-	background-image: url(/img/banderas.png);
-	height: 25vh;
 }
 
 .navbar-brand {
@@ -567,11 +536,7 @@ a.active .flecha {
 	}
 
 	.banner,
-	.banner-mg,
-	.banner-tarifa-hotel,
-	.banner-tarifa-local,
-	.banner-tarifa-ttoo,
-	.banner-tarifa-turista {
+	.banner-mg {
 		margin-left: 0px;
 		margin-top: 56px;
 		height: 13vh;
@@ -609,11 +574,6 @@ a.active .flecha {
 	.tableHead {
 		display: none;
 	}
-
-	/* .bannerGolf {
-		height: 30vh;
-		width: 90vw;
-	} */
 
 	.navi {
 		display: none;
@@ -673,12 +633,6 @@ a.active .flecha {
 		height: 5.5rem;
 	}
 
-	/* .bannerGolf {
-		height: 30vh;
-		width: 92vw;
-		margin-left: auto;
-		margin-right: auto;
-	} */
 	.sidebar {
 		display: none;
 	}

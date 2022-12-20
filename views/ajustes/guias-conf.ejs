@@ -8,17 +8,13 @@
 		<!-- NAV LG -->
 		<nav class="navbar fixed-top navi">
 			<div class="container-fluid">
-				<span class="navbar-brand mb-0 h1 text-uppercase" id="navbarLG"
-					>AJUSTES - guías
-				</span>
+				<span class="navbar-brand mb-0 h1 text-uppercase" id="navbarLG">AJUSTES - guías </span>
 				<%- include ('../partials/ajustes/navbar-lg.ejs') %>
 			</div>
 		</nav>
 
 		<!-- NAV SM -->
-		<nav class="navbar navSmall fixed-top">
-			<%- include ('../partials/ajustes/navbar-sm.ejs') %>
-		</nav>
+		<nav class="navbar navSmall fixed-top"><%- include ('../partials/ajustes/navbar-sm.ejs') %></nav>
 		<% } %>
 
 		<div class="content">
@@ -30,12 +26,7 @@
 							<hr />
 						</div>
 
-						<form
-							id="guides-form"
-							name="form1"
-							action="/uploadGuide"
-							enctype="multipart/form-data"
-							method="POST">
+						<form id="guides-form" name="form1" action="/uploadGuide" enctype="multipart/form-data" method="POST">
 							<div class="row row-cols-1 row-cols-sm-1 row-cols-md-2">
 								<div class="col">
 									<div class="mb-3">
@@ -62,14 +53,7 @@
 												aria-label="Upload"
 												onChange="inform()"
 												required />
-											<button
-												class="btn btn-success btnAction"
-												id="upload"
-												type="submit"
-												disabled
-												onclick="showSpinner()">
-												Enviar
-											</button>
+											<button class="btn btn-success btnAction" id="upload" type="submit" disabled onclick="showSpinner()">Enviar</button>
 										</div>
 									</div>
 								</div>
@@ -88,11 +72,7 @@
 						<div id="showSpin" class="d-none">
 							<div class="d-flex align-items-center mt-1">
 								<strong>Subiendo archivo...</strong>
-								<div
-									class="spinner-border me-auto text-danger"
-									id="spinnerUpload"
-									role="status"
-									aria-hidden="true"></div>
+								<div class="spinner-border me-auto text-danger" id="spinnerUpload" role="status" aria-hidden="true"></div>
 							</div>
 						</div>
 					</div>
@@ -108,16 +88,8 @@
 						<div class="mb-3 inputSize">
 							<form role="search">
 								<div class="input-group">
-									<span class="input-group-text" id="basic-addon1"
-										><i class="bi bi-search"></i
-									></span>
-									<input
-										class="form-control"
-										type="search"
-										id="myInput"
-										onkeyup="filtroBusqueda()"
-										placeholder="Buscar Guia"
-										aria-label="Search" />
+									<span class="input-group-text" id="basic-addon1"><i class="bi bi-search"></i></span>
+									<input class="form-control" type="search" id="myInput" onkeyup="filtroBusqueda()" placeholder="Buscar Guia" aria-label="Search" />
 								</div>
 							</form>
 						</div>
@@ -153,11 +125,7 @@
 									<% } %>
 									<td><%= guia.actualizado %></td>
 									<td>
-										<a
-											href="/ajustes/guias-conf/<%= guia.id %>"
-											class="btn btn-sm btn-warning btnEdit"
-											><i class="bi bi-pencil"></i
-										></a>
+										<a href="/ajustes/guias-conf/<%= guia.id %>" class="btn btn-sm btn-warning btnEdit"><i class="bi bi-pencil"></i></a>
 
 										<a
 											href="/ajustes/guias-conf/deleteGuide/<%= guia.id %>"
@@ -173,16 +141,12 @@
 
 						<!-- *****************************MOBILE CARDS EDIT****************************** -->
 						<div class="container tabla-mobile" id="tabla-mobile">
-							<div
-								class="row row-cols-1 row-cols-sm-1 row-cols-md-3 mt-3"
-								id="servicesHomePage">
+							<div class="row row-cols-1 row-cols-sm-1 row-cols-md-3 mt-3" id="servicesHomePage">
 								<% results.forEach((guia) => { %>
 								<div class="col">
 									<div class="card mb-2 cardHome cardShadow" id="opera-codes">
 										<div class="card-header fixSizeHeadEdit">
-											<div class="my-0 text-center card-title">
-												<%= guia.aplicacion %> | <%= guia.actualizado %>
-											</div>
+											<div class="my-0 text-center card-title"><%= guia.aplicacion %> | <%= guia.actualizado %></div>
 										</div>
 										<div class="card-body">
 											<div class="accordion" id="accordionFlushExample">
@@ -224,10 +188,7 @@
 																<%= guia.fileSize %> bytes
 															</p>
 															<% } %>
-															<p>
-																<strong>Actualizado:</strong><%=
-																guia.actualizado %>
-															</p>
+															<p><strong>Actualizado:</strong><%= guia.actualizado %></p>
 
 															<hr />
 															<div class="d-flex justify-content-between">

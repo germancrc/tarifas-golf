@@ -93,13 +93,10 @@ function mayus(e) {
 	e.value = e.value.toUpperCase()
 }
 
-//titulos
-let titulo = document.getElementById('titulo').innerHTML
-document.getElementById('nuevoTitulo').innerHTML = titulo + ' - Guía Hard Rock Golf PC'
-
-// titulos entre navbars
+// titulos
 let navbarLG = document.getElementById('navbarLG').innerHTML
 document.getElementById('navbarSM').innerHTML = navbarLG
+document.getElementById('nuevoTitulo').innerHTML = navbarLG + ' - Guía Hard Rock Golf PC'
 
 //Show / Hide pass changes
 function openPassEdit() {

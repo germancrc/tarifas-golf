@@ -54,10 +54,13 @@
 								<tbody>
 									<% results.forEach((rate) => { %>
 									<tr>
-										<td data-titulo="nombre:"><%= rate.nombre %></td>
-										<td data-titulo="precio:">USD <%= rate.precio%>.00</td>
-										<td data-titulo="Opera:"><%= rate.cod_opera%></td>
-										<% if(rate.tips.length > 40) { %>
+										<td><%= rate.nombre %></td>
+										<td>USD <%= rate.precio%>.00</td>
+										<% if (rate.cod_opera == 0) { %>
+										<td>NO POSTEAR</td>
+										<% } else { %>
+										<td><%= rate.cod_opera%></td>
+										<% } %> <% if(rate.tips.length > 40) { %>
 										<td data-titulo="Tips:"><%= rate.tips.slice(0,40) %>...</td>
 
 										<% } else { %>

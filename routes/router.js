@@ -26,12 +26,7 @@ router.get('/', (req, res) => {
 })
 
 // VERIFICAR SI ES ADMIN O USER
-router.get(
-	'/ajustes',
-	authController.isAuthenticated,
-	authController.checkAdmin,
-	(req, res) => {}
-)
+router.get('/ajustes', authController.isAuthenticated, authController.checkAdmin, (req, res) => {})
 
 //router de las vistas
 router.get('/index', authController.isAuthenticated, (req, res) => {
@@ -71,21 +66,18 @@ router.get('/guias', authController.isAuthenticated, (req, res) => {
 })
 
 router.get('/opera', authController.isAuthenticated, (req, res) => {
-	db.query(
-		'SELECT * FROM opera_codes WHERE nombre != "NO SE POSTEA EN OPERA" order by uso, codigo asc',
-		(error, results) => {
-			if (results) {
-				res.render('opera', {
-					user: req.user,
-					alert: false,
-					results: results,
-					error: false,
-				})
-			} else {
-				throw error
-			}
+	db.query('SELECT * FROM opera_codes WHERE nombre != "NO SE POSTEA EN OPERA" order by uso, codigo asc', (error, results) => {
+		if (results) {
+			res.render('opera', {
+				user: req.user,
+				alert: false,
+				results: results,
+				error: false,
+			})
+		} else {
+			throw error
 		}
-	)
+	})
 })
 
 router.get('/minigolf', authController.isAuthenticated, (req, res) => {
@@ -103,86 +95,61 @@ router.get('/minigolf', authController.isAuthenticated, (req, res) => {
 })
 //**************************RUTAS TARIFAS****************************/
 
-router.get(
-	'/tarifas/tarifa-hotel',
-	authController.isAuthenticated,
-	(req, res) => {
-		db.query(
-			'SELECT * FROM tarifas where cliente IN ("hotel", "varios") ORDER BY nombre asc',
-			(error, results) => {
-				if (results) {
-					res.render('tarifas/tarifa-hotel', {
-						user: req.user,
-						results: results,
-						alert: false,
-					})
-				} else {
-					throw error
-				}
-			}
-		)
-	}
-)
+router.get('/tarifas/tarifa-hotel', authController.isAuthenticated, (req, res) => {
+	db.query('SELECT * FROM tarifas where cliente IN ("hotel", "varios") ORDER BY nombre asc', (error, results) => {
+		if (results) {
+			res.render('tarifas/tarifa-hotel', {
+				user: req.user,
+				results: results,
+				alert: false,
+			})
+		} else {
+			throw error
+		}
+	})
+})
 
-router.get(
-	'/tarifas/tarifa-local',
-	authController.isAuthenticated,
-	(req, res) => {
-		db.query(
-			'SELECT * FROM tarifas where cliente IN ("local", "varios") ORDER BY nombre asc',
-			(error, results) => {
-				if (results) {
-					res.render('tarifas/tarifa-local', {
-						user: req.user,
-						results: results,
-						alert: false,
-					})
-				} else {
-					throw error
-				}
-			}
-		)
-	}
-)
+router.get('/tarifas/tarifa-local', authController.isAuthenticated, (req, res) => {
+	db.query('SELECT * FROM tarifas where cliente IN ("local", "varios") ORDER BY nombre asc', (error, results) => {
+		if (results) {
+			res.render('tarifas/tarifa-local', {
+				user: req.user,
+				results: results,
+				alert: false,
+			})
+		} else {
+			throw error
+		}
+	})
+})
 
-router.get(
-	'/tarifas/tarifa-ttoo',
-	authController.isAuthenticated,
-	(req, res) => {
-		db.query('SELECT * FROM ttooRates', (error, results) => {
-			if (results) {
-				res.render('tarifas/tarifa-ttoo', {
-					user: req.user,
-					results: results,
-					alert: false,
-				})
-			} else {
-				throw error
-			}
-		})
-	}
-)
+router.get('/tarifas/tarifa-ttoo', authController.isAuthenticated, (req, res) => {
+	db.query('SELECT * FROM ttooRates', (error, results) => {
+		if (results) {
+			res.render('tarifas/tarifa-ttoo', {
+				user: req.user,
+				results: results,
+				alert: false,
+			})
+		} else {
+			throw error
+		}
+	})
+})
 
-router.get(
-	'/tarifas/tarifa-turista',
-	authController.isAuthenticated,
-	(req, res) => {
-		db.query(
-			'SELECT * FROM tarifas where cliente IN ("extranjero", "varios") ORDER BY nombre asc',
-			(error, results) => {
-				if (results) {
-					res.render('tarifas/tarifa-turista', {
-						user: req.user,
-						results: results,
-						alert: false,
-					})
-				} else {
-					throw error
-				}
-			}
-		)
-	}
-)
+router.get('/tarifas/tarifa-turista', authController.isAuthenticated, (req, res) => {
+	db.query('SELECT * FROM tarifas where cliente IN ("extranjero", "varios") ORDER BY nombre asc', (error, results) => {
+		if (results) {
+			res.render('tarifas/tarifa-turista', {
+				user: req.user,
+				results: results,
+				alert: false,
+			})
+		} else {
+			throw error
+		}
+	})
+})
 
 router.get('/tarifas', authController.isAuthenticated, (req, res) => {
 	res.render('tarifas', { user: req.user, alert: false })
@@ -194,184 +161,52 @@ router.get('/tarifas', authController.isAuthenticated, (req, res) => {
 
 //--------------------------------------SERVICIOS--------------------------------------------------------------
 
-router.get(
-	'/ajustes/servicios-conf',
-	authController.isAuthenticated,
-	servicesController.getServices
-)
-router.get(
-	'/ajustes/new-servicio',
-	authController.isAuthenticated,
-	servicesController.getOperaCodes
-)
-router.get(
-	'/ajustes/servicios-conf/:id',
-	authController.isAuthenticated,
-	servicesController.getService
-)
-router.post(
-	'/ajustes/servicios-conf/:id',
-	authController.isAuthenticated,
-	servicesController.updateService
-)
-router.get(
-	'/ajustes/servicios-conf/deleteService/:id',
-	authController.isAuthenticated,
-	servicesController.deleteService
-)
+router.get('/ajustes/servicios-conf', authController.isAuthenticated, servicesController.getServices)
+router.get('/ajustes/new-servicio', authController.isAuthenticated, servicesController.getOperaCodes)
+router.get('/ajustes/servicios-conf/:id', authController.isAuthenticated, servicesController.getService)
+router.post('/ajustes/servicios-conf/:id', authController.isAuthenticated, servicesController.updateService)
+router.get('/ajustes/servicios-conf/deleteService/:id', authController.isAuthenticated, servicesController.deleteService)
 
 //--------------------------------------TARIFAS----------------------------------------------------------
-router.get(
-	'/ajustes/tarifas-conf',
-	authController.isAuthenticated,
-	ratesController.getRatesCg
-)
-router.get(
-	'/ajustes/new-tarifas-cg',
-	authController.isAuthenticated,
-	ratesController.getOperaCodes
-)
-router.get(
-	'/ajustes/tarifas-conf/:id',
-	authController.isAuthenticated,
-	ratesController.getRateCg
-)
-router.post(
-	'/ajustes/tarifas-conf/:id',
-	authController.isAuthenticated,
-	ratesController.updateRateCg
-)
-router.get(
-	'/ajustes/tarifas-conf/deleteRate/:id',
-	authController.isAuthenticated,
-	ratesController.deleteRateCg
-)
+router.get('/ajustes/tarifas-conf', authController.isAuthenticated, ratesController.getRatesCg)
+router.get('/ajustes/new-tarifas-cg', authController.isAuthenticated, ratesController.getOperaCodes)
+router.get('/ajustes/tarifas-conf/:id', authController.isAuthenticated, ratesController.getRateCg)
+router.post('/ajustes/tarifas-conf/:id', authController.isAuthenticated, ratesController.updateRateCg)
+router.get('/ajustes/tarifas-conf/deleteRate/:id', authController.isAuthenticated, ratesController.deleteRateCg)
 
 //---------------------------------------TARIFAS MINI GOLF-----------------------------------
-router.get(
-	'/ajustes/tarifas-mg',
-	authController.isAuthenticated,
-	ratesMgController.getRatesMg
-)
-router.get(
-	'/ajustes/new-tarifas-mg',
-	authController.isAuthenticated,
-	ratesMgController.getOperaCodes
-)
-router.get(
-	'/ajustes/tarifas-mg/:id',
-	authController.isAuthenticated,
-	ratesMgController.getRateMg
-)
-router.post(
-	'/ajustes/tarifas-mg/:id',
-	authController.isAuthenticated,
-	ratesMgController.updateRateMg
-)
-router.get(
-	'/ajustes/tarifas-mg/deleteRateMg/:id',
-	authController.isAuthenticated,
-	ratesMgController.deleteRateMg
-)
+router.get('/ajustes/tarifas-mg', authController.isAuthenticated, ratesMgController.getRatesMg)
+router.get('/ajustes/new-tarifas-mg', authController.isAuthenticated, ratesMgController.getOperaCodes)
+router.get('/ajustes/tarifas-mg/:id', authController.isAuthenticated, ratesMgController.getRateMg)
+router.post('/ajustes/tarifas-mg/:id', authController.isAuthenticated, ratesMgController.updateRateMg)
+router.get('/ajustes/tarifas-mg/deleteRateMg/:id', authController.isAuthenticated, ratesMgController.deleteRateMg)
 
 //---------------------------------------TOUR OPERADORES-------------------------------------------
-router.get(
-	'/ajustes/ttoo-conf',
-	authController.isAuthenticated,
-	ttooController.getTtoos
-)
-router.get(
-	'/ajustes/new-ttoo',
-	authController.isAuthenticated,
-	ttooController.getOperaCodes
-)
-router.get(
-	'/ajustes/ttoo-conf/:id',
-	authController.isAuthenticated,
-	ttooController.getTtoo
-)
-router.post(
-	'/ajustes/ttoo-conf/:id',
-	authController.isAuthenticated,
-	ttooController.updateTtoo
-)
-router.get(
-	'/ajustes/ttoo-conf/deleteTtoo/:id',
-	authController.isAuthenticated,
-	ttooController.deleteTtoo
-)
+router.get('/ajustes/ttoo-conf', authController.isAuthenticated, ttooController.getTtoos)
+router.get('/ajustes/new-ttoo', authController.isAuthenticated, ttooController.getOperaCodes)
+router.get('/ajustes/ttoo-conf/:id', authController.isAuthenticated, ttooController.getTtoo)
+router.post('/ajustes/ttoo-conf/:id', authController.isAuthenticated, ttooController.updateTtoo)
+router.get('/ajustes/ttoo-conf/deleteTtoo/:id', authController.isAuthenticated, ttooController.deleteTtoo)
 
 //---------------------------------------CODIGOS OPERA-------------------------------------------
-router.get(
-	'/ajustes/opera-codes',
-	authController.isAuthenticated,
-	codesController.getCodes
-)
-router.get(
-	'/ajustes/new-opera-codes',
-	authController.isAuthenticated,
-	codesController.getOperaCodes
-)
-router.get(
-	'/ajustes/opera-codes/:id',
-	authController.isAuthenticated,
-	codesController.getCode
-)
-router.post(
-	'/ajustes/opera-codes/:id',
-	authController.isAuthenticated,
-	codesController.updateCode
-)
-router.get(
-	'/ajustes/opera-codes/deleteCode/:id',
-	authController.isAuthenticated,
-	codesController.deleteCode
-)
+router.get('/ajustes/opera-codes', authController.isAuthenticated, codesController.getCodes)
+router.get('/ajustes/new-opera-codes', authController.isAuthenticated, codesController.getOperaCodes)
+router.get('/ajustes/opera-codes/:id', authController.isAuthenticated, codesController.getCode)
+router.post('/ajustes/opera-codes/:id', authController.isAuthenticated, codesController.updateCode)
+router.get('/ajustes/opera-codes/deleteCode/:id', authController.isAuthenticated, codesController.deleteCode)
 
 //---------------------------------------GUIAS-------------------------------------------
-router.get(
-	'/ajustes/guias-conf',
-	authController.isAuthenticated,
-	guiasController.getGuides
-)
-router.get(
-	'/ajustes/guias-conf/deleteGuide/:id',
-	authController.isAuthenticated,
-	guiasController.deleteGuide
-)
+router.get('/ajustes/guias-conf', authController.isAuthenticated, guiasController.getGuides)
+router.get('/ajustes/guias-conf/deleteGuide/:id', authController.isAuthenticated, guiasController.deleteGuide)
 
-router.get(
-	'/downloadGuide/:id',
-	authController.isAuthenticated,
-	guiasController.downloadGuide
-)
+router.get('/downloadGuide/:id', authController.isAuthenticated, guiasController.downloadGuide)
 
 //---------------------------------------USUARIOS------------------------------------------------
-router.get(
-	'/ajustes/usuarios-conf',
-	authController.isAuthenticated,
-	usuariosController.getUsers
-)
-router.get(
-	'/ajustes/new-usuario',
-	authController.isAuthenticated,
-	usuariosController.newUser
-)
-router.get(
-	'/ajustes/usuarios-conf/:id',
-	authController.isAuthenticated,
-	usuariosController.getUser
-)
-router.post(
-	'/ajustes/usuarios-conf/:id',
-	authController.isAuthenticated,
-	usuariosController.updateUser
-)
-router.get(
-	'/ajustes/usuarios-conf/deleteUser/:id',
-	authController.isAuthenticated,
-	usuariosController.deleteUser
-)
+router.get('/ajustes/usuarios-conf', authController.isAuthenticated, usuariosController.getUsers)
+router.get('/ajustes/new-usuario', authController.isAuthenticated, usuariosController.newUser)
+router.get('/ajustes/usuarios-conf/:id', authController.isAuthenticated, usuariosController.getUser)
+router.post('/ajustes/usuarios-conf/:id', authController.isAuthenticated, usuariosController.updateUser)
+router.get('/ajustes/usuarios-conf/deleteUser/:id', authController.isAuthenticated, usuariosController.deleteUser)
 
 // *************************************FIN RUTAS AJUSTES************************************************
 
@@ -422,11 +257,7 @@ router.post('/createTtoo', ttooController.createTtoo)
 // router.post('/deleteRate/:id', ratesController.deleteRate)
 
 //router metodos controller Guias
-router.post(
-	'/uploadGuide',
-	upload.single('archivo'),
-	guiasController.uploadGuide
-)
+router.post('/uploadGuide', upload.single('archivo'), guiasController.uploadGuide)
 router.get('/getGuides', guiasController.getGuides)
 router.get('/deleteGuide', guiasController.deleteGuide)
 router.get('/downloadGuide', guiasController.downloadGuide)

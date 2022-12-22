@@ -8,17 +8,13 @@
 		<!-- NAV LG -->
 		<nav class="navbar fixed-top navi">
 			<div class="container-fluid">
-				<span class="navbar-brand mb-0 h1" id="navbarLG"
-					>AJUSTES - USUARIOS</span
-				>
+				<span class="navbar-brand mb-0 h1" id="navbarLG">AJUSTES - USUARIOS</span>
 				<%- include ('../partials/ajustes/navbar-lg.ejs') %>
 			</div>
 		</nav>
 
 		<!-- NAV SM -->
-		<nav class="navbar navSmall fixed-top">
-			<%- include ('../partials/ajustes/navbar-sm.ejs') %>
-		</nav>
+		<nav class="navbar navSmall fixed-top"><%- include ('../partials/ajustes/navbar-sm.ejs') %></nav>
 		<% } %>
 
 		<div class="content">
@@ -31,128 +27,65 @@
 						<div class="card-body">
 							<% if (user) { %>
 
-							<form
-								id="users-form"
-								action="/ajustes/usuarios-conf/<%= user.id %>"
-								method="POST">
-								<div class="mb-3">
-									<label for="userName" class="form-label">Nombre</label>
-									<input
-										type="text"
-										class="form-control"
-										name="nombre"
-										value="<%= user.nombre %>"
-										disabled />
-								</div>
-								<div class="mb-3">
-									<label for="userNickname" class="form-label"
-										>Nombre de usuario</label
-									>
-									<input
-										type="text"
-										class="form-control"
-										name="username"
-										value="<%= user.username %>"
-										disabled />
-								</div>
-								<hr />
-								<label class="mb-3">Qué desea modificar? </label>
-								<div class="mb-3">
-									<div class="form-check form-check-inline">
-										<input
-											class="form-check-input"
-											type="checkbox"
-											id="passcheck"
-											value="option1"
-											onchange="openPassEdit()" />
-										<label class="form-check-label" for="passcheck"
-											>Contraseña</label
-										>
-									</div>
-									<div class="form-check form-check-inline">
-										<input
-											class="form-check-input"
-											type="checkbox"
-											id="rolcheck"
-											value="option2"
-											onchange="openRolEdit()" />
-										<label class="form-check-label" for="rolcheck">Rol</label>
-									</div>
-								</div>
-
-								<div class="mb-3 d-none" id="passEdit">
-									<label for="userActPass" class="form-label"
-										>Contraseña actual</label
-									>
-									<input
-										type="password"
-										class="form-control"
-										name="password"
-										id="password"
-										placeholder="Contraseña actual" />
+							<form id="users-form" action="/ajustes/usuarios-conf/<%= user.id %>" method="POST">
+								<div class="row row-cols-1 row-cols-sm-2">
 									<div class="mb-3">
-										<div class="row">
-											<div class="col">
-												<label for="userPass" class="form-label"
-													>Contraseña nueva</label
-												>
-												<input
-													type="password"
-													class="form-control"
-													name="newpass"
-													id="newpass"
-													placeholder="Escriba la Contraseña"
-													onkeyup="checkPass();" />
-											</div>
-											<div class="col">
-												<label for="userPass-conf" class="form-label"
-													>Repita la Contraseña</label
-												>
-												<input
-													type="password"
-													class="form-control"
-													name="pass-conf"
-													id="pass-conf"
-													placeholder="Repita la Contraseña"
-													onkeyup="checkPass();" />
-												<span id="message"></span>
-											</div>
+										<label for="userName" class="form-label">Nombre</label>
+										<input type="text" class="form-control" name="nombre" value="<%= user.nombre %>" disabled />
+									</div>
+									<div class="mb-3">
+										<label for="userNickname" class="form-label">Nombre de usuario</label>
+										<input type="text" class="form-control" name="username" value="<%= user.username %>" disabled />
+									</div>
+								</div>
+								<div class="row row-cols-1 row-cols-sm-2">
+									<div class="col mb-3" id="passEdit">
+										<label for="userActPass" class="form-label">Contraseña actual</label>
+										<input type="password" class="form-control" name="password" id="password" placeholder="Contraseña actual" />
+									</div>
+									<div class="col mb-3" id="rolEdit">
+										<label for="userRole" class="form-label">Rol</label>
+										<select class="form-select" name="rol" aria-label="role-selector" required>
+											<!-- <option>Elija el rol del usuario</option> -->
+											<% if(user.rol === "Admin"){ %>
+											<option selected value="Admin">Admin</option>
+											<option value="User">User</option>
+											<% } else { %>
+											<option value="Admin">Admin</option>
+											<option selected value="User">User</option>
+											<% } %>
+										</select>
+									</div>
+								</div>
+								<div class="mb-3">
+									<div class="row row-cols-1 row-cols-sm-2">
+										<div class="col">
+											<label for="userPass" class="form-label">Contraseña nueva</label>
+											<input
+												type="password"
+												class="form-control"
+												name="newpass"
+												id="newpass"
+												placeholder="Escriba la Contraseña"
+												onkeyup="checkPass();" />
+										</div>
+										<div class="col">
+											<label for="userPass-conf" class="form-label">Repita la Contraseña</label>
+											<input
+												type="password"
+												class="form-control"
+												name="pass-conf"
+												id="pass-conf"
+												placeholder="Repita la Contraseña"
+												onkeyup="checkPass();" />
+											<span id="message"></span>
 										</div>
 									</div>
 								</div>
 
-								<div class="mb-3 d-none" id="rolEdit">
-									<label for="userRole" class="form-label">Rol</label>
-									<select
-										class="form-select"
-										name="rol"
-										aria-label="role-selector"
-										required>
-										<!-- <option>Elija el rol del usuario</option> -->
-										<% if(user.rol === "Admin"){ %>
-										<option selected value="Admin">Admin</option>
-										<option value="User">User</option>
-										<% } else { %>
-										<option value="Admin">Admin</option>
-										<option selected value="User">User</option>
-										<% } %>
-									</select>
-								</div>
-
-								<div
-									class="mt-4 d-grid gap-2 d-md-flex justify-content-md-start">
-									<button
-										type="submit"
-										class="btn btn-warning btnAction btnShadow"
-										id="editUser"
-										disabled>
-										EDITAR
-									</button>
-									<a
-										href="/ajustes/usuarios-conf"
-										class="btn btn-danger btnAction btnShadow"
-										>CANCELAR</a
-									>
+								<div class="mt-4 d-grid gap-2 d-md-flex justify-content-md-start">
+									<button type="submit" class="btn btn-warning btnAction btnShadow" id="editUser" disabled>EDITAR</button>
+									<a href="/ajustes/usuarios-conf" class="btn btn-danger btnAction btnShadow">CANCELAR</a>
 								</div>
 							</form>
 							<% } %>

@@ -98,25 +98,6 @@ let navbarLG = document.getElementById('navbarLG').innerHTML
 document.getElementById('navbarSM').innerHTML = navbarLG
 document.getElementById('nuevoTitulo').innerHTML = navbarLG + ' - Guía Hard Rock Golf PC'
 
-//Show / Hide pass changes
-function openPassEdit() {
-	const passChange = document.getElementById('passEdit')
-	if (passChange.className == 'd-block') {
-		passChange.className = 'd-none'
-	} else {
-		passChange.className = 'd-block'
-	}
-}
-
-//Show / Hide rol changes
-function openRolEdit() {
-	const rolChange = document.getElementById('rolEdit')
-	if (rolChange.className == 'd-block') {
-		rolChange.className = 'd-none'
-	} else {
-		rolChange.className = 'd-block'
-	}
-}
 //************************UPLOAD BUTTON DISABLED */
 function inform() {
 	let nombreGuia = document.getElementById('nombreGuia').value

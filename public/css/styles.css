@@ -355,9 +355,10 @@ a.active .flecha {
 }
 
 .botonReload {
-	margin-left: 0px;
+	display: flex;
+	/* margin-left: 0px; */
 	margin-top: 1rem;
-	justify-content: space-evenly;
+	justify-content: flex-end;
 }
 
 #backRates,
@@ -473,6 +474,10 @@ a.active .flecha {
 }
 
 @media screen and (max-width: 700px) {
+	.row-height {
+		height: 50px;
+	}
+
 	.hide-column {
 		display: none;
 	}

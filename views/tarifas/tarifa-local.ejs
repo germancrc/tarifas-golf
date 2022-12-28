@@ -87,13 +87,6 @@
 									<small class="text-muted">p/p</small>
 								</h5>
 								<div class="text-center">
-									<h6>
-										<% if (local.cod_opera == 0 && local.nombre != "Ronda de Practica Torneo HR") { %> Código de Opera:
-										<strong>NO POSTEAR</strong> <% } else if (local.cod_opera == 0 && local.nombre == "Ronda de Practica Torneo HR"){ %> Código de
-										Opera: <strong>RONDA DE PRACTICA</strong> <% } else { %> Código de Opera:
-										<strong><%= local.cod_opera %></strong>
-										<% } %>
-									</h6>
 									<div class="accordion" id="accordionFlushExample">
 										<div class="accordion-item">
 											<h2 class="accordion-header" id="flush-headingOne">
@@ -104,7 +97,10 @@
 													data-bs-target="#flush-collapseOne<%= local.id %>"
 													aria-expanded="false"
 													aria-controls="flush-collapseOne">
-													Más información
+													<% if (local.cod_opera == 0 && local.nombre != "Ronda de Practica Torneo HR") { %> Opera:
+														<strong>&nbsp;NO POSTEAR</strong> <% } else if (local.cod_opera == 0 && local.nombre == "Ronda de Practica Torneo HR"){ %> Opera: <strong>&nbsp;RONDA DE PRACTICA</strong> <% } else { %> Opera:
+														<strong>&nbsp;<%= local.cod_opera %></strong>
+														<% } %>
 												</button>
 											</h2>
 											<div
@@ -124,10 +120,10 @@
 				</div>
 			</div>
 
-			<div class="form-center botonReload">
+			<!-- <div class="form-center botonReload">
 				<a class="btn btn-danger" href="/tarifas" id="backRates"> Cambiar tipo cliente</a>
 				<!-- <i class="bi bi-back"></i> -->
-			</div>
+			</div> -->
 			<%- include ('../partials/footer.ejs') %>
 		</div>
 	</body>

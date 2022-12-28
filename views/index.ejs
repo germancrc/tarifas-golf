@@ -164,22 +164,16 @@
 					<div class="row row-cols-1 row-cols-sm-1 row-cols-md-3 mt-3" id="servicesHomePage">
 						<% results.forEach((service) => { %>
 						<div class="col">
-							<div class="card cardHome mb-4 editShadow" id="serviceTest">
+							<div class="card cardHome mb-4 cardShadow" id="serviceTest">
 								<div class="card-header fixSizeHead">
 									<div class="card-title my-0 text-center"><%= service.nombre %></div>
 								</div>
 								<div class="card-body">
-									<h5 class="text-center precio-tur">
+									<h5 class="text-center">
 										USD <%= service.precio %>.00
 										<small class="text-muted">p/p</small>
 									</h5>
 									<div class="text-center">
-										<h6>
-											<% if (service.cod_opera == 0 && service.nombre != "Torneos") { %> Código de Opera: <strong>NO POSTEAR</strong> <% } else if
-											(service.cod_opera == 0 && service.nombre == "Torneos"){ %> Código de Opera: <strong>VARIABLE</strong> <% } else { %> Código de
-											Opera: <strong><%= service.cod_opera %></strong>
-											<% } %>
-										</h6>
 										<div class="accordion" id="accordionFlushExample">
 											<div class="accordion-item">
 												<h2 class="accordion-header" id="flush-headingOne">
@@ -190,7 +184,10 @@
 														data-bs-target="#flush-collapseOne<%= service.id %>"
 														aria-expanded="false"
 														aria-controls="flush-collapseOne">
-														Más Información
+														<% if (service.cod_opera == 0 && service.nombre != "Torneos") { %> Opera: <strong>&nbsp;NO POSTEAR</strong> <% } else if
+														(service.cod_opera == 0 && service.nombre == "Torneos"){ %> Opera: <strong>&nbsp;VARIABLE</strong> <% } else { %> Opera:
+														<strong>&nbsp;<%= service.cod_opera %></strong>
+														<% } %>
 													</button>
 												</h2>
 												<div

@@ -85,11 +85,6 @@
 									<small class="text-muted">p/p</small>
 								</h5>
 								<div class="text-center">
-									<h6>
-										<% if (hotel.cod_opera == 0) { %> Código de Opera: <strong>NO POSTEAR</strong> <% } else { %> Código de Opera:
-										<strong><%= hotel.cod_opera %></strong>
-										<% } %>
-									</h6>
 									<div class="accordion" id="accordionFlushExample">
 										<div class="accordion-item">
 											<h2 class="accordion-header" id="flush-headingOne">
@@ -100,7 +95,9 @@
 													data-bs-target="#flush-collapseOne<%= hotel.id %>"
 													aria-expanded="false"
 													aria-controls="flush-collapseOne">
-													Más información
+													<% if (hotel.cod_opera == 0) { %> Opera: <strong>&nbsp;NO POSTEAR</strong> <% } else { %> Opera:
+													<strong>&nbsp;<%= hotel.cod_opera %></strong>
+													<% } %>
 												</button>
 											</h2>
 											<div
@@ -120,7 +117,7 @@
 				</div>
 			</div>
 
-			<div class="form-center botonReload">
+			<div class="d-flex justify-content-flex-end">
 				<a class="btn btn-danger" href="/tarifas" id="backRates"> Cambiar tipo cliente</a>
 			</div>
 			<%- include ('../partials/footer.ejs') %>

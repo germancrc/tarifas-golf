@@ -17,21 +17,11 @@
 		<div id="main">
 			<div class="dropdown btn-perfil">
 				<% if(user.rol === "Admin"){ %>
-				<button
-					class="btn btn-success dropdown-toggle"
-					href="#"
-					type="button"
-					data-bs-toggle="dropdown"
-					aria-expanded="false">
+				<button class="btn btn-success dropdown-toggle" href="#" type="button" data-bs-toggle="dropdown" aria-expanded="false">
 					<span class="text-light text-uppercase"><%= user.username %></span>
 				</button>
 				<% } else { %>
-				<button
-					class="btn btn-warning btn-sm dropdown-toggle"
-					href="#"
-					role="button"
-					data-bs-toggle="dropdown"
-					aria-expanded="false">
+				<button class="btn btn-warning btn-sm dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 					<span class="text-dark text-uppercase"><%= user.username %></span>
 				</button>
 				<% } %>

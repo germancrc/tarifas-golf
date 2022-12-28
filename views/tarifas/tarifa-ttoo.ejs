@@ -73,13 +73,12 @@
 							<div class="card-header fixSizeHead">
 								<div class="card-title my-0 text-center"><%= ttoo.nombre %></div>
 							</div>
-							<div class="card-body bodyCardZise">
-								<h3 class="card-title pricing-card-title text-center">
+							<div class="card-body">
+								<h5 class="card-title pricing-card-title text-center precio-tur">
 									USD <%= ttoo.precio %>.00
 									<small class="text-muted">p/p</small>
-								</h3>
+								</h5>
 								<div class="text-center">
-									<h6>Código de Opera: <strong><%= ttoo.cod_opera %></strong></h6>
 									<div class="accordion" id="accordionFlushExample">
 										<div class="accordion-item">
 											<h2 class="accordion-header" id="flush-headingOne">
@@ -90,7 +89,7 @@
 													data-bs-target="#flush-collapseOne<%= ttoo.id %>"
 													aria-expanded="false"
 													aria-controls="flush-collapseOne">
-													Más información
+													Opera: <strong>&nbsp;<%= ttoo.cod_opera %></strong>
 												</button>
 											</h2>
 											<div
@@ -110,9 +109,9 @@
 				</div>
 			</div>
 
-			<div class="form-center botonReload">
+			<!-- <div class="form-center botonReload">
 				<a class="btn btn-danger" href="/tarifas" id="backRates"> Cambiar tipo cliente</a>
-			</div>
+			</div> -->
 			<%- include ('../partials/footer.ejs') %>
 		</div>
 	</body>

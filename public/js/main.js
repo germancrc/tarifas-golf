@@ -71,6 +71,15 @@ function mySearchFunction() {
 	}
 }
 
+function filterCheckbox() {
+	// Declare variables
+	let inputCgolf = document.getElementById('campogolf').checked
+	let inputMgolf = document.getElementById('minigolf').checked
+	let inputPagos = document.getElementById('pagos').checked
+
+	console.log(inputMgolf.value)
+}
+
 //*****************************FIN BUSQUEDA EN TABLAS********************************/
 
 let checkPass = function () {

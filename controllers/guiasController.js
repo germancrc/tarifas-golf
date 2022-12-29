@@ -52,21 +52,31 @@ exports.getGuides = (req, res) => {
 	}
 }
 
-// MOSTRAR 1 guia
-exports.getGuide = (req, res) => {
-	try {
-	} catch (error) {
-		console.log(error)
-	}
-}
+// exports.getGuides = (req, res) => {
+// 	// let resultsAllGuides = []
+// 	try {
+// 		db.query('SELECT aplicacion from guias_hrgolf group by aplicacion', (error, resultsFilteredGuides) => {
+// 			if (error) throw error
+// 			// resultsFilteredGuides.push(resultsFilteredGuides)
+// 			resultsFilteredGuides = resultsFilteredGuides.map(({ aplicacion }) => aplicacion)
+// 			console.log(resultsFilteredGuides)
 
-// EDITAR 1 guia
-exports.updateGuide = (req, res) => {
-	try {
-	} catch (error) {
-		console.log(error)
-	}
-}
+// 			db.query('select * from guias_hrgolf where aplicacion != "opera"', (error, resultsAllGuides) => {
+// 				if (error) throw error
+// 				resultsAllGuides.push(resultsAllGuides)
+// 				console.log(resultsAllGuides)
+// 				res.render('ajustes/guias-conf', {
+// 					user: req.user,
+// 					alert: false,
+// 					results: resultsAllGuides,
+// 					error: false,
+// 				})
+// 			})
+// 		})
+// 	} catch (error) {
+// 		console.log(error)
+// 	}
+// }
 
 // BORRAR GUIA
 exports.deleteGuide = (req, res) => {

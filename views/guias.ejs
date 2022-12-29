@@ -91,7 +91,13 @@
 							<form role="search">
 								<div class="input-group">
 									<span class="input-group-text" id="basic-addon1"><i class="bi bi-search"></i></span>
-									<input class="form-control" type="search" id="myInput" onkeyup="filtroBusqueda()" placeholder="Buscar Guia" aria-label="Search" />
+									<input
+										class="form-control"
+										type="search"
+										id="myInput"
+										onkeyup="filtroBusqueda(0.6)"
+										placeholder="Buscar Guia"
+										aria-label="Search" />
 								</div>
 							</form>
 						</div>
@@ -106,7 +112,7 @@
 							<thead>
 								<tr>
 									<th scope="col" class="col">Aplicación</th>
-									<th scope="col" class="col">Archivo</th>
+									<!-- <th scope="col" class="col">Archivo</th> -->
 									<th scope="col" class="col">Tamaño</th>
 									<th scope="col" class="col">Actualizado</th>
 									<th scope="col" class="col-1">Descargar</th>
@@ -117,7 +123,7 @@
 								<% results.forEach(guia => { %>
 								<tr>
 									<td><%= guia.aplicacion %></td>
-									<td><%= guia.archivo %></td>
+									<!-- <td><%= guia.archivo %></td> -->
 									<% if (guia.fileSize >= 1000000) { %>
 									<td><%= (guia.fileSize/1000000).toFixed(2); %> MB</td>
 									<% } else if (guia.fileSize >= 1000) { %>
@@ -145,7 +151,7 @@
 								<div class="col">
 									<div class="card mb-2 cardHome cardShadow" id="opera-codes">
 										<div class="card-header fixSizeHeadEdit">
-											<div class="my-0 text-center card-title"><%= guia.aplicacion %> | <%= guia.actualizado %></div>
+											<div class="my-0 card-title"><%= guia.aplicacion %> | <%= guia.actualizado %></div>
 										</div>
 										<div class="card-body">
 											<div class="accordion" id="accordionFlushExample">
@@ -167,7 +173,7 @@
 														aria-labelledby="flush-headingOne"
 														data-bs-parent="#accordionFlushExample">
 														<div class="accordion-body">
-															<p><strong>Archivo:</strong> <%= guia.archivo %></p>
+															<!-- <p><strong>Archivo:</strong> <%= guia.archivo %></p> -->
 															<% if (guia.fileSize >= 1000000) { %>
 															<p><strong>Tamaño:</strong> <%= (guia.fileSize/1000000).toFixed(2); %> MB</p>
 															<% } else if (guia.fileSize >= 1000) { %>
@@ -175,7 +181,7 @@
 															<% } else { %>
 															<p><strong>Tamaño:</strong> <%= guia.fileSize %> bytes</p>
 															<% } %>
-															<p><strong>Actualizado:</strong><%= guia.actualizado %></p>
+															<p><strong>Actualizado:</strong> <%= guia.actualizado %></p>
 
 															<hr />
 															<a href="/downloadGuide/<%= guia.id %>" target="_blank" class="btn btn-sm btn-success btnAction btnShadow"

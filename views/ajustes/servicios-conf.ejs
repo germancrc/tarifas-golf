@@ -35,7 +35,7 @@
 									class="form-control"
 									type="search"
 									id="myInput"
-									onkeyup="filtroBusqueda()"
+									onkeyup="filtroBusqueda(0.6)"
 									placeholder="Buscar Servicios"
 									aria-label="Search" />
 							</div>
@@ -97,10 +97,10 @@
 					<div class="row row-cols-1 row-cols-sm-1 row-cols-md-3 mt-3" id="servicesHomePage">
 						<% results.forEach((service) => { %>
 						<div class="col">
-							<div class="card cardHome mb-4" id="serviceTest">
+							<div class="card cardHome cardShadow mb-4" id="serviceTest">
 								<div class="card-header fixSizeHeadEdit">
-									<div class="my-0 text-center card-title">
-										<%= service.nombre %> | USD <%= service.precio %>.00
+									<div class="my-0 card-title">
+										<%= service.nombre %> -- USD <%= service.precio %>.00
 										<small>p/p</small>
 									</div>
 								</div>
@@ -115,10 +115,10 @@
 													data-bs-target="#flush-collapseOne<%= service.id %>"
 													aria-expanded="false"
 													aria-controls="flush-collapseOne">
-													<span class="opera">
-														Código de Opera:
-														<strong> <%= service.cod_opera %></strong></span
-													>
+													<% if (service.cod_opera == 0 && service.nombre != "Torneos") { %> Opera: <strong>&nbsp;NO POSTEAR</strong> <% } else if
+													(service.cod_opera == 0 && service.nombre == "Torneos"){ %> Opera: <strong>&nbsp;VARIABLE</strong> <% } else { %> Opera:
+													<strong>&nbsp;<%= service.cod_opera %></strong>
+													<% } %>
 												</button>
 											</h2>
 											<div

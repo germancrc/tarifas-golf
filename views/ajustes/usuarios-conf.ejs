@@ -105,7 +105,13 @@
 						<form role="search">
 							<div class="input-group">
 								<span class="input-group-text" id="basic-addon1"><i class="bi bi-search"></i></span>
-								<input class="form-control" type="search" id="myInput" onkeyup="filtroBusqueda()" placeholder="Buscar Usuario" aria-label="Search" />
+								<input
+									class="form-control"
+									type="search"
+									id="myInput"
+									onkeyup="filtroBusqueda(0.6)"
+									placeholder="Buscar Usuario"
+									aria-label="Search" />
 							</div>
 						</form>
 					</div>
@@ -117,8 +123,8 @@
 							<table class="table" id="myTable">
 								<thead>
 									<tr>
-										<th scope="col" class="col-5">Nombre</th>
 										<th scope="col" class="col-3">Nombre de usuario</th>
+										<th scope="col" class="col-4">Nombre</th>
 										<th scope="col" class="col-2">Rol</th>
 										<th scope="col" class="col-2">Acciones</th>
 									</tr>
@@ -126,8 +132,8 @@
 								<tbody>
 									<% results.forEach((user) => { %>
 									<tr>
-										<td data-titulo="Nombre:"><%= user.nombre %></td>
 										<td data-titulo="Usuario:"><%= user.username %></td>
+										<td data-titulo="Nombre:"><%= user.nombre %></td>
 										<td data-titulo="Rol:"><%= user.rol %></td>
 
 										<td>

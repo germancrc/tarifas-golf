@@ -33,7 +33,7 @@ function mySearchFunction() {
 		td2 = tr[i].getElementsByTagName('td')[1]
 		td3 = tr[i].getElementsByTagName('td')[2]
 		td4 = tr[i].getElementsByTagName('td')[3]
-		if (td1 || td2) {
+		if (td1 || td2 || td3 || td4) {
 			txtValue1 = td1.textContent || td1.innerText
 			txtValue2 = td2.textContent || td2.innerText
 			txtValue3 = td3.textContent || td3.innerText

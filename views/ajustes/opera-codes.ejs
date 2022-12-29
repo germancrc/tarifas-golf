@@ -31,7 +31,13 @@
 						<form role="search">
 							<div class="input-group">
 								<span class="input-group-text" id="basic-addon1"><i class="bi bi-search"></i></span>
-								<input class="form-control" type="search" id="myInput" onkeyup="filtroBusqueda()" placeholder="Buscar Código" aria-label="Search" />
+								<input
+									class="form-control"
+									type="search"
+									id="myInput"
+									onkeyup="filtroBusqueda(0.6)"
+									placeholder="Buscar Código"
+									aria-label="Search" />
 							</div>
 						</form>
 					</div>
@@ -94,7 +100,7 @@
 						<div class="col">
 							<div class="card mb-2 cardHome cardShadow" id="opera-codes">
 								<div class="card-header fixSizeHeadEdit">
-									<div class="my-0 text-center card-title"><%= code.codigo %> | <%= code.nombre %></div>
+									<div class="my-0 card-title"><%= code.codigo %> | <%= code.nombre %></div>
 								</div>
 								<div class="card-body">
 									<div class="accordion" id="accordionFlushExample">
@@ -107,7 +113,7 @@
 													data-bs-target="#flush-collapseOne<%= code.id %>"
 													aria-expanded="false"
 													aria-controls="flush-collapseOne">
-													Más Información
+													<strong>Uso:</strong>&nbsp;<%= code.uso %>
 												</button>
 											</h2>
 											<div
@@ -116,7 +122,6 @@
 												aria-labelledby="flush-headingOne"
 												data-bs-parent="#accordionFlushExample">
 												<div class="accordion-body">
-													<p><strong>Uso: </strong><%= code.uso %></p>
 													<p><strong>Descripción: </strong><%= code.descripcion %></p>
 
 													<hr />

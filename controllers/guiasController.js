@@ -30,53 +30,56 @@ exports.uploadGuide = async (req, res) => {
 }
 
 //MOSTRAR todas guias
-exports.getGuides = (req, res) => {
-	try {
-		db.query(
-			'select id, aplicacion, archivo,  DATE_FORMAT(CONVERT_TZ(actualizado,"+00:00","-04:00"), "%d/%c/%y - %H:%i:%s") as actualizado, fileSize from guias_hrgolf ORDER BY aplicacion asc, actualizado desc',
-			(error, results) => {
-				if (results) {
-					res.render('ajustes/guias-conf', {
-						user: req.user,
-						alert: false,
-						results: results,
-						error: false,
-					})
-				} else {
-					throw error
-				}
-			}
-		)
-	} catch (error) {
-		console.log(error)
-	}
-}
-
 // exports.getGuides = (req, res) => {
-// 	// let resultsAllGuides = []
 // 	try {
-// 		db.query('SELECT aplicacion from guias_hrgolf group by aplicacion', (error, resultsFilteredGuides) => {
-// 			if (error) throw error
-// 			// resultsFilteredGuides.push(resultsFilteredGuides)
-// 			resultsFilteredGuides = resultsFilteredGuides.map(({ aplicacion }) => aplicacion)
-// 			console.log(resultsFilteredGuides)
-
-// 			db.query('select * from guias_hrgolf where aplicacion != "opera"', (error, resultsAllGuides) => {
-// 				if (error) throw error
-// 				resultsAllGuides.push(resultsAllGuides)
-// 				console.log(resultsAllGuides)
-// 				res.render('ajustes/guias-conf', {
-// 					user: req.user,
-// 					alert: false,
-// 					results: resultsAllGuides,
-// 					error: false,
-// 				})
-// 			})
-// 		})
+// 		db.query(
+// 			'select id, aplicacion, archivo,  DATE_FORMAT(CONVERT_TZ(actualizado,"+00:00","-04:00"), "%d/%c/%y - %H:%i:%s") as actualizado, fileSize from guias_hrgolf ORDER BY aplicacion asc, actualizado desc',
+// 			(error, results) => {
+// 				if (results) {
+// 					res.render('ajustes/guias-conf', {
+// 						user: req.user,
+// 						alert: false,
+// 						results: results,
+// 						error: false,
+// 					})
+// 				} else {
+// 					throw error
+// 				}
+// 			}
+// 		)
 // 	} catch (error) {
 // 		console.log(error)
 // 	}
 // }
+
+exports.getGuides = (req, res) => {
+	try {
+		db.query('SELECT aplicacion, COUNT(*) as count from guias_hrgolf group by aplicacion ORDER BY aplicacion asc', (error, resultsFilteredGuides) => {
+			if (error) throw error
+			console.log(resultsFilteredGuides)
+			resultsFilteredGuides = resultsFilteredGuides.map(({ aplicacion }) => aplicacion)
+			console.log(resultsFilteredGuides)
+
+			db.query(
+				'select id, aplicacion, archivo,  DATE_FORMAT(CONVERT_TZ(actualizado,"+00:00","-04:00"), "%d/%c/%y - %H:%i:%s") as actualizado, fileSize from guias_hrgolf where aplicacion IN (?) ORDER BY aplicacion asc, actualizado desc',
+				[resultsFilteredGuides],
+				(error, resultsAllGuides) => {
+					if (error) throw error
+					// console.log('todos: ' + [resultsAllGuides])
+					res.render('ajustes/guias-conf', {
+						user: req.user,
+						alert: false,
+						results: resultsAllGuides,
+						resultsFilteredGuides: resultsFilteredGuides,
+						error: false,
+					})
+				}
+			)
+		})
+	} catch (error) {
+		console.log(error)
+	}
+}
 
 // BORRAR GUIA
 exports.deleteGuide = (req, res) => {

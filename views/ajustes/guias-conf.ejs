@@ -85,59 +85,81 @@
 							<hr />
 						</div>
 
-						<div class="mb-3 inputSize">
+						<!-- <div class="mb-3 inputSize">
 							<form role="search">
 								<div class="input-group">
 									<span class="input-group-text" id="basic-addon1"><i class="bi bi-search"></i></span>
 									<input class="form-control" type="search" id="myInput" onkeyup="filtroBusqueda()" placeholder="Buscar Guia" aria-label="Search" />
 								</div>
 							</form>
+						</div> -->
+
+						<% if (results.length == 0) { %>
+						<div class="text-center">
+							<img class="noResults" src="/img/noResults.PNG" alt="" />
+							<h4 class="text-uppercase mt-3">No hay resultados</h4>
 						</div>
+						<% }else { %> <% resultsFilteredGuides.forEach(filtrada => { %>
+						<div class="accordion" id="accordionExample">
+							<div class="accordion-item">
+								<h2 class="accordion-header" id="heading<%= filtrada %>">
+									<button
+										class="accordion-button"
+										type="button"
+										data-bs-toggle="collapse"
+										data-bs-target="#collapse<%= filtrada %>"
+										aria-expanded="true"
+										aria-controls="collapse<%= filtrada %>">
+										<div class="row">
+											<div class="col"><strong><%= filtrada %></strong></div>
+											<div class="col">Actualizaciones: <%= filtrada.COUNT %></div>
+										</div>
+									</button>
+								</h2>
+								<div id="collapse<%= filtrada %>" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+									<div class="accordion-body">
+										<table class="table tabla-desktop" id="myTable">
+											<thead>
+												<tr>
+													<th scope="col" class="col">Aplicación</th>
+													<th scope="col" class="col">Archivo</th>
+													<th scope="col" class="col">Tamaño</th>
+													<th scope="col" class="col">Actualizado</th>
+													<th scope="col" class="col-2">Acciones</th>
+												</tr>
+											</thead>
+											<% results.forEach(guia => { %> <% if (resultsFilteredGuides && guia.aplicacion === filtrada) { %>
+											<tbody>
+												<tr>
+													<td><%= guia.aplicacion %></td>
+													<td><%= guia.archivo %></td>
+													<% if (guia.fileSize >= 1000000) { %>
+													<td><%= (guia.fileSize/1000000).toFixed(2); %> MB</td>
+													<% } else if (guia.fileSize >= 1000) { %>
+													<td><%= (guia.fileSize/1000).toFixed(2); %> KB</td>
+													<% } else { %>
+													<td><%= guia.fileSize %> bytes</td>
+													<% } %>
+													<td><%= guia.actualizado %></td>
+													<td>
+														<!-- <a href="/ajustes/guias-conf/<%= guia.id %>" class="btn btn-sm btn-warning btnAction btnShadow"><i class="bi bi-pencil"></i></a> -->
 
-						<table class="table tabla-desktop" id="myTable">
-							<% if (results.length == 0) { %>
-							<div class="text-center">
-								<img class="noResults" src="/img/noResults.PNG" alt="" />
-								<h4 class="text-uppercase mt-3">No hay resultados</h4>
+														<a
+															href="/ajustes/guias-conf/deleteGuide/<%= guia.id %>"
+															class="btn btn-sm btn-danger btnAction btnShadow"
+															onclick="return confirm('Seguro que quiere borrar la Guia de <%= guia.aplicacion %> ?')"
+															><i class="bi bi-trash"></i
+														></a>
+													</td>
+												</tr>
+											</tbody>
+											<% } %> <% }) %>
+										</table>
+									</div>
+								</div>
 							</div>
-							<% }else { %>
-							<thead>
-								<tr>
-									<th scope="col" class="col">Aplicación</th>
-									<th scope="col" class="col">Archivo</th>
-									<th scope="col" class="col">Tamaño</th>
-									<th scope="col" class="col">Actualizado</th>
-									<th scope="col" class="col-2">Acciones</th>
-								</tr>
-							</thead>
-							<% } %>
-							<tbody>
-								<% results.forEach(guia => { %>
-								<tr>
-									<td><%= guia.aplicacion %></td>
-									<td><%= guia.archivo %></td>
-									<% if (guia.fileSize >= 1000000) { %>
-									<td><%= (guia.fileSize/1000000).toFixed(2); %> MB</td>
-									<% } else if (guia.fileSize >= 1000) { %>
-									<td><%= (guia.fileSize/1000).toFixed(2); %> KB</td>
-									<% } else { %>
-									<td><%= guia.fileSize %> bytes</td>
-									<% } %>
-									<td><%= guia.actualizado %></td>
-									<td>
-										<!-- <a href="/ajustes/guias-conf/<%= guia.id %>" class="btn btn-sm btn-warning btnAction btnShadow"><i class="bi bi-pencil"></i></a> -->
-
-										<a
-											href="/ajustes/guias-conf/deleteGuide/<%= guia.id %>"
-											class="btn btn-sm btn-danger btnAction btnShadow"
-											onclick="return confirm('Seguro que quiere borrar la Guia de <%= guia.aplicacion %> ?')"
-											><i class="bi bi-trash"></i
-										></a>
-									</td>
-								</tr>
-								<% }) %>
-							</tbody>
-						</table>
+						</div>
+						<% }) %> <% } %>
 
 						<!-- *****************************MOBILE CARDS EDIT****************************** -->
 						<div class="container tabla-mobile" id="tabla-mobile">
@@ -192,14 +214,6 @@
 
 															<hr />
 															<div class="d-grid gap-2">
-																<!-- <a
-																	href="/ajustes/guias-conf/<%= guia.id %>"
-																	data-bs-toggle="#"
-																	data-bs-target="#serviceUpdate"
-																	class="btn btn-sm btn-warning btnEdit"
-																	><i class="bi bi-pencil"></i
-																></a> -->
-
 																<a
 																	href="/ajustes/guias-conf/deleteGuide/<%= guia.id %>"
 																	class="btn btn-sm btn-danger btnDelete"

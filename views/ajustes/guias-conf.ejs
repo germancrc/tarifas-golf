@@ -22,7 +22,7 @@
 				<div class="card editShadow mb-3">
 					<div class="card-body">
 						<div class="text-center mb-3">
-							<h4 class="text-uppercase" id="titulo">Subir Guías</h4>
+							<h5 class="text-uppercase" id="titulo">Subir Guías</h5>
 							<hr />
 						</div>
 
@@ -80,10 +80,10 @@
 
 				<div class="card editShadow">
 					<div class="card-body">
-						<div class="text-center">
-							<h4 class="text-uppercase">Guías actualizadas</h4>
+						<!-- <div class="text-center">
+							<h5 class="text-uppercase">Guías actualizadas</h5>
 							<hr />
-						</div>
+						</div> -->
 
 						<!-- <div class="mb-3 inputSize">
 							<form role="search">
@@ -100,24 +100,27 @@
 							<h4 class="text-uppercase mt-3">No hay resultados</h4>
 						</div>
 						<% }else { %> <% resultsFilteredGuides.forEach(filtrada => { %>
-						<div class="accordion" id="accordionExample">
+						<div class="accordion" id="accordionExample<%= filtrada %>">
 							<div class="accordion-item">
 								<h2 class="accordion-header" id="heading<%= filtrada %>">
 									<button
-										class="accordion-button"
+										class="accordion-button collapsed btn-accordion"
 										type="button"
 										data-bs-toggle="collapse"
 										data-bs-target="#collapse<%= filtrada %>"
 										aria-expanded="true"
 										aria-controls="collapse<%= filtrada %>">
-										<div class="row">
-											<div class="col"><strong><%= filtrada %></strong></div>
-											<div class="col">Actualizaciones: <%= filtrada.COUNT %></div>
+										<div class="my-0 row">
+											<div class="col"><%= filtrada %></div>
 										</div>
 									</button>
 								</h2>
-								<div id="collapse<%= filtrada %>" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-									<div class="accordion-body">
+								<div
+									id="collapse<%= filtrada %>"
+									class="accordion-collapse collapse"
+									aria-labelledby="heading<%= filtrada %>"
+									data-bs-parent="#accordionExample<%= filtrada %>">
+									<div class="accordion-body p-2">
 										<table class="table tabla-desktop" id="myTable">
 											<thead>
 												<tr>
@@ -155,82 +158,84 @@
 											</tbody>
 											<% } %> <% }) %>
 										</table>
+										<!-- *****************************MOBILE CARDS EDIT****************************** -->
+										<div class="tabla-mobile" id="tabla-mobile">
+											<div class="row row-cols-1 row-cols-sm-1 row-cols-md-3 mt-3" id="servicesHomePage">
+												<% results.forEach(guia => { %> <% if (resultsFilteredGuides && guia.aplicacion === filtrada) { %>
+												<div class="col">
+													<div class="card mb-2 cardHome cardShadow" id="opera-codes">
+														<div class="card-header fixSizeHeadEdit">
+															<div class="my-0 card-title row">
+																<div class="col-5"><%= guia.aplicacion %></div>
+																<div class="col"><%= guia.actualizado %></div>
+															</div>
+														</div>
+														<div class="card-body">
+															<div class="accordion" id="accordionFlushExample">
+																<div class="accordion-item">
+																	<h2 class="accordion-header" id="flush-headingOne">
+																		<button
+																			class="accordion-button collapsed"
+																			type="button"
+																			data-bs-toggle="collapse"
+																			data-bs-target="#flush-collapseOne<%= guia.id %>"
+																			aria-expanded="false"
+																			aria-controls="flush-collapseOne">
+																			Más Información
+																		</button>
+																	</h2>
+																	<div
+																		id="flush-collapseOne<%= guia.id %>"
+																		class="accordion-collapse collapse"
+																		aria-labelledby="flush-headingOne"
+																		data-bs-parent="#accordionFlushExample">
+																		<div class="accordion-body">
+																			<p>
+																				<strong>Archivo:</strong>
+																				<%= guia.archivo %>
+																			</p>
+																			<% if (guia.fileSize >= 1000000) { %>
+																			<p>
+																				<strong>Tamaño:</strong>
+																				<%= (guia.fileSize/1000000).toFixed(2); %> MB
+																			</p>
+																			<% } else if (guia.fileSize >= 1000) { %>
+																			<p>
+																				<strong>Tamaño:</strong>
+																				<%= (guia.fileSize/1000).toFixed(2); %> KB
+																			</p>
+																			<% } else { %>
+																			<p>
+																				<strong>Tamaño:</strong>
+																				<%= guia.fileSize %> bytes
+																			</p>
+																			<% } %>
+																			<p><strong>Actualizado:</strong>&nbsp;<%= guia.actualizado %></p>
+
+																			<hr />
+																			<div class="d-grid gap-2">
+																				<a
+																					href="/ajustes/guias-conf/deleteGuide/<%= guia.id %>"
+																					class="btn btn-sm btn-danger btnDelete"
+																					onclick="return confirm('Seguro que quiere borrar la guía de <%= guia.aplicacion %>?')"
+																					><i class="bi bi-trash"></i
+																				></a>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+												<% } %> <% }) %>
+											</div>
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
 						<% }) %> <% } %>
-
-						<!-- *****************************MOBILE CARDS EDIT****************************** -->
-						<div class="container tabla-mobile" id="tabla-mobile">
-							<div class="row row-cols-1 row-cols-sm-1 row-cols-md-3 mt-3" id="servicesHomePage">
-								<% results.forEach((guia) => { %>
-								<div class="col">
-									<div class="card mb-2 cardHome cardShadow" id="opera-codes">
-										<div class="card-header fixSizeHeadEdit">
-											<div class="my-0 text-center card-title"><%= guia.aplicacion %> | <%= guia.actualizado %></div>
-										</div>
-										<div class="card-body">
-											<div class="accordion" id="accordionFlushExample">
-												<div class="accordion-item">
-													<h2 class="accordion-header" id="flush-headingOne">
-														<button
-															class="accordion-button collapsed"
-															type="button"
-															data-bs-toggle="collapse"
-															data-bs-target="#flush-collapseOne<%= guia.id %>"
-															aria-expanded="false"
-															aria-controls="flush-collapseOne">
-															Más Información
-														</button>
-													</h2>
-													<div
-														id="flush-collapseOne<%= guia.id %>"
-														class="accordion-collapse collapse"
-														aria-labelledby="flush-headingOne"
-														data-bs-parent="#accordionFlushExample">
-														<div class="accordion-body">
-															<p>
-																<strong>Archivo:</strong>
-																<%= guia.archivo %>
-															</p>
-															<% if (guia.fileSize >= 1000000) { %>
-															<p>
-																<strong>Tamaño:</strong>
-																<%= (guia.fileSize/1000000).toFixed(2); %> MB
-															</p>
-															<% } else if (guia.fileSize >= 1000) { %>
-															<p>
-																<strong>Tamaño:</strong>
-																<%= (guia.fileSize/1000).toFixed(2); %> KB
-															</p>
-															<% } else { %>
-															<p>
-																<strong>Tamaño:</strong>
-																<%= guia.fileSize %> bytes
-															</p>
-															<% } %>
-															<p><strong>Actualizado:</strong><%= guia.actualizado %></p>
-
-															<hr />
-															<div class="d-grid gap-2">
-																<a
-																	href="/ajustes/guias-conf/deleteGuide/<%= guia.id %>"
-																	class="btn btn-sm btn-danger btnDelete"
-																	onclick="return confirm('Seguro que quiere borrar la guía de <%= guia.aplicacion %>?')"
-																	><i class="bi bi-trash"></i
-																></a>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<% }) %>
-							</div>
-						</div>
 					</div>
 				</div>
 			</div>

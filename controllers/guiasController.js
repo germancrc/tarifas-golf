@@ -56,9 +56,8 @@ exports.getGuides = (req, res) => {
 	try {
 		db.query('SELECT aplicacion, COUNT(*) as count from guias_hrgolf group by aplicacion ORDER BY aplicacion asc', (error, resultsFilteredGuides) => {
 			if (error) throw error
-			console.log(resultsFilteredGuides)
 			resultsFilteredGuides = resultsFilteredGuides.map(({ aplicacion }) => aplicacion)
-			console.log(resultsFilteredGuides)
+			// console.log(resultsFilteredGuides)
 
 			db.query(
 				'select id, aplicacion, archivo,  DATE_FORMAT(CONVERT_TZ(actualizado,"+00:00","-04:00"), "%d/%c/%y - %H:%i:%s") as actualizado, fileSize from guias_hrgolf where aplicacion IN (?) ORDER BY aplicacion asc, actualizado desc',

@@ -5,7 +5,7 @@ const { promisify } = require('util')
 
 exports.isAuthenticated = async (req, res, next) => {
 	if (!req.cookies.jwt) {
-		res.redirect('/login')
+		res.redirect('/')
 	} else {
 		try {
 			const decodificada = await promisify(jwt.verify)(req.cookies.jwt, process.env.JWT_SECRETO)
@@ -81,7 +81,7 @@ exports.login = async (req, res) => {
 
 exports.logout = (req, res) => {
 	res.clearCookie('jwt')
-	return res.redirect('login')
+	return res.redirect('/')
 }
 
 exports.checkAdmin = (req, res) => {

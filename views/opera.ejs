@@ -64,10 +64,10 @@
 							</ul>
 						</div>
 						<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-						<a class="active" href="/index">Inicio</a>
+						<a class="nav-link" href="/index">Inicio</a>
 						<a class="nav-link" href="/tarifas">Tarifas</a>
 						<a class="nav-link" href="/guias">GUIAS</a>
-						<a class="nav-link" href="/opera">CÓD. OPERA</a>
+						<a class="active" href="/opera">CÓD. OPERA</a>
 						<a class="nav-link" href="/minigolf">MINI GOLF</a>
 						<% if(user.rol === "Admin"){ %>
 						<a class="d-block" href="/ajustes">AJUSTES </a>
@@ -81,23 +81,23 @@
 
 		<div class="content">
 			<div class="mb-3 afterNav">
-				<div class="text-center mb-2">Mostrar códigos:</div>
+				<div class="text-center mb-3"><h5>Mostrar códigos:</h5></div>
 				<div class="text-center mb-3">
 					<div class="form-check form-check-inline">
-						<input class="form-check-input" type="checkbox" onclick="filterCheckbox()" value="campogolf" id="campogolf" />
+						<input class="form-check-input opera-code-check" type="checkbox" onclick="filterCheckbox()" value="campogolf" id="campogolf" />
 						<label class="form-check-label" for="campogolf"> Campo de Golf </label>
 					</div>
 					<div class="form-check form-check-inline">
-						<input class="form-check-input" type="checkbox" onclick="filterCheckbox()" value="minigolf" id="minigolf" />
+						<input class="form-check-input opera-code-check" type="checkbox" onclick="filterCheckbox()" value="minigolf" id="minigolf" />
 						<label class="form-check-label" for="minigolf"> Mini Golf </label>
 					</div>
 					<div class="form-check form-check-inline">
-						<input class="form-check-input" type="checkbox" onclick="filterCheckbox()" value="pagos id="pagos" />
+						<input class="form-check-input opera-code-check" type="checkbox" onclick="filterCheckbox()" value="pagos" id="pagos" />
 						<label class="form-check-label" for="pagos"> Pagos </label>
 					</div>
 				</div>
 
-				<form role="search">
+				<!-- <form role="search">
 					<div class="input-group">
 						<span class="input-group-text" id="basic-addon1"><i class="bi bi-search"></i></span>
 						<input
@@ -108,7 +108,7 @@
 							placeholder="Buscar Código Opera"
 							aria-label="Search" />
 					</div>
-				</form>
+				</form> -->
 			</div>
 
 			<div class="card mt-2">
@@ -145,5 +145,8 @@
 			</div>
 			<%- include ('./partials/footer.ejs') %>
 		</div>
+		<script>
+			window.onload = checkAllCodes()
+		</script>
 	</body>
 </html>

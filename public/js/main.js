@@ -8,6 +8,39 @@ function closeNav() {
 	document.getElementById('mySidenav').style.width = '0'
 }
 
+// **********************************SHOW HIDE OPERA CODES WITH CHECBOX***********************
+function checkAllCodes() {
+	let checkbox = document.querySelectorAll('.opera-code-check')
+	for (let i = 0; i < checkbox.length; i++) {
+		checkbox[i].checked = true
+	}
+}
+
+function filterCheckbox() {
+	let table = document.getElementById('myTable')
+	let tr = table.getElementsByTagName('tr')
+	let checkboxCG = document.getElementById('campogolf')
+	let checkboxMG = document.getElementById('minigolf')
+	let checkboxPago = document.getElementById('pagos')
+
+	// Loop through all table rows, and hide those who don't match the search query
+	for (i = 0; i < tr.length; i++) {
+		td = tr[i].getElementsByTagName('td')[2]
+		if (td) {
+			tdValue = td.textContent || td.innerText
+			if (checkboxCG.checked == true && tdValue == 'Campo Golf') {
+				tr[i].style.display = ''
+			} else if (checkboxMG.checked == true && tdValue == 'Mini Golf') {
+				tr[i].style.display = ''
+			} else if (checkboxPago.checked == true && tdValue == 'Pagos') {
+				tr[i].style.display = ''
+			} else {
+				tr[i].style.display = 'none'
+			}
+		}
+	}
+}
+
 //*****************************BUSQUEDA EN TABLAS********************************/
 let delay = 0
 let delayTimeout
@@ -71,15 +104,6 @@ function mySearchFunction() {
 	}
 }
 
-function filterCheckbox() {
-	// Declare variables
-	let inputCgolf = document.getElementById('campogolf').checked
-	let inputMgolf = document.getElementById('minigolf').checked
-	let inputPagos = document.getElementById('pagos').checked
-
-	console.log(inputMgolf.value)
-}
-
 //*****************************FIN BUSQUEDA EN TABLAS********************************/
 
 let checkPass = function () {
@@ -103,9 +127,11 @@ function mayus(e) {
 }
 
 // titulos
-let navbarLG = document.getElementById('navbarLG').innerHTML
-document.getElementById('navbarSM').innerHTML = navbarLG
-document.getElementById('nuevoTitulo').innerHTML = navbarLG + ' - Guía Hard Rock Golf PC'
+if (document.getElementById('navbarLG')) {
+	let navbarLG = document.getElementById('navbarLG').innerHTML
+	document.getElementById('navbarSM').innerHTML = navbarLG
+	document.getElementById('nuevoTitulo').innerHTML = navbarLG + ' - Guía Hard Rock Golf PC'
+}
 
 //************************UPLOAD BUTTON DISABLED */
 function inform() {

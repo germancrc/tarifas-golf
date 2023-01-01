@@ -33,21 +33,27 @@
 				</form>
 			</div>
 
-			<div class="card editShadow mt-2 tabla-desktop">
+			<div class="text-center mt-2 mb-2 hide-column-message">
+				<span>*Seleccione una tarifa para ver su Descripción*</span>
+			</div>
+
+			<div class="card mt-2">
 				<div class="card-body">
 					<table class="table table-hover" id="myTable">
 						<thead id="tabla-vacia">
 							<tr>
-								<th scope="col" class="col-4">Nombre</th>
-								<th scope="col" class="col-2">Precio USD</th>
-								<th scope="col" class="col-2">Opera</th>
+								<th scope="col" class="col">Nombre</th>
+								<th scope="col" class="col-2">Precio</th>
+								<th scope="col" class="col-2 hide-column-opera">Opera</th>
 								<th scope="col" class="col-4 hide-column">Descripción</th>
 							</tr>
 						</thead>
 						<tbody>
 							<% results.forEach((local) => { %>
-							<tr class="info" onclick="alert('- <%= local.nombre %> -\n <%= local.tips %>')">
-								<td>
+								<tr
+								class="info"
+								onclick="alert('- <%= local.nombre %> -\n Opera: <% if (local.cod_opera == 0) { %><%= local.cod_opera = `NO POST`%><% } else if (local.cod_opera == 1){ %><%= local.cod_opera = `MULTIPLE`%><% } else { %><%= local.cod_opera%><% } %>\n\n <%= local.tips %>')">
+								<td class="hide-text">
 									<span><%= local.nombre %></span>
 									<div class="verInfo hide-column">
 										- Ver Info
@@ -56,11 +62,11 @@
 								</td>
 								<td><%= local.precio%>.00</td>
 								<% if (local.cod_opera == 0 && local.nombre != "Ronda de Practica Torneo HR") { %>
-								<td>NO POSTEAR</td>
+								<td class="hide-column-opera">NO POSTEAR</td>
 								<% } else if (local.cod_opera == 0 && local.nombre == "Ronda de Practica Torneo HR"){ %>
-								<td>RONDA PRACTICA</td>
+								<td class="hide-column-opera">RONDA PRACTICA</td>
 								<% } else { %>
-								<td><%= local.cod_opera%></td>
+								<td class="hide-column-opera"><%= local.cod_opera%></td>
 								<% } %>
 								<td class="hide-text hide-column">
 									<span><%= local.tips %></span>
@@ -72,59 +78,10 @@
 				</div>
 			</div>
 
-			<!-- *****************************MOBILE CARDS EDIT****************************** -->
-			<div class="tabla-mobile" id="tabla-mobile">
-				<div class="row row-cols-1 row-cols-sm-2 mt-3" id="servicesHomePage">
-					<% results.forEach((local) => { %>
-					<div class="col">
-						<div class="card cardHome mb-4 cardShadow" id="serviceTest">
-							<div class="card-header fixSizeHead">
-								<div class="card-title my-0 text-center"><%= local.nombre %></div>
-							</div>
-							<div class="card-body">
-								<h5 class="card-title pricing-card-title text-center precio-tur">
-									USD <%= local.precio %>.00
-									<small class="text-muted">p/p</small>
-								</h5>
-								<div class="text-center">
-									<div class="accordion" id="accordionFlushExample">
-										<div class="accordion-item">
-											<h2 class="accordion-header" id="flush-headingOne">
-												<button
-													class="accordion-button collapsed"
-													type="button"
-													data-bs-toggle="collapse"
-													data-bs-target="#flush-collapseOne<%= local.id %>"
-													aria-expanded="false"
-													aria-controls="flush-collapseOne">
-													<% if (local.cod_opera == 0 && local.nombre != "Ronda de Practica Torneo HR") { %> Opera:
-														<strong>&nbsp;NO POSTEAR</strong> <% } else if (local.cod_opera == 0 && local.nombre == "Ronda de Practica Torneo HR"){ %> Opera: <strong>&nbsp;RONDA DE PRACTICA</strong> <% } else { %> Opera:
-														<strong>&nbsp;<%= local.cod_opera %></strong>
-														<% } %>
-												</button>
-											</h2>
-											<div
-												id="flush-collapseOne<%= local.id %>"
-												class="accordion-collapse collapse"
-												aria-labelledby="flush-headingOne"
-												data-bs-parent="#accordionFlushExample">
-												<div class="accordion-body"><%= local.tips %></div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<% }) %>
-				</div>
-			</div>
+			
 
-			<!-- <div class="form-center botonReload">
-				<a class="btn btn-danger" href="/tarifas" id="backRates"> Cambiar tipo cliente</a>
-				<!-- <i class="bi bi-back"></i> -->
-			</div> -->
-			<%- include ('../partials/footer.ejs') %>
+				<%- include ('../partials/footer.ejs') %>
+			</div> 
 		</div>
 	</body>
 </html>

@@ -33,31 +33,37 @@
 				</form>
 			</div>
 
-			<div class="card editShadow mt-2 tabla-desktop">
+			<div class="text-center mt-2 mb-2 hide-column-message">
+				<span>*Seleccione una tarifa para ver su Descripción*</span>
+			</div>
+
+			<div class="card mt-2">
 				<div class="card-body">
 					<table class="table table-hover" id="myTable">
 						<thead id="tabla-vacia">
 							<tr>
-								<th scope="col" class="col-4">Nombre</th>
-								<th scope="col" class="col">Green Fee</th>
+								<th scope="col" class="col-6 col-xl-4">Nombre</th>
+								<th scope="col" class="col">Green F.</th>
 								<th scope="col" class="col">Twilight</th>
-								<th scope="col" class="col">Opera</th>
-								<th scope="col" class="col-4 hide-column">Operación</th>
+								<th scope="col" class="col hide-column-opera">Opera</th>
+								<th scope="col" class="col hide-column">Operación</th>
 							</tr>
 						</thead>
 						<tbody>
 							<% results.forEach((ttoo) => { %>
-							<tr class="info" onclick="alert('- <%= ttoo.nombre %> -\n Opera: <%= ttoo.cod_opera %> \n Como registrar:  <%= ttoo.operacion %>')">
-								<td>
+							<tr
+								class="info"
+								onclick="alert('- <%= ttoo.nombre %> -\n Opera: <% if (ttoo.cod_opera == 0) { %><%= ttoo.cod_opera = `NO POST`%><% } else if (ttoo.cod_opera == 1){ %><%= ttoo.cod_opera = `MULTIPLE`%><% } else { %><%= ttoo.cod_opera%><% } %>\n\n Cómo registrarlo: <%= ttoo.operacion %>')">
+								<td class="hide-text">
 									<span><%= ttoo.nombre %></span>
-									<div class="verInfo hide-column">
+									<!-- <div class="verInfo hide-column">
 										- Ver Info
 										<i class="bi bi-info-circle"></i>
-									</div>
+									</div> -->
 								</td>
 								<td>USD <%= ttoo.green_fee%></td>
 								<td>USD <%= ttoo.twilight%></td>
-								<td><%= ttoo.cod_opera%></td>
+								<td class="hide-column-opera"><%= ttoo.cod_opera%></td>
 								<% if(ttoo.operacion.length > 40) { %>
 								<td class="hide-column hide-text"><%= ttoo.operacion.slice(0,40) %>...</td>
 								<% } else { %>
@@ -70,55 +76,6 @@
 				</div>
 			</div>
 
-			<!-- *****************************MOBILE CARDS EDIT****************************** -->
-			<div class="tabla-mobile" id="tabla-mobile">
-				<div class="row row-cols-1 row-cols-sm-2" id="servicesHomePage">
-					<% results.forEach((ttoo) => { %>
-					<div class="col">
-						<div class="card cardHome mb-4 cardShadow" id="serviceTest">
-							<div class="card-header fixSizeHead">
-								<div class="card-title my-0 text-center"><%= ttoo.nombre %></div>
-							</div>
-							<div class="card-body">
-								<div class="text-center card-title row">
-									<div class="col-4">GF: <strong><%= ttoo.green_fee %></strong></div>
-									<div class="col-3">TW: <strong><%= ttoo.twilight %></strong></div>
-									<div class="col-5">Cod: <strong><%= ttoo.cod_opera %></strong></div>
-								</div>
-								<div class="text-center">
-									<div class="accordion" id="accordionFlushExample">
-										<div class="accordion-item">
-											<h2 class="accordion-header" id="flush-headingOne">
-												<button
-													class="accordion-button collapsed"
-													type="button"
-													data-bs-toggle="collapse"
-													data-bs-target="#flush-collapseOne<%= ttoo.id %>"
-													aria-expanded="false"
-													aria-controls="flush-collapseOne">
-													Cómo registrar:
-												</button>
-											</h2>
-											<div
-												id="flush-collapseOne<%= ttoo.id %>"
-												class="accordion-collapse collapse"
-												aria-labelledby="flush-headingOne"
-												data-bs-parent="#accordionFlushExample">
-												<div class="accordion-body"><%= ttoo.operacion %></div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<% }) %>
-				</div>
-			</div>
-
-			<!-- <div class="form-center botonReload">
-				<a class="btn btn-danger" href="/tarifas" id="backRates"> Cambiar tipo cliente</a>
-			</div> -->
 			<%- include ('../partials/footer.ejs') %>
 		</div>
 	</body>

@@ -33,22 +33,28 @@
 				</form>
 			</div>
 
-			<div class="card mt-2 tabla-desktop">
+			<div class="text-center mt-2 mb-2 hide-column-message">
+				<span>*Seleccione una tarifa para ver su Descripción*</span>
+			</div>
+
+			<div class="card mt-2">
 				<div class="card-body">
 					<table class="table table-hover" id="myTable">
 						<thead id="tabla-vacia">
 							<tr>
-								<th scope="col" class="col-4">Nombre</th>
-								<th scope="col" class="col-2">Precio USD</th>
-								<th scope="col" class="col-2">Opera</th>
+								<th scope="col" class="col">Nombre</th>
+								<th scope="col" class="col-2">Precio</th>
+								<th scope="col" class="col-2 hide-column-opera">Opera</th>
 								<th scope="col" class="col-4 hide-column">Descripción</th>
 							</tr>
 						</thead>
 						<tbody>
 							<% results.forEach((hotel) => { %>
-							<tr class="info" onclick="alert('- <%= hotel.nombre %> -\n <%= hotel.tips %>')">
-								<td>
-									<%= hotel.nombre %>
+							<tr
+								class="info"
+								onclick="alert('- <%= hotel.nombre %> -\n Opera: <% if (hotel.cod_opera == 0) { %><%= hotel.cod_opera = `NO POST`%><% } else if (hotel.cod_opera == 1){ %><%= hotel.cod_opera = `MULTIPLE`%><% } else { %><%= hotel.cod_opera%><% } %>\n\n <%= hotel.tips %>')">
+								<td class="hide-text">
+									<span><%= hotel.nombre %></span>
 									<div class="verInfo hide-column">
 										- Ver Info
 										<i class="bi bi-info-circle"></i>
@@ -56,9 +62,9 @@
 								</td>
 								<td><%= hotel.precio%>.00</td>
 								<% if (hotel.cod_opera == 0) { %>
-								<td>NO POSTEAR</td>
+								<td class="hide-column-opera">NO POST</td>
 								<% } else { %>
-								<td><%= hotel.cod_opera%></td>
+								<td class="hide-column-opera"><%= hotel.cod_opera%></td>
 								<% } %>
 								<td class="hide-text hide-column">
 									<span><%= hotel.tips %></span>
@@ -67,53 +73,6 @@
 							<% }) %>
 						</tbody>
 					</table>
-				</div>
-			</div>
-
-			<!-- *****************************MOBILE CARDS EDIT****************************** -->
-			<div class="tabla-mobile" id="tabla-mobile">
-				<div class="row row-cols-1 row-cols-sm-2" id="servicesHomePage">
-					<% results.forEach((hotel) => { %>
-					<div class="col">
-						<div class="card cardHome mb-4 cardShadow" id="serviceTest">
-							<div class="card-header fixSizeHead">
-								<div class="card-title my-0 text-center"><%= hotel.nombre %></div>
-							</div>
-							<div class="card-body">
-								<h5 class="card-title pricing-card-title text-center precio-tur">
-									USD <%= hotel.precio %>.00
-									<small class="text-muted">p/p</small>
-								</h5>
-								<div class="text-center">
-									<div class="accordion" id="accordionFlushExample">
-										<div class="accordion-item">
-											<h2 class="accordion-header" id="flush-headingOne">
-												<button
-													class="accordion-button collapsed"
-													type="button"
-													data-bs-toggle="collapse"
-													data-bs-target="#flush-collapseOne<%= hotel.id %>"
-													aria-expanded="false"
-													aria-controls="flush-collapseOne">
-													<% if (hotel.cod_opera == 0) { %> Opera: <strong>&nbsp;NO POSTEAR</strong> <% } else { %> Opera:
-													<strong>&nbsp;<%= hotel.cod_opera %></strong>
-													<% } %>
-												</button>
-											</h2>
-											<div
-												id="flush-collapseOne<%= hotel.id %>"
-												class="accordion-collapse collapse"
-												aria-labelledby="flush-headingOne"
-												data-bs-parent="#accordionFlushExample">
-												<div class="accordion-body"><%= hotel.tips %></div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<% }) %>
 				</div>
 			</div>
 

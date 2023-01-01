@@ -110,7 +110,6 @@
 				<span>*Seleccione un servicio para ver su Descripción*</span>
 			</div>
 
-			<!-- <div class="mt-2 tabla-desktop"> -->
 			<div class="card mt-2">
 				<div class="card-body">
 					<div class="table-responsive">
@@ -127,8 +126,8 @@
 								<% results.forEach((service) => { %>
 								<tr
 									class="info"
-									onclick="alert('- <%= service.nombre %> -\n Opera: <% if (service.cod_opera == 0) { %><%= service.cod_opera = `NO POST`%><% } else if (service.cod_opera == 1){ %><%= service.cod_opera = `MULTIPLE`%><% } else { %><%= service.cod_opera%><% } %>\n <%= service.descripcion %>')">
-									<td>
+									onclick="alert('- <%= service.nombre %> -\n Opera: <% if (service.cod_opera == 0) { %><%= service.cod_opera = `NO POST`%><% } else if (service.cod_opera == 1){ %><%= service.cod_opera = `MULTIPLE`%><% } else { %><%= service.cod_opera%><% } %>\n\n <%= service.descripcion %>')">
+									<td class="hide-text">
 										<span><%= service.nombre %></span>
 										<div class="verInfo hide-column">
 											- Ver Info

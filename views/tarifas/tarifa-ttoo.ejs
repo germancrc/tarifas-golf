@@ -43,8 +43,8 @@
 						<thead id="tabla-vacia">
 							<tr>
 								<th scope="col" class="col-6 col-xl-4">Nombre</th>
-								<th scope="col" class="col-2">Green F.</th>
-								<th scope="col" class="col">Twilight</th>
+								<th scope="col" class="col-2">GF</th>
+								<th scope="col" class="col-2">TW</th>
 								<th scope="col" class="col hide-column-opera">Opera</th>
 								<th scope="col" class="col hide-column">Operación</th>
 							</tr>
@@ -58,13 +58,13 @@
 									<span><%= ttoo.nombre %></span>
 								</td>
 								<td>
-									USD <%= ttoo.green_fee%>
+									<%= ttoo.green_fee%>.00
 									<div class="verInfo hide-column">
 										- Ver Info
 										<i class="bi bi-info-circle"></i>
 									</div>
 								</td>
-								<td>USD <%= ttoo.twilight%></td>
+								<td><%= ttoo.twilight%>.00</td>
 								<td class="hide-column-opera"><%= ttoo.cod_opera%></td>
 								<td class="hide-text hide-column">
 									<span><%= ttoo.operacion %></span>

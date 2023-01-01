@@ -96,126 +96,73 @@
 					<hr />
 					<h4 class="mb-3">Servicios que ofrecemos:</h4>
 				</div>
+			</div>
 
-				<div class="mb-1">
-					<form role="search">
-						<div class="input-group">
-							<span class="input-group-text" id="basic-addon1"><i class="bi bi-search"></i></span>
-							<input
-								class="form-control"
-								type="search"
-								id="myInput"
-								onkeyup="filtroBusqueda(0.6)"
-								placeholder="Buscar Servicios"
-								aria-label="Search" />
-						</div>
-					</form>
-				</div>
-				<div class="text-center mt-2 hide-column-message">
-					<span>*Seleccione un elemento de la lista para ver su Descripción*</span>
-				</div>
-
-				<!-- <div class="mt-2 tabla-desktop"> -->
-				<div class="card mt-">
-					<div class="card-body">
-						<div class="table-responsive">
-							<table class="table table-hover" id="myTable">
-								<thead id="tabla-vacia">
-									<tr>
-										<th scope="col" class="col">Nombre</th>
-										<th scope="col" class="col-2">USD p/p</th>
-										<th scope="col" class="col-2 hide-column-opera">Opera</th>
-										<th scope="col" class="col-4 hide-column">Descripción</th>
-									</tr>
-								</thead>
-								<tbody>
-									<% results.forEach((service) => { %>
-									<tr class="info" onclick="alert('- <%= service.nombre %> -\n Opera: <%= service.cod_opera %> \n <%= service.descripcion %>')">
-										<td>
-											<span><%= service.nombre %></span>
-											<div class="verInfo hide-column">
-												- Ver Info
-												<i class="bi bi-info-circle"></i>
-											</div>
-										</td>
-										<!-- <td><%= service.precio%>.00</td> -->
-
-										<% if (service.precio == 0 && service.nombre == "Torneos") { %>
-										<td>COTIZAR</td>
-										<% } else { %>
-										<td><%= service.precio%>.00</td>
-										<% } %> <% if (service.cod_opera == 0) { %>
-										<td class="hide-column-opera">NO POST</td>
-										<% } else if (service.cod_opera == 1){ %>
-										<td class="hide-column-opera">MULTIPLE</td>
-										<% } else { %>
-										<td class="hide-column-opera"><%= service.cod_opera%></td>
-										<% } %>
-										<td class="hide-text hide-column">
-											<span><%= service.descripcion %></span>
-										</td>
-									</tr>
-									<% }) %>
-								</tbody>
-							</table>
-						</div>
+			<div class="mb-1">
+				<form role="search">
+					<div class="input-group">
+						<span class="input-group-text" id="basic-addon1"><i class="bi bi-search"></i></span>
+						<input class="form-control" type="search" id="myInput" onkeyup="filtroBusqueda(0.6)" placeholder="Buscar Servicios" aria-label="Search" />
 					</div>
-				</div>
-				<!-- </div> -->
+				</form>
+			</div>
+			<div class="text-center mt-2 mb-2 hide-column-message">
+				<span>*Seleccione un servicio para ver su Descripción*</span>
+			</div>
 
-				<!-- *****************************MOBILE CARDS EDIT****************************** -->
-
-				<!-- <div class="tabla-mobile">
-					<div class="row row-cols-1 row-cols-sm-2 mt-3" id="servicesHomePage">
-						<% results.forEach((service) => { %>
-						<div class="col">
-							<div class="card cardHome mb-4 cardShadow" id="serviceTest">
-								<div class="card-header fixSizeHead">
-									<div><%= service.nombre %></div>
-								</div>
-								<div class="card-body">
-									<h5 class="text-center">
-										USD <%= service.precio %>.00
-										<small class="text-muted">p/p</small>
-									</h5>
-									<div class="text-center">
-										<div class="accordion" id="accordionFlushExample">
-											<div class="accordion-item">
-												<h2 class="accordion-header" id="flush-headingOne">
-													<button
-														class="accordion-button collapsed"
-														type="button"
-														data-bs-toggle="collapse"
-														data-bs-target="#flush-collapseOne<%= service.id %>"
-														aria-expanded="false"
-														aria-controls="flush-collapseOne">
-														<% if (service.cod_opera == 0 && service.nombre != "Torneos") { %> Opera: <strong>&nbsp;NO POSTEAR</strong> <% } else if
-														(service.cod_opera == 0 && service.nombre == "Torneos"){ %> Opera: <strong>&nbsp;VARIABLE</strong> <% } else { %> Opera:
-														<strong>&nbsp;<%= service.cod_opera %></strong>
-														<% } %>
-													</button>
-												</h2>
-												<div
-													id="flush-collapseOne<%= service.id %>"
-													class="accordion-collapse collapse"
-													aria-labelledby="flush-headingOne"
-													data-bs-parent="#accordionFlushExample">
-													<div class="accordion-body"><%= service.descripcion %></div>
-												</div>
-											</div>
+			<!-- <div class="mt-2 tabla-desktop"> -->
+			<div class="card mt-2">
+				<div class="card-body">
+					<div class="table-responsive">
+						<table class="table table-hover" id="myTable">
+							<thead id="tabla-vacia">
+								<tr>
+									<th scope="col" class="col">Nombre</th>
+									<th scope="col" class="col-2">Precio</th>
+									<th scope="col" class="col-2 hide-column-opera">Opera</th>
+									<th scope="col" class="col-4 hide-column">Descripción</th>
+								</tr>
+							</thead>
+							<tbody>
+								<% results.forEach((service) => { %>
+								<tr
+									class="info"
+									onclick="alert('- <%= service.nombre %> -\n Opera: <% if (service.cod_opera == 0) { %><%= service.cod_opera = `NO POST`%><% } else if (service.cod_opera == 1){ %><%= service.cod_opera = `MULTIPLE`%><% } else { %><%= service.cod_opera%><% } %>\n <%= service.descripcion %>')">
+									<td>
+										<span><%= service.nombre %></span>
+										<div class="verInfo hide-column">
+											- Ver Info
+											<i class="bi bi-info-circle"></i>
 										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<% }) %>
-					</div>
-				</div> -->
+									</td>
+									<!-- <td><%= service.precio%>.00</td> -->
 
-				<!-- <div class="d-none" id="noResults">
+									<% if (service.precio == 0 && service.nombre == "Torneos") { %>
+									<td>COTIZAR</td>
+									<% } else { %>
+									<td><%= service.precio%>.00</td>
+									<% } %> <% if (service.cod_opera == 0) { %>
+									<td class="hide-column-opera">NO POST</td>
+									<% } else if (service.cod_opera == 1){ %>
+									<td class="hide-column-opera">MULTIPLE</td>
+									<% } else { %>
+									<td class="hide-column-opera"><%= service.cod_opera%></td>
+									<% } %>
+									<td class="hide-text hide-column">
+										<span><%= service.descripcion %></span>
+									</td>
+								</tr>
+								<% }) %>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+
+			<!-- <div class="d-none" id="noResults">
               <img src="/img/noResults.png" alt="">
             </div> -->
-			</div>
+
 			<%- include ('./partials/footer.ejs') %> <% } %>
 		</div>
 	</body>

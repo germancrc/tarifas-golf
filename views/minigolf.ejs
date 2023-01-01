@@ -81,62 +81,88 @@
 		<div class="banner-mg"></div>
 		<div class="content">
 			<h2 class="fixHead text-center">Rock Star Mini Golf</h2>
+			<h5 class="text-center mb-2">PM Opera: <strong>9502</strong></h5>
 
 			<div class="container">
 				<div class="row text-center mt-3">
-					<h4 class="mb-4">
+					<h5 class="mb-3">
 						<span class="text-danger">TODOS</span> los clientes <span class="text-danger">DEBEN PAGAR.</span> Ningún tipo de membresía tiene el mini
 						golf incluido.
-					</h4>
-					<h5 class="text-center mb-2">PM Opera: <strong>9502</strong></h5>
+					</h5>
 
-					<h3 class="mb-2 mt-2 fw-bold">Tarifas:</h3>
 					<hr />
+					<h4 class="mb-2">Tarifas:</h4>
+				</div>
+			</div>
 
-					<div class="container">
-						<div class="row row-cols-1 row-cols-sm-1 row-cols-md-3 mt-2" id="ratesMG">
-							<% results.forEach((rateMg) => { %>
-							<div class="col">
-								<div class="card cardHome mb-4 cardShadow" id="serviceTest">
-									<div class="card-header fixSizeHead">
-										<h5 class="my-0 font-weight-normal text-center"><%= rateMg.nombre %></h5>
-									</div>
-									<div class="card-body">
-										<h3 class="card-title pricing-card-title text-center">
-											USD <%= rateMg.precio %>
-											<small class="text-muted">p/p</small>
-										</h3>
-										<h5>Código Opera: <strong><%= rateMg.cod_opera %></strong></h5>
-										<div class="accordion" id="accordionFlushExample">
-											<div class="accordion-item">
-												<h2 class="accordion-header" id="flush-headingOne">
-													<button
-														class="accordion-button collapsed"
-														type="button"
-														data-bs-toggle="collapse"
-														data-bs-target="#flush-collapseOne<%= rateMg.id %>"
-														aria-expanded="false"
-														aria-controls="flush-collapseOne">
-														Más Información
-													</button>
-												</h2>
-												<div
-													id="flush-collapseOne<%= rateMg.id %>"
-													class="accordion-collapse collapse"
-													aria-labelledby="flush-headingOne"
-													data-bs-parent="#accordionFlushExample">
-													<div class="accordion-body"><%= rateMg.descripcion %></div>
-												</div>
-											</div>
+			<!-- <div class="mb-1">
+				<form role="search">
+					<div class="input-group">
+						<span class="input-group-text" id="basic-addon1"><i class="bi bi-search"></i></span>
+						<input class="form-control" type="search" id="myInput" onkeyup="filtroBusqueda(0.6)" placeholder="Buscar Tarifa" aria-label="Search" />
+					</div>
+				</form>
+			</div> -->
+			<div class="text-center mb-2 hide-column-message">
+				<span>*Seleccione un servicio para ver su Descripción*</span>
+			</div>
+
+			<div class="card mt-2">
+				<div class="card-body">
+					<div class="table-responsive">
+						<table class="table table-hover" id="myTable">
+							<thead id="tabla-vacia">
+								<tr>
+									<th scope="col" class="col">Nombre</th>
+									<th scope="col" class="col-2">Precio</th>
+									<th scope="col" class="col-2 hide-column-opera">Opera</th>
+									<th scope="col" class="col-4 hide-column">Descripción</th>
+								</tr>
+							</thead>
+							<tbody>
+								<% results.forEach((rateMg) => { %>
+								<tr
+									class="info"
+									onclick="alert('- <%= rateMg.nombre %> -\n\n Opera: <% if (rateMg.cod_opera == 0) { %><%= rateMg.cod_opera = `NO POST`%><% } else if (rateMg.cod_opera == 1){ %><%= rateMg.cod_opera = `MULTIPLE`%><% } else { %><%= rateMg.cod_opera%><% } %>\n\n <%= rateMg.descripcion %>')">
+									<td class="hide-text">
+										<span><%= rateMg.nombre %></span>
+									</td>
+									<!-- <td><%= rateMg.precio%>.00</td> -->
+
+									<% if (rateMg.precio == 0 && rateMg.nombre == "Resort Credits Minigolf") { %>
+									<td>
+										30 RC
+										<div class="verInfo hide-column">
+											- Ver Info
+											<i class="bi bi-info-circle"></i>
 										</div>
-									</div>
-								</div>
-							</div>
-							<% }) %>
-						</div>
+									</td>
+									<% } else { %>
+									<td>
+										<%= rateMg.precio%>
+										<div class="verInfo hide-column">
+											- Ver Info
+											<i class="bi bi-info-circle"></i>
+										</div>
+									</td>
+									<% } %> <% if (rateMg.cod_opera == 0) { %>
+									<td class="hide-column-opera">NO POST</td>
+									<% } else if (rateMg.cod_opera == 1){ %>
+									<td class="hide-column-opera">MULTIPLE</td>
+									<% } else { %>
+									<td class="hide-column-opera"><%= rateMg.cod_opera%></td>
+									<% } %>
+									<td class="hide-text hide-column">
+										<span><%= rateMg.descripcion %></span>
+									</td>
+								</tr>
+								<% }) %>
+							</tbody>
+						</table>
 					</div>
 				</div>
 			</div>
+
 			<%- include ('./partials/footer.ejs') %>
 		</div>
 	</body>

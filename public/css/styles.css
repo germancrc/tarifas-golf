@@ -489,6 +489,14 @@ a.active .flecha {
 }
 
 @media screen and (max-width: 700px) {
+	.hide-column-opera {
+		display: none;
+	}
+
+	.hide-column-message {
+		display: block;
+	}
+
 	.row-height {
 		height: 50px;
 	}

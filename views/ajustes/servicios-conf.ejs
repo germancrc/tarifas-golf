@@ -60,10 +60,10 @@
 								<tr>
 									<td><%= service.nombre %></td>
 									<td><%= service.precio%>.00</td>
-									<% if (service.cod_opera == 0 && service.nombre != "Torneos") { %>
+									<% if (service.cod_opera == 0) { %>
 									<td>NO POSTEAR</td>
-									<% } else if (service.cod_opera == 0 && service.nombre == "Torneos"){ %>
-									<td>VARIABLE</td>
+									<% } else if (service.cod_opera == 1){ %>
+									<td>MULTIPLE</td>
 									<% } else { %>
 									<td><%= service.cod_opera%></td>
 									<% } %> <% if(service.descripcion.length > 40) { %>

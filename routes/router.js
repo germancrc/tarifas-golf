@@ -124,7 +124,7 @@ router.get('/tarifas/tarifa-local', authController.isAuthenticated, (req, res) =
 })
 
 router.get('/tarifas/tarifa-ttoo', authController.isAuthenticated, (req, res) => {
-	db.query('SELECT * FROM ttooRates', (error, results) => {
+	db.query('SELECT * FROM ttooRates order by nombre asc', (error, results) => {
 		if (results) {
 			res.render('tarifas/tarifa-ttoo', {
 				user: req.user,

@@ -125,7 +125,12 @@
 							</thead>
 							<tbody>
 								<% results.forEach((code) => { %>
+
 								<tr class="info" onclick="alert('- <%= code.nombre %> -\n\n <%= code.descripcion %>')">
+									<% if (code.codigo == 0 || code.codigo == 1) { %>
+									<td class="d-none"></td>
+									<% } else { %>
+
 									<td>
 										<%= code.codigo %>
 										<div class="verInfo hide-column">
@@ -136,6 +141,7 @@
 									<td><%= code.nombre%></td>
 									<td><%= code.uso%></td>
 									<td class="hide-text hide-column"><span><%= code.descripcion %></span></td>
+									<% } %>
 								</tr>
 								<% }) %>
 							</tbody>

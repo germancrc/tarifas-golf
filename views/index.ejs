@@ -115,58 +115,63 @@
 					<span>*Seleccione un elemento de la lista para ver su Descripción*</span>
 				</div>
 
-				<div class="mt-2 tabla-desktop">
-					<div class="card">
-						<div class="card-body">
-							<div class="table-responsive">
-								<table class="table table-hover" id="myTable">
-									<thead id="tabla-vacia">
-										<tr>
-											<th scope="col" class="col-4">Nombre</th>
-											<th scope="col" class="col-2">Precio USD</th>
-											<th scope="col" class="col-2">Opera</th>
-											<th scope="col" class="col-4 hide-column">Descripción</th>
-										</tr>
-									</thead>
-									<tbody>
-										<% results.forEach((service) => { %>
-										<tr class="info" onclick="alert('- <%= service.nombre %> -\n\n <%= service.descripcion %>')">
-											<td>
-												<span><%= service.nombre %></span>
-												<div class="verInfo hide-column">
-													- Ver Info
-													<i class="bi bi-info-circle"></i>
-												</div>
-											</td>
-											<td><%= service.precio%>.00</td>
-											<% if (service.cod_opera == 0 && service.nombre != "Torneos") { %>
-											<td>NO POSTEAR</td>
-											<% } else if (service.cod_opera == 0 && service.nombre == "Torneos"){ %>
-											<td>VARIABLE</td>
-											<% } else { %>
-											<td><%= service.cod_opera%></td>
-											<% } %>
-											<td class="hide-text hide-column">
-												<span><%= service.descripcion %></span>
-											</td>
-										</tr>
-										<% }) %>
-									</tbody>
-								</table>
-							</div>
+				<!-- <div class="mt-2 tabla-desktop"> -->
+				<div class="card mt-">
+					<div class="card-body">
+						<div class="table-responsive">
+							<table class="table table-hover" id="myTable">
+								<thead id="tabla-vacia">
+									<tr>
+										<th scope="col" class="col">Nombre</th>
+										<th scope="col" class="col-2">USD p/p</th>
+										<th scope="col" class="col-2 hide-column-opera">Opera</th>
+										<th scope="col" class="col-4 hide-column">Descripción</th>
+									</tr>
+								</thead>
+								<tbody>
+									<% results.forEach((service) => { %>
+									<tr class="info" onclick="alert('- <%= service.nombre %> -\n Opera: <%= service.cod_opera %> \n <%= service.descripcion %>')">
+										<td>
+											<span><%= service.nombre %></span>
+											<div class="verInfo hide-column">
+												- Ver Info
+												<i class="bi bi-info-circle"></i>
+											</div>
+										</td>
+										<!-- <td><%= service.precio%>.00</td> -->
+
+										<% if (service.precio == 0 && service.nombre == "Torneos") { %>
+										<td>COTIZAR</td>
+										<% } else { %>
+										<td><%= service.precio%>.00</td>
+										<% } %> <% if (service.cod_opera == 0) { %>
+										<td class="hide-column-opera">NO POST</td>
+										<% } else if (service.cod_opera == 1){ %>
+										<td class="hide-column-opera">MULTIPLE</td>
+										<% } else { %>
+										<td class="hide-column-opera"><%= service.cod_opera%></td>
+										<% } %>
+										<td class="hide-text hide-column">
+											<span><%= service.descripcion %></span>
+										</td>
+									</tr>
+									<% }) %>
+								</tbody>
+							</table>
 						</div>
 					</div>
 				</div>
+				<!-- </div> -->
 
 				<!-- *****************************MOBILE CARDS EDIT****************************** -->
 
-				<div class="tabla-mobile">
+				<!-- <div class="tabla-mobile">
 					<div class="row row-cols-1 row-cols-sm-2 mt-3" id="servicesHomePage">
 						<% results.forEach((service) => { %>
 						<div class="col">
 							<div class="card cardHome mb-4 cardShadow" id="serviceTest">
 								<div class="card-header fixSizeHead">
-									<div class="card-title my-0 text-center"><%= service.nombre %></div>
+									<div><%= service.nombre %></div>
 								</div>
 								<div class="card-body">
 									<h5 class="text-center">
@@ -205,7 +210,7 @@
 						</div>
 						<% }) %>
 					</div>
-				</div>
+				</div> -->
 
 				<!-- <div class="d-none" id="noResults">
               <img src="/img/noResults.png" alt="">

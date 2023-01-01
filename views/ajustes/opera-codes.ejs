@@ -49,10 +49,10 @@
 							<table class="table" id="myTable">
 								<thead>
 									<tr>
-										<th scope="col" class="col">Código</th>
+										<th scope="col" class="col-1">Código</th>
 										<th scope="col" class="col">Nombre</th>
-										<th scope="col" class="col">Uso</th>
-										<th scope="col" class="col-5" id="descripcion">Descripción</th>
+										<th scope="col" class="col-2">Uso</th>
+										<th scope="col" class="col-4" id="descripcion">Descripción</th>
 										<th scope="col" class="col-2">Acciones</th>
 									</tr>
 								</thead>
@@ -60,15 +60,13 @@
 									<% results.forEach((code) => { %>
 									<tr>
 										<td><%= code.codigo %></td>
-										<td><%= code.nombre %></td>
+										<td class="hide-text">
+											<span><%= code.nombre %></span>
+										</td>
 										<td><%= code.uso %></td>
-										<% if(code.descripcion.length > 50) { %>
-										<td data-titulo="Tips:"><%= code.descripcion.slice(0,50) %>...</td>
-
-										<% } else { %>
-										<td data-titulo="Tips:"><%= code.descripcion %></td>
-										<% } %>
-
+										<td class="hide-text hide-column">
+											<span><%= code.descripcion %></span>
+										</td>
 										<td>
 											<a
 												href="/ajustes/opera-codes/<%= code.id %>"

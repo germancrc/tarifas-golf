@@ -126,20 +126,22 @@
 								<% results.forEach((service) => { %>
 								<tr
 									class="info"
-									onclick="alert('- <%= service.nombre %> -\n Opera: <% if (service.cod_opera == 0) { %><%= service.cod_opera = `NO POST`%><% } else if (service.cod_opera == 1){ %><%= service.cod_opera = `MULTIPLE`%><% } else { %><%= service.cod_opera%><% } %>\n\n <%= service.descripcion %>')">
+									onclick="alert('- <%= service.nombre %> -\n\n Opera: <% if (service.cod_opera == 0) { %><%= service.cod_opera = `NO POST`%><% } else if (service.cod_opera == 1){ %><%= service.cod_opera = `MULTIPLE`%><% } else { %><%= service.cod_opera%><% } %>\n\n <%= service.descripcion %>')">
 									<td class="hide-text">
 										<span><%= service.nombre %></span>
-										<div class="verInfo hide-column">
-											- Ver Info
-											<i class="bi bi-info-circle"></i>
-										</div>
 									</td>
 									<!-- <td><%= service.precio%>.00</td> -->
 
 									<% if (service.precio == 0 && service.nombre == "Torneos") { %>
 									<td>COTIZAR</td>
 									<% } else { %>
-									<td><%= service.precio%>.00</td>
+									<td>
+										<%= service.precio%>.00
+										<div class="verInfo hide-column">
+											- Ver Info
+											<i class="bi bi-info-circle"></i>
+										</div>
+									</td>
 									<% } %> <% if (service.cod_opera == 0) { %>
 									<td class="hide-column-opera">NO POST</td>
 									<% } else if (service.cod_opera == 1){ %>

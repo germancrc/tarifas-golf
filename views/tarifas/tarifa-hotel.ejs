@@ -52,15 +52,17 @@
 							<% results.forEach((hotel) => { %>
 							<tr
 								class="info"
-								onclick="alert('- <%= hotel.nombre %> -\n Opera: <% if (hotel.cod_opera == 0) { %><%= hotel.cod_opera = `NO POST`%><% } else if (hotel.cod_opera == 1){ %><%= hotel.cod_opera = `MULTIPLE`%><% } else { %><%= hotel.cod_opera%><% } %>\n\n <%= hotel.tips %>')">
+								onclick="alert('- <%= hotel.nombre %> -\n\n Opera: <% if (hotel.cod_opera == 0) { %><%= hotel.cod_opera = `NO POST`%><% } else if (hotel.cod_opera == 1){ %><%= hotel.cod_opera = `MULTIPLE`%><% } else { %><%= hotel.cod_opera%><% } %>\n\n <%= hotel.tips %>')">
 								<td class="hide-text">
 									<span><%= hotel.nombre %></span>
+								</td>
+								<td>
+									<%= hotel.precio%>.00
 									<div class="verInfo hide-column">
 										- Ver Info
 										<i class="bi bi-info-circle"></i>
 									</div>
 								</td>
-								<td><%= hotel.precio%>.00</td>
 								<% if (hotel.cod_opera == 0) { %>
 								<td class="hide-column-opera">NO POST</td>
 								<% } else { %>

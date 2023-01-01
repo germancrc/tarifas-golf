@@ -43,7 +43,7 @@
 						<thead id="tabla-vacia">
 							<tr>
 								<th scope="col" class="col-6 col-xl-4">Nombre</th>
-								<th scope="col" class="col">Green F.</th>
+								<th scope="col" class="col-2">Green F.</th>
 								<th scope="col" class="col">Twilight</th>
 								<th scope="col" class="col hide-column-opera">Opera</th>
 								<th scope="col" class="col hide-column">Operación</th>
@@ -53,22 +53,22 @@
 							<% results.forEach((ttoo) => { %>
 							<tr
 								class="info"
-								onclick="alert('- <%= ttoo.nombre %> -\n Opera: <% if (ttoo.cod_opera == 0) { %><%= ttoo.cod_opera = `NO POST`%><% } else if (ttoo.cod_opera == 1){ %><%= ttoo.cod_opera = `MULTIPLE`%><% } else { %><%= ttoo.cod_opera%><% } %>\n\n Cómo registrarlo: <%= ttoo.operacion %>')">
+								onclick="alert('- <%= ttoo.nombre %> -\n\n Opera: <% if (ttoo.cod_opera == 0) { %><%= ttoo.cod_opera = `NO POST`%><% } else if (ttoo.cod_opera == 1){ %><%= ttoo.cod_opera = `MULTIPLE`%><% } else { %><%= ttoo.cod_opera%><% } %>\n\n Cómo registrarlo: <%= ttoo.operacion %>')">
 								<td class="hide-text">
 									<span><%= ttoo.nombre %></span>
-									<!-- <div class="verInfo hide-column">
+								</td>
+								<td>
+									USD <%= ttoo.green_fee%>
+									<div class="verInfo hide-column">
 										- Ver Info
 										<i class="bi bi-info-circle"></i>
-									</div> -->
+									</div>
 								</td>
-								<td>USD <%= ttoo.green_fee%></td>
 								<td>USD <%= ttoo.twilight%></td>
 								<td class="hide-column-opera"><%= ttoo.cod_opera%></td>
-								<% if(ttoo.operacion.length > 40) { %>
-								<td class="hide-column hide-text"><%= ttoo.operacion.slice(0,40) %>...</td>
-								<% } else { %>
-								<td class="hide-column hide-text"><%= ttoo.operacion %></td>
-								<% } %>
+								<td class="hide-text hide-column">
+									<span><%= ttoo.operacion %></span>
+								</td>
 							</tr>
 							<% }) %>
 						</tbody>

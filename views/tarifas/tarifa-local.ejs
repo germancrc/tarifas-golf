@@ -52,15 +52,15 @@
 							<% results.forEach((local) => { %>
 								<tr
 								class="info"
-								onclick="alert('- <%= local.nombre %> -\n Opera: <% if (local.cod_opera == 0) { %><%= local.cod_opera = `NO POST`%><% } else if (local.cod_opera == 1){ %><%= local.cod_opera = `MULTIPLE`%><% } else { %><%= local.cod_opera%><% } %>\n\n <%= local.tips %>')">
+								onclick="alert('- <%= local.nombre %> -\n\n Opera: <% if (local.cod_opera == 0) { %><%= local.cod_opera = `NO POST`%><% } else if (local.cod_opera == 1){ %><%= local.cod_opera = `MULTIPLE`%><% } else { %><%= local.cod_opera%><% } %>\n\n <%= local.tips %>')">
 								<td class="hide-text">
 									<span><%= local.nombre %></span>
+								</td>
+								<td><%= local.precio%>.00
 									<div class="verInfo hide-column">
 										- Ver Info
 										<i class="bi bi-info-circle"></i>
-									</div>
-								</td>
-								<td><%= local.precio%>.00</td>
+									</div></td>
 								<% if (local.cod_opera == 0 && local.nombre != "Ronda de Practica Torneo HR") { %>
 								<td class="hide-column-opera">NO POSTEAR</td>
 								<% } else if (local.cod_opera == 0 && local.nombre == "Ronda de Practica Torneo HR"){ %>

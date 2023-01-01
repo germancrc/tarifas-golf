@@ -52,15 +52,17 @@
 							<% results.forEach((turista) => { %>
 							<tr
 								class="info"
-								onclick="alert('- <%= turista.nombre %> -\n Opera: <% if (turista.cod_opera == 0) { %><%= turista.cod_opera = `NO POST`%><% } else if (turista.cod_opera == 1){ %><%= turista.cod_opera = `MULTIPLE`%><% } else { %><%= turista.cod_opera%><% } %>\n\n <%= turista.tips %>')">
+								onclick="alert('- <%= turista.nombre %> -\n\n Opera: <% if (turista.cod_opera == 0) { %><%= turista.cod_opera = `NO POST`%><% } else if (turista.cod_opera == 1){ %><%= turista.cod_opera = `MULTIPLE`%><% } else { %><%= turista.cod_opera%><% } %>\n\n <%= turista.tips %>')">
 								<td class="hide-text">
 									<span><%= turista.nombre %></span>
+								</td>
+								<td>
+									<%= turista.precio%>.00
 									<div class="verInfo hide-column">
 										- Ver Info
 										<i class="bi bi-info-circle"></i>
 									</div>
 								</td>
-								<td><%= turista.precio%>.00</td>
 								<% if (turista.cod_opera == 0 && turista.nombre != "Ronda de Practica Torneo") { %>
 								<td class="hide-column-opera">NO POSTEAR</td>
 								<% } else if (turista.cod_opera == 0 && turista.nombre == "Ronda de Practica Torneo"){ %>

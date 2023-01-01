@@ -39,14 +39,15 @@
 						<thead id="tabla-vacia">
 							<tr>
 								<th scope="col" class="col-4">Nombre</th>
-								<th scope="col" class="col-2">Precio USD</th>
-								<th scope="col" class="col-2">Opera</th>
+								<th scope="col" class="col">Green Fee</th>
+								<th scope="col" class="col">Twilight</th>
+								<th scope="col" class="col">Opera</th>
 								<th scope="col" class="col-4 hide-column">Operación</th>
 							</tr>
 						</thead>
 						<tbody>
 							<% results.forEach((ttoo) => { %>
-							<tr class="info" onclick="alert('- <%= ttoo.nombre %> -\n\n <%= ttoo.operacion %>')">
+							<tr class="info" onclick="alert('- <%= ttoo.nombre %> -\n Opera: <%= ttoo.cod_opera %> \n Como registrar:  <%= ttoo.operacion %>')">
 								<td>
 									<span><%= ttoo.nombre %></span>
 									<div class="verInfo hide-column">
@@ -54,9 +55,14 @@
 										<i class="bi bi-info-circle"></i>
 									</div>
 								</td>
-								<td><%= ttoo.precio%>.00</td>
+								<td>USD <%= ttoo.green_fee%></td>
+								<td>USD <%= ttoo.twilight%></td>
 								<td><%= ttoo.cod_opera%></td>
+								<% if(ttoo.operacion.length > 40) { %>
+								<td class="hide-column hide-text"><%= ttoo.operacion.slice(0,40) %>...</td>
+								<% } else { %>
 								<td class="hide-column hide-text"><%= ttoo.operacion %></td>
+								<% } %>
 							</tr>
 							<% }) %>
 						</tbody>
@@ -74,10 +80,11 @@
 								<div class="card-title my-0 text-center"><%= ttoo.nombre %></div>
 							</div>
 							<div class="card-body">
-								<h5 class="card-title pricing-card-title text-center precio-tur">
-									USD <%= ttoo.precio %>.00
-									<small class="text-muted">p/p</small>
-								</h5>
+								<div class="text-center card-title row">
+									<div class="col-4">GF: <strong><%= ttoo.green_fee %></strong></div>
+									<div class="col-3">TW: <strong><%= ttoo.twilight %></strong></div>
+									<div class="col-5">Cod: <strong><%= ttoo.cod_opera %></strong></div>
+								</div>
 								<div class="text-center">
 									<div class="accordion" id="accordionFlushExample">
 										<div class="accordion-item">
@@ -89,7 +96,7 @@
 													data-bs-target="#flush-collapseOne<%= ttoo.id %>"
 													aria-expanded="false"
 													aria-controls="flush-collapseOne">
-													Opera: <strong>&nbsp;<%= ttoo.cod_opera %></strong>
+													Cómo registrar:
 												</button>
 											</h2>
 											<div

@@ -44,19 +44,25 @@
 								<thead>
 									<tr>
 										<th scope="col" class="col">Nombre</th>
-										<th scope="col" class="col">Precio</th>
-										<th scope="col" class="col">Cod. Opera</th>
-										<th scope="col" class="col" id="descripcion">Operación</th>
+										<th scope="col" class="col">Green Fee</th>
+										<th scope="col" class="col">Twilight</th>
+										<th scope="col" class="col">Opera</th>
+										<th scope="col" class="col-4" id="descripcion">Operación</th>
 										<th scope="col" class="col-2">Acciones</th>
 									</tr>
 								</thead>
 								<tbody>
 									<% results.forEach((ttoo) => { %>
 									<tr>
-										<td data-titulo="nombre:"><%= ttoo.nombre %></td>
-										<td data-titulo="precio:">USD <%= ttoo.precio%></td>
-										<td data-titulo="Opera:"><%= ttoo.cod_opera%></td>
-										<td data-titulo="Ticket:"><%= ttoo.operacion%></td>
+										<td><%= ttoo.nombre %></td>
+										<td>USD <%= ttoo.green_fee%></td>
+										<td>USD <%= ttoo.twilight%></td>
+										<td><%= ttoo.cod_opera%></td>
+										<% if(ttoo.operacion.length > 40) { %>
+										<td><%= ttoo.operacion.slice(0,40) %>...</td>
+										<% } else { %>
+										<td class="hide-column hide-text"><%= ttoo.operacion %></td>
+										<% } %>
 
 										<td>
 											<a
@@ -83,8 +89,8 @@
 				</div>
 
 				<!-- *****************************MOBILE CARDS EDIT****************************** -->
-				<div class="container tabla-mobile" id="tabla-mobile">
-					<div class="row row-cols-1 row-cols-sm-1 row-cols-md-3 mt-3" id="servicesHomePage">
+				<div class="tabla-mobile" id="tabla-mobile">
+					<div class="row row-cols-1 row-cols-sm-2 mt-3" id="servicesHomePage">
 						<% results.forEach((ttoo) => { %>
 						<div class="col">
 							<div class="card mb-2 cardHome cardShadow" id="opera-codes">
@@ -92,6 +98,10 @@
 									<div class="my-0 text-center card-title"><%= ttoo.nombre %></div>
 								</div>
 								<div class="card-body">
+									<div class="text-center card-title row">
+										<div class="col">GF: <strong><%= ttoo.green_fee %></strong></div>
+										<div class="col">TW: <strong><%= ttoo.twilight %></strong></div>
+									</div>
 									<div class="accordion" id="accordionFlushExample">
 										<div class="accordion-item">
 											<h2 class="accordion-header" id="flush-headingOne">

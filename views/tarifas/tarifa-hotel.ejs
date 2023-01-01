@@ -46,7 +46,7 @@
 						</thead>
 						<tbody>
 							<% results.forEach((hotel) => { %>
-							<tr class="info" onclick="alert('- <%= hotel.nombre %> -\n\n <%= hotel.tips %>')">
+							<tr class="info" onclick="alert('- <%= hotel.nombre %> -\n <%= hotel.tips %>')">
 								<td>
 									<%= hotel.nombre %>
 									<div class="verInfo hide-column">

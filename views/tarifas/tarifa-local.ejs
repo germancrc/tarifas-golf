@@ -46,7 +46,7 @@
 						</thead>
 						<tbody>
 							<% results.forEach((local) => { %>
-							<tr class="info" onclick="alert('- <%= local.nombre %> -\n\n <%= local.tips %>')">
+							<tr class="info" onclick="alert('- <%= local.nombre %> -\n <%= local.tips %>')">
 								<td>
 									<span><%= local.nombre %></span>
 									<div class="verInfo hide-column">

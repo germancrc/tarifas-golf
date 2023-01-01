@@ -30,12 +30,23 @@
 									<label for="service-title" class="form-label">Nombre del Tour Operador</label>
 									<input type="text" class="form-control" name="nombre" placeholder="Escriba el nombre del TTOO" required />
 								</div>
-								<div class="mb-3">
-									<label for="service-price" class="form-label">Precio</label>
-									<input type="number" class="form-control" name="precio" placeholder="Precio contratado" required />
+								<div class="row row-cols-1 row-cols-lg-2">
+									<div class="col">
+										<div class="mb-3">
+											<label for="service-green_fee" class="form-label">Green Fee</label>
+											<input type="number" class="form-control" name="green_fee" placeholder="Precio Green Fee" required />
+										</div>
+									</div>
+									<div class="col">
+										<div class="mb-3">
+											<label for="service-twiligt" class="form-label">Twilight</label>
+											<input type="number" class="form-control" name="twilight" placeholder="Precio Twilight" required />
+										</div>
+									</div>
 								</div>
+
 								<label for="rate-opera" class="form-label">Código OPERA </label>
-								<select class="form-select mb-3" name="cod_opera" id="codOpera" aria-label="cliente-selector" disabled>
+								<select class="form-select mb-3" name="cod_opera" id="codOpera" aria-label="cliente-selector">
 									<% results.forEach(code => { %>
 									<option value="<%= code.codigo %>"><%= code.codigo %> - <%= code.nombre %></option>
 									<% }) %>
@@ -49,7 +60,7 @@
 								</div>
 
 								<div class="new-form-button">
-									<button type="submit" class="btn btn-success btnAction btnShadow" id="botonAdd" disabled>AGREGAR</button>
+									<button type="submit" class="btn btn-success btnAction btnShadow" id="botonAdd">AGREGAR</button>
 									<a href="/ajustes/ttoo-conf" type="button" class="btn btn-danger btnAction btnShadow">CANCELAR</a>
 								</div>
 							</form>

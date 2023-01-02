@@ -46,7 +46,7 @@ router.get('/index', authController.isAuthenticated, (req, res) => {
 router.get('/guias', authController.isAuthenticated, (req, res) => {
 	try {
 		db.query(
-			'select id, aplicacion, archivo,  DATE_FORMAT(CONVERT_TZ(actualizado,"+00:00","-04:00"), "%d/%c/%y - %H:%i:%s") as actualizado, fileSize from guias_hrgolf ORDER BY aplicacion asc, actualizado desc',
+			'select guias_hrgolf.* from guias_hrgolf,(select aplicacion,max(actualizado) as actualizado from guias_hrgolf group by aplicacion) max_aplicacion where guias_hrgolf.aplicacion=max_aplicacion.aplicacion and guias_hrgolf.actualizado=max_aplicacion.actualizado order by aplicacion asc',
 			(error, results) => {
 				if (results) {
 					res.render('guias', {

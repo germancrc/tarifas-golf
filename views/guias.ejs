@@ -133,11 +133,9 @@
 									<% } %>
 									<td><%= guia.actualizado %></td>
 									<td>
-										<div class="d-flex justify-content-between">
-											<a href="/downloadGuide/<%= guia.id %>" target="_blank" class="btn btn-sm btn-success btnAction btnShadow"
-												><i class="bi bi-arrow-down-circle"></i
-											></a>
-										</div>
+										<a href="/downloadGuide/<%= guia.id %>" target="_blank" class="btn btn-sm btn-success btnAction btnShadow"
+											><i class="bi bi-arrow-down-circle"></i
+										></a>
 									</td>
 								</tr>
 								<% }) %>
@@ -151,7 +149,7 @@
 								<div class="col">
 									<div class="card mb-2 cardHome cardShadow" id="opera-codes">
 										<div class="card-header fixSizeHeadEdit">
-											<div class="my-0 card-title"><%= guia.aplicacion %> | <%= guia.actualizado %></div>
+											<div class="my-0 text-center card-title"><%= guia.aplicacion %></div>
 										</div>
 										<div class="card-body">
 											<div class="accordion" id="accordionFlushExample">
@@ -164,7 +162,7 @@
 															data-bs-target="#flush-collapseOne<%= guia.id %>"
 															aria-expanded="false"
 															aria-controls="flush-collapseOne">
-															Más Información
+															Información y Descarga:
 														</button>
 													</h2>
 													<div

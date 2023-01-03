@@ -170,14 +170,9 @@ p {
 }
 
 .btnAction {
-	/* width: 50px; */
-	/* height: 2.4rem; */
-	/* background: #4e9caf; */
-	padding: 0.3rem 1.8rem 0.3rem 1.8rem;
+	padding: 0.3rem 1.7rem 0.3rem 1.7rem;
 	text-align: center;
 	border-radius: 5px;
-	/* color: white; */
-	/* font-weight: bold; */
 	font-size: medium;
 	line-height: 25px;
 }
@@ -186,6 +181,10 @@ p {
 	box-shadow: 0px 3px 5px -3px rgba(0, 0, 0, 0.75);
 	-webkit-box-shadow: 0px 3px 5px -3px rgba(0, 0, 0, 0.75);
 	-moz-box-shadow: 0px 3px 5px -3px rgba(0, 0, 0, 0.75);
+}
+
+.btnGreen {
+	background-color: #28a745;
 }
 
 .hide-column-message {
@@ -345,11 +344,6 @@ a.active .flecha {
     -moz-box-shadow: 2px 1px 2px 0px rgba(0,0,0,0.75);
     */
 }
-
-/* .accordion-button {
-	background-color: #f0f0f0;
-	height: 3rem;
-} */
 
 .sidebar {
 	width: 160px;
@@ -541,6 +535,9 @@ a.active .flecha {
 
 	.navSmall {
 		background-color: #514d87;
+		box-shadow: 0px 3px 5px -3px rgba(0, 0, 0, 0.75);
+		-webkit-box-shadow: 0px 3px 5px -3px rgba(0, 0, 0, 0.75);
+		-moz-box-shadow: 0px 3px 5px -3px rgba(0, 0, 0, 0.75);
 	}
 
 	.navSmall a {

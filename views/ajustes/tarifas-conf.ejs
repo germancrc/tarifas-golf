@@ -49,11 +49,11 @@
 							<table class="table" id="myTable">
 								<thead>
 									<tr>
-										<th scope="col" class="col">Nombre</th>
-										<th scope="col" class="col">Precio</th>
-										<th scope="col" class="col">Cod. Opera</th>
+										<th scope="col" class="col-3">Nombre</th>
+										<th scope="col" class="col-2">Precio</th>
+										<th scope="col" class="col-1">Opera</th>
+										<th scope="col" class="col-1">Cliente</th>
 										<th scope="col" class="col" id="descripcion">Descripción</th>
-										<th scope="col" class="col">Cliente</th>
 										<th scope="col" class="col-2">Acciones</th>
 									</tr>
 								</thead>
@@ -63,16 +63,12 @@
 										<td><%= rate.nombre %></td>
 										<td>USD <%= rate.precio%>.00</td>
 										<% if (rate.cod_opera == 0) { %>
-										<td>NO POSTEAR</td>
+										<td>NO POST</td>
 										<% } else { %>
 										<td><%= rate.cod_opera%></td>
-										<% } %> <% if(rate.tips.length > 40) { %>
-										<td data-titulo="Tips:"><%= rate.tips.slice(0,40) %>...</td>
-
-										<% } else { %>
-										<td data-titulo="Tips:"><%= rate.tips %></td>
 										<% } %>
 										<td data-titulo="Cliente:"><%= rate.cliente%></td>
+										<td class="hide-text"><span><%= rate.tips %></span></td>
 
 										<td>
 											<a
@@ -105,10 +101,7 @@
 						<div class="col">
 							<div class="card mb-2 cardShadow" id="rateTest">
 								<div class="card-header fixSizeHeadEdit">
-									<div class="my-0 text-center card-title">
-										<%= rate.nombre %> | USD <%= rate.precio %>.00
-										<small>p/p</small>
-									</div>
+									<div class="my-0 text-center card-title"><%= rate.nombre %> | USD <%= rate.precio %>.00</div>
 								</div>
 								<div class="card-body">
 									<div class="accordion" id="accordionFlushExample">

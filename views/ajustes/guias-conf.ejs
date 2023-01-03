@@ -124,8 +124,8 @@
 										<table class="table tabla-desktop" id="myTable">
 											<thead>
 												<tr>
-													<th scope="col" class="col">Aplicación</th>
-													<th scope="col" class="col">Archivo</th>
+													<th scope="col" class="col-3">Aplicación</th>
+													<!-- <th scope="col" class="col">Archivo</th> -->
 													<th scope="col" class="col">Tamaño</th>
 													<th scope="col" class="col">Actualizado</th>
 													<th scope="col" class="col-2">Acciones</th>
@@ -135,7 +135,7 @@
 											<tbody>
 												<tr>
 													<td><%= guia.aplicacion %></td>
-													<td><%= guia.archivo %></td>
+													<!-- <td><%= guia.archivo %></td> -->
 													<% if (guia.fileSize >= 1000000) { %>
 													<td><%= (guia.fileSize/1000000).toFixed(2); %> MB</td>
 													<% } else if (guia.fileSize >= 1000) { %>

@@ -113,40 +113,38 @@
 
 			<div class="card mt-2">
 				<div class="card-body">
-					<div class="table-responsive">
-						<table class="table table-hover" id="myTable">
-							<thead id="tabla-vacia">
-								<tr>
-									<th scope="col" class="col-2">Código</th>
-									<th scope="col" class="col-4">Nombre</th>
-									<th scope="col" class="col-2">Uso</th>
-									<th scope="col" class="col-4 hide-column">Descripción</th>
-								</tr>
-							</thead>
-							<tbody>
-								<% results.forEach((code) => { %>
+					<table class="table" id="myTable">
+						<thead id="tabla-vacia">
+							<tr>
+								<th scope="col" class="col-2">Código</th>
+								<th scope="col" class="col-4">Nombre</th>
+								<th scope="col" class="col-2">Uso</th>
+								<th scope="col" class="col-4 hide-column">Descripción</th>
+							</tr>
+						</thead>
+						<tbody>
+							<% results.forEach((code) => { %>
 
-								<tr class="info" onclick="alert('- <%= code.nombre %> -\n\n <%= code.descripcion %>')">
-									<% if (code.codigo == 0 || code.codigo == 1) { %>
-									<td class="d-none"></td>
-									<% } else { %>
+							<tr class="info" onclick="alert('- <%= code.nombre %> -\n\n <%= code.descripcion %>')">
+								<% if (code.codigo == 0 || code.codigo == 1) { %>
+								<td class="d-none"></td>
+								<% } else { %>
 
-									<td>
-										<%= code.codigo %>
-										<div class="verInfo hide-column">
-											- Ver Info
-											<i class="bi bi-info-circle"></i>
-										</div>
-									</td>
-									<td><%= code.nombre%></td>
-									<td><%= code.uso%></td>
-									<td class="hide-text hide-column"><span><%= code.descripcion %></span></td>
-									<% } %>
-								</tr>
-								<% }) %>
-							</tbody>
-						</table>
-					</div>
+								<td>
+									<%= code.codigo %>
+									<div class="verInfo hide-column">
+										- Ver Info
+										<i class="bi bi-info-circle"></i>
+									</div>
+								</td>
+								<td><%= code.nombre%></td>
+								<td><%= code.uso%></td>
+								<td class="hide-text hide-column"><span><%= code.descripcion %></span></td>
+								<% } %>
+							</tr>
+							<% }) %>
+						</tbody>
+					</table>
 				</div>
 			</div>
 			<%- include ('./partials/footer.ejs') %>

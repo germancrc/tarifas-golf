@@ -80,14 +80,15 @@
 
 		<div class="content">
 			<div class="afterNav">
+				<h4 class="text-uppercase text-center">Guías actualizadas</h4>
+				<div class="text-center mt-2 mb-2">
+					<span>Seleccione la guía que desea descargar</span>
+				</div>
 				<div class="card editShadow">
 					<div class="card-body">
-						<div class="text-center">
-							<h4 class="text-uppercase">Guías actualizadas</h4>
-							<hr />
-						</div>
+						<div class="text-center"></div>
 
-						<div class="mb-3 inputSize">
+						<!-- <div class="mb-3 inputSize">
 							<form role="search">
 								<div class="input-group">
 									<span class="input-group-text" id="basic-addon1"><i class="bi bi-search"></i></span>
@@ -100,9 +101,9 @@
 										aria-label="Search" />
 								</div>
 							</form>
-						</div>
+						</div> -->
 
-						<table class="table tabla-desktop" id="myTable">
+						<table class="table align-middle" id="myTable">
 							<% if (results.length == 0) { %>
 							<div class="text-center">
 								<img class="noResults" src="/img/noResults.PNG" alt="" />
@@ -114,7 +115,7 @@
 									<th scope="col" class="col">Aplicación</th>
 									<!-- <th scope="col" class="col">Archivo</th> -->
 									<th scope="col" class="col">Tamaño</th>
-									<th scope="col" class="col">Actualizado</th>
+									<th scope="col" class="col hide-column">Actualizado</th>
 									<th scope="col" class="col-1">Descargar</th>
 								</tr>
 							</thead>
@@ -131,70 +132,16 @@
 									<% } else { %>
 									<td><%= guia.fileSize %> bytes</td>
 									<% } %>
-									<td><%= guia.actualizado %></td>
+									<td class="hide-column"><span><%= guia.actualizado %></span></td>
 									<td>
 										<a href="/downloadGuide/<%= guia.id %>" target="_blank" class="btn btn-sm btn-success btnAction btnShadow"
-											><i class="bi bi-arrow-down-circle"></i
+											><i class="bi bi-filetype-pdf"></i></i
 										></a>
 									</td>
 								</tr>
 								<% }) %>
 							</tbody>
 						</table>
-
-						<!-- *****************************MOBILE CARDS EDIT****************************** -->
-						<div class="tabla-mobile" id="tabla-mobile">
-							<div class="row row-cols-1 row-cols-sm-1 row-cols-md-3 mt-3" id="servicesHomePage">
-								<% results.forEach((guia) => { %>
-								<div class="col">
-									<div class="card mb-2 cardHome cardShadow" id="opera-codes">
-										<div class="card-header fixSizeHeadEdit">
-											<div class="my-0 text-center card-title"><%= guia.aplicacion %></div>
-										</div>
-										<div class="card-body">
-											<div class="accordion" id="accordionFlushExample">
-												<div class="accordion-item">
-													<h2 class="accordion-header" id="flush-headingOne">
-														<button
-															class="accordion-button collapsed"
-															type="button"
-															data-bs-toggle="collapse"
-															data-bs-target="#flush-collapseOne<%= guia.id %>"
-															aria-expanded="false"
-															aria-controls="flush-collapseOne">
-															Información y Descarga:
-														</button>
-													</h2>
-													<div
-														id="flush-collapseOne<%= guia.id %>"
-														class="accordion-collapse collapse"
-														aria-labelledby="flush-headingOne"
-														data-bs-parent="#accordionFlushExample">
-														<div class="accordion-body">
-															<!-- <p><strong>Archivo:</strong> <%= guia.archivo %></p> -->
-															<% if (guia.fileSize >= 1000000) { %>
-															<p><strong>Tamaño:</strong> <%= (guia.fileSize/1000000).toFixed(2); %> MB</p>
-															<% } else if (guia.fileSize >= 1000) { %>
-															<p><strong>Tamaño:</strong> <%= (guia.fileSize/1000).toFixed(2); %> KB</p>
-															<% } else { %>
-															<p><strong>Tamaño:</strong> <%= guia.fileSize %> bytes</p>
-															<% } %>
-															<p><strong>Actualizado:</strong> <%= guia.actualizado %></p>
-
-															<hr />
-															<a href="/downloadGuide/<%= guia.id %>" target="_blank" class="btn btn-sm btn-success btnAction btnShadow"
-																><i class="bi bi-arrow-down-circle"></i
-															></a>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<% }) %>
-							</div>
-						</div>
 					</div>
 				</div>
 			</div>

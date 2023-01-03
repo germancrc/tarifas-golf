@@ -74,8 +74,8 @@ exports.getTtoo = (req, res) => {
 exports.updateTtoo = (req, res) => {
 	try {
 		const { id } = req.params
-		const { nombre, greenfee, twilight, cod_opera, operacion } = req.body
-		const editedTtoo = { nombre, greenfee, twilight, cod_opera, operacion }
+		const { nombre, green_fee, twilight, cod_opera, operacion } = req.body
+		const editedTtoo = { nombre, green_fee, twilight, cod_opera, operacion }
 		db.query('UPDATE ttooRates SET ? WHERE id = ?', [editedTtoo, id])
 		res.redirect('/ajustes/ttoo-conf')
 	} catch (error) {

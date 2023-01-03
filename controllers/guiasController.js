@@ -95,17 +95,22 @@ exports.deleteGuide = (req, res) => {
 exports.downloadGuide = (req, res) => {
 	try {
 		const id = req.params.id
-		db.query('SELECT aplicacion, fileData FROM guias_hrgolf WHERE id=?', [id], (error, data) => {
-			if (data) {
-				let archivo = data[0].aplicacion
-				let datos = data[0].fileData
-				res.type('application/pdf')
-				res.header('Content-Disposition', `attachment; filename="${archivo}.pdf"`)
-				res.send(Buffer.from(datos, 'base64'))
-			} else {
-				throw error
+		db.query(
+			'SELECT aplicacion, DATE_FORMAT(CONVERT_TZ(actualizado,"+00:00","-04:00"), "%d%b%y") as actualizado, fileData FROM guias_hrgolf WHERE id=?',
+			[id],
+			(error, data) => {
+				if (data) {
+					let archivo = data[0].aplicacion
+					let fecha = data[0].actualizado
+					let datos = data[0].fileData
+					res.type('application/pdf')
+					res.header('Content-Disposition', `attachment; filename="${archivo}-GUIA Act${fecha}.pdf"`)
+					res.send(Buffer.from(datos, 'base64'))
+				} else {
+					throw error
+				}
 			}
-		})
+		)
 	} catch (error) {
 		console.log(error.message)
 	}

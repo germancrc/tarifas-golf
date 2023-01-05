@@ -187,6 +187,24 @@ p {
 	display: none;
 }
 
+#btnArriba {
+	display: none; /* Hidden by default */
+	font-size: 2.2rem;
+	/* transition: all 1s ease; */
+	position: fixed; /* Fixed/sticky position */
+	bottom: 65px; /* Place the button at the bottom of the page */
+	right: 28px; /* Place the button 30px from the right */
+	z-index: 99; /* Make sure it does not overlap */
+	border: none; /* Remove borders */
+	outline: none; /* Remove outline */
+	background-color: #514d87; /* Set a background color */
+	color: white; /* Text color */
+	cursor: pointer; /* Add a mouse pointer on hover */
+	border-radius: 5px 5px 5px 5px;
+	-webkit-border-radius: 5px 5px 5px 5px;
+	-moz-border-radius: 5px 5px 5px 5px;
+}
+
 .logo,
 .logoFoot,
 .domfedo,

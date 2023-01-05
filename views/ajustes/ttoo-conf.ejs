@@ -23,48 +23,43 @@
 					<h4 class="text-uppercase d-none" id="titulo">AJUSTES - TTOO</h4>
 				</div>
 				<div class="row d-flex justify-content-between">
-					<div class="col-5">
+					<div class="col-4">
 						<a href="/ajustes/new-ttoo" class="btn btn-success btnAction btnShadow" id="btnService"> AGREGAR </a>
 						<!-- Button trigger modal -->
 					</div>
-					<div class="col-7" id="inputBuscar">
-						<form role="search">
-							<div class="input-group">
-								<span class="input-group-text" id="basic-addon1"><i class="bi bi-search"></i></span>
-								<input class="form-control" type="search" id="myInput" onkeyup="filtroBusqueda(0.6)" placeholder="Buscar TTOO" aria-label="Search" />
-							</div>
-						</form>
-					</div>
+					<div class="col-8" id="inputBuscar"><%- include ('../partials/buscar-conf.ejs') %></div>
+				</div>
+				<div class="text-center mt-3 mb-2 hide-column-message">
+					<span>*Seleccione un TTOO para ver su Descripción*</span>
 				</div>
 
-				<div class="card mt-3 tabla-desktop">
+				<div class="card mt-3">
 					<div class="card-body">
 						<div class="table-responsive">
 							<table class="table" id="myTable">
 								<thead>
 									<tr>
-										<th scope="col" class="col">Nombre</th>
-										<th scope="col" class="col">Green Fee</th>
-										<th scope="col" class="col">Twilight</th>
-										<th scope="col" class="col">Opera</th>
-										<th scope="col" class="col-4" id="descripcion">Operación</th>
+										<th scope="col" class="col-5 col-xl-3">Nombre</th>
+										<th scope="col" class="col-1 hide-column">Green Fee</th>
+										<th scope="col" class="col-1 hide-column">Twilight</th>
+										<th scope="col" class="col-1 hide-column">Opera</th>
+										<th scope="col" class="col hide-column">Operación</th>
 										<th scope="col" class="col-2">Acciones</th>
 									</tr>
 								</thead>
 								<tbody>
 									<% results.forEach((ttoo) => { %>
-									<tr>
-										<td><%= ttoo.nombre %></td>
-										<td>USD <%= ttoo.green_fee%></td>
-										<td>USD <%= ttoo.twilight%></td>
-										<td><%= ttoo.cod_opera%></td>
-										<% if(ttoo.operacion.length > 40) { %>
-										<td><%= ttoo.operacion.slice(0,40) %>...</td>
-										<% } else { %>
-										<td class="hide-column hide-text"><%= ttoo.operacion %></td>
-										<% } %>
+									<tr
+										onclick="alert('- <%= ttoo.nombre %> -\n\n GF: USD <%= ttoo.green_fee%> | TW: USD <%= ttoo.twilight%>\n\n Opera: <%= ttoo.cod_opera%>\n\n Operación: <%= ttoo.operacion%> ')">
+										<td class="info hide-text">
+											<span><%= ttoo.nombre %></span>
+										</td>
+										<td class="hide-column">USD <%= ttoo.green_fee%></td>
+										<td class="hide-column">USD <%= ttoo.twilight%></td>
+										<td class="hide-column"><%= ttoo.cod_opera%></td>
+										<td class="hide-column hide-text"><span><%= ttoo.operacion %></span></td>
 
-										<td>
+										<td class="d-flex justify-content-between">
 											<a
 												href="/ajustes/ttoo-conf/<%= ttoo.id %>"
 												data-bs-toggle="#"
@@ -89,7 +84,7 @@
 				</div>
 
 				<!-- *****************************MOBILE CARDS EDIT****************************** -->
-				<div class="tabla-mobile" id="tabla-mobile">
+				<!-- <div class="tabla-mobile" id="tabla-mobile">
 					<div class="row row-cols-1 row-cols-sm-2 mt-3" id="servicesHomePage">
 						<% results.forEach((ttoo) => { %>
 						<div class="col">
@@ -150,7 +145,7 @@
 						</div>
 						<% }) %>
 					</div>
-				</div>
+				</div> -->
 			</div>
 			<%- include ('../partials/footer.ejs') %>
 		</div>

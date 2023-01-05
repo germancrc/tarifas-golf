@@ -68,10 +68,12 @@
 									<% } else { %>
 									<td><%= service.cod_opera%></td>
 									<% } %>
-									<td class="hide-text"><span><%= service.descripcion %></span></td>
+									<td class="hide-text info" onclick="alert('- <%= service.nombre %> -\n\n <%= service.descripcion %>')">
+										<span><%= service.descripcion %></span>
+									</td>
 
 									<td>
-										<a href="/ajustes/servicios-conf/<%= service.id %>" class="btn btn-sm btn-warning btnAction btnShadow"
+										<a href="/ajustes/servicios-conf/<%= service.id %>" title="Editar Servicio" class="btn btn-sm btn-warning btnAction btnShadow"
 											><i class="bi bi-pencil"></i
 										></a>
 

@@ -24,7 +24,7 @@
 						<h4 class="text-uppercase d-none" id="titulo">AJUSTES - TARIFAS MINIGOLF</h4>
 					</div>
 					<div class="col-4">
-						<a href="/ajustes/new-tarifas-mg" class="btn btn-success btnAction btnShadow" id="btnService"> AGREGAR </a>
+						<a href="/ajustes/new-tarifas-mg" class="btn btn-success btnShadow" id="btnService"> AGREGAR </a>
 						<!-- Button trigger modal -->
 					</div>
 					<div class="col-8" id="inputBuscar"><%- include ('../partials/buscar-conf.ejs') %></div>
@@ -35,7 +35,7 @@
 
 				<div class="card mt-3">
 					<div class="card-body">
-						<table class="table" id="myTable">
+						<table class="table table-hover" id="myTable">
 							<thead>
 								<tr>
 									<th scope="col" class="col-5 col-xl-3 px-0">Nombre</th>
@@ -51,7 +51,12 @@
 									<td
 										class="hide-text info"
 										onclick="alert('- <%= rate.nombre %> -\n\n Precio: <%= rate.precio%> USD | Opera: <%= rate.cod_opera %>\n\n <%= rate.descripcion %>')">
-										<span><%= rate.nombre %></span>
+										<span class="editCenter"
+											><%= rate.nombre %>
+											<div class="verInfo">
+												-
+												<i class="bi bi-info-circle"></i></div
+										></span>
 									</td>
 									<% if (rate.precio == 0) { %>
 									<td class="hide-column">30 RC</td>

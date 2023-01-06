@@ -24,7 +24,7 @@
 				</div>
 				<div class="row d-flex justify-content-between">
 					<div class="col-4">
-						<a href="/ajustes/new-ttoo" class="btn btn-success btnAction btnShadow" id="btnService"> AGREGAR </a>
+						<a href="/ajustes/new-ttoo" class="btn btn-success btnShadow" id="btnService"> AGREGAR </a>
 						<!-- Button trigger modal -->
 					</div>
 					<div class="col-8" id="inputBuscar"><%- include ('../partials/buscar-conf.ejs') %></div>
@@ -35,7 +35,7 @@
 
 				<div class="card mt-3">
 					<div class="card-body">
-						<table class="table" id="myTable">
+						<table class="table table-hover" id="myTable">
 							<thead>
 								<tr>
 									<th scope="col" class="col-5 col-xl-3 px-0">Nombre</th>
@@ -52,7 +52,12 @@
 									<td
 										class="info hide-text"
 										onclick="alert('- <%= ttoo.nombre %> -\n\n GF: <%= ttoo.green_fee%> USD | TW: <%= ttoo.twilight%> USD\n\n Opera: <%= ttoo.cod_opera%>\n\n Operación: <%= ttoo.operacion%> ')">
-										<span><%= ttoo.nombre %></span>
+										<span class="editCenter"
+											><%= ttoo.nombre %>
+											<div class="verInfo">
+												-
+												<i class="bi bi-info-circle"></i></div
+										></span>
 									</td>
 									<td class="hide-column">USD <%= ttoo.green_fee%></td>
 									<td class="hide-column">USD <%= ttoo.twilight%></td>

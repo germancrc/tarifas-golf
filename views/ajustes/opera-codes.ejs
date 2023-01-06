@@ -23,136 +23,64 @@
 					<h4 class="text-uppercase d-none" id="titulo">AJUSTES - CÓDIGOS OPERA</h4>
 				</div>
 				<div class="row d-flex justify-content-between">
-					<div class="col-5">
-						<a href="/ajustes/new-opera-codes" class="btn btn-success btnAction btnShadow" id="btnService"> AGREGAR </a>
+					<div class="col-4">
+						<a href="/ajustes/new-opera-codes" class="btn btn-success btnShadow" id="btnService"> AGREGAR </a>
 						<!-- Button trigger modal -->
 					</div>
-					<div class="col-7" id="inputBuscar">
-						<form role="search">
-							<div class="input-group">
-								<span class="input-group-text" id="basic-addon1"><i class="bi bi-search"></i></span>
-								<input
-									class="form-control"
-									type="search"
-									id="myInput"
-									onkeyup="filtroBusqueda(0.6)"
-									placeholder="Buscar Código"
-									aria-label="Search" />
-							</div>
-						</form>
-					</div>
+					<div class="col-8" id="inputBuscar"><%- include ('../partials/buscar-conf.ejs') %></div>
+				</div>
+				<div class="text-center mt-3 mb-2 hide-column-message">
+					<span>*Seleccione un Código para ver su Descripción*</span>
 				</div>
 
-				<div class="card mt-3 tabla-desktop">
+				<div class="card mt-3">
 					<div class="card-body">
-						<div class="table-responsive">
-							<table class="table" id="myTable">
-								<thead>
-									<tr>
-										<th scope="col" class="col-1">Código</th>
-										<th scope="col" class="col">Nombre</th>
-										<th scope="col" class="col-2">Uso</th>
-										<th scope="col" class="col-4" id="descripcion">Descripción</th>
-										<th scope="col" class="col-2">Acciones</th>
-									</tr>
-								</thead>
-								<tbody>
-									<% results.forEach((code) => { %>
-									<tr>
-										<td><%= code.codigo %></td>
-										<td class="hide-text">
-											<span><%= code.nombre %></span>
-										</td>
-										<td><%= code.uso %></td>
-										<td class="hide-text hide-column">
-											<span><%= code.descripcion %></span>
-										</td>
-										<td>
-											<a
-												href="/ajustes/opera-codes/<%= code.id %>"
-												data-bs-toggle="#"
-												data-bs-target="#rateUpdate"
-												class="btn btn-sm btn-warning btnAction btnShadow"
-												><i class="bi bi-pencil"></i
-											></a>
+						<table class="table table-hover" id="myTable">
+							<thead>
+								<tr>
+									<th scope="col" class="col-1">Código</th>
+									<th scope="col" class="col px-0">Nombre</th>
+									<th scope="col" class="col-2 hide-column">Uso</th>
+									<th scope="col" class="col-4 hide-column px-0">Descripción</th>
+									<th scope="col" class="col-2">Acciones</th>
+								</tr>
+							</thead>
+							<tbody>
+								<% results.forEach((code) => { %>
+								<tr>
+									<td><%= code.codigo %></td>
+									<td
+										class="hide-text info"
+										onclick="alert('-Código: <%= code.codigo %> -\n\n Nombre: <%= code.nombre%> \n\n Uso: <%= code.uso %>\n\n Descripción: <%= code.descripcion %>')">
+										<span
+											><%= code.nombre %>
+											<div class="verInfo">
+												-
+												<i class="bi bi-info-circle"></i></div
+										></span>
+									</td>
+									<td class="hide-column"><%= code.uso %></td>
+									<td class="hide-text hide-column">
+										<span><%= code.descripcion %></span>
+									</td>
+									<td class="d-flex justify-content-between">
+										<a href="/ajustes/opera-codes/<%= code.id %>" title="Editar Código" class="btn btn-sm btn-warning btnAction btnShadow"
+											><i class="bi bi-pencil"></i
+										></a>
 
-											<a
-												href="/ajustes/opera-codes/deleteCode/<%= code.id %>"
-												class="btn btn-sm btn-danger btnAction btnShadow"
-												onclick="return confirm('Seguro que quiere borrar el Código <%= code.nombre %>?')"
-												><i class="bi bi-trash"></i
-											></a>
-										</td>
-									</tr>
-									<% }) %>
-								</tbody>
-							</table>
-						</div>
+										<a
+											href="/ajustes/opera-codes/deleteCode/<%= code.id %>"
+											class="btn btn-sm btn-danger btnAction btnShadow"
+											onclick="return confirm('Seguro que quiere borrar el Código <%= code.codigo %> - <%= code.nombre %>?')"
+											><i class="bi bi-trash"></i
+										></a>
+									</td>
+								</tr>
+								<% }) %>
+							</tbody>
+						</table>
 					</div>
 				</div>
-
-				<!-- *****************************MOBILE CARDS EDIT****************************** -->
-				<div class="container tabla-mobile" id="tabla-mobile">
-					<div class="row row-cols-1 row-cols-sm-1 row-cols-md-3 mt-3" id="servicesHomePage">
-						<% results.forEach((code) => { %>
-						<div class="col">
-							<div class="card mb-2 cardHome cardShadow" id="opera-codes">
-								<div class="card-header fixSizeHeadEdit">
-									<div class="my-0 card-title"><%= code.codigo %> | <%= code.nombre %></div>
-								</div>
-								<div class="card-body">
-									<div class="accordion" id="accordionFlushExample">
-										<div class="accordion-item">
-											<h2 class="accordion-header" id="flush-headingOne">
-												<button
-													class="accordion-button collapsed"
-													type="button"
-													data-bs-toggle="collapse"
-													data-bs-target="#flush-collapseOne<%= code.id %>"
-													aria-expanded="false"
-													aria-controls="flush-collapseOne">
-													<strong>Uso:</strong>&nbsp;<%= code.uso %>
-												</button>
-											</h2>
-											<div
-												id="flush-collapseOne<%= code.id %>"
-												class="accordion-collapse collapse"
-												aria-labelledby="flush-headingOne"
-												data-bs-parent="#accordionFlushExample">
-												<div class="accordion-body">
-													<p><strong>Descripción: </strong><%= code.descripcion %></p>
-
-													<hr />
-													<div class="d-flex justify-content-between">
-														<a
-															href="/ajustes/opera-codes/<%= code.id %>"
-															data-bs-toggle="#"
-															data-bs-target="#serviceUpdate"
-															class="btn btn-sm btn-warning btnAction btnShadow"
-															><i class="bi bi-pencil"></i
-														></a>
-
-														<a
-															href="/ajustes/opera-codes/deleteService/<%= code.id %>"
-															class="btn btn-sm btn-danger btnAction btnShadow"
-															onclick="return confirm('Seguro que quiere borrar el servicio <%= code.nombre %>?')"
-															><i class="bi bi-trash"></i
-														></a>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<% }) %>
-					</div>
-				</div>
-
-				<!-- *************************SIN RESULTADOS********************
-  <img src="/img/noResults.PNG" alt="" id="noResults">
-*************************SIN RESULTADOS******************** -->
 			</div>
 			<%- include ('../partials/footer.ejs') %>
 		</div>

@@ -60,7 +60,7 @@ exports.getGuides = (req, res) => {
 			// console.log(resultsFilteredGuides)
 
 			db.query(
-				'select id, aplicacion, archivo,  DATE_FORMAT(CONVERT_TZ(actualizado,"+00:00","-04:00"), "%d/%c/%y - %H:%i:%s") as actualizado, fileSize from guias_hrgolf where aplicacion IN (?) ORDER BY aplicacion asc, actualizado asc',
+				'select id, aplicacion, archivo,  DATE_FORMAT(CONVERT_TZ(actualizado,"+00:00","-04:00"), "%d/%b/%y - %H:%i:%s") as actualizado, fileSize from guias_hrgolf where aplicacion IN (?) ORDER BY aplicacion asc, actualizado asc',
 				[resultsFilteredGuides],
 				(error, resultsAllGuides) => {
 					if (error) throw error

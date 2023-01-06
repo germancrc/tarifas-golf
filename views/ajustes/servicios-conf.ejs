@@ -35,7 +35,7 @@
 
 				<div class="card mt-3">
 					<div class="card-body">
-						<table class="table" id="myTable">
+						<table class="table table-hover" id="myTable">
 							<thead>
 								<tr>
 									<th scope="col" class="col-5 col-xl-3 px-0">Nombre</th>
@@ -51,7 +51,12 @@
 									<td
 										class="hide-text info"
 										onclick="alert('- <%= service.nombre %> -\n\n Precio: <%= service.precio%> USD | Opera: <%= service.cod_opera %>\n\n <%= service.descripcion %>')">
-										<span><%= service.nombre %></span>
+										<span class="editCenter"
+											><%= service.nombre %>
+											<div class="verInfo">
+												-
+												<i class="bi bi-info-circle"></i></div
+										></span>
 									</td>
 									<td class="hide-column"><%= service.precio%>.00</td>
 									<% if (service.cod_opera == 0) { %>

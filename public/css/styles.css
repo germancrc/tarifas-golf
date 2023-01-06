@@ -497,7 +497,7 @@ a.active .flecha {
 }
 
 @media screen and (max-width: 700px) {
-	.hide-text span {
+	.editCenter {
 		padding-top: 0.75rem;
 	}
 

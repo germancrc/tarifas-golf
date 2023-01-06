@@ -35,118 +35,58 @@
 
 				<div class="card mt-3">
 					<div class="card-body">
-						<div class="table-responsive">
-							<table class="table" id="myTable">
-								<thead>
-									<tr>
-										<th scope="col" class="col-5 col-xl-3">Nombre</th>
-										<th scope="col" class="col-1 hide-column">Green Fee</th>
-										<th scope="col" class="col-1 hide-column">Twilight</th>
-										<th scope="col" class="col-1 hide-column">Opera</th>
-										<th scope="col" class="col hide-column">Operación</th>
-										<th scope="col" class="col-2">Acciones</th>
-									</tr>
-								</thead>
-								<tbody>
-									<% results.forEach((ttoo) => { %>
-									<tr
-										onclick="alert('- <%= ttoo.nombre %> -\n\n GF: USD <%= ttoo.green_fee%> | TW: USD <%= ttoo.twilight%>\n\n Opera: <%= ttoo.cod_opera%>\n\n Operación: <%= ttoo.operacion%> ')">
-										<td class="info hide-text">
-											<span><%= ttoo.nombre %></span>
-										</td>
-										<td class="hide-column">USD <%= ttoo.green_fee%></td>
-										<td class="hide-column">USD <%= ttoo.twilight%></td>
-										<td class="hide-column"><%= ttoo.cod_opera%></td>
-										<td class="hide-column hide-text"><span><%= ttoo.operacion %></span></td>
+						<table class="table" id="myTable">
+							<thead>
+								<tr>
+									<th scope="col" class="col-5 col-xl-3 px-0">Nombre</th>
+									<th scope="col" class="col-1 hide-column">Green Fee</th>
+									<th scope="col" class="col-1 hide-column">Twilight</th>
+									<th scope="col" class="col-1 hide-column">Opera</th>
+									<th scope="col" class="col hide-column px-0">Operación</th>
+									<th scope="col" class="col-2">Acciones</th>
+								</tr>
+							</thead>
+							<tbody>
+								<% results.forEach((ttoo) => { %>
+								<tr>
+									<td
+										class="info hide-text"
+										onclick="alert('- <%= ttoo.nombre %> -\n\n GF: <%= ttoo.green_fee%> USD | TW: <%= ttoo.twilight%> USD\n\n Opera: <%= ttoo.cod_opera%>\n\n Operación: <%= ttoo.operacion%> ')">
+										<span><%= ttoo.nombre %></span>
+									</td>
+									<td class="hide-column">USD <%= ttoo.green_fee%></td>
+									<td class="hide-column">USD <%= ttoo.twilight%></td>
+									<td class="hide-column"><%= ttoo.cod_opera%></td>
+									<td class="hide-column hide-text"><span><%= ttoo.operacion %></span></td>
 
-										<td class="d-flex justify-content-between">
-											<a
-												href="/ajustes/ttoo-conf/<%= ttoo.id %>"
-												data-bs-toggle="#"
-												data-bs-target="#ttooUpdate"
-												class="btn btn-sm btn-warning btnAction btnShadow"
-												><i class="bi bi-pencil"></i
-											></a>
+									<td class="d-flex justify-content-between">
+										<a
+											href="/ajustes/ttoo-conf/<%= ttoo.id %>"
+											data-bs-toggle="#"
+											data-bs-target="#ttooUpdate"
+											class="btn btn-sm btn-warning btnAction btnShadow"
+											><i class="bi bi-pencil"></i
+										></a>
 
-											<a
-												href="/ajustes/ttoo-conf/deleteTtoo/<%= ttoo.id %>"
-												class="btn btn-sm btn-danger btnAction btnShadow"
-												onclick="return confirm('Seguro que quiere borrar el Tour operador <%= ttoo.nombre %>?')"
-												><i class="bi bi-trash"></i
-											></a>
-										</td>
-									</tr>
-									<% }) %>
-								</tbody>
-							</table>
-						</div>
+										<a
+											href="/ajustes/ttoo-conf/deleteTtoo/<%= ttoo.id %>"
+											class="btn btn-sm btn-danger btnAction btnShadow"
+											onclick="return confirm('Seguro que quiere borrar el Tour operador <%= ttoo.nombre %>?')"
+											><i class="bi bi-trash"></i
+										></a>
+									</td>
+								</tr>
+								<% }) %>
+							</tbody>
+						</table>
+						<!-- <div class="text-center d-none" id="noResults">
+							<img class="noResults" src="/img/noResults.PNG" alt="" />
+							<h4 class="text-uppercase mt-3">No hay resultados</h4>
+						</div> -->
 					</div>
 				</div>
-
-				<!-- *****************************MOBILE CARDS EDIT****************************** -->
-				<!-- <div class="tabla-mobile" id="tabla-mobile">
-					<div class="row row-cols-1 row-cols-sm-2 mt-3" id="servicesHomePage">
-						<% results.forEach((ttoo) => { %>
-						<div class="col">
-							<div class="card mb-2 cardHome cardShadow" id="opera-codes">
-								<div class="card-header fixSizeHeadEdit">
-									<div class="my-0 text-center card-title"><%= ttoo.nombre %></div>
-								</div>
-								<div class="card-body">
-									<div class="text-center card-title row">
-										<div class="col">GF: <strong><%= ttoo.green_fee %></strong></div>
-										<div class="col">TW: <strong><%= ttoo.twilight %></strong></div>
-									</div>
-									<div class="accordion" id="accordionFlushExample">
-										<div class="accordion-item">
-											<h2 class="accordion-header" id="flush-headingOne">
-												<button
-													class="accordion-button collapsed"
-													type="button"
-													data-bs-toggle="collapse"
-													data-bs-target="#flush-collapseOne<%= ttoo.id %>"
-													aria-expanded="false"
-													aria-controls="flush-collapseOne">
-													Más Información
-												</button>
-											</h2>
-											<div
-												id="flush-collapseOne<%= ttoo.id %>"
-												class="accordion-collapse collapse"
-												aria-labelledby="flush-headingOne"
-												data-bs-parent="#accordionFlushExample">
-												<div class="accordion-body">
-													<p><strong>Código Opera: </strong><%= ttoo.cod_opera %></p>
-													<p><strong>Descripción: </strong><%= ttoo.operacion %></p>
-
-													<hr />
-													<div class="d-flex justify-content-between">
-														<a
-															href="/ajustes/ttoo-conf/<%= ttoo.id %>"
-															data-bs-toggle="#"
-															data-bs-target="#serviceUpdate"
-															class="btn btn-sm btn-warning btnAction btnShadow"
-															><i class="bi bi-pencil"></i
-														></a>
-
-														<a
-															href="/ajustes/ttoo-conf/deleteTtoo/<%= ttoo.id %>"
-															class="btn btn-sm btn-danger btnAction btnShadow"
-															onclick="return confirm('Seguro que quiere borrar el Tour Operador <%= ttoo.nombre %>?')"
-															><i class="bi bi-trash"></i
-														></a>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<% }) %>
-					</div>
-				</div> -->
 			</div>
+
 			<%- include ('../partials/footer.ejs') %>
 		</div>
 	</body>

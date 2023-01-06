@@ -23,144 +23,68 @@
 					<div class="text-center">
 						<h4 class="text-uppercase d-none" id="titulo">AJUSTES - TARIFAS MINIGOLF</h4>
 					</div>
-					<div class="col-5">
+					<div class="col-4">
 						<a href="/ajustes/new-tarifas-mg" class="btn btn-success btnAction btnShadow" id="btnService"> AGREGAR </a>
 						<!-- Button trigger modal -->
 					</div>
-					<div class="col-7" id="inputBuscar">
-						<form role="search">
-							<div class="input-group">
-								<span class="input-group-text" id="basic-addon1"><i class="bi bi-search"></i></span>
-								<input
-									class="form-control"
-									type="search"
-									id="myInput"
-									onkeyup="filtroBusqueda()"
-									placeholder="Buscar Tarifa Minigolf"
-									aria-label="Search" />
-							</div>
-						</form>
-					</div>
+					<div class="col-8" id="inputBuscar"><%- include ('../partials/buscar-conf.ejs') %></div>
+				</div>
+				<div class="text-center mt-3 mb-2 hide-column-message">
+					<span>*Seleccione una Tarifa para ver su Descripción*</span>
 				</div>
 
-				<div class="card mt-3 tabla-desktop">
+				<div class="card mt-3">
 					<div class="card-body">
-						<div class="table-responsive">
-							<table class="table" id="myTable">
-								<thead>
-									<tr>
-										<th scope="col" class="col">Nombre</th>
-										<th scope="col" class="col">Precio</th>
-										<th scope="col" class="col">Cod. Opera</th>
-										<th scope="col" class="col-4" id="descripcion">Descripción</th>
-										<th scope="col" class="col-2">Acciones</th>
-									</tr>
-								</thead>
-								<tbody>
-									<% results.forEach((rate) => { %>
-									<tr>
-										<td data-titulo="nombre:"><%= rate.nombre %></td>
-										<td data-titulo="precio:">USD <%= rate.precio%></td>
-										<td data-titulo="Opera:"><%= rate.cod_opera%></td>
-										<% if(rate.descripcion.length > 40) { %>
-										<td><%= rate.descripcion.slice(0,40) %>...</td>
+						<table class="table" id="myTable">
+							<thead>
+								<tr>
+									<th scope="col" class="col-5 col-xl-3 px-0">Nombre</th>
+									<th scope="col" class="col hide-column">Precio</th>
+									<th scope="col" class="col hide-column">Cod. Opera</th>
+									<th scope="col" class="col-4 hide-column">Descripción</th>
+									<th scope="col" class="col-2">Acciones</th>
+								</tr>
+							</thead>
+							<tbody>
+								<% results.forEach((rate) => { %>
+								<tr>
+									<td
+										class="hide-text info"
+										onclick="alert('- <%= rate.nombre %> -\n\n Precio: <%= rate.precio%> USD | Opera: <%= rate.cod_opera %>\n\n <%= rate.descripcion %>')">
+										<span><%= rate.nombre %></span>
+									</td>
+									<% if (rate.precio == 0) { %>
+									<td class="hide-column">30 RC</td>
+									<% } else { %>
+									<td class="hide-column"><%= rate.precio%></td>
+									<% } %>
+									<td class="hide-column"><%= rate.cod_opera%></td>
+									<td class="hide-column hide-text"><span><%= rate.descripcion %></span></td>
 
-										<% } else { %>
-										<td data-titulo="descrip:"><%= rate.descripcion %></td>
-										<% } %>
+									<td class="d-flex justify-content-between">
+										<a
+											href="/ajustes/tarifas-mg/<%= rate.id %>"
+											data-bs-toggle="#"
+											data-bs-target="#rateUpdate"
+											class="btn btn-sm btn-warning btnAction btnShadow"
+											><i class="bi bi-pencil"></i
+										></a>
 
-										<td>
-											<a
-												href="/ajustes/tarifas-mg/<%= rate.id %>"
-												data-bs-toggle="#"
-												data-bs-target="#rateUpdate"
-												class="btn btn-sm btn-warning btnAction btnShadow"
-												><i class="bi bi-pencil"></i
-											></a>
-
-											<a
-												href="/ajustes/tarifas-mg/deleteRateMg/<%= rate.id %>"
-												class="btn btn-sm btn-danger btnAction btnShadow"
-												onclick="return confirm('Seguro que quiere borrar la tarifa <%= rate.nombre %>?')"
-												><i class="bi bi-trash"></i
-											></a>
-										</td>
-									</tr>
-									<% }) %>
-								</tbody>
-							</table>
-						</div>
+										<a
+											href="/ajustes/tarifas-mg/deleteRateMg/<%= rate.id %>"
+											class="btn btn-sm btn-danger btnAction btnShadow"
+											onclick="return confirm('Seguro que quiere borrar la tarifa <%= rate.nombre %>?')"
+											><i class="bi bi-trash"></i
+										></a>
+									</td>
+								</tr>
+								<% }) %>
+							</tbody>
+						</table>
 					</div>
 				</div>
-
-				<!-- *****************************MOBILE CARDS EDIT****************************** -->
-				<div class="container tabla-mobile" id="tabla-mobile">
-					<div class="row row-cols-1 row-cols-sm-1 row-cols-md-3 mt-3" id="servicesHomePage">
-						<% results.forEach((rate) => { %>
-						<div class="col">
-							<div class="card mb-2 cardShadow" id="serviceTest">
-								<div class="card-header fixSizeHeadEdit">
-									<div class="my-0 text-center card-title">
-										<%= rate.nombre %> | USD <%= rate.precio %>.00
-										<small>p/p</small>
-									</div>
-								</div>
-								<div class="card-body">
-									<div class="accordion" id="accordionFlushExample">
-										<div class="accordion-item">
-											<h2 class="accordion-header" id="flush-headingOne">
-												<button
-													class="accordion-button collapsed"
-													type="button"
-													data-bs-toggle="collapse"
-													data-bs-target="#flush-collapseOne<%= rate.id %>"
-													aria-expanded="false"
-													aria-controls="flush-collapseOne">
-													<span>
-														Opera:
-														<strong> <%= rate.cod_opera %></strong></span
-													>
-												</button>
-											</h2>
-											<div
-												id="flush-collapseOne<%= rate.id %>"
-												class="accordion-collapse collapse"
-												aria-labelledby="flush-headingOne"
-												data-bs-parent="#accordionFlushExample">
-												<div class="accordion-body">
-													<%= rate.descripcion %>
-													<hr />
-													<div class="d-flex justify-content-between">
-														<a
-															href="/ajustes/tarifas-mg/<%= rate.id %>"
-															data-bs-toggle="#"
-															data-bs-target="#rateUpdate"
-															class="btn btn-sm btnAction btnShadow btn-warning btnEdit"
-															><i class="bi bi-pencil"></i
-														></a>
-
-														<a
-															href="/ajustes/tarifas-mg/deleteRateMg/<%= rate.id %>"
-															class="btn btn-sm btn-danger btnAction btnShadow"
-															onclick="return confirm('Seguro que quiere borrar la tarifa <%= rate.nombre %>?')"
-															><i class="bi bi-trash"></i
-														></a>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<% }) %>
-					</div>
-				</div>
-
-				<!-- *************************SIN RESULTADOS********************
-            <img src="/img/noResults.PNG" alt="" id="noResults">
-         *************************SIN RESULTADOS******************** -->
 			</div>
+
 			<%- include ('../partials/footer.ejs') %>
 		</div>
 	</body>

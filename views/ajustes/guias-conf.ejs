@@ -121,36 +121,40 @@
 									aria-labelledby="heading<%= filtrada %>"
 									data-bs-parent="#accordionExample<%= filtrada %>">
 									<div class="accordion-body p-2">
-										<table class="table tabla-desktop" id="myTable">
+										<table class="table" id="myTable">
 											<thead>
 												<tr>
-													<th scope="col" class="col-3">Aplicación</th>
-													<!-- <th scope="col" class="col">Archivo</th> -->
-													<th scope="col" class="col">Tamaño</th>
-													<th scope="col" class="col">Actualizado</th>
+													<th scope="col" class="col-6 col-xl-3 px-0">Aplicación</th>
+													<th scope="col" class="col hide-column">Tamaño</th>
+													<!-- <th scope="col" class="col hide-column">Actualizado</th> -->
 													<th scope="col" class="col-2">Acciones</th>
 												</tr>
 											</thead>
 											<% results.forEach(guia => { %> <% if (resultsFilteredGuides && guia.aplicacion === filtrada) { %>
 											<tbody>
 												<tr>
-													<td><%= guia.aplicacion %></td>
-													<!-- <td><%= guia.archivo %></td> -->
+													<td
+														class="hide-text info"
+														onclick="alert('- <%= guia.aplicacion %> -\n\n Tamaño: <% if (guia.fileSize >= 1000000) { %> <%= (guia.fileSize/1000000).toFixed(2); %> MB <% } else if (guia.fileSize >= 1000) { %> <%= (guia.fileSize/1000).toFixed(2); %> KB  <% } else { %> <%= guia.fileSize %> bytes <% } %>\n\n Actualizado: <%= guia.actualizado %>')">
+														<span><%= guia.aplicacion %> - <%= guia.actualizado %></span>
+													</td>
 													<% if (guia.fileSize >= 1000000) { %>
-													<td><%= (guia.fileSize/1000000).toFixed(2); %> MB</td>
+													<td class="hide-column"><%= (guia.fileSize/1000000).toFixed(2); %> MB</td>
 													<% } else if (guia.fileSize >= 1000) { %>
-													<td><%= (guia.fileSize/1000).toFixed(2); %> KB</td>
+													<td class="hide-column"><%= (guia.fileSize/1000).toFixed(2); %> KB</td>
 													<% } else { %>
-													<td><%= guia.fileSize %> bytes</td>
+													<td class="hide-column"><%= guia.fileSize %> bytes</td>
 													<% } %>
-													<td><%= guia.actualizado %></td>
-													<td>
-														<!-- <a href="/ajustes/guias-conf/<%= guia.id %>" class="btn btn-sm btn-warning btnAction btnShadow"><i class="bi bi-pencil"></i></a> -->
+													<!-- <td class="hide-column"><%= guia.actualizado %></td> -->
+													<td class="d-flex justify-content-between">
+														<a href="/downloadGuide/<%= guia.id %>" target="_blank" class="btn btn-sm btn-success btnAction btnShadow"
+															><i class="bi bi-filetype-pdf"></i> ></a
+														>
 
 														<a
 															href="/ajustes/guias-conf/deleteGuide/<%= guia.id %>"
 															class="btn btn-sm btn-danger btnAction btnShadow"
-															onclick="return confirm('Seguro que quiere borrar la Guia de <%= guia.aplicacion %> ?')"
+															onclick="return confirm('Seguro que quiere borrar la Guia de <%= guia.aplicacion %> del <%= guia.actualizado %>?')"
 															><i class="bi bi-trash"></i
 														></a>
 													</td>
@@ -158,79 +162,6 @@
 											</tbody>
 											<% } %> <% }) %>
 										</table>
-										<!-- *****************************MOBILE CARDS EDIT****************************** -->
-										<div class="tabla-mobile" id="tabla-mobile">
-											<div class="row row-cols-1 row-cols-sm-1 row-cols-md-3 mt-3" id="servicesHomePage">
-												<% results.forEach(guia => { %> <% if (resultsFilteredGuides && guia.aplicacion === filtrada) { %>
-												<div class="col">
-													<div class="card mb-2 cardHome cardShadow" id="opera-codes">
-														<div class="card-header fixSizeHeadEdit">
-															<div class="my-0 card-title row">
-																<div class="col-5"><%= guia.aplicacion %></div>
-																<div class="col"><%= guia.actualizado %></div>
-															</div>
-														</div>
-														<div class="card-body">
-															<div class="accordion" id="accordionFlushExample">
-																<div class="accordion-item">
-																	<h2 class="accordion-header" id="flush-headingOne">
-																		<button
-																			class="accordion-button collapsed"
-																			type="button"
-																			data-bs-toggle="collapse"
-																			data-bs-target="#flush-collapseOne<%= guia.id %>"
-																			aria-expanded="false"
-																			aria-controls="flush-collapseOne">
-																			Más Información
-																		</button>
-																	</h2>
-																	<div
-																		id="flush-collapseOne<%= guia.id %>"
-																		class="accordion-collapse collapse"
-																		aria-labelledby="flush-headingOne"
-																		data-bs-parent="#accordionFlushExample">
-																		<div class="accordion-body">
-																			<p>
-																				<strong>Archivo:</strong>
-																				<%= guia.archivo %>
-																			</p>
-																			<% if (guia.fileSize >= 1000000) { %>
-																			<p>
-																				<strong>Tamaño:</strong>
-																				<%= (guia.fileSize/1000000).toFixed(2); %> MB
-																			</p>
-																			<% } else if (guia.fileSize >= 1000) { %>
-																			<p>
-																				<strong>Tamaño:</strong>
-																				<%= (guia.fileSize/1000).toFixed(2); %> KB
-																			</p>
-																			<% } else { %>
-																			<p>
-																				<strong>Tamaño:</strong>
-																				<%= guia.fileSize %> bytes
-																			</p>
-																			<% } %>
-																			<p><strong>Actualizado:</strong>&nbsp;<%= guia.actualizado %></p>
-
-																			<hr />
-																			<div class="d-grid gap-2">
-																				<a
-																					href="/ajustes/guias-conf/deleteGuide/<%= guia.id %>"
-																					class="btn btn-sm btn-danger btnDelete"
-																					onclick="return confirm('Seguro que quiere borrar la guía de <%= guia.aplicacion %>?')"
-																					><i class="bi bi-trash"></i
-																				></a>
-																			</div>
-																		</div>
-																	</div>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-												<% } %> <% }) %>
-											</div>
-										</div>
 									</div>
 								</div>
 							</div>

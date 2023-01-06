@@ -497,6 +497,10 @@ a.active .flecha {
 }
 
 @media screen and (max-width: 700px) {
+	.hide-text span {
+		padding-top: 0.75rem;
+	}
+
 	.hide-column-opera {
 		display: none;
 	}

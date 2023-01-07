@@ -114,7 +114,7 @@
 									<th scope="col" class="col">Aplicación</th>
 									<!-- <th scope="col" class="col">Archivo</th> -->
 									<th scope="col" class="col">Tamaño</th>
-									<th scope="col" class="col hide-column">Actualizado</th>
+									<th scope="col" class="col hide-column">Descripción</th>
 									<th scope="col" class="col-1">Descargar</th>
 								</tr>
 							</thead>
@@ -122,8 +122,12 @@
 							<tbody>
 								<% results.forEach(guia => { %>
 								<tr>
-									<td><%= guia.aplicacion %></td>
-									<!-- <td><%= guia.archivo %></td> -->
+									<td
+										class="info"
+										onclick="alert('- <%= guia.aplicacion %> -\n\n Tamaño: <% if (guia.fileSize >= 1000000) { %> <%= (guia.fileSize/1000000).toFixed(2); %> MB <% } else if (guia.fileSize >= 1000) { %> <%= (guia.fileSize/1000).toFixed(2); %> KB  <% } else { %> <%= guia.fileSize %> bytes <% } %>\n\n Actualizado: <%= guia.actualizado %>\n\n Descripción: <%= guia.descripcion %>')">
+										<span><%= guia.aplicacion %></span>
+									</td>
+
 									<% if (guia.fileSize >= 1000000) { %>
 									<td><%= (guia.fileSize/1000000).toFixed(2); %> MB</td>
 									<% } else if (guia.fileSize >= 1000) { %>
@@ -131,7 +135,7 @@
 									<% } else { %>
 									<td><%= guia.fileSize %> bytes</td>
 									<% } %>
-									<td class="hide-column"><span><%= guia.actualizado %></span></td>
+									<td class="hide-column"><span><%= guia.descripcion %></span></td>
 									<td>
 										<a href="/downloadGuide/<%= guia.id %>" target="_blank" class="btn btn-success btnShadow"
 											><i class="bi bi-cloud-download px-3"></i

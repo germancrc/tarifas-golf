@@ -1,10 +1,10 @@
 const db = require('../database/db')
-const fs = require('fs')
 
 //subir guias
 exports.uploadGuide = async (req, res) => {
 	try {
 		const aplicacion = req.body.aplicacion
+		const descripcion = req.body.descripcion
 		const archivo = req.file.originalname
 		const fileData = req.file.buffer.toString('base64')
 		const fileSize = req.file.size
@@ -13,6 +13,7 @@ exports.uploadGuide = async (req, res) => {
 			'INSERT INTO guias_hrgolf SET ?',
 			{
 				aplicacion: aplicacion,
+				descripcion: descripcion,
 				archivo: archivo,
 				fileData: fileData,
 				fileSize: fileSize,
@@ -59,21 +60,43 @@ exports.getGuides = (req, res) => {
 			resultsFilteredGuides = resultsFilteredGuides.map(({ aplicacion }) => aplicacion)
 			// console.log(resultsFilteredGuides)
 
-			db.query(
-				'select id, aplicacion, archivo,  DATE_FORMAT(CONVERT_TZ(actualizado,"+00:00","-04:00"), "%d/%b/%y - %H:%i:%s") as actualizado, fileSize from guias_hrgolf where aplicacion IN (?) ORDER BY aplicacion asc, actualizado asc',
-				[resultsFilteredGuides],
-				(error, resultsAllGuides) => {
-					if (error) throw error
-					// console.log('todos: ' + [resultsAllGuides])
-					res.render('ajustes/guias-conf', {
-						user: req.user,
-						alert: false,
-						results: resultsAllGuides,
-						resultsFilteredGuides: resultsFilteredGuides,
-						error: false,
-					})
+			if (resultsFilteredGuides.length === 0) {
+				try {
+					db.query(
+						'select guias_hrgolf.* from guias_hrgolf,(select aplicacion,max(actualizado) as actualizado from guias_hrgolf group by aplicacion) max_aplicacion where guias_hrgolf.aplicacion=max_aplicacion.aplicacion and guias_hrgolf.actualizado=max_aplicacion.actualizado order by aplicacion asc',
+						(error, results) => {
+							if (results) {
+								res.render('ajustes/guias-conf', {
+									user: req.user,
+									alert: false,
+									results: results,
+									error: false,
+								})
+							} else {
+								throw error
+							}
+						}
+					)
+				} catch (error) {
+					console.log(error)
 				}
-			)
+			} else {
+				db.query(
+					'select id, aplicacion, descripcion, archivo,  DATE_FORMAT(CONVERT_TZ(actualizado,"+00:00","-04:00"), "%d/%b/%y - %H:%i:%s") as actualizado, fileSize from guias_hrgolf where aplicacion IN (?) ORDER BY aplicacion asc, actualizado desc',
+					[resultsFilteredGuides],
+					(error, resultsAllGuides) => {
+						if (error) throw error
+						// console.log('todos: ' + [resultsAllGuides])
+						res.render('ajustes/guias-conf', {
+							user: req.user,
+							alert: false,
+							results: resultsAllGuides,
+							resultsFilteredGuides: resultsFilteredGuides,
+							error: false,
+						})
+					}
+				)
+			}
 		})
 	} catch (error) {
 		console.log(error)

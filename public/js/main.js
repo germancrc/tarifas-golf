@@ -160,11 +160,12 @@ if (document.getElementById('navbarLG')) {
 //************************UPLOAD BUTTON DISABLED */
 function inform() {
 	let nombreGuia = document.getElementById('nombreGuia').value
+	let descripcion = document.getElementById('descripcion').value
 	let file = document.getElementById('fileGuide').value
 
-	if (!file || nombreGuia.length == 0) {
+	if (!file || nombreGuia.length == 0 || descripcion.length == 0) {
 		document.getElementById('upload').disabled = true
-	} else if (file && nombreGuia) {
+	} else if (file && nombreGuia && descripcion) {
 		document.getElementById('upload').disabled = false
 	}
 }

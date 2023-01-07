@@ -29,19 +29,35 @@
 					</div>
 					<div class="col-8" id="inputBuscar"><%- include ('../partials/buscar-conf.ejs') %></div>
 				</div>
+
 				<div class="text-center mt-3 mb-2 hide-column-message">
 					<span>*Seleccione un Código para ver su Descripción*</span>
 				</div>
 
 				<div class="card mt-3">
 					<div class="card-body">
+						<div class="text-center mb-3"><h5>Mostrar códigos:</h5></div>
+						<div class="text-center mb-3">
+							<div class="form-check form-check-inline">
+								<input class="form-check-input opera-code-check" type="checkbox" onclick="filterCheckbox()" value="campogolf" id="campogolf" />
+								<label class="form-check-label" for="campogolf"> Campo de Golf </label>
+							</div>
+							<div class="form-check form-check-inline">
+								<input class="form-check-input opera-code-check" type="checkbox" onclick="filterCheckbox()" value="minigolf" id="minigolf" />
+								<label class="form-check-label" for="minigolf"> Mini Golf </label>
+							</div>
+							<div class="form-check form-check-inline">
+								<input class="form-check-input opera-code-check" type="checkbox" onclick="filterCheckbox()" value="pagos" id="pagos" />
+								<label class="form-check-label" for="pagos"> Pagos </label>
+							</div>
+						</div>
 						<table class="table table-hover" id="myTable">
 							<thead>
 								<tr>
 									<th scope="col" class="col-1">Código</th>
-									<th scope="col" class="col px-0">Nombre</th>
+									<th scope="col" class="col-4 col-xl-5 col-xl-3 px-0">Nombre</th>
 									<th scope="col" class="col-2 hide-column">Uso</th>
-									<th scope="col" class="col-4 hide-column px-0">Descripción</th>
+									<th scope="col" class="col-3 col-xl-4 hide-column px-0">Descripción</th>
 									<th scope="col" class="col-2">Acciones</th>
 								</tr>
 							</thead>
@@ -84,5 +100,8 @@
 			</div>
 			<%- include ('../partials/footer.ejs') %>
 		</div>
+		<script>
+			window.onload = checkAllCodes()
+		</script>
 	</body>
 </html>

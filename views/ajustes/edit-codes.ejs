@@ -8,17 +8,13 @@
 		<!-- NAV LG -->
 		<nav class="navbar fixed-top navi">
 			<div class="container-fluid">
-				<span class="navbar-brand mb-0 h1" id="navbarLG"
-					>AJUSTES - CÓDIGOS OPERA</span
-				>
+				<span class="navbar-brand mb-0 h1" id="navbarLG">AJUSTES - CÓDIGOS OPERA</span>
 				<%- include ('../partials/ajustes/navbar-lg.ejs') %>
 			</div>
 		</nav>
 
 		<!-- NAV SM -->
-		<nav class="navbar navSmall fixed-top">
-			<%- include ('../partials/ajustes/navbar-sm.ejs') %>
-		</nav>
+		<nav class="navbar navSmall fixed-top"><%- include ('../partials/ajustes/navbar-sm.ejs') %></nav>
 		<% } %>
 
 		<div class="content">
@@ -31,37 +27,18 @@
 						<div class="card-body">
 							<% if (code) { %>
 
-							<form
-								id="services-form"
-								action="/ajustes/opera-codes/<%= code.id %>"
-								method="POST">
+							<form id="services-form" action="/ajustes/opera-codes/<%= code.id %>" method="POST">
 								<div class="mb-3">
 									<label for="code-codigo" class="form-label">Código</label>
-									<input
-										type="number"
-										class="form-control"
-										name="codigo"
-										value="<%= code.codigo %>"
-										placeholder="Código"
-										required />
+									<input type="number" class="form-control" name="codigo" value="<%= code.codigo %>" placeholder="Código" required />
 								</div>
 								<div class="mb-3">
 									<label for="code-name" class="form-label">Nombre</label>
-									<input
-										type="text"
-										class="form-control"
-										name="nombre"
-										value="<%= code.nombre %>"
-										placeholder="Nombre"
-										required />
+									<input type="text" class="form-control" name="nombre" value="<%= code.nombre %>" placeholder="Nombre" required />
 								</div>
 								<div class="mb-3">
 									<label for="code-uso" class="form-label">Dónde se usa?</label>
-									<select
-										class="form-select"
-										name="uso"
-										aria-label="use-selector"
-										required>
+									<select class="form-select" name="uso" aria-label="use-selector" required>
 										<% if(code.uso === "Campo Golf") { %>
 										<option selected value="Campo Golf">Campo Golf</option>
 										<option value="Mini Golf">Mini Golf</option>
@@ -77,26 +54,14 @@
 										<% } %>
 									</select>
 								</div>
-								<div class="form-group">
+								<div class="mb-3">
 									<label class="mb-2" for="rate-tips">Descripción</label>
-									<textarea class="form-control" name="descripcion" rows="3">
-<%=code.descripcion %></textarea
-									>
+									<textarea class="form-control" name="descripcion" rows="3"><%=code.descripcion %></textarea>
 								</div>
 
-								<div
-									class="mt-4 d-grid gap-2 d-md-flex justify-content-md-start">
-									<button
-										type="submit"
-										class="btn btn-warning btnAction btnShadow"
-										id="modalServName">
-										EDITAR
-									</button>
-									<a
-										href="/ajustes/opera-codes"
-										class="btn btn-danger btnAction btnShadow">
-										CANCELAR</a
-									>
+								<div class="new-form-button">
+									<button type="submit" class="btn btn-warning btnAction btnShadow" id="modalServName">EDITAR</button>
+									<a href="/ajustes/opera-codes" class="btn btn-danger btnAction btnShadow">CANCELAR</a>
 								</div>
 							</form>
 							<% } %>

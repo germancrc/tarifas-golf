@@ -8,17 +8,13 @@
 		<!-- NAV LG -->
 		<nav class="navbar fixed-top navi">
 			<div class="container-fluid">
-				<span class="navbar-brand mb-0 h1" id="navbarLG"
-					>AJUSTES - SERVICIOS</span
-				>
+				<span class="navbar-brand mb-0 h1" id="navbarLG">AJUSTES - SERVICIOS</span>
 				<%- include ('../partials/ajustes/navbar-lg.ejs') %>
 			</div>
 		</nav>
 
 		<!-- NAV SM -->
-		<nav class="navbar navSmall fixed-top">
-			<%- include ('../partials/ajustes/navbar-sm.ejs') %>
-		</nav>
+		<nav class="navbar navSmall fixed-top"><%- include ('../partials/ajustes/navbar-sm.ejs') %></nav>
 		<% } %>
 
 		<div class="content">
@@ -31,14 +27,9 @@
 						<div class="card-body">
 							<% if (resultsServices) { %>
 
-							<form
-								id="services-form"
-								action="/ajustes/servicios-conf/<%= resultsServices.id %>"
-								method="POST">
+							<form id="services-form" action="/ajustes/servicios-conf/<%= resultsServices.id %>" method="POST">
 								<div class="mb-3">
-									<label for="service-title" class="form-label"
-										>Nombre del servicio</label
-									>
+									<label for="service-title" class="form-label">Nombre del servicio</label>
 									<input
 										type="text"
 										class="form-control"
@@ -58,49 +49,23 @@
 										required />
 								</div>
 								<div class="mb-3">
-									<label for="rate-opera" class="form-label"
-										>Código OPERA
-									</label>
-									<select
-										class="form-select mb-3"
-										name="cod_opera"
-										id="codOpera"
-										aria-label="cliente-selector"
-										required>
-										<option disabled selected value="">
-											<%= resultsServices.cod_opera %>
-										</option>
-										<% if (resultsCodes) { %> <% resultsCodes.forEach(code => {
-										%>
-										<option value="<%= code.codigo %>">
-											<%= code.codigo %> - <%= code.nombre %>
-										</option>
+									<label for="rate-opera" class="form-label">Código OPERA </label>
+									<select class="form-select mb-3" name="cod_opera" id="codOpera" aria-label="cliente-selector" required>
+										<option disabled selected value=""><%= resultsServices.cod_opera %></option>
+										<% if (resultsCodes) { %> <% resultsCodes.forEach(code => { %>
+										<option value="<%= code.codigo %>"><%= code.codigo %> - <%= code.nombre %></option>
 										<% }) %>
 									</select>
 									<% } %>
 									<div class="mb-3">
-										<label for="serivce-description" class="form-label"
-											>Descripción</label
-										>
-										<textarea class="form-control" name="descripcion" rows="3">
-											<%=resultsServices.descripcion %></textarea
-										>
+										<label for="serivce-description" class="form-label">Descripción</label>
+										<textarea class="form-control" name="descripcion" rows="3">											<%=resultsServices.descripcion %></textarea>
 										<!-- <div id="contador" class="mt-1"></div> -->
 									</div>
 
-									<div
-										class="mt-4 d-grid gap-2 d-md-flex justify-content-md-start">
-										<button
-											type="submit"
-											class="btn btn-warning btnAction btnShadow"
-											id="modalServName">
-											EDITAR
-										</button>
-										<a
-											href="/ajustes/servicios-conf"
-											class="btn btn-danger btnAction btnShadow"
-											>CANCELAR</a
-										>
+									<div class="new-form-button">
+										<button type="submit" class="btn btn-warning btnAction btnShadow" id="modalServName">EDITAR</button>
+										<a href="/ajustes/servicios-conf" class="btn btn-danger btnAction btnShadow">CANCELAR</a>
 									</div>
 								</div>
 							</form>

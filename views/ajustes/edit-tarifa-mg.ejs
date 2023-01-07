@@ -8,17 +8,13 @@
 		<!-- NAV LG -->
 		<nav class="navbar fixed-top navi">
 			<div class="container-fluid">
-				<span class="navbar-brand mb-0 h1" id="navbarLG"
-					>AJUSTES - TARIFAS MINIGOLF</span
-				>
+				<span class="navbar-brand mb-0 h1" id="navbarLG">AJUSTES - TARIFAS MINIGOLF</span>
 				<%- include ('../partials/ajustes/navbar-lg.ejs') %>
 			</div>
 		</nav>
 
 		<!-- NAV SM -->
-		<nav class="navbar navSmall fixed-top">
-			<%- include ('../partials/ajustes/navbar-sm.ejs') %>
-		</nav>
+		<nav class="navbar navSmall fixed-top"><%- include ('../partials/ajustes/navbar-sm.ejs') %></nav>
 		<% } %>
 
 		<div class="content">
@@ -31,66 +27,28 @@
 						<div class="card-body">
 							<% if (rate) { %>
 
-							<form
-								id="services-form"
-								action="/ajustes/tarifas-mg/<%= rate.id %>"
-								method="POST">
+							<form id="services-form" action="/ajustes/tarifas-mg/<%= rate.id %>" method="POST">
 								<div class="mb-3">
-									<label for="rate-title" class="form-label"
-										>Nombre de la tarifa</label
-									>
-									<input
-										type="text"
-										class="form-control"
-										name="nombre"
-										value="<%= rate.nombre %>"
-										placeholder="Nombre de la tarifa"
-										required />
+									<label for="rate-title" class="form-label">Nombre de la tarifa</label>
+									<input type="text" class="form-control" name="nombre" value="<%= rate.nombre %>" placeholder="Nombre de la tarifa" required />
 								</div>
 								<div class="mb-3">
 									<label for="rate-price" class="form-label">Precio</label>
-									<input
-										type="number"
-										class="form-control"
-										name="precio"
-										value="<%= rate.precio %>"
-										placeholder="Precio de tarifa "
-										required />
+									<input type="number" class="form-control" name="precio" value="<%= rate.precio %>" placeholder="Precio de tarifa " required />
 								</div>
 								<div class="mb-3">
-									<label for="rate-opera" class="form-label"
-										>Código Opera</label
-									>
-									<input
-										type="number"
-										class="form-control"
-										name="cod_opera"
-										value="<%= rate.cod_opera %>"
-										placeholder="Código de Opera" />
+									<label for="rate-opera" class="form-label">Código Opera</label>
+									<input type="number" class="form-control" name="cod_opera" value="<%= rate.cod_opera %>" placeholder="Código de Opera" />
 								</div>
 								<div class="mb-3">
-									<label for="serivce-description" class="form-label"
-										>Descripción</label
-									>
-									<textarea class="form-control" name="descripcion" rows="3">
-<%=rate.descripcion %></textarea
-									>
+									<label for="serivce-description" class="form-label">Descripción</label>
+									<textarea class="form-control" name="descripcion" rows="3"><%=rate.descripcion %></textarea>
 									<!-- <div id="contador" class="mt-1"></div> -->
 								</div>
 
-								<div
-									class="mt-4 d-grid gap-2 d-md-flex justify-content-md-start">
-									<button
-										type="submit"
-										class="btn btn-warning btnAction btnShadow"
-										id="modalServName">
-										EDITAR
-									</button>
-									<a
-										href="/ajustes/tarifas-mg"
-										class="btn btn-danger btnAction btnShadow"
-										>CANCELAR</a
-									>
+								<div class="new-form-button">
+									<button type="submit" class="btn btn-warning btnAction btnShadow" id="modalServName">EDITAR</button>
+									<a href="/ajustes/tarifas-mg" class="btn btn-danger btnAction btnShadow">CANCELAR</a>
 								</div>
 							</form>
 							<% } %>

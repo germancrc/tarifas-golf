@@ -81,7 +81,7 @@ router.get('/opera', authController.isAuthenticated, (req, res) => {
 })
 
 router.get('/minigolf', authController.isAuthenticated, (req, res) => {
-	db.query('SELECT * FROM tarifasmg', (error, results) => {
+	db.query('SELECT * FROM tarifasmg order by cod_opera asc', (error, results) => {
 		if (results) {
 			res.render('minigolf', {
 				user: req.user,

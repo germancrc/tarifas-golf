@@ -415,51 +415,6 @@ a.active .flecha {
 	display: none;
 }
 
-/* .form-control{
-    box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.75);
--webkit-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.75);
--moz-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.75);
-  } */
-
-/* POR APLICACION */
-
-/* ----------------------------- ORIGOS----------------------------------- */
-
-.origosConnect {
-	height: 40vh;
-}
-
-.origosHost {
-	height: 70vh;
-}
-
-.origosLogin {
-	height: 50vh;
-}
-
-.origosErrorP {
-	height: 35vh;
-}
-
-.origosMain {
-	height: 60vh;
-}
-.origosAtn {
-	height: 40vh;
-}
-
-.origosDetail {
-	height: 98vh;
-}
-
-.origosGenSearch {
-	height: 60vh;
-}
-
-.origosDescont {
-	height: 90vh;
-}
-
 .tableHead {
 	display: block;
 }

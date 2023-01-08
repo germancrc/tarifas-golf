@@ -131,18 +131,20 @@ function mySearchFunction() {
 //*****************************FIN BUSQUEDA EN TABLAS********************************/
 
 let checkPass = function () {
-	if (document.getElementById('password').value === document.getElementById('pass-conf').value) {
-		if (document.getElementById('password').value.length != 0) {
-			document.getElementById('message').style.color = 'green'
-			document.getElementById('message').className = 'mt-2 text-center'
-			document.getElementById('message').innerHTML = 'Contraseñas coinciden'
-			document.getElementById('modalUserName').className = 'btn btn-primary'
-		}
+	let password = document.getElementById('password')
+	let pass_conf = document.getElementById('pass-conf')
+	let new_pass = document.getElementById('newpass')
+
+	if (password.value === pass_conf.value && password.length != 0) {
+		document.getElementById('message').style.color = 'green'
+		document.getElementById('message').className = 'mt-2 text-center'
+		document.getElementById('message').innerHTML = 'Contraseñas coinciden'
+		// document.getElementById('modalUserName').className = 'btn btn-primary'
 	} else {
 		document.getElementById('message').style.color = 'red'
 		document.getElementById('message').className = 'mt-2 text-center'
 		document.getElementById('message').innerHTML = 'No coinciden'
-		document.getElementById('modalUserName').className = 'btn btn-primary disabled'
+		// document.getElementById('modalUserName').className = 'btn btn-primary disabled'
 	}
 }
 // PONER TEXTO MAYUSCULAS EN FORMS
@@ -153,8 +155,11 @@ function mayus(e) {
 // titulos
 if (document.getElementById('navbarLG')) {
 	let navbarLG = document.getElementById('navbarLG').innerHTML
-	document.getElementById('navbarSM').innerHTML = navbarLG
-	document.getElementById('nuevoTitulo').innerHTML = navbarLG + ' - Guía Hard Rock Golf PC'
+	// console.log(navbarLG)
+	if (document.getElementById('navbarSM')) {
+		document.getElementById('navbarSM').innerHTML = navbarLG
+	}
+	document.getElementById('nuevoTitulo').innerHTML = navbarLG + ' - Guía Hard Rock Golf Club Punta C'
 }
 
 //************************UPLOAD BUTTON DISABLED */

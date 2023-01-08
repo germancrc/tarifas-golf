@@ -74,7 +74,6 @@ exports.getService = (req, res) => {
 		const { id } = req.params
 		db.query('SELECT * FROM servicios WHERE id=?', [id], (error, resultsServices) => {
 			if (error) throw error
-			resultsServices.push(resultsServices)
 
 			db.query('SELECT * FROM opera_codes where uso = "campo golf" order by codigo asc', (error, resultsCodes) => {
 				if (error) throw error

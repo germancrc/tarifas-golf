@@ -38,28 +38,36 @@
 										placeholder="Nombre del servicio"
 										required />
 								</div>
-								<div class="mb-3">
-									<label for="serivce-price" class="form-label">Precio</label>
-									<input
-										type="number"
-										class="form-control"
-										name="precio"
-										value="<%= resultsServices.precio %>"
-										placeholder="Precio del servicio "
-										required />
-								</div>
-								<div class="mb-3">
-									<label for="rate-opera" class="form-label">Código OPERA </label>
-									<select class="form-select mb-3" name="cod_opera" id="codOpera" aria-label="cliente-selector" required>
-										<option disabled selected value=""><%= resultsServices.cod_opera %></option>
-										<% if (resultsCodes) { %> <% resultsCodes.forEach(code => { %>
-										<option value="<%= code.codigo %>"><%= code.codigo %> - <%= code.nombre %></option>
-										<% }) %>
-									</select>
-									<% } %>
+								<div class="row row-cols-1 row-cols-sm-2">
+									<div class="col">
+										<div class="mb-3">
+											<label for="serivce-price" class="form-label">Precio</label>
+											<input
+												type="number"
+												class="form-control"
+												name="precio"
+												value="<%= resultsServices.precio %>"
+												placeholder="Precio del servicio "
+												required />
+										</div>
+									</div>
+									<div class="col">
+										<div class="mb-3">
+											<label for="rate-opera" class="form-label">Código OPERA </label>
+											<select class="form-select mb-3" name="cod_opera" aria-label="cliente-selector" required>
+												<option selected value="">Confirmar código</option>
+												<% if (resultsCodes) { %> <% resultsCodes.forEach(code => { %>
+												<option value="<%= code.codigo %>"><%= code.codigo %> - <%= code.nombre %></option>
+												<% }) %>
+											</select>
+											<% } %>
+										</div>
+									</div>
+									</div>
+
 									<div class="mb-3">
 										<label for="serivce-description" class="form-label">Descripción</label>
-										<textarea class="form-control" name="descripcion" rows="3">											<%=resultsServices.descripcion %></textarea>
+										<textarea class="form-control" id="serivce-description" name="descripcion" rows="3"><%=resultsServices.descripcion %></textarea>
 										<!-- <div id="contador" class="mt-1"></div> -->
 									</div>
 

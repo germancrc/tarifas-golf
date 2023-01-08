@@ -25,6 +25,10 @@ router.get('/', (req, res) => {
 	res.render('login', { alert: false })
 })
 
+router.get('/edit-usuario-actual', authController.isAuthenticated, (req, res) => {
+	res.render('edit-usuario-actual', { alert: false, user: req.user })
+})
+
 // VERIFICAR SI ES ADMIN O USER
 router.get('/ajustes', authController.isAuthenticated, authController.checkAdmin, (req, res) => {})
 

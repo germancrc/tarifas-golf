@@ -32,21 +32,34 @@
 									<label for="ttoo-title" class="form-label">Nombre TTOO</label>
 									<input type="text" class="form-control" name="nombre" value="<%= ttoo.nombre %>" placeholder="Nombre del TTOO" required />
 								</div>
-								<div class="mb-3">
-									<label for="rate-price" class="form-label">Green Fee</label>
-									<input type="number" class="form-control" name="green_fee" value="<%= ttoo.green_fee %>" placeholder="Precio Green Fee" required />
+								<div class="row">
+									<div class="col">
+										<div class="mb-3">
+											<label for="rate-price" class="form-label">Green Fee</label>
+											<input
+												type="number"
+												class="form-control"
+												name="green_fee"
+												value="<%= ttoo.green_fee %>"
+												placeholder="Precio Green Fee"
+												required />
+										</div>
+									</div>
+									<div class="col">
+										<div class="mb-3">
+											<label for="rate-price" class="form-label">Twilight</label>
+											<input type="number" class="form-control" name="twilight" value="<%= ttoo.twilight %>" placeholder="Precio Twilight" required />
+										</div>
+									</div>
 								</div>
-								<div class="mb-3">
-									<label for="rate-price" class="form-label">Twilight</label>
-									<input type="number" class="form-control" name="twilight" value="<%= ttoo.twilight %>" placeholder="Precio Twilight" required />
-								</div>
+
 								<div class="mb-3">
 									<label for="rate-opera" class="form-label">Código Opera</label>
 									<input type="number" class="form-control" name="cod_opera" value="<%= ttoo.cod_opera %>" placeholder="Código de Opera" />
 								</div>
 								<div class="mb-3">
 									<label for="rate-operacion" class="form-label">Operación</label>
-									<input type="text" class="form-control" name="operacion" value="<%= ttoo.operacion %>" placeholder="Cómo facturarlo:" />
+									<textarea class="form-control" id="rate-operacion" name="operacion" rows="3"><%= ttoo.operacion %></textarea>
 								</div>
 
 								<div class="new-form-button">

@@ -28,16 +28,15 @@
 							<% if (code) { %>
 
 							<form id="services-form" action="/ajustes/opera-codes/<%= code.id %>" method="POST">
-								<div class="mb-3">
-									<label for="code-codigo" class="form-label">Código</label>
+								<div class="form-floating mb-3">
 									<input type="number" class="form-control" name="codigo" value="<%= code.codigo %>" placeholder="Código" required />
+									<label for="code-codigo" class="form-label">Código</label>
 								</div>
-								<div class="mb-3">
-									<label for="code-name" class="form-label">Nombre</label>
+								<div class="form-floating mb-3">
 									<input type="text" class="form-control" name="nombre" value="<%= code.nombre %>" placeholder="Nombre" required />
+									<label for="code-name" class="form-label">Nombre</label>
 								</div>
-								<div class="mb-3">
-									<label for="code-uso" class="form-label">Dónde se usa?</label>
+								<div class="form-floating mb-3">
 									<select class="form-select" name="uso" aria-label="use-selector" required>
 										<% if(code.uso === "Campo Golf") { %>
 										<option selected value="Campo Golf">Campo Golf</option>
@@ -53,10 +52,11 @@
 										<option selected value="Pagos">Pagos</option>
 										<% } %>
 									</select>
+									<label for="code-uso" class="form-label">Dónde se usa?</label>
 								</div>
-								<div class="mb-3">
+								<div class="form-floating mb-3">
+									<textarea class="form-control" name="descripcion" style="height: 100px"><%=code.descripcion %></textarea>
 									<label class="mb-2" for="rate-tips">Descripción</label>
-									<textarea class="form-control" name="descripcion" rows="3"><%=code.descripcion %></textarea>
 								</div>
 
 								<div class="new-form-button">

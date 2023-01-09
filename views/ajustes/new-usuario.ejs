@@ -26,8 +26,7 @@
 					<div class="card editShadow">
 						<div class="card-body">
 							<form id="users-form" action="/createUser" method="POST">
-								<div class="mb-3">
-									<label for="userName" class="form-label">Nombre</label>
+								<div class="form-floating mb-3">
 									<input
 										type="text"
 										class="form-control"
@@ -35,46 +34,51 @@
 										class="text-capitalized"
 										placeholder="Escriba el nombre del usuario"
 										required />
+									<label for="userName" class="form-label">Nombre</label>
 								</div>
-								<div class="mb-3">
-									<label for="userNickname" class="form-label">Nombre de usuario</label>
+								<div class="form-floating mb-3">
 									<input type="text" class="form-control" name="username" placeholder="Nickname" required onkeyup="mayus(this)" required />
+									<label for="userNickname" class="form-label">Nombre de usuario</label>
 								</div>
 								<div class="row row-cols-1 row-cols-sm-2">
 									<div class="col mb-3">
-										<label for="userPass" class="form-label">Contraseña</label>
-										<input
-											type="password"
-											class="form-control"
-											name="password"
-											id="password"
-											placeholder="Escriba la Contraseña"
-											onkeyup="checkPass();"
-											required />
+										<div class="form-floating">
+											<input
+												type="password"
+												class="form-control"
+												name="password"
+												id="password"
+												placeholder="Escriba la Contraseña"
+												onkeyup="checkPass();"
+												required />
+											<label for="userPass" class="form-label">Contraseña</label>
+										</div>
 										<div class="invalid-feedback">Ingrese la contraseña.</div>
 									</div>
 									<div class="col">
-										<label for="userPass-conf" class="form-label">Repita la Contraseña</label>
-										<input
-											type="password"
-											class="form-control"
-											name="pass-conf"
-											id="pass-conf"
-											placeholder="Repita la Contraseña"
-											onkeyup="checkPass();"
-											required />
+										<div class="form-floating">
+											<input
+												type="password"
+												class="form-control"
+												name="pass-conf"
+												id="pass-conf"
+												placeholder="Repita la Contraseña"
+												onkeyup="checkPass();"
+												required />
+											<label for="userPass-conf" class="form-label">Repita la Contraseña</label>
+										</div>
 										<div class="mt-2">
 											<span id="message"></span>
 										</div>
 									</div>
 								</div>
-								<div class="mb-4">
-									<label for="userRole" class="form-label">Rol</label>
+								<div class="form-floating mb-4">
 									<select class="form-select" name="rol" aria-label="role-selector" required>
-										<option selected value="">Elija el rol del usuario</option>
+										<option selected value="">Elegir</option>
 										<option value="Admin">Admin</option>
 										<option value="User">User</option>
 									</select>
+									<label for="userRole" class="form-label">Rol</label>
 								</div>
 
 								<div class="new-form-button">

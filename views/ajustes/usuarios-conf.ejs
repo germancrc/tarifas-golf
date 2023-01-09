@@ -24,16 +24,16 @@
 				<span class="navbar-brand mb-0 h1" id="navbarLG">AJUSTES - USUARIOS</span>
 				<div class="btn-group dropstart">
 					<% if(logged.rol === "Admin"){ %>
-					<a class="btn btn-success dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+					<a class="btn btn-success dropdown-toggle" href="/edit-usuario-actual" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 						<span class="text-light"><i class="bi bi-person-fill"></i> <%= logged.username %></span>
 					</a>
 					<% } else { %>
-					<a class="btn btn-warning dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+					<a class="btn btn-warning dropdown-toggle" href="/edit-usuario-actual" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 						<span class="text-dark"><i class="bi bi-person-fill"></i> <%= logged.username %></span>
 					</a>
 					<% } %>
 					<ul class="dropdown-menu">
-						<li><a class="dropdown-item" href="#">Editar</a></li>
+						<li><a class="dropdown-item" href="/edit-usuario-actual">Editar</a></li>
 						<li><a class="dropdown-item" href="/logout">Salir</a></li>
 					</ul>
 				</div>
@@ -96,20 +96,21 @@
 				<div class="text-center mb-3">
 					<h4 class="text-uppercase d-none" id="titulo">AJUSTES - USUARIOS</h4>
 				</div>
-				<div class="row d-flex justify-content-between">
-					<div class="col-4">
-						<a href="/ajustes/new-usuario" class="btn btn-success btnShadow" id="btnService"> AGREGAR </a>
-						<!-- Button trigger modal -->
+				<div class="cardEdit-container">
+					<div class="row d-flex justify-content-between">
+						<div class="col-4">
+							<a href="/ajustes/new-usuario" class="btn btn-success btnShadow" id="btnService"> AGREGAR </a>
+							<!-- Button trigger modal -->
+						</div>
+						<div class="col-8" id="inputBuscar"><%- include ('../partials/buscar-conf.ejs') %></div>
 					</div>
-					<div class="col-8" id="inputBuscar"><%- include ('../partials/buscar-conf.ejs') %></div>
-				</div>
-				<div class="text-center mt-3 mb-2 hide-column-message">
-					<span>*Seleccione un Usuario para más detalles*</span>
-				</div>
+					<div class="text-center mt-3 mb-2 hide-column-message">
+						<span>*Seleccione un Usuario para más detalles*</span>
+					</div>
 
-				<div class="card mt-3">
-					<div class="card-body">
-						<table class="table align-middle" id="myTable">
+					<div class="card mt-3">
+						<div class="card-body">
+							<table class="table align-middle" id="myTable">
 								<thead>
 									<tr>
 										<th scope="col" class="col-5 col-xl-3">Nombre de Usuario</th>
@@ -121,11 +122,13 @@
 								<tbody>
 									<% results.forEach((user) => { %>
 									<tr>
-										<td class="info"
-										onclick="alert('- <%= user.username %> -\n\n Nombre: <%= user.nombre%> \n\n Rol: <%= user.rol%>')"><%= user.username %>											<div class="verInfo">
-											-
-											<i class="bi bi-info-circle"></i></div
-									></td>
+										<td class="info" onclick="alert('- <%= user.username %> -\n\n Nombre: <%= user.nombre%> \n\n Rol: <%= user.rol%>')">
+											<%= user.username %>
+											<div class="verInfo">
+												-
+												<i class="bi bi-info-circle"></i>
+											</div>
+										</td>
 
 										<td class="hide-column"><%= user.nombre %></td>
 										<td class="hide-column"><%= user.rol %></td>
@@ -163,7 +166,6 @@
 					</div>
 				</div>
 			</div>
-
 			<%- include ('../partials/footer.ejs') %>
 		</div>
 	</body>

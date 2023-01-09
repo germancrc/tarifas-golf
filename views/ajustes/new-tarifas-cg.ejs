@@ -31,11 +31,13 @@
 									<input type="text" class="form-control" name="nombre" placeholder="Escriba el nombre de la tarifa" required />
 									<label for="rate-title" class="form-label">Nombre de la tarifa</label>
 								</div>
-								<div class="form-floating mb-3">
-									<input type="number" class="form-control" name="precio" placeholder="Monto de la tarifa" required />
-									<label for="rate-price" class="form-label">Precio</label>
-								</div>
-								<div class="row row-cols-1 row-cols-sm-2">
+								<div class="row row-cols-1 row-cols-sm-3">
+									<div class="col">
+										<div class="form-floating mb-3">
+											<input type="number" class="form-control" name="precio" placeholder="Monto de la tarifa" required />
+											<label for="rate-price" class="form-label">Precio</label>
+										</div>
+									</div>
 									<div class="col">
 										<div class="form-floating mb-3">
 											<select class="form-select" name="cod_opera" aria-label="cliente-selector" required>
@@ -68,7 +70,6 @@
 											class="form-control"
 											id="tips"
 											name="tips"
-											rows="3"
 											placeholder="Descripción de la tarifa"
 											style="height: 100px"
 											required></textarea>

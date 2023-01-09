@@ -28,14 +28,13 @@
 							<% if (ttoo) { %>
 
 							<form id="services-form" action="/ajustes/ttoo-conf/<%= ttoo.id %>" method="POST">
-								<div class="mb-3">
-									<label for="ttoo-title" class="form-label">Nombre TTOO</label>
+								<div class="form-floating mb-3">
 									<input type="text" class="form-control" name="nombre" value="<%= ttoo.nombre %>" placeholder="Nombre del TTOO" required />
+									<label for="ttoo-title" class="form-label">Nombre TTOO</label>
 								</div>
-								<div class="row">
+								<div class="row row-cols-1 row-cols-sm-3">
 									<div class="col">
-										<div class="mb-3">
-											<label for="rate-price" class="form-label">Green Fee</label>
+										<div class="form-floating mb-3">
 											<input
 												type="number"
 												class="form-control"
@@ -43,23 +42,27 @@
 												value="<%= ttoo.green_fee %>"
 												placeholder="Precio Green Fee"
 												required />
+											<label for="rate-price" class="form-label">Green Fee</label>
 										</div>
 									</div>
 									<div class="col">
-										<div class="mb-3">
-											<label for="rate-price" class="form-label">Twilight</label>
+										<div class="form-floating mb-3">
 											<input type="number" class="form-control" name="twilight" value="<%= ttoo.twilight %>" placeholder="Precio Twilight" required />
+											<label for="rate-price" class="form-label">Twilight</label>
+										</div>
+									</div>
+									<div class="col">
+										<div class="form-floating mb-3">
+											<input type="number" class="form-control" name="cod_opera" value="<%= ttoo.cod_opera %>" placeholder="Código de Opera" />
+											<label for="rate-opera" class="form-label">Código Opera</label>
 										</div>
 									</div>
 								</div>
-
-								<div class="mb-3">
-									<label for="rate-opera" class="form-label">Código Opera</label>
-									<input type="number" class="form-control" name="cod_opera" value="<%= ttoo.cod_opera %>" placeholder="Código de Opera" />
-								</div>
-								<div class="mb-3">
-									<label for="rate-operacion" class="form-label">Operación</label>
-									<textarea class="form-control" id="rate-operacion" name="operacion" rows="3"><%= ttoo.operacion %></textarea>
+								<div class="form-floating mb-3">
+									<textarea class="form-control" name="operacion" placeholder="Descripción" style="height: 100px" required>
+<%= ttoo.operacion %></textarea
+									>
+									<label for="TextareaService" class="form-label">Descripción</label>
 								</div>
 
 								<div class="new-form-button">

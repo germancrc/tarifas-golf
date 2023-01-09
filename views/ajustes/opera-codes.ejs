@@ -55,7 +55,7 @@
 							<thead>
 								<tr>
 									<th scope="col" class="col-1">Código</th>
-									<th scope="col" class="col-4 col-xl-5 col-xl-3 px-0">Nombre</th>
+									<th scope="col" class="col-4 col-4 col-xl-3 px-0">Nombre</th>
 									<th scope="col" class="col-2 hide-column">Uso</th>
 									<th scope="col" class="col-3 col-xl-4 hide-column px-0">Descripción</th>
 									<th scope="col" class="col-2">Acciones</th>
@@ -64,7 +64,11 @@
 							<tbody>
 								<% results.forEach((code) => { %>
 								<tr>
-									<td><%= code.codigo %></td>
+									<td
+										class="info"
+										onclick="alert('-Código: <%= code.codigo %> -\n\n Nombre: <%= code.nombre%> \n\n Uso: <%= code.uso %>\n\n Descripción: <%= code.descripcion %>')">
+										<span><%= code.codigo %> </span>
+									</td>
 									<td
 										class="hide-text info"
 										onclick="alert('-Código: <%= code.codigo %> -\n\n Nombre: <%= code.nombre%> \n\n Uso: <%= code.uso %>\n\n Descripción: <%= code.descripcion %>')">

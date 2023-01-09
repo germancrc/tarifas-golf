@@ -25,24 +25,48 @@
 				<div class="cardEdit-container">
 					<div class="card editShadow">
 						<div class="card-body">
-							<% if (rate) { %>
+							<% if (resultsRatesMg) { %>
 
-							<form id="services-form" action="/ajustes/tarifas-mg/<%= rate.id %>" method="POST">
-								<div class="mb-3">
+							<form id="services-form" action="/ajustes/tarifas-mg/<%= resultsRatesMg.id %>" method="POST">
+								<div class="form-floating mb-3">
+									<input
+										type="text"
+										class="form-control"
+										name="nombre"
+										value="<%= resultsRatesMg.nombre %>"
+										placeholder="Nombre de la tarifa"
+										required />
 									<label for="rate-title" class="form-label">Nombre de la tarifa</label>
-									<input type="text" class="form-control" name="nombre" value="<%= rate.nombre %>" placeholder="Nombre de la tarifa" required />
 								</div>
-								<div class="mb-3">
-									<label for="rate-price" class="form-label">Precio</label>
-									<input type="number" class="form-control" name="precio" value="<%= rate.precio %>" placeholder="Precio de tarifa " required />
+								<div class="row row-cols-1 row-cols-sm-2">
+									<div class="col mb-3">
+										<div class="form-floating">
+											<input
+												type="number"
+												class="form-control"
+												name="precio"
+												value="<%= resultsRatesMg.precio %>"
+												placeholder="Precio de tarifa "
+												required />
+											<label for="rate-price" class="form-label">Precio</label>
+										</div>
+									</div>
+									<div class="col">
+										<div class="form-floating">
+											<select class="form-select mb-3" name="cod_opera" aria-label="cliente-selector" required>
+												<option selected value="">Confirmar código</option>
+												<% if (resultsCodes) { %> <% resultsCodes.forEach(code => { %>
+												<option value="<%= code.codigo %>"><%= code.codigo %> - <%= code.nombre %></option>
+												<% }) %>
+											</select>
+											<label for="rate-opera" class="form-label">Código OPERA </label>
+											<% } %>
+										</div>
+									</div>
 								</div>
-								<div class="mb-3">
-									<label for="rate-opera" class="form-label">Código Opera</label>
-									<input type="number" class="form-control" name="cod_opera" value="<%= rate.cod_opera %>" placeholder="Código de Opera" />
-								</div>
-								<div class="mb-3">
+								<div class="form-floating mb-3">
+									<textarea class="form-control" name="descripcion" style="height: 100px"><%=resultsRatesMg.descripcion %></textarea>
 									<label for="serivce-description" class="form-label">Descripción</label>
-									<textarea class="form-control" name="descripcion" rows="3"><%=rate.descripcion %></textarea>
 									<!-- <div id="contador" class="mt-1"></div> -->
 								</div>
 

@@ -23,7 +23,7 @@
 		<!-- NAV LG -->
 		<nav class="navbar fixed-top navi">
 			<div class="container-fluid">
-				<span class="navbar-brand mb-0 h1" id="navbarLG">AJUSTES - USUARIOS</span>
+				<span class="navbar-brand mb-0 h1" id="navbarLG">EDITAR USUARIO</span>
 				<%- include ('./partials/ajustes/navbar-lg.ejs') %>
 			</div>
 		</nav>
@@ -34,8 +34,8 @@
 
 		<div class="content">
 			<div id="Servicios" class="afterNav">
-				<div class="text-center">
-					<h4 class="text-uppercase" id="titulo">Editar Usuario</h4>
+				<div class="text-center mb-3">
+					<h5 class="text-uppercase" id="titulo">CAMBIAR CONTRASEÑA</h5>
 				</div>
 				<div class="cardEdit-container">
 					<div class="card">
@@ -69,7 +69,7 @@
 									</div>
 									<div class="col mb-3" id="passEdit">
 										<label for="userActPass" class="form-label">Contraseña actual</label>
-										<input type="password" class="form-control" name="password" id="password" placeholder="Contraseña actual" />
+										<input type="password" class="form-control" name="password" id="password" placeholder="Contraseña actual" required />
 									</div>
 								</div>
 								<div class="mb-3">
@@ -82,7 +82,8 @@
 												name="newpass"
 												id="newpass"
 												placeholder="Escriba la Contraseña"
-												onkeyup="checkPass();" />
+												onkeyup="checkPass();"
+												required />
 										</div>
 										<div class="col mb-3">
 											<label for="userPass-conf" class="form-label">Repita la contraseña nueva</label>
@@ -92,9 +93,10 @@
 												name="pass-conf"
 												id="pass-conf"
 												placeholder="Repita la Contraseña"
-												onkeyup="checkPass();" />
-											<span id="message"></span>
+												onkeyup="checkPass();"
+												required />
 										</div>
+										<p id="message"></p>
 									</div>
 								</div>
 

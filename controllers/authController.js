@@ -11,10 +11,12 @@ exports.isAuthenticated = async (req, res, next) => {
 			const decodificada = await promisify(jwt.verify)(req.cookies.jwt, process.env.JWT_SECRETO)
 			db.query('SELECT*FROM usuarios WHERE id = ?', [decodificada.id], (error, results) => {
 				if (!results) {
+					res.redirect('/')
+					return next()
+				} else {
+					req.user = results[0]
 					return next()
 				}
-				req.user = results[0]
-				return next()
 			})
 		} catch (error) {
 			console.log(error.message)

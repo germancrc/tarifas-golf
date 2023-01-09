@@ -57,19 +57,30 @@ exports.getRatesCg = (req, res) => {
 
 // MOSTRAR 1 TARIFA CG
 exports.getRateCg = (req, res) => {
+	let resultsRates = []
+	let resultsCodes = []
 	try {
-		const id = req.params.id
-		db.query('SELECT * FROM tarifas WHERE id=?', [id], (error, results) => {
-			if (results) {
-				res.render('ajustes/edit-tarifa', { user: req.user, rate: results[0], alert: false })
-			} else {
-				throw error
-			}
+		const { id } = req.params
+		db.query('SELECT * FROM tarifas WHERE id=?', [id], (error, resultsRates) => {
+			if (error) throw error
+
+			db.query('SELECT * FROM opera_codes where uso = "campo golf" order by codigo asc', (error, resultsCodes) => {
+				if (error) throw error
+				resultsCodes.push(resultsCodes)
+				res.render('ajustes/edit-tarifa', {
+					user: req.user,
+					resultsRates: resultsRates[0],
+					resultsCodes: resultsCodes,
+					alert: false,
+				})
+			})
 		})
 	} catch (error) {
 		console.log(error.message)
 	}
 }
+
+//////////////////////
 
 // EDITAR 1 TARIFA CG
 exports.updateRateCg = (req, res) => {

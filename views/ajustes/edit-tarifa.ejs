@@ -25,50 +25,77 @@
 				<div class="cardEdit-container">
 					<div class="card editShadow">
 						<div class="card-body">
-							<% if (rate) { %>
+							<% if (resultsRates) { %>
 
-							<form id="services-form" action="/ajustes/tarifas-conf/<%= rate.id %>" method="POST">
-								<div class="mb-3">
+							<form id="services-form" action="/ajustes/tarifas-conf/<%= resultsRates.id %>" method="POST">
+								<div class="form-floating mb-3">
+									<input
+										type="text"
+										class="form-control"
+										name="nombre"
+										value="<%= resultsRates.nombre %>"
+										placeholder="Nombre de la tarifa"
+										required />
 									<label for="rate-title" class="form-label">Nombre de la tarifa</label>
-									<input type="text" class="form-control" name="nombre" value="<%= rate.nombre %>" placeholder="Nombre de la tarifa" required />
 								</div>
-								<div class="mb-3">
-									<label for="rate-price" class="form-label">Precio</label>
-									<input type="number" class="form-control" name="precio" value="<%= rate.precio %>" placeholder="Precio de tarifa " required />
+								<div class="row row-cols-1 row-cols-sm-3">
+									<div class="col">
+										<div class="form-floating mb-3">
+											<input
+												type="number"
+												class="form-control"
+												name="precio"
+												value="<%= resultsRates.precio %>"
+												placeholder="Precio de tarifa "
+												required />
+											<label for="rate-price" class="form-label">Precio</label>
+										</div>
+									</div>
+									<div class="col">
+										<div class="form-floating">
+											<select class="form-select mb-3" name="cod_opera" aria-label="cliente-selector" required>
+												<option selected value="">Confirmar código</option>
+												<% if (resultsCodes) { %> <% resultsCodes.forEach(code => { %>
+												<option value="<%= code.codigo %>"><%= code.codigo %> - <%= code.nombre %></option>
+												<% }) %>
+											</select>
+											<% } %>
+											<label for="rate-opera" class="form-label">Código OPERA </label>
+										</div>
+									</div>
+									<div class="col">
+										<div class="form-floating">
+											<select class="form-select mb-3" name="cliente" aria-label="cliente-selector" required>
+												<!-- <option selected>Elegir:</option> -->
+												<% if(resultsRates.cliente === "Hotel"){ %>
+												<option selected value="Hotel">Cliente Hotel</option>
+												<option value="Local">Local / Residente</option>
+												<option value="Extranjero">Extranjero</option>
+												<option value="Varios">Varios</option>
+												<% } else if(resultsRates.cliente === "Local") { %>
+												<option value="Hotel">Cliente Hotel</option>
+												<option selected value="Local">Local / Residente</option>
+												<option value="Extranjero">Extranjero</option>
+												<option value="Varios">Varios</option>
+												<% } else if(resultsRates.cliente === "Extranjero") { %>
+												<option value="Hotel">Cliente Hotel</option>
+												<option value="Local">Local / Residente</option>
+												<option selected value="Extranjero">Extranjero</option>
+												<option value="Varios">Varios</option>
+												<% } else { %>
+												<option value="Hotel">Cliente Hotel</option>
+												<option value="Local">Local / Residente</option>
+												<option value="Extranjero">Extranjero</option>
+												<option selected value="Varios">Varios</option>
+												<% } %>
+											</select>
+											<label for="rate-cliente" class="form-label">Tipo de cliente</label>
+										</div>
+									</div>
 								</div>
-								<div class="mb-3">
-									<label for="rate-opera" class="form-label">Código Opera</label>
-									<input type="number" class="form-control" name="cod_opera" value="<%=rate.cod_opera %>" placeholder="Código de Opera" />
-								</div>
-								<label for="rate-cliente" class="form-label">Tipo de cliente</label>
-								<select class="form-select mb-3" name="cliente" aria-label="cliente-selector" required>
-									<!-- <option selected>Elegir:</option> -->
-									<% if(rate.cliente === "Hotel"){ %>
-									<option selected value="Hotel">Cliente Hotel</option>
-									<option value="Local">Local / Residente</option>
-									<option value="Extranjero">Extranjero</option>
-									<option value="Varios">Varios</option>
-									<% } else if(rate.cliente === "Local") { %>
-									<option value="Hotel">Cliente Hotel</option>
-									<option selected value="Local">Local / Residente</option>
-									<option value="Extranjero">Extranjero</option>
-									<option value="Varios">Varios</option>
-									<% } else if(rate.cliente === "Extranjero") { %>
-									<option value="Hotel">Cliente Hotel</option>
-									<option value="Local">Local / Residente</option>
-									<option selected value="Extranjero">Extranjero</option>
-									<option value="Varios">Varios</option>
-									<% } else { %>
-									<option value="Hotel">Cliente Hotel</option>
-									<option value="Local">Local / Residente</option>
-									<option value="Extranjero">Extranjero</option>
-									<option selected value="Varios">Varios</option>
-									<% } %>
-								</select>
-
 								<div class="mb-3">
 									<label class="mb-2" for="rate-tips">Descripción</label>
-									<textarea class="form-control" name="tips" rows="3"><%=rate.tips %></textarea>
+									<textarea class="form-control" name="tips" rows="3"><%=resultsRates.tips %></textarea>
 								</div>
 
 								<div class="new-form-button">

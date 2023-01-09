@@ -52,14 +52,23 @@ exports.getRatesMg = (req, res) => {
 
 // MOSTRAR 1 TARIFA-MG
 exports.getRateMg = (req, res) => {
+	let resultsRates = []
+	let resultsCodes = []
 	try {
-		const id = req.params.id
-		db.query('SELECT * FROM tarifasmg WHERE id=?', [id], (error, results) => {
-			if (results) {
-				res.render('ajustes/edit-tarifa-mg', { user: req.user, rate: results[0], alert: false })
-			} else {
-				throw error
-			}
+		const { id } = req.params
+		db.query('SELECT * FROM tarifasmg WHERE id=?', [id], (error, resultsRatesMg) => {
+			if (error) throw error
+
+			db.query('SELECT * FROM opera_codes where uso = "mini golf" order by codigo asc', (error, resultsCodes) => {
+				if (error) throw error
+				resultsCodes.push(resultsCodes)
+				res.render('ajustes/edit-tarifa-mg', {
+					user: req.user,
+					resultsRatesMg: resultsRatesMg[0],
+					resultsCodes: resultsCodes,
+					alert: false,
+				})
+			})
 		})
 	} catch (error) {
 		console.log(error.message)

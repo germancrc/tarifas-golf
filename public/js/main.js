@@ -135,14 +135,12 @@ let checkPass = function () {
 	let pass_conf = document.getElementById('pass-conf')
 	let new_pass = document.getElementById('newpass')
 
-	if (password.value === pass_conf.value && password.length != 0) {
+	if (new_pass.value === pass_conf.value && new_pass.length != 0) {
 		document.getElementById('message').style.color = 'green'
-		document.getElementById('message').className = 'mt-2 text-center'
 		document.getElementById('message').innerHTML = 'Contraseñas coinciden'
 		// document.getElementById('modalUserName').className = 'btn btn-primary'
 	} else {
 		document.getElementById('message').style.color = 'red'
-		document.getElementById('message').className = 'mt-2 text-center'
 		document.getElementById('message').innerHTML = 'No coinciden'
 		// document.getElementById('modalUserName').className = 'btn btn-primary disabled'
 	}

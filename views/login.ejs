@@ -10,11 +10,20 @@
 				<h4 class="text-center mt-3 mb-3">Guía General</h4>
 			</div>
 			<form action="/login" method="POST">
-				<div class="mb-3">
+				<div class="form-floating mb-3">
 					<input type="text" class="form-control" name="user" id="login-user" placeholder="Usuario" autocomplete="username" onkeyup="mayus(this)" />
+					<label for="login-user" class="form-label">Usuario</label>
 				</div>
-				<div class="mb-3">
-					<input type="password" class="form-control" name="password" autocomplete="current-password" placeholder="Contraseña" id="login-pass" />
+				<div class="form-floating mb-3">
+					<input
+						type="password"
+						class="form-control"
+						id="password"
+						name="password"
+						autocomplete="current-password"
+						placeholder="Contraseña"
+						id="login-pass" />
+					<label for="password" class="form-label">Contraseña</label>
 				</div>
 				<button type="submit" class="btn btn-success text-uppercase w-100 mt-4 btnShadow">Entrar</button>
 			</form>

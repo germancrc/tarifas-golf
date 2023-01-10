@@ -97,6 +97,7 @@ exports.updateService = (req, res) => {
 		const { id } = req.params
 		const { nombre, precio, cod_opera, descripcion } = req.body
 		const editedServ = { nombre, precio, cod_opera, descripcion }
+		console.log(editedServ)
 		db.query('UPDATE servicios SET ? WHERE id = ?', [editedServ, id])
 		res.redirect('/ajustes/servicios-conf')
 	} catch (error) {

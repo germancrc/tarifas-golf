@@ -130,19 +130,19 @@ function mySearchFunction() {
 
 //*****************************FIN BUSQUEDA EN TABLAS********************************/
 
+document.getElementById('btnEditUser').disabled = true
 let checkPass = function () {
 	let password = document.getElementById('password')
-	let pass_conf = document.getElementById('pass-conf')
-	let new_pass = document.getElementById('newpass')
+	let pass_conf = document.getElementById('pass_conf')
 
-	if (new_pass.value === pass_conf.value && new_pass.length != 0) {
+	if (password.length != 0 && pass_conf.length != 0 && password.value == pass_conf.value) {
 		document.getElementById('message').style.color = 'green'
 		document.getElementById('message').innerHTML = 'Contraseñas coinciden'
-		// document.getElementById('modalUserName').className = 'btn btn-primary'
+		document.getElementById('btnEditUser').disabled = false
 	} else {
 		document.getElementById('message').style.color = 'red'
 		document.getElementById('message').innerHTML = 'No coinciden'
-		// document.getElementById('modalUserName').className = 'btn btn-primary disabled'
+		document.getElementById('btnEditUser').disabled = true
 	}
 }
 // PONER TEXTO MAYUSCULAS EN FORMS

@@ -40,6 +40,14 @@
 									<input type="text" class="form-control" name="username" placeholder="Nickname" required onkeyup="mayus(this)" required />
 									<label for="userNickname" class="form-label">Nombre de usuario</label>
 								</div>
+								<div class="form-floating mb-3">
+									<select class="form-select" name="rol" aria-label="role-selector" required>
+										<option selected value="">Elegir</option>
+										<option value="Admin">Admin</option>
+										<option value="User">User</option>
+									</select>
+									<label for="userRole" class="form-label">Rol</label>
+								</div>
 								<div class="row row-cols-1 row-cols-sm-2">
 									<div class="col mb-3">
 										<div class="form-floating">
@@ -67,20 +75,9 @@
 												required />
 											<label for="userPass-conf" class="form-label">Repita la Contraseña</label>
 										</div>
-										<div class="mt-2">
-											<span id="message"></span>
-										</div>
 									</div>
 								</div>
-								<div class="form-floating mb-4">
-									<select class="form-select" name="rol" aria-label="role-selector" required>
-										<option selected value="">Elegir</option>
-										<option value="Admin">Admin</option>
-										<option value="User">User</option>
-									</select>
-									<label for="userRole" class="form-label">Rol</label>
-								</div>
-
+								<p id="message" class="text-center"></p>
 								<div class="new-form-button">
 									<button type="submit" class="btn btn-success btnAction btnShadow" id="botonAdd">AGREGAR</button>
 									<a href="/ajustes/usuarios-conf" class="btn btn-danger btnAction btnShadow">CANCELAR</a>

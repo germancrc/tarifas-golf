@@ -1,6 +1,7 @@
 const db = require('../database/db')
 const { promisify } = require('util')
 
+//********************************************* CRUD ***********************************
 exports.createRate = async (req, res) => {
 	try {
 		const nombre = req.body.nombre
@@ -80,8 +81,6 @@ exports.getRateCg = (req, res) => {
 	}
 }
 
-//////////////////////
-
 // EDITAR 1 TARIFA CG
 exports.updateRateCg = (req, res) => {
 	try {
@@ -105,3 +104,68 @@ exports.deleteRateCg = (req, res) => {
 		console.log(error)
 	}
 }
+
+//********************************************* END CRUD ***********************************
+
+//********************************************* VIEWS ***********************************
+// VISTA TARIFAS
+exports.viewRatesCg = (req, res) => {
+	res.render('tarifas', { user: req.user, alert: false })
+}
+
+exports.viewRatesTurista = (req, res) => {
+	db.query('SELECT * FROM tarifas where cliente IN ("extranjero", "varios") ORDER BY nombre asc', (error, results) => {
+		if (results) {
+			res.render('tarifas/tarifa-turista', {
+				user: req.user,
+				results: results,
+				alert: false,
+			})
+		} else {
+			throw error
+		}
+	})
+}
+exports.viewRatesTtoo = (req, res) => {
+	db.query('SELECT * FROM ttooRates order by nombre asc', (error, results) => {
+		if (results) {
+			res.render('tarifas/tarifa-ttoo', {
+				user: req.user,
+				results: results,
+				alert: false,
+			})
+		} else {
+			throw error
+		}
+	})
+}
+
+exports.viewRatesLocal = (req, res) => {
+	db.query('SELECT * FROM tarifas where cliente IN ("local", "varios") ORDER BY nombre asc', (error, results) => {
+		if (results) {
+			res.render('tarifas/tarifa-local', {
+				user: req.user,
+				results: results,
+				alert: false,
+			})
+		} else {
+			throw error
+		}
+	})
+}
+
+exports.viewRatesHotel = (req, res) => {
+	db.query('SELECT * FROM tarifas where cliente IN ("hotel", "varios") ORDER BY nombre asc', (error, results) => {
+		if (results) {
+			res.render('tarifas/tarifa-hotel', {
+				user: req.user,
+				results: results,
+				alert: false,
+			})
+		} else {
+			throw error
+		}
+	})
+}
+
+//********************************************* END VIEWS ***********************************

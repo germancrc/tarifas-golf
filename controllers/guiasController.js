@@ -138,3 +138,26 @@ exports.downloadGuide = (req, res) => {
 		console.log(error.message)
 	}
 }
+
+// USUARIO VER GUIA
+exports.viewGuide = (req, res) => {
+	try {
+		db.query(
+			'select guias_hrgolf.* from guias_hrgolf,(select aplicacion,max(actualizado) as actualizado from guias_hrgolf group by aplicacion) max_aplicacion where guias_hrgolf.aplicacion=max_aplicacion.aplicacion and guias_hrgolf.actualizado=max_aplicacion.actualizado order by aplicacion asc',
+			(error, results) => {
+				if (results) {
+					res.render('guias', {
+						user: req.user,
+						alert: false,
+						results: results,
+						error: false,
+					})
+				} else {
+					throw error
+				}
+			}
+		)
+	} catch (error) {
+		console.log(error)
+	}
+}

@@ -44,13 +44,7 @@ exports.login = async (req, res) => {
 			db.query('SELECT*FROM usuarios WHERE username = ?', [user], async (error, results) => {
 				if (results.length == 0 || !(await bcrypt.compare(password, results[0].password))) {
 					res.render('login', {
-						alert: true,
-						alertTitle: 'Error',
-						alertMessage: 'Usuario y/o contraseña incorrectos',
-						alertIcon: 'error',
-						showConfirmButton: true,
-						timer: false,
-						ruta: '',
+						errorMessage: 'Usuario y/o contraseña incorrectos.',
 					})
 				} else {
 					//ya entra a la pagina principal
@@ -64,15 +58,7 @@ exports.login = async (req, res) => {
 						httpOnly: true,
 					}
 					res.cookie('jwt', token, cookiesOptions)
-					res.render('login', {
-						alert: true,
-						alertTitle: [user],
-						alertMessage: 'Bienvenido',
-						alertIcon: 'success',
-						showConfirmButton: false,
-						timer: 1200,
-						ruta: 'index',
-					})
+					res.redirect('index')
 				}
 			})
 		}

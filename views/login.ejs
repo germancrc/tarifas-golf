@@ -25,7 +25,12 @@
 						id="login-pass" />
 					<label for="password" class="form-label">Contraseña</label>
 				</div>
-				<button type="submit" class="btn btn-success text-uppercase w-100 mt-4 btnShadow">Entrar</button>
+				<% if (typeof errorMessage !== "undefined") { %>
+				<p class="mt-4 text-center" style="color: red"><%= errorMessage %></p>
+				<% } else { %>
+				<hr class="mt-4" />
+				<% } %>
+				<button type="submit" class="btn btn-success text-uppercase w-100 mt-2 btnShadow">Entrar</button>
 			</form>
 		</div>
 
@@ -38,19 +43,5 @@
 			integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
 			crossorigin="anonymous"></script>
 		<script src="/js/main.js"></script>
-		<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-		<% if(alert) { %>
-		<script>
-			Swal.fire({
-			  title: '<%= alertTitle %>',
-			  text: '<%= alertMessage %>',
-			  icon: '<%= alertIcon %>',
-			  showConfirmButton: <%= showConfirmButton %>,
-			  timer: <%= timer %>
-			}).then(() => {
-			  window.location = '/<%= ruta %>'
-			})
-		</script>
-		<%} %>
 	</body>
 </html>

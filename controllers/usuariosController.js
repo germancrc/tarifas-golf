@@ -70,7 +70,7 @@ exports.getUser = (req, res) => {
 	}
 }
 
-// EDITAR 1 USER PENDIENTE
+// EDITAR 1 USER
 exports.updateUser = async (req, res) => {
 	try {
 		const { id } = req.params
@@ -83,15 +83,9 @@ exports.updateUser = async (req, res) => {
 			bcrypt.compare(old_password, results[0].password, function (err, result) {
 				if (result == false) {
 					res.render('ajustes/edit-usuario', {
+						errorMessage: 'Contraseña actual incorrecta.',
 						logged: req.user,
 						user: results[0],
-						alert: true,
-						alertTitle: 'Error',
-						alertMessage: 'Contraseña actual incorrecta. Intente de nuevo',
-						alertIcon: 'error',
-						showConfirmButton: true,
-						timer: false,
-						ruta: 'ajustes/usuarios-conf',
 					})
 				} else {
 					db.query('UPDATE usuarios SET ?, password = ? WHERE id = ?', [editedUser, password, id])

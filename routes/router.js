@@ -94,6 +94,7 @@ router.get('/downloadGuide/:id', authController.isAuthenticated, guiasController
 //---------------------------------------USUARIOS------------------------------------------------
 router.post('/createUser', usuariosController.createUser)
 router.get('/edit-usuario-actual', authController.isAuthenticated, viewsController.view_edit_current_user)
+router.post('/edit-usuario-actual/:id', authController.isAuthenticated, viewsController.update_current_user)
 router.get('/ajustes/usuarios-conf', authController.isAuthenticated, usuariosController.getUsers)
 router.get('/ajustes/new-usuario', authController.isAuthenticated, usuariosController.newUser)
 router.get('/ajustes/edit-usuario/:id', authController.isAuthenticated, usuariosController.getUser)

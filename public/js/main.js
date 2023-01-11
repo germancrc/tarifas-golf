@@ -129,8 +129,10 @@ function mySearchFunction() {
 }
 
 //*****************************FIN BUSQUEDA EN TABLAS********************************/
+if (document.getElementById('btnEditUser')) {
+	document.getElementById('btnEditUser').disabled = true
+}
 
-document.getElementById('btnEditUser').disabled = true
 let checkPass = function () {
 	let password = document.getElementById('password')
 	let pass_conf = document.getElementById('pass_conf')

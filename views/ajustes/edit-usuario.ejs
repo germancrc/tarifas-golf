@@ -118,12 +118,6 @@
 								</div>
 								<div class="row row-cols-1 row-cols-sm-2">
 									<div class="col">
-										<div class="form-floating mb-3" id="passEdit">
-											<input type="password" class="form-control" name="old_password" id="old_password" placeholder="Contraseña actual" />
-											<label for="userActPass" class="form-label">Contraseña actual</label>
-										</div>
-									</div>
-									<div class="col">
 										<div class="form-floating mb-3" id="rolEdit">
 											<select class="form-select" name="rol" aria-label="role-selector" required>
 												<% if(user.rol === "Admin"){ %>
@@ -135,6 +129,15 @@
 												<% } %>
 											</select>
 											<label for="userRole" class="form-label">Rol</label>
+										</div>
+									</div>
+									<div class="col">
+										<div class="form-floating mb-3" id="passEdit">
+											<input type="password" class="form-control" name="old_password" id="old_password" placeholder="Contraseña actual" />
+											<label for="userActPass" class="form-label">Contraseña actual</label>
+											<% if (typeof errorMessage !== "undefined") { %>
+											<p class="text-center" style="color: red"><%= errorMessage %></p>
+											<% } %>
 										</div>
 									</div>
 								</div>
@@ -180,18 +183,5 @@
 			</div>
 			<%- include ('../partials/footer.ejs') %>
 		</div>
-		<% if(alert) { %>
-		<script>
-			Swal.fire({
-			  title: '<%= alertTitle %>',
-			  text: '<%= alertMessage %>',
-			  icon: '<%= alertIcon %>',
-			  showConfirmButton: <%= showConfirmButton %>,
-			  timer: <%= timer %>
-			}).then(() => {
-			  window.location = '/<%= ruta %>'
-			})
-		</script>
-		<%} %>
 	</body>
 </html>

@@ -137,7 +137,7 @@ let checkPass = function () {
 	let password = document.getElementById('password')
 	let pass_conf = document.getElementById('pass_conf')
 
-	if (password.length != 0 && pass_conf.length != 0 && password.value == pass_conf.value) {
+	if (password.length != 0 && pass_conf.length != 0 && password.value != '' && pass_conf.value != '' && password.value == pass_conf.value) {
 		document.getElementById('message').style.color = 'green'
 		document.getElementById('message').innerHTML = 'Contraseñas coinciden'
 		document.getElementById('btnEditUser').disabled = false

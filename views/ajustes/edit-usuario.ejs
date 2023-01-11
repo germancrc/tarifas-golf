@@ -135,12 +135,12 @@
 										<div class="form-floating mb-3" id="passEdit">
 											<input type="password" class="form-control" name="old_password" id="old_password" placeholder="Contraseña actual" />
 											<label for="userActPass" class="form-label">Contraseña actual</label>
-											<% if (typeof errorMessage !== "undefined") { %>
-											<p class="text-center" style="color: red"><%= errorMessage %></p>
-											<% } %>
 										</div>
 									</div>
 								</div>
+								<% if (typeof errorMessage !== "undefined") { %>
+								<p class="text-center" style="color: red"><%= errorMessage %></p>
+								<% } %>
 								<div class="row row-cols-1 row-cols-sm-2">
 									<div class="col">
 										<div class="form-floating mb-3">

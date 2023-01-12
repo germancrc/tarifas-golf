@@ -9,13 +9,13 @@ body {
 #btnArriba {
 	animation: fadeInAnimation ease-in-out 0.5s;
 	animation-iteration-count: 1;
-	animation-fill-mode: forwards;
+	/* animation-fill-mode: forwards; */
 }
 
-.sidenav_open {
+.sidenav_open a {
 	animation: fadeInAnimation ease-in-out 1.2s;
 	animation-iteration-count: 1;
-	animation-fill-mode: forwards;
+	/* animation-fill-mode: forwards; */
 }
 
 @keyframes fadeInAnimation {
@@ -27,18 +27,18 @@ body {
 	}
 }
 
-.sidenav_close {
-	animation: fadeOutAnimation ease-in-out 1.5s;
-	animation-iteration-count: 1;
-	animation-fill-mode: both;
+.sidenav_close a {
+	animation: fadeOutAnimation ease-in-out 1s;
+	/* animation-iteration-count: 1;
+	animation-fill-mode: backwards; */
 }
 
 @keyframes fadeOutAnimation {
 	0% {
-		opacity: 0;
+		opacity: 1;
 	}
 	100% {
-		opacity: 1;
+		opacity: 0;
 	}
 }
 

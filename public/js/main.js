@@ -9,10 +9,10 @@ function openNav() {
 
 /* Set the width of the side navigation to 0 */
 function closeNav() {
-	document.getElementById('mySidenav').style.width = '0'
 	let hideList = document.getElementById('main')
-	hideList.classList.add('sidenav_close')
 	hideList.classList.remove('sidenav_open')
+	hideList.classList.add('sidenav_close')
+	document.getElementById('mySidenav').style.width = '0px'
 }
 
 // ********************************BOTON VOLVER ARRIBA**************************************

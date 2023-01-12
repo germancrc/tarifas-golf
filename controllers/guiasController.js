@@ -103,6 +103,18 @@ exports.getGuides = (req, res) => {
 	}
 }
 
+// EDITAR DESCRIPCION GUIA
+// exports.updateGuide = (req, res) => {
+// 	try {
+// 		const { id } = req.params
+// 		const { descripcion } = req.body
+// 		db.query('UPDATE guias_hrgolf SET ? WHERE id = ?', [descripcion, id])
+// 		res.redirect('/ajustes/guias-conf')
+// 	} catch (error) {
+// 		console.log(error)
+// 	}
+// }
+
 // BORRAR GUIA
 exports.deleteGuide = (req, res) => {
 	try {

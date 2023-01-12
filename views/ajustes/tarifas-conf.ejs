@@ -51,7 +51,7 @@
 								<tr>
 									<td
 										class="hide-text info"
-										onclick="alert('- <%= rate.nombre %> -\n\n Precio: <%= rate.precio%> USD | Opera: <% if (rate.cod_opera == 0) { %> <%= rate.cod_opera = `NO POST`%><% } else { %><%= rate.cod_opera%><% } %>\n\n <%= rate.tips %>')">
+										onclick="alert('- <%= rate.nombre %> -\n\n Precio: <%= rate.precio%> USD | Opera: <% if (rate.cod_opera == 0) { %> <%= rate.cod_opera = `NO POST`%><% } else { %><%= rate.cod_opera%><% } %>\n\n Tipo Cliente: <%= rate.cliente%>\n\n <%= rate.tips %>')">
 										<span class="editCenter"
 											><%= rate.nombre %>
 											<div class="verInfo">

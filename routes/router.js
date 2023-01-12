@@ -65,8 +65,8 @@ router.get('/ajustes/tarifas-conf/deleteRate/:id', authController.isAuthenticate
 router.post('/createRateMg', ratesMgController.createRateMg)
 router.get('/ajustes/tarifas-mg', authController.isAuthenticated, ratesMgController.getRatesMg)
 router.get('/ajustes/new-tarifas-mg', authController.isAuthenticated, ratesMgController.getOperaCodes)
-router.get('/ajustes/tarifas-mg/:id', authController.isAuthenticated, ratesMgController.getRateMg)
-router.post('/ajustes/tarifas-mg/:id', authController.isAuthenticated, ratesMgController.updateRateMg)
+router.get('/ajustes/edit-tarifa-mg/:id', authController.isAuthenticated, ratesMgController.getRateMg)
+router.post('/ajustes/edit-tarifa-mg/:id', authController.isAuthenticated, ratesMgController.updateRateMg)
 router.get('/ajustes/tarifas-mg/deleteRateMg/:id', authController.isAuthenticated, ratesMgController.deleteRateMg)
 
 //---------------------------------------TOUR OPERADORES-------------------------------------------

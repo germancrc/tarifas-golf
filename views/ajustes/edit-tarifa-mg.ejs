@@ -27,7 +27,7 @@
 						<div class="card-body">
 							<% if (resultsRatesMg) { %>
 
-							<form id="services-form" action="/ajustes/tarifas-mg/<%= resultsRatesMg.id %>" method="POST">
+							<form id="services-form" action="/ajustes/edit-tarifa-mg/<%= resultsRatesMg.id %>" method="POST">
 								<div class="form-floating mb-3">
 									<input
 										type="text"
@@ -43,6 +43,7 @@
 										<div class="form-floating">
 											<input
 												type="number"
+												step="0.01"
 												class="form-control"
 												name="precio"
 												value="<%= resultsRatesMg.precio %>"

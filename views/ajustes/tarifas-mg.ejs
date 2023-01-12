@@ -50,7 +50,7 @@
 								<tr>
 									<td
 										class="hide-text info"
-										onclick="alert('- <%= rate.nombre %> -\n\n Precio: <%= rate.precio%> USD | Opera: <%= rate.cod_opera %>\n\n <%= rate.descripcion %>')">
+										onclick="alert('- <%= rate.nombre %> -\n\n Precio: <% if (rate.precio > Math.floor(rate.precio)) { %><%= rate.precio%>0<% } else if (rate.precio == 0) { %>Resort Cred.<% } else { %><%= rate.precio%>.00<% } %>\n\n Opera: <%= rate.cod_opera %>\n\n <%= rate.descripcion %>')">
 										<span class="editCenter"
 											><%= rate.nombre %>
 											<div class="verInfo">
@@ -58,17 +58,37 @@
 												<i class="bi bi-info-circle"></i></div
 										></span>
 									</td>
-									<% if (rate.precio == 0) { %>
-									<td class="hide-column">30 RC</td>
+									<% if (rate.precio > Math.floor(rate.precio)) { %>
+									<td class="hide-column">
+										<%= rate.precio%>0
+										<div class="verInfo hide-column">
+											- Ver Info
+											<i class="bi bi-info-circle"></i>
+										</div>
+									</td>
+									<% } else if (rate.precio == 0) { %>
+									<td class="hide-column">
+										Resort Cred.
+										<div class="verInfo hide-column">
+											- Ver Info
+											<i class="bi bi-info-circle"></i>
+										</div>
+									</td>
 									<% } else { %>
-									<td class="hide-column"><%= rate.precio%></td>
+									<td class="hide-column">
+										<%= rate.precio%>.00
+										<div class="verInfo hide-column">
+											- Ver Info
+											<i class="bi bi-info-circle"></i>
+										</div>
+									</td>
 									<% } %>
 									<td class="hide-column"><%= rate.cod_opera%></td>
 									<td class="hide-column hide-text"><span><%= rate.descripcion %></span></td>
 
 									<td class="d-flex justify-content-between">
 										<a
-											href="/ajustes/tarifas-mg/<%= rate.id %>"
+											href="/ajustes/edit-tarifa-mg/<%= rate.id %>"
 											data-bs-toggle="#"
 											data-bs-target="#rateUpdate"
 											class="btn btn-sm btn-warning btnAction btnShadow"

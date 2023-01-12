@@ -122,15 +122,22 @@
 								<% results.forEach((rateMg) => { %>
 								<tr
 									class="info"
-									onclick="alert('- <%= rateMg.nombre %> -\n\n Opera: <% if (rateMg.cod_opera == 0) { %><%= rateMg.cod_opera = `NO POST`%><% } else if (rateMg.cod_opera == 1){ %><%= rateMg.cod_opera = `MULTIPLE`%><% } else { %><%= rateMg.cod_opera%><% } %>\n\n <%= rateMg.descripcion %>')">
+									onclick="alert('- <%= rateMg.nombre %> -\n\n Precio: <% if (rateMg.precio > Math.floor(rateMg.precio)) { %><%= rateMg.precio%>0<% } else if (rateMg.precio == 0) { %>Resort Cred.<% } else { %><%= rateMg.precio%>.00<% } %>\n\n Opera: <%= rateMg.cod_opera %>\n\n <%= rateMg.descripcion %>')">
 									<td class="hide-text">
 										<span><%= rateMg.nombre %></span>
 									</td>
-									<!-- <td><%= rateMg.precio%>.00</td> -->
 
-									<% if (rateMg.precio == 0 && rateMg.nombre == "Minigolf Resort Credit") { %>
+									<% if (rateMg.precio > Math.floor(rateMg.precio)) { %>
 									<td>
-										30 RC
+										<%= rateMg.precio%>0
+										<div class="verInfo hide-column">
+											- Ver Info
+											<i class="bi bi-info-circle"></i>
+										</div>
+									</td>
+									<% } else if (rateMg.precio == 0) { %>
+									<td>
+										Resort C.
 										<div class="verInfo hide-column">
 											- Ver Info
 											<i class="bi bi-info-circle"></i>
@@ -138,7 +145,7 @@
 									</td>
 									<% } else { %>
 									<td>
-										<%= rateMg.precio%>
+										<%= rateMg.precio%>.00
 										<div class="verInfo hide-column">
 											- Ver Info
 											<i class="bi bi-info-circle"></i>

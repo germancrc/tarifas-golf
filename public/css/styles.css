@@ -12,7 +12,28 @@ body {
 	animation-fill-mode: forwards;
 }
 
+.sidenav_open {
+	animation: fadeInAnimation ease-in-out 1.2s;
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
+}
+
 @keyframes fadeInAnimation {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+.sidenav_close {
+	animation: fadeOutAnimation ease-in-out 1.5s;
+	animation-iteration-count: 1;
+	animation-fill-mode: both;
+}
+
+@keyframes fadeOutAnimation {
 	0% {
 		opacity: 0;
 	}

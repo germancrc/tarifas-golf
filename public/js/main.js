@@ -1,11 +1,18 @@
 /* Set the width of the side navigation to 250px */
 function openNav() {
 	document.getElementById('mySidenav').style.width = '250px'
+
+	let showList = document.getElementById('main')
+	showList.classList.add('sidenav_open')
+	showList.classList.remove('sidenav_close')
 }
 
 /* Set the width of the side navigation to 0 */
 function closeNav() {
 	document.getElementById('mySidenav').style.width = '0'
+	let hideList = document.getElementById('main')
+	hideList.classList.add('sidenav_close')
+	hideList.classList.remove('sidenav_open')
 }
 
 // ********************************BOTON VOLVER ARRIBA**************************************
@@ -108,24 +115,24 @@ function mySearchFunction() {
 		}
 	}
 
-	const inputMobile = document.getElementById('myInput').value.toUpperCase()
-	const cards = document.getElementsByClassName('cardHome')
+	// const inputMobile = document.getElementById('myInput').value.toUpperCase()
+	// const cards = document.getElementsByClassName('cardHome')
 
-	for (let i = 0; i < cards.length; i++) {
-		let title = cards[i].querySelector('div.card-title')
-		let descrip = cards[i].querySelector('div.accordion-body')
-		// let opera = cards[i].querySelector('span.opera')
+	// for (let i = 0; i < cards.length; i++) {
+	// 	let title = cards[i].querySelector('div.card-title')
+	// 	let descrip = cards[i].querySelector('div.accordion-body')
+	// 	// let opera = cards[i].querySelector('span.opera')
 
-		if (
-			title.innerText.toUpperCase().indexOf(inputMobile) > -1 ||
-			descrip.innerText.toUpperCase().indexOf(inputMobile) > -1
-			// opera.innerText.toUpperCase().indexOf(inputMobile) > -1
-		) {
-			cards[i].style.display = ''
-		} else {
-			cards[i].style.display = 'none'
-		}
-	}
+	// 	if (
+	// 		title.innerText.toUpperCase().indexOf(inputMobile) > -1 ||
+	// 		descrip.innerText.toUpperCase().indexOf(inputMobile) > -1
+	// 		// opera.innerText.toUpperCase().indexOf(inputMobile) > -1
+	// 	) {
+	// 		cards[i].style.display = ''
+	// 	} else {
+	// 		cards[i].style.display = 'none'
+	// 	}
+	// }
 }
 
 //*****************************FIN BUSQUEDA EN TABLAS********************************/

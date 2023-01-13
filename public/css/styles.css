@@ -7,7 +7,7 @@ body {
 
 .content,
 #btnArriba {
-	animation: fadeInAnimation ease-in-out 0.5s;
+	animation: fadeInAnimation ease-in-out 0.3s;
 	animation-iteration-count: 1;
 	/* animation-fill-mode: forwards; */
 }
@@ -124,12 +124,12 @@ p {
 
 .banner {
 	background-image: url(/img/hardRock.jpg);
-	height: 40vh;
+	height: 45vh;
 }
 
 .banner-mg {
 	background-image: url(/img/minigolf-air.jpg);
-	height: 40vh;
+	height: 45vh;
 }
 
 .navbar-brand {
@@ -596,7 +596,7 @@ a.active .flecha {
 	.banner-mg {
 		margin-left: 0px;
 		margin-top: 56px;
-		height: 13vh;
+		height: 20vh;
 	}
 
 	.miFirma {

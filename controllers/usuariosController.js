@@ -80,18 +80,22 @@ exports.updateUser = async (req, res) => {
 		const pass = req.body.password
 		let password = await bcrypt.hash(pass, 8)
 		db.query('select * from usuarios where id = ?', [id], (error, results) => {
-			bcrypt.compare(old_password, results[0].password, function (err, result) {
-				if (result == false) {
-					res.render('ajustes/edit-usuario', {
-						errorMessage: 'Contraseña actual incorrecta.',
-						logged: req.user,
-						user: results[0],
-					})
-				} else {
-					db.query('UPDATE usuarios SET ?, password = ? WHERE id = ?', [editedUser, password, id])
-					res.redirect('/ajustes/usuarios-conf')
-				}
-			})
+			if (error) {
+				throw error
+			} else {
+				bcrypt.compare(old_password, results[0].password, function (err, result) {
+					if (result == false) {
+						res.render('ajustes/edit-usuario', {
+							errorMessage: 'Contraseña actual incorrecta.',
+							logged: req.user,
+							user: results[0],
+						})
+					} else {
+						db.query('UPDATE usuarios SET ?, password = ? WHERE id = ?', [editedUser, password, id])
+						res.redirect('/ajustes/usuarios-conf')
+					}
+				})
+			}
 		})
 	} catch (error) {
 		console.log(error)
@@ -104,6 +108,37 @@ exports.deleteUser = (req, res) => {
 		const { id } = req.params
 		db.query('DELETE FROM usuarios WHERE id = ?', [id])
 		res.redirect('/ajustes/usuarios-conf')
+	} catch (error) {
+		console.log(error)
+	}
+}
+
+//VIEW
+exports.view_edit_current_user = async (req, res) => {
+	res.render('edit-usuario-actual', { alert: false, user: req.user })
+}
+
+// EDITAR CURRENT USER
+exports.update_current_user = async (req, res) => {
+	try {
+		const { id } = req.params
+		const old_password = req.body.old_password
+		const pass = req.body.password
+		let password = await bcrypt.hash(pass, 8)
+		db.query('select * from usuarios where id = ?', [id], (error, results) => {
+			bcrypt.compare(old_password, results[0].password, function (err, result) {
+				if (result == false) {
+					res.render('edit-usuario-actual', {
+						errorMessage: 'Contraseña actual incorrecta.',
+						logged: req.user,
+						user: results[0],
+					})
+				} else {
+					db.query('UPDATE usuarios SET password = ? WHERE id = ?', [password, id])
+					res.redirect('/index')
+				}
+			})
+		})
 	} catch (error) {
 		console.log(error)
 	}

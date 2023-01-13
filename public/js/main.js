@@ -15,6 +15,11 @@ function closeNav() {
 	document.getElementById('mySidenav').style.width = '0px'
 }
 
+// AÑO FOOTER
+const footer_year = new Date()
+let year = footer_year.getFullYear()
+document.getElementById('footer_year').innerHTML = '© ' + year + ' - German Cruz'
+
 // ********************************BOTON VOLVER ARRIBA**************************************
 //Get the button
 var mybutton = document.getElementById('btnArriba')

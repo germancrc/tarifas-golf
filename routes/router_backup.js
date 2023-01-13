@@ -1,5 +1,6 @@
 const express = require('express')
 const router = express.Router()
+const router_services = express.Router()
 const multer = require('multer')
 const db = require('../database/db')
 
@@ -22,7 +23,7 @@ const upload = multer({
 	},
 })
 
-//***************************************************************RUTAS VARIAS********************************/
+//*********************************RUTAS VARIAS********************************/
 //login - LOGOUT
 router.get('/', (req, res) => {
 	res.render('login', { alert: false })
@@ -35,7 +36,7 @@ router.get('/minigolf', authController.isAuthenticated, viewsController.view_min
 router.get('/opera', authController.isAuthenticated, viewsController.view_opera)
 router.get('/index', authController.isAuthenticated, viewsController.view_index)
 
-//***************************************************************RUTAS AJUSTES****************************/
+//*************************************RUTAS AJUSTES****************************/
 // VERIFICAR SI ES ADMIN O USER
 router.get('/ajustes', authController.isAuthenticated, authController.checkAdmin, (req, res) => {})
 

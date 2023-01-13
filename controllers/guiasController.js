@@ -134,15 +134,15 @@ exports.downloadGuide = (req, res) => {
 			'SELECT aplicacion, DATE_FORMAT(CONVERT_TZ(actualizado,"+00:00","-04:00"), "%d%b%y") as actualizado, fileData FROM guias_hrgolf WHERE id=?',
 			[id],
 			(error, data) => {
-				if (data) {
+				if (!data) {
+					console.log(error)
+				} else {
 					let archivo = data[0].aplicacion
 					let fecha = data[0].actualizado
 					let datos = data[0].fileData
 					res.type('application/pdf')
 					res.header('Content-Disposition', `attachment; filename="${archivo}-GUIA Act${fecha}.pdf"`)
 					res.send(Buffer.from(datos, 'base64'))
-				} else {
-					throw error
 				}
 			}
 		)
@@ -157,15 +157,15 @@ exports.viewGuide = (req, res) => {
 		db.query(
 			'select guias_hrgolf.* from guias_hrgolf,(select aplicacion,max(actualizado) as actualizado from guias_hrgolf group by aplicacion) max_aplicacion where guias_hrgolf.aplicacion=max_aplicacion.aplicacion and guias_hrgolf.actualizado=max_aplicacion.actualizado order by aplicacion asc',
 			(error, results) => {
-				if (results) {
+				if (!results) {
+					console.log(error)
+				} else {
 					res.render('guias', {
 						user: req.user,
 						alert: false,
 						results: results,
-						error: false,
+						error: true,
 					})
-				} else {
-					throw error
 				}
 			}
 		)

@@ -125,5 +125,16 @@
 			</div>
 			<%- include ('./partials/footer.ejs') %>
 		</div>
+		<% if (alert) { %>
+		<script>
+			Swal.fire({
+				text: '<%= alertMessage %>',
+				icon: '<%= alertIcon %>',
+				showConfirmationButton: '<%= showConfirmationButton %>',
+			}).then(() => {
+				window.location = '/index <%= ruta %>'
+			})
+		</script>
+		<% } %>
 	</body>
 </html>

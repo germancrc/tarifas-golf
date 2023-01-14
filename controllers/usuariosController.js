@@ -87,12 +87,22 @@ exports.updateUser = async (req, res) => {
 					if (result == false) {
 						res.render('ajustes/edit-usuario', {
 							errorMessage: 'Contraseña actual incorrecta.',
+							alert: false,
 							logged: req.user,
 							user: results[0],
 						})
 					} else {
 						db.query('UPDATE usuarios SET ?, password = ? WHERE id = ?', [editedUser, password, id])
-						res.redirect('/ajustes/usuarios-conf')
+						res.render('ajustes/edit-usuario', {
+							alert: true,
+							// alertTitle: 'Registration',
+							alertMessage: 'Cambios realizados con éxito',
+							alertIcon: 'success',
+							showConfirmationButton: true,
+							ruta: '',
+							logged: req.user,
+							user: results[0],
+						})
 					}
 				})
 			}
@@ -130,12 +140,22 @@ exports.update_current_user = async (req, res) => {
 				if (result == false) {
 					res.render('edit-usuario-actual', {
 						errorMessage: 'Contraseña actual incorrecta.',
+						alert: false,
 						logged: req.user,
 						user: results[0],
 					})
 				} else {
 					db.query('UPDATE usuarios SET password = ? WHERE id = ?', [password, id])
-					res.redirect('/index')
+					res.render('edit-usuario-actual', {
+						alert: true,
+						// alertTitle: 'Registration',
+						alertMessage: 'Cambios realizados con éxito',
+						alertIcon: 'success',
+						showConfirmationButton: true,
+						ruta: '',
+						logged: req.user,
+						user: results[0],
+					})
 				}
 			})
 		})

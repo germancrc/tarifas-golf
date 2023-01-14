@@ -183,5 +183,16 @@
 			</div>
 			<%- include ('../partials/footer.ejs') %>
 		</div>
+		<% if (alert) { %>
+		<script>
+			Swal.fire({
+				text: '<%= alertMessage %>',
+				icon: '<%= alertIcon %>',
+				showConfirmationButton: '<%= showConfirmationButton %>',
+			}).then(() => {
+				window.location = '/ajustes/usuarios-conf<%= ruta %>'
+			})
+		</script>
+		<% } %>
 	</body>
 </html>

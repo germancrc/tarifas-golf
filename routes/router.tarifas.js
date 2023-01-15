@@ -14,8 +14,8 @@ router_tarifas.get('/tarifas/tarifa-hotel', authController.isAuthenticated, rate
 router_tarifas.post('/createRate', ratesController.createRate)
 router_tarifas.get('/ajustes/tarifas-conf', authController.isAuthenticated, ratesController.getRatesCg)
 router_tarifas.get('/ajustes/new-tarifas-cg', authController.isAuthenticated, ratesController.getOperaCodes)
-router_tarifas.get('/ajustes/tarifas-conf/:id', authController.isAuthenticated, ratesController.getRateCg)
-router_tarifas.post('/ajustes/tarifas-conf/:id', authController.isAuthenticated, ratesController.updateRateCg)
+router_tarifas.get('/ajustes/edit-tarifa/:id', authController.isAuthenticated, ratesController.getRateCg)
+router_tarifas.post('/ajustes/edit-tarifa/:id', authController.isAuthenticated, ratesController.updateRateCg)
 router_tarifas.get('/ajustes/tarifas-conf/deleteRate/:id', authController.isAuthenticated, ratesController.deleteRateCg)
 
 module.exports = router_tarifas

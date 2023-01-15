@@ -84,14 +84,14 @@
 										<span><%= code.descripcion %></span>
 									</td>
 									<td class="d-flex justify-content-between">
-										<a href="/ajustes/opera-codes/<%= code.id %>" title="Editar Código" class="btn btn-sm btn-warning btnAction btnShadow"
+										<a href="/ajustes/edit-codes/<%= code.id %>" title="Editar Código" class="btn btn-sm btn-warning btnAction btnShadow"
 											><i class="bi bi-pencil"></i
 										></a>
 
 										<a
 											href="/ajustes/opera-codes/deleteCode/<%= code.id %>"
 											class="btn btn-sm btn-danger btnAction btnShadow"
-											onclick="return confirm('Seguro que quiere borrar el Código <%= code.codigo %> - <%= code.nombre %>?')"
+											onclick="return confirm_delete()"
 											><i class="bi bi-trash"></i
 										></a>
 									</td>

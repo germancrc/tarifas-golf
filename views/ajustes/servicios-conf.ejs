@@ -71,14 +71,14 @@
 									</td>
 
 									<td class="d-flex justify-content-between">
-										<a href="/ajustes/servicios-conf/<%= service.id %>" title="Editar Servicio" class="btn btn-sm btn-warning btnAction btnShadow"
+										<a href="/ajustes/edit-servicio/<%= service.id %>" title="Editar Servicio" class="btn btn-sm btn-warning btnAction btnShadow"
 											><i class="bi bi-pencil"></i
 										></a>
 
 										<a
 											href="/ajustes/servicios-conf/deleteService/<%= service.id %>"
 											class="btn btn-sm btn-danger btnAction btnShadow"
-											onclick="return confirm('Seguro que quiere borrar el servicio <%= service.nombre %>?')"
+											onclick="return confirm_delete()"
 											><i class="bi bi-trash"></i
 										></a>
 									</td>

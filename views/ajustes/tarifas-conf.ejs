@@ -70,7 +70,7 @@
 
 									<td class="d-flex justify-content-between">
 										<a
-											href="/ajustes/tarifas-conf/<%= rate.id %>"
+											href="/ajustes/edit-tarifa/<%= rate.id %>"
 											data-bs-toggle="#"
 											data-bs-target="#rateUpdate"
 											class="btn btn-sm btn-warning btnAction btnShadow"
@@ -80,7 +80,7 @@
 										<a
 											href="/ajustes/tarifas-conf/deleteRate/<%= rate.id %>"
 											class="btn btn-sm btn-danger btnAction btnShadow"
-											onclick="return confirm('Seguro que quiere borrar la tarifa <%= rate.nombre %>?')"
+											onclick="return confirm_delete()"
 											><i class="bi bi-trash"></i
 										></a>
 									</td>
@@ -91,8 +91,7 @@
 					</div>
 				</div>
 			</div>
+			<%- include ('../partials/footer.ejs') %>
 		</div>
-
-		<%- include ('../partials/footer.ejs') %>
 	</body>
 </html>

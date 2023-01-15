@@ -86,8 +86,12 @@ exports.updateUser = async (req, res) => {
 				bcrypt.compare(old_password, results[0].password, function (err, result) {
 					if (result == false) {
 						res.render('ajustes/edit-usuario', {
-							errorMessage: 'Contraseña actual incorrecta.',
-							alert: false,
+							alert: true,
+							// alertTitle: 'Registration',
+							alertMessage: 'Contraseña actual usuario ' + username + ' incorrecta',
+							alertIcon: 'error',
+							showConfirmationButton: true,
+							ruta: '/ajustes/edit-usuario/' + id,
 							logged: req.user,
 							user: results[0],
 						})
@@ -99,7 +103,7 @@ exports.updateUser = async (req, res) => {
 							alertMessage: 'Cambios realizados con éxito',
 							alertIcon: 'success',
 							showConfirmationButton: true,
-							ruta: '',
+							ruta: '/ajustes/usuarios-conf',
 							logged: req.user,
 							user: results[0],
 						})
@@ -139,8 +143,12 @@ exports.update_current_user = async (req, res) => {
 			bcrypt.compare(old_password, results[0].password, function (err, result) {
 				if (result == false) {
 					res.render('edit-usuario-actual', {
-						errorMessage: 'Contraseña actual incorrecta.',
-						alert: false,
+						alert: true,
+						// alertTitle: 'Registration',
+						alertMessage: 'Contraseña actual incorrecta',
+						alertIcon: 'error',
+						showConfirmationButton: true,
+						ruta: '/edit-usuario-actual',
 						logged: req.user,
 						user: results[0],
 					})
@@ -152,7 +160,7 @@ exports.update_current_user = async (req, res) => {
 						alertMessage: 'Cambios realizados con éxito',
 						alertIcon: 'success',
 						showConfirmationButton: true,
-						ruta: '',
+						ruta: '/index',
 						logged: req.user,
 						user: results[0],
 					})

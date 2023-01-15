@@ -66,7 +66,7 @@
 
 									<td class="d-flex justify-content-between">
 										<a
-											href="/ajustes/ttoo-conf/<%= ttoo.id %>"
+											href="/ajustes/edit-ttoo/<%= ttoo.id %>"
 											data-bs-toggle="#"
 											data-bs-target="#ttooUpdate"
 											class="btn btn-sm btn-warning btnAction btnShadow"
@@ -76,7 +76,7 @@
 										<a
 											href="/ajustes/ttoo-conf/deleteTtoo/<%= ttoo.id %>"
 											class="btn btn-sm btn-danger btnAction btnShadow"
-											onclick="return confirm('Seguro que quiere borrar el Tour operador <%= ttoo.nombre %>?')"
+											onclick="return confirm_delete()"
 											><i class="bi bi-trash"></i
 										></a>
 									</td>

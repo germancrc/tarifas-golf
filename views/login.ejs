@@ -11,7 +11,14 @@
 			</div>
 			<form action="/login" method="POST">
 				<div class="form-floating mb-3">
-					<input type="text" class="form-control" name="user" id="login-user" placeholder="Usuario" autocomplete="username" onkeyup="mayus(this)" />
+					<input
+						type="text"
+						class="form-control"
+						name="user"
+						id="login-user"
+						placeholder="Usuario"
+						autocomplete="username"
+						onfocusout="mayus(this)" />
 					<label for="login-user" class="form-label">Usuario</label>
 				</div>
 				<div class="form-floating mb-3">

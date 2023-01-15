@@ -27,7 +27,7 @@
 						<div class="card-body">
 							<% if (ttoo) { %>
 
-							<form id="services-form" action="/ajustes/ttoo-conf/<%= ttoo.id %>" method="POST">
+							<form id="edit_form" action="/ajustes/edit-ttoo/<%= ttoo.id %>" method="POST">
 								<div class="form-floating mb-3">
 									<input type="text" class="form-control" name="nombre" value="<%= ttoo.nombre %>" placeholder="Nombre del TTOO" required />
 									<label for="ttoo-title" class="form-label">Nombre TTOO</label>

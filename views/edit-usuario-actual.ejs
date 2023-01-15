@@ -81,7 +81,8 @@
 									</div>
 								</div>
 								<% if (typeof errorMessage !== "undefined") { %>
-								<p class="text-center" style="color: red"><%= errorMessage %></p>
+								<p>Form could not be submitted due to the following error:</p>
+								<p><%= errorMessage %></p>
 								<% } %>
 								<div class="row row-cols-1 row-cols-sm-2">
 									<div class="col">
@@ -125,16 +126,5 @@
 			</div>
 			<%- include ('./partials/footer.ejs') %>
 		</div>
-		<% if (alert) { %>
-		<script>
-			Swal.fire({
-				text: '<%= alertMessage %>',
-				icon: '<%= alertIcon %>',
-				showConfirmationButton: '<%= showConfirmationButton %>',
-			}).then(() => {
-				window.location = '/index <%= ruta %>'
-			})
-		</script>
-		<% } %>
 	</body>
 </html>

@@ -186,3 +186,39 @@ function inform() {
 		document.getElementById('upload').disabled = false
 	}
 }
+
+// AGREGAR NUEVOS
+if (document.getElementById('add_new_form')) {
+	const form = document.getElementById('add_new_form')
+	form.addEventListener('submit', (evt) => {
+		let selected = confirm('Seguro que desea agregarlo?')
+		if (selected == false) {
+			evt.preventDefault()
+		} else {
+			alert('Agregado con éxito')
+		}
+	})
+}
+
+// EDITAR
+if (document.getElementById('edit_form')) {
+	const form = document.getElementById('edit_form')
+	form.addEventListener('submit', (evt) => {
+		let selected = confirm('Seguro que desea editarlo?')
+		if (selected == false) {
+			evt.preventDefault()
+		} else {
+			alert('Cambios realizados con éxito')
+		}
+	})
+}
+
+// ELIMINAR
+function confirm_delete() {
+	let answer = confirm('Seguro que dease eliminarlo?')
+	if (answer == true) {
+		return alert('Eliminado con exito')
+	} else {
+		return false
+	}
+}

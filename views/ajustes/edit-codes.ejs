@@ -27,7 +27,7 @@
 						<div class="card-body">
 							<% if (code) { %>
 
-							<form id="services-form" action="/ajustes/opera-codes/<%= code.id %>" method="POST">
+							<form id="edit_form" action="/ajustes/edit-codes/<%= code.id %>" method="POST">
 								<div class="form-floating mb-3">
 									<input type="number" class="form-control" name="codigo" value="<%= code.codigo %>" placeholder="Código" required />
 									<label for="code-codigo" class="form-label">Código</label>

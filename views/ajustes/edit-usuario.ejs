@@ -101,7 +101,7 @@
 						<div class="card-body">
 							<% if (user) { %>
 
-							<form id="users-form" action="/ajustes/edit-usuario/<%= user.id %>" method="POST">
+							<form id="edit_form" action="/ajustes/edit-usuario/<%= user.id %>" method="POST">
 								<div class="row row-cols-1 row-cols-sm-2">
 									<div class="col">
 										<div class="form-floating mb-3">
@@ -138,9 +138,6 @@
 										</div>
 									</div>
 								</div>
-								<% if (typeof errorMessage !== "undefined") { %>
-								<p class="text-center" style="color: red"><%= errorMessage %></p>
-								<% } %>
 								<div class="row row-cols-1 row-cols-sm-2">
 									<div class="col">
 										<div class="form-floating mb-3">
@@ -183,16 +180,5 @@
 			</div>
 			<%- include ('../partials/footer.ejs') %>
 		</div>
-		<% if (alert) { %>
-		<script>
-			Swal.fire({
-				text: '<%= alertMessage %>',
-				icon: '<%= alertIcon %>',
-				showConfirmationButton: '<%= showConfirmationButton %>',
-			}).then(() => {
-				window.location = '/ajustes/usuarios-conf<%= ruta %>'
-			})
-		</script>
-		<% } %>
 	</body>
 </html>

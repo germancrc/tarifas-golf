@@ -38,7 +38,7 @@ exports.view_index = async (req, res) => {
 				user: req.user,
 				results: results,
 				alert: false,
-				message: req.flash('message'),
+				// message: req.flash('message'),
 			})
 		} else {
 			throw error

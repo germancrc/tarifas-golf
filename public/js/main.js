@@ -152,11 +152,15 @@ let checkPass = function () {
 	if (password.length != 0 && pass_conf.length != 0 && password.value != '' && pass_conf.value != '' && password.value == pass_conf.value) {
 		document.getElementById('message').style.color = 'green'
 		document.getElementById('message').innerHTML = 'Contraseñas coinciden'
-		document.getElementById('btnEditUser').disabled = false
+		if (document.getElementById('btnEditUser')) {
+			document.getElementById('btnEditUser').disabled = false
+		}
 	} else {
 		document.getElementById('message').style.color = 'red'
 		document.getElementById('message').innerHTML = 'No coinciden'
-		document.getElementById('btnEditUser').disabled = true
+		if (document.getElementById('btnEditUser')) {
+			document.getElementById('btnEditUser').disabled = true
+		}
 	}
 }
 // PONER TEXTO MAYUSCULAS EN FORMS

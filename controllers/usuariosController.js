@@ -21,7 +21,7 @@ exports.createUser = async (req, res) => {
 	}
 }
 
-//MOSTRAR CODIGOS OPERA NUEVO TTOO
+//MOSTRAR CODIGOS OPERA NUEVO USER
 exports.newUser = (req, res) => {
 	res.render('ajustes/new-usuario', {
 		user: req.user,
@@ -154,16 +154,8 @@ exports.update_current_user = async (req, res) => {
 					})
 				} else {
 					db.query('UPDATE usuarios SET password = ? WHERE id = ?', [password, id])
-					res.render('edit-usuario-actual', {
-						alert: true,
-						// alertTitle: 'Registration',
-						alertMessage: 'Cambios realizados con éxito',
-						alertIcon: 'success',
-						showConfirmationButton: true,
-						ruta: '/index',
-						logged: req.user,
-						user: results[0],
-					})
+					req.flash('message', 'Contraseña actualizada')
+					res.redirect('/index')
 				}
 			})
 		})

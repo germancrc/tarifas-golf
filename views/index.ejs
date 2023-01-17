@@ -3,7 +3,6 @@
 	<%- include ('./partials/head-edits.ejs') %>
 	<body>
 		<% if (user) { %>
-
 		<div class="sidebar scrollmenu">
 			<div class="container mb-3 mt-3">
 				<img src="/img/golflogo.png" class="logo" alt="" />
@@ -24,7 +23,21 @@
 		<nav class="navbar fixed-top navi">
 			<div class="container-fluid">
 				<span class="navbar-brand mb-0 h1 text-uppercase" id="navbarLG">Guía Hard Rock Golf club</span>
-				<%- include ('./partials/ajustes/navbar-lg.ejs') %>
+				<div class="btn-group dropstart">
+					<% if(user.rol === "Admin"){ %>
+					<a class="btn btn-success dropdown-toggle btnShadow" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						<span class="text-light"><i class="bi bi-person-fill"></i> <%= user.username %></span>
+					</a>
+					<% } else { %>
+					<a class="btn btn-warning dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						<span class="text-dark"><i class="bi bi-person-fill"></i> <%= user.username %></span>
+					</a>
+					<% } %>
+					<ul class="dropdown-menu">
+						<li><a class="dropdown-item" href="/edit-usuario-actual">Editar</a></li>
+						<li><a class="dropdown-item" href="/logout">Salir</a></li>
+					</ul>
+				</div>
 			</div>
 		</nav>
 
@@ -48,16 +61,11 @@
 					<div id="main">
 						<div class="dropdown btn-perfil">
 							<% if(user.rol === "Admin"){ %>
-							<button class="btn btn-success dropdown-toggle" href="/edit-usuario-actual" data-bs-toggle="dropdown" aria-expanded="false">
+							<button class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
 								<span class="text-light text-uppercase"><%= user.username %></span>
 							</button>
 							<% } else { %>
-							<button
-								class="btn btn-warning btn-sm dropdown-toggle"
-								href="/edit-usuario-actual"
-								role="button"
-								data-bs-toggle="dropdown"
-								aria-expanded="false">
+							<button class="btn btn-warning btn-sm dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 								<span class="text-dark text-uppercase"><%= user.username %></span>
 							</button>
 							<% } %>
@@ -86,6 +94,14 @@
 
 		<div class="banner"></div>
 		<div class="content">
+			<div class="container">
+				<% if (message) { %>
+				<div class="alert alert-success alert-dismissible fade show" role="alert">
+					<%= message %>
+					<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+				</div>
+				<% } %>
+			</div>
 			<h2 class="fixHead text-center">Hard Rock Golf Club At Cana Bay</h2>
 			<h5 class="text-center">PM Opera: <strong>9508</strong></h5>
 

@@ -24,11 +24,11 @@
 				<span class="navbar-brand mb-0 h1" id="navbarLG">AJUSTES - USUARIOS</span>
 				<div class="btn-group dropstart">
 					<% if(logged.rol === "Admin"){ %>
-					<a class="btn btn-success dropdown-toggle" href="/edit-usuario-actual" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+					<a class="btn btn-success dropdown-toggle btnShadow" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 						<span class="text-light"><i class="bi bi-person-fill"></i> <%= logged.username %></span>
 					</a>
 					<% } else { %>
-					<a class="btn btn-warning dropdown-toggle" href="/edit-usuario-actual" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+					<a class="btn btn-warning dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 						<span class="text-dark"><i class="bi bi-person-fill"></i> <%= logged.username %></span>
 					</a>
 					<% } %>
@@ -43,7 +43,7 @@
 		<!-- NAV SM -->
 		<nav class="navbar navSmall fixed-top">
 			<div class="container-fluid">
-				<a class="navbar-brand" href="/index"><i class="bi bi-house-up"></i></a>
+				<a class="navbar-brand" href="/index"><i class="bi bi-house-up" id="titulo"></i></a>
 				<span class="text-uppercase text-light" id="navbarSM"></span>
 				<button
 					class="navbar-toggler navbar-dark"
@@ -60,16 +60,16 @@
 					<div id="main">
 						<div class="dropdown btn-perfil">
 							<% if(logged.rol === "Admin"){ %>
-							<button class="btn btn-success dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+							<button class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
 								<span class="text-light text-uppercase"><%= logged.username %></span>
 							</button>
 							<% } else { %>
-							<button class="btn btn-warning btn-sm dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-								<span class="text-dark text-uppercase"><%= logged.username %></span>
+							<button class="btn btn-warning btn-sm dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								<span class="text-dark text-uppercase"><%= user.username %></span>
 							</button>
 							<% } %>
 							<ul class="dropdown-menu">
-								<li><a class="dropdown-item text-dark" href="#">Editar</a></li>
+								<li><a class="dropdown-item text-dark" href="/edit-usuario-actual">Editar</a></li>
 								<li>
 									<a class="dropdown-item text-dark" href="/logout">Salir</a>
 								</li>

@@ -1,5 +1,20 @@
 const express = require('express')
 const router_usuarios = express.Router()
+const cookieParser = require('cookie-parser')
+const session = require('express-session')
+const flash = require('connect-flash')
+
+router_usuarios.use(cookieParser('alert-cookies'))
+router_usuarios.use(
+	session({
+		secret: 'alert-cookies',
+		cookie: { maxAge: 6000 },
+		resave: true,
+		saveUninitialized: true,
+	})
+)
+
+router_usuarios.use(flash())
 
 const authController = require('../controllers/authController')
 const usuariosController = require('../controllers/usuariosController')

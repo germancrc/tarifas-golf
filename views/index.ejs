@@ -93,18 +93,15 @@
 		</nav>
 
 		<div class="banner"></div>
-		<div class="content">
-			<div class="container">
-				<% if (message.length > 0) { %>
-				<div class="alert alert-success alert-dismissible fade show" role="alert">
-					<i class="bi bi-check-circle"></i> <%= message %><button
-						type="button"
-						class="btn-close"
-						data-bs-dismiss="alert"
-						aria-label="Close"></button>
-				</div>
-				<% } %>
+		<% if (message.length > 0) { %>
+		<div class="login_flash_msg">
+			<div class="alert alert-success alert-dismissible fade show" role="alert">
+				<i class="bi bi-check-circle"></i> <%= message %><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 			</div>
+		</div>
+		<% } %>
+		<div class="content">
+			<div class="container"></div>
 			<h2 class="fixHead text-center">Hard Rock Golf Club At Cana Bay</h2>
 			<h5 class="text-center">PM Opera: <strong>9508</strong></h5>
 

@@ -4,25 +4,22 @@ const db = require('../database/db')
 const { promisify } = require('util')
 
 exports.isAuthenticated = async (req, res, next) => {
-	if (!req.cookies.jwt) {
+	const token = req.cookies.jwt
+	if (!token) {
+		req.flash('message', 'Debe iniciar sesión')
 		res.redirect('/')
 	} else {
-		try {
-			const decodificada = await promisify(jwt.verify)(req.cookies.jwt, process.env.JWT_SECRETO)
-			console.log(decodificada)
-			db.query('SELECT*FROM usuarios WHERE id = ?', [decodificada.id], (error, results) => {
-				if (!results) {
-					res.redirect('/')
-					// return next()
-				} else {
-					req.user = results[0]
-					// return next()
-				}
-			})
-		} catch (error) {
-			console.log(error.message)
-			// return next()
-		}
+		const decodificada = await promisify(jwt.verify)(token, process.env.JWT_SECRETO)
+		db.query('SELECT*FROM usuarios WHERE id = ?', [decodificada.id], (error, results) => {
+			if (!results) {
+				req.flash('message', 'Debe iniciar sesión')
+				res.redirect('/')
+				return next()
+			} else {
+				req.user = results[0]
+				return next()
+			}
+		})
 	}
 }
 
@@ -32,15 +29,13 @@ exports.login = async (req, res) => {
 		const password = req.body.password
 
 		if (!user || !password) {
-			res.render('login', {
-				errorMessage: 'Complete todos los campos',
-			})
+			req.flash('message', 'Complete todos los campos')
+			res.redirect('/')
 		} else {
 			db.query('SELECT*FROM usuarios WHERE username = ?', [user], async (error, results) => {
 				if (results.length == 0 || !(await bcrypt.compare(password, results[0].password))) {
-					res.render('login', {
-						errorMessage: 'Usuario y/o contraseña incorrectos.',
-					})
+					req.flash('message', 'Usuario y/o contraseña incorrectos')
+					res.redirect('/')
 				} else {
 					//ya entra a la pagina principal
 					const id = results[0].id

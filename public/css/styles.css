@@ -1,7 +1,7 @@
 body {
 	background-color: #ffffff;
 	font-family: 'roboto', sans-serif;
-	/* scroll-behavior: smooth; */
+	scroll-behavior: smooth;
 	min-height: 100vh;
 }
 
@@ -86,7 +86,7 @@ p {
 	-ms-transform: translate(-50%, -50%);
 	transform: translate(-50%, -50%);
 	padding: 2rem;
-	width: 25vw;
+	width: 30vw;
 	box-shadow: 0px 7px 11px 1px rgba(0, 0, 0, 0.45);
 	-webkit-box-shadow: 0px 7px 11px 1px rgba(0, 0, 0, 0.45);
 	-moz-box-shadow: 0px 7px 11px 1px rgba(0, 0, 0, 0.45);
@@ -97,6 +97,12 @@ p {
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
+}
+
+.login_flash_msg {
+	margin-left: 180px;
+	margin-right: 18px;
+	width: calc(100% -180px);
 }
 
 .content,
@@ -493,6 +499,12 @@ a.active .flecha {
 }
 
 @media screen and (max-width: 700px) {
+	.login_flash_msg {
+		margin-left: 20px;
+		margin-right: 18px;
+		width: calc(100% -180px);
+	}
+
 	.editCenter {
 		padding-top: 0.75rem;
 	}
@@ -544,7 +556,7 @@ a.active .flecha {
 
 	.login-card {
 		padding: 2rem;
-		width: 75vw;
+		width: 90vw;
 	}
 
 	.navSmall {

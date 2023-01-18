@@ -7,8 +7,17 @@
 			<span class="text-uppercase d-none" id="navbarLG">Login</span>
 			<div>
 				<img src="/img/golflogo.png" class="logo-login" alt="login-logo" />
-				<h4 class="text-center mt-3 mb-3">Guía General</h4>
+				<h4 class="text-center text-uppercase mt-3 mb-3">Guía General</h4>
 			</div>
+			<% if (message.length > 0) { %>
+			<div class="alert alert-warning alert-dismissible fade show" role="alert">
+				<i class="bi bi-exclamation-circle"></i> <%= message %><button
+					type="button"
+					class="btn-close"
+					data-bs-dismiss="alert"
+					aria-label="Close"></button>
+			</div>
+			<% } %>
 			<form action="/login" method="POST">
 				<div class="form-floating mb-3">
 					<input
@@ -32,11 +41,6 @@
 						id="login-pass" />
 					<label for="password" class="form-label">Contraseña</label>
 				</div>
-				<% if (typeof errorMessage !== "undefined") { %>
-				<p class="mt-4 text-center" style="color: red"><%= errorMessage %></p>
-				<% } else { %>
-				<hr class="mt-4" />
-				<% } %>
 				<button type="submit" class="btn btn-success text-uppercase w-100 mt-2 btnShadow">Entrar</button>
 			</form>
 		</div>

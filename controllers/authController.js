@@ -4,25 +4,27 @@ const db = require('../database/db')
 const { promisify } = require('util')
 
 exports.isAuthenticated = async (req, res, next) => {
-	// if (!req.cookies.jwt) {
-	// 	res.redirect('/')
-	// } else {
 	try {
-		const decodificada = await promisify(jwt.verify)(req.cookies.jwt, process.env.JWT_SECRETO)
-		db.query('SELECT*FROM usuarios WHERE id = ?', [decodificada.id], (error, results) => {
-			if (!results) {
-				res.redirect('/')
-				return next()
-			} else {
-				req.user = results[0]
-				return next()
-			}
-		})
+		if (!req.cookies.jwt) {
+			req.flash('message', 'Debe iniciar sesión')
+			res.redirect('/')
+		} else {
+			const decodificada = await promisify(jwt.verify)(req.cookies.jwt, process.env.JWT_SECRETO)
+			console.log(decodificada)
+			db.query('SELECT*FROM usuarios WHERE id = ?', [decodificada.id], (error, results) => {
+				if (!results) {
+					res.redirect('/')
+					// return next()
+				} else {
+					req.user = results[0]
+					// return next()
+				}
+			})
+		}
 	} catch (error) {
 		console.log(error.message)
-		return next()
+		// return next()
 	}
-	// }
 }
 
 exports.login = async (req, res) => {

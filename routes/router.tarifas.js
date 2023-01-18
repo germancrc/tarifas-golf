@@ -1,5 +1,20 @@
 const express = require('express')
 const router_tarifas = express.Router()
+const cookieParser = require('cookie-parser')
+const session = require('express-session')
+const flash = require('connect-flash')
+
+router_tarifas.use(cookieParser('alert-cookies'))
+router_tarifas.use(
+	session({
+		secret: 'alert-cookies',
+		cookie: { maxAge: 6000 },
+		resave: true,
+		saveUninitialized: true,
+	})
+)
+
+router_tarifas.use(flash())
 
 const authController = require('../controllers/authController')
 const ratesController = require('../controllers/ratesController')

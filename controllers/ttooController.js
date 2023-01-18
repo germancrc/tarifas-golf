@@ -16,6 +16,7 @@ exports.createTtoo = async (req, res) => {
 				if (error) {
 					console.log(error)
 				}
+				req.flash('message', 'TTOO agregado con éxito')
 				res.redirect('/ajustes/ttoo-conf')
 			}
 		)
@@ -44,7 +45,7 @@ exports.getTtoos = (req, res) => {
 	try {
 		db.query('SELECT * FROM ttooRates order by nombre asc', (error, results) => {
 			if (results) {
-				res.render('ajustes/ttoo-conf', { user: req.user, alert: false, results: results, error: false })
+				res.render('ajustes/ttoo-conf', { user: req.user, alert: false, results: results, error: false, message: req.flash('message') })
 			} else {
 				throw error
 			}
@@ -77,6 +78,7 @@ exports.updateTtoo = (req, res) => {
 		const { nombre, green_fee, twilight, cod_opera, operacion } = req.body
 		const editedTtoo = { nombre, green_fee, twilight, cod_opera, operacion }
 		db.query('UPDATE ttooRates SET ? WHERE id = ?', [editedTtoo, id])
+		req.flash('message', 'TTOO editado con éxito')
 		res.redirect('/ajustes/ttoo-conf')
 	} catch (error) {
 		console.log(error)
@@ -88,6 +90,7 @@ exports.deleteTtoo = (req, res) => {
 	try {
 		const { id } = req.params
 		db.query('DELETE FROM ttooRates WHERE id = ?', [id])
+		req.flash('message', 'TTOO eliminado con éxito')
 		res.redirect('/ajustes/ttoo-conf')
 	} catch (error) {
 		console.log(error)

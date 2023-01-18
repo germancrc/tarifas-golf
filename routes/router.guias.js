@@ -1,6 +1,21 @@
 const express = require('express')
 const router_guias = express.Router()
 const multer = require('multer')
+const cookieParser = require('cookie-parser')
+const session = require('express-session')
+const flash = require('connect-flash')
+
+router_guias.use(cookieParser('alert-cookies'))
+router_guias.use(
+	session({
+		secret: 'alert-cookies',
+		cookie: { maxAge: 6000 },
+		resave: true,
+		saveUninitialized: true,
+	})
+)
+
+router_guias.use(flash())
 
 const authController = require('../controllers/authController')
 const guiasController = require('../controllers/guiasController')

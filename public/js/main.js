@@ -198,8 +198,6 @@ if (document.getElementById('add_new_form')) {
 		let selected = confirm('Seguro que desea agregarlo?')
 		if (selected == false) {
 			evt.preventDefault()
-		} else {
-			alert('Agregado con éxito')
 		}
 	})
 }
@@ -211,8 +209,6 @@ if (document.getElementById('edit_form')) {
 		let selected = confirm('Seguro que desea editarlo?')
 		if (selected == false) {
 			evt.preventDefault()
-		} else {
-			alert('Cambios realizados con éxito')
 		}
 	})
 }
@@ -220,9 +216,7 @@ if (document.getElementById('edit_form')) {
 // ELIMINAR
 function confirm_delete() {
 	let answer = confirm('Seguro que dease eliminarlo?')
-	if (answer == true) {
-		return alert('Eliminado con exito')
-	} else {
+	if (answer == false) {
 		return false
 	}
 }

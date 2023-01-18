@@ -12,6 +12,7 @@ exports.createCode = async (req, res) => {
 			if (error) {
 				console.log(error)
 			}
+			req.flash('message', 'Código agregado con éxito')
 			res.redirect('/ajustes/opera-codes')
 			console.log(results)
 		})
@@ -34,7 +35,7 @@ exports.getCodes = (req, res) => {
 	try {
 		db.query('SELECT * FROM opera_codes order by uso, codigo asc', (error, results) => {
 			if (results) {
-				res.render('ajustes/opera-codes', { user: req.user, alert: false, results: results, error: false })
+				res.render('ajustes/opera-codes', { user: req.user, alert: false, results: results, error: false, message: req.flash('message') })
 			} else {
 				throw error
 			}
@@ -67,6 +68,7 @@ exports.updateCode = (req, res) => {
 		const { codigo, nombre, uso, descripcion } = req.body
 		const editedCode = { codigo, nombre, uso, descripcion }
 		db.query('UPDATE opera_codes SET ? WHERE id = ?', [editedCode, id])
+		req.flash('message', 'Código editado con éxito')
 		res.redirect('/ajustes/opera-codes')
 	} catch (error) {
 		console.log(error)
@@ -78,6 +80,7 @@ exports.deleteCode = (req, res) => {
 	try {
 		const { id } = req.params
 		db.query('DELETE FROM opera_codes WHERE id = ?', [id])
+		req.flash('message', 'Código eliminado con éxito')
 		res.redirect('/ajustes/opera-codes')
 	} catch (error) {
 		console.log(error)

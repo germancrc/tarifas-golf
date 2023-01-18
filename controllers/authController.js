@@ -4,25 +4,25 @@ const db = require('../database/db')
 const { promisify } = require('util')
 
 exports.isAuthenticated = async (req, res, next) => {
-	if (!req.cookies.jwt) {
-		res.redirect('/')
-	} else {
-		try {
-			const decodificada = await promisify(jwt.verify)(req.cookies.jwt, process.env.JWT_SECRETO)
-			db.query('SELECT*FROM usuarios WHERE id = ?', [decodificada.id], (error, results) => {
-				if (!results) {
-					res.redirect('/')
-					return next()
-				} else {
-					req.user = results[0]
-					return next()
-				}
-			})
-		} catch (error) {
-			console.log(error.message)
-			return next()
-		}
+	// if (!req.cookies.jwt) {
+	// 	res.redirect('/')
+	// } else {
+	try {
+		const decodificada = await promisify(jwt.verify)(req.cookies.jwt, process.env.JWT_SECRETO)
+		db.query('SELECT*FROM usuarios WHERE id = ?', [decodificada.id], (error, results) => {
+			if (!results) {
+				res.redirect('/')
+				return next()
+			} else {
+				req.user = results[0]
+				return next()
+			}
+		})
+	} catch (error) {
+		console.log(error.message)
+		return next()
 	}
+	// }
 }
 
 exports.login = async (req, res) => {
@@ -32,13 +32,7 @@ exports.login = async (req, res) => {
 
 		if (!user || !password) {
 			res.render('login', {
-				alert: true,
-				alertTitle: 'Advertencia',
-				alertMessage: 'Ingrese un usuario y contraseña',
-				alertIcon: 'info',
-				showConfirmButton: true,
-				timer: false,
-				ruta: 'login',
+				errorMessage: 'Complete todos los campos',
 			})
 		} else {
 			db.query('SELECT*FROM usuarios WHERE username = ?', [user], async (error, results) => {

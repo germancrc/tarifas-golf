@@ -142,10 +142,6 @@
 										</div>
 									</div>
 								</div>
-								<% if (typeof errorMessage !== "undefined") { %>
-								<p>Form could not be submitted due to the following error:</p>
-								<p><%= errorMessage %></p>
-								<% } %>
 								<div class="row row-cols-1 row-cols-sm-2">
 									<div class="col">
 										<div class="form-floating mb-3">
@@ -175,7 +171,9 @@
 									</div>
 								</div>
 								<p id="message" class="text-center"></p>
-
+								<% if (typeof errorMessage !== "undefined") { %>
+								<p class="text-center" style="color: red"><%= errorMessage %></p>
+								<% } %>
 								<div class="new-form-button">
 									<button type="submit" class="btn btn-warning btnAction btnShadow" id="btnEditUser">EDITAR</button>
 									<a href="/index" class="btn btn-danger btnAction btnShadow">CANCELAR</a>

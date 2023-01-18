@@ -169,15 +169,6 @@
 
 				<div class="card editShadow">
 					<div class="card-body">
-						<!-- <div class="mb-3 inputSize">
-							<form role="search">
-								<div class="input-group">
-									<span class="input-group-text" id="basic-addon1"><i class="bi bi-search"></i></span>
-									<input class="form-control" type="search" id="myInput" onkeyup="filtroBusqueda()" placeholder="Buscar Guia" aria-label="Search" />
-								</div>
-							</form>
-						</div> -->
-
 						<% if (results.length == 0) { %>
 						<div class="text-center">
 							<img class="noResults" src="/img/noResults.PNG" alt="" />
@@ -186,7 +177,15 @@
 
 						<% }else { %>
 						<h5 class="text-uppercase text-center mb-3">guías actualizadas</h5>
-						<% resultsFilteredGuides.forEach(filtrada => { %>
+						<% if (message.length > 0) { %>
+						<div class="alert alert-success alert-dismissible fade show" role="alert">
+							<i class="bi bi-check-circle"></i> <%= message %><button
+								type="button"
+								class="btn-close"
+								data-bs-dismiss="alert"
+								aria-label="Close"></button>
+						</div>
+						<% } %> <% resultsFilteredGuides.forEach(filtrada => { %>
 						<div class="accordion" id="accordionExample<%= filtrada %>">
 							<div class="accordion-item">
 								<h2 class="accordion-header" id="heading<%= filtrada %>">

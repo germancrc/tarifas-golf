@@ -22,6 +22,7 @@ exports.uploadGuide = async (req, res) => {
 				if (error) {
 					console.log(error)
 				}
+				req.flash('message', 'Guía agregada con éxito')
 				res.redirect('/ajustes/guias-conf')
 			}
 		)
@@ -93,6 +94,7 @@ exports.getGuides = (req, res) => {
 							results: resultsAllGuides,
 							resultsFilteredGuides: resultsFilteredGuides,
 							error: false,
+							message: req.flash('message'),
 						})
 					}
 				)
@@ -120,6 +122,7 @@ exports.deleteGuide = (req, res) => {
 	try {
 		const { id } = req.params
 		db.query('DELETE FROM guias_hrgolf WHERE id = ?', [id])
+		req.flash('message', 'Guía eliminada con éxito')
 		res.redirect('/ajustes/guias-conf')
 	} catch (error) {
 		console.log(error)

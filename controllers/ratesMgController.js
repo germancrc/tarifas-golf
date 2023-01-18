@@ -12,6 +12,7 @@ exports.createRateMg = async (req, res) => {
 			if (error) {
 				console.log(error)
 			}
+			req.flash('message', 'Tarifa agregada con éxito')
 			res.redirect('/ajustes/tarifas-mg')
 			//    console.log(results);
 		})
@@ -40,7 +41,7 @@ exports.getRatesMg = (req, res) => {
 	try {
 		db.query('SELECT * FROM tarifasmg', (error, results) => {
 			if (results) {
-				res.render('ajustes/tarifas-mg', { user: req.user, alert: false, results: results, error: false })
+				res.render('ajustes/tarifas-mg', { user: req.user, alert: false, results: results, error: false, message: req.flash('message') })
 			} else {
 				throw error
 			}
@@ -82,6 +83,7 @@ exports.updateRateMg = (req, res) => {
 		const { nombre, precio, cod_opera, descripcion } = req.body
 		const editedRate = { nombre, precio, cod_opera, descripcion }
 		db.query('UPDATE tarifasmg SET ? WHERE id = ?', [editedRate, id])
+		req.flash('message', 'Tarifa editada con éxito')
 		res.redirect('/ajustes/tarifas-mg')
 	} catch (error) {
 		console.log(error)
@@ -93,6 +95,7 @@ exports.deleteRateMg = (req, res) => {
 	try {
 		const { id } = req.params
 		db.query('DELETE FROM tarifasmg WHERE id = ?', [id])
+		req.flash('message', 'Tarifa eliminada con éxito')
 		res.redirect('/ajustes/tarifas-mg')
 	} catch (error) {
 		console.log(error)

@@ -13,6 +13,7 @@ exports.createUser = async (req, res) => {
 
 		db.query('INSERT INTO usuarios SET ?', { nombre: nombre, username: username, password: passHash, rol: rol }, (error, results) => {
 			if (results) {
+				req.flash('message', 'Usuario agregado con éxito')
 				res.redirect('/ajustes/usuarios-conf')
 			}
 		})
@@ -33,13 +34,14 @@ exports.newUser = (req, res) => {
 //MOSTRAR TODOS LOS USERS
 exports.getUsers = (req, res) => {
 	try {
-		db.query("SELECT * FROM usuarios  where username != 'superuser' ORDER BY username asc", (error, results) => {
+		db.query("SELECT * FROM usuarios  where username != 'superuser'", (error, results) => {
 			if (results) {
 				res.render('ajustes/usuarios-conf', {
 					logged: req.user,
 					alert: false,
 					results: results,
 					error: false,
+					message: req.flash('message'),
 				})
 			} else {
 				throw error
@@ -97,16 +99,8 @@ exports.updateUser = async (req, res) => {
 						})
 					} else {
 						db.query('UPDATE usuarios SET ?, password = ? WHERE id = ?', [editedUser, password, id])
-						res.render('ajustes/edit-usuario', {
-							alert: true,
-							// alertTitle: 'Registration',
-							alertMessage: 'Cambios realizados con éxito',
-							alertIcon: 'success',
-							showConfirmationButton: true,
-							ruta: '/ajustes/usuarios-conf',
-							logged: req.user,
-							user: results[0],
-						})
+						req.flash('message', 'Usuario editado con éxito')
+						res.redirect('/ajustes/usuarios-conf')
 					}
 				})
 			}
@@ -121,6 +115,7 @@ exports.deleteUser = (req, res) => {
 	try {
 		const { id } = req.params
 		db.query('DELETE FROM usuarios WHERE id = ?', [id])
+		req.flash('message', 'Usuario eliminado con éxito')
 		res.redirect('/ajustes/usuarios-conf')
 	} catch (error) {
 		console.log(error)

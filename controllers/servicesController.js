@@ -19,6 +19,7 @@ exports.createService = async (req, res) => {
 				if (error) {
 					console.log(error)
 				}
+				req.flash('message', 'Servicio agregado con éxito')
 				res.redirect('/ajustes/servicios-conf')
 			}
 		)
@@ -55,7 +56,7 @@ exports.getServices = (req, res) => {
 				res.render('ajustes/servicios-conf', {
 					user: req.user,
 					results: results,
-					alert: false,
+					message: req.flash('message'),
 				})
 			} else {
 				throw error
@@ -98,6 +99,7 @@ exports.updateService = (req, res) => {
 		const { nombre, precio, cod_opera, descripcion } = req.body
 		const editedServ = { nombre, precio, cod_opera, descripcion }
 		db.query('UPDATE servicios SET ? WHERE id = ?', [editedServ, id])
+		req.flash('message', 'Servicio editado con éxito')
 		res.redirect('/ajustes/servicios-conf')
 	} catch (error) {
 		console.log(error)
@@ -109,6 +111,7 @@ exports.deleteService = (req, res) => {
 	try {
 		const { id } = req.params
 		db.query('DELETE FROM servicios WHERE id = ?', [id])
+		req.flash('message', 'Servicio eliminado con éxito')
 		res.redirect('/ajustes/servicios-conf')
 	} catch (error) {
 		console.log(error.message)

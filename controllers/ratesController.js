@@ -17,6 +17,7 @@ exports.createRate = async (req, res) => {
 				if (error) {
 					console.log(error)
 				}
+				req.flash('message', 'Tarifa agregada con éxito')
 				res.redirect('/ajustes/tarifas-conf')
 				console.log(results)
 			}
@@ -46,7 +47,7 @@ exports.getRatesCg = (req, res) => {
 	try {
 		db.query('SELECT * FROM tarifas ORDER BY nombre asc', (error, results) => {
 			if (results) {
-				res.render('ajustes/tarifas-conf', { user: req.user, alert: false, results: results, error: false })
+				res.render('ajustes/tarifas-conf', { user: req.user, alert: false, results: results, error: false, message: req.flash('message') })
 			} else {
 				throw error
 			}
@@ -88,6 +89,7 @@ exports.updateRateCg = (req, res) => {
 		const { nombre, precio, cod_opera, cliente, tips } = req.body
 		const editedRate = { nombre, precio, cod_opera, cliente, tips }
 		db.query('UPDATE tarifas SET ? WHERE id = ?', [editedRate, id])
+		req.flash('message', 'Tarifa editada con éxito')
 		res.redirect('/ajustes/tarifas-conf')
 	} catch (error) {
 		console.log(error)
@@ -99,6 +101,7 @@ exports.deleteRateCg = (req, res) => {
 	try {
 		const { id } = req.params
 		db.query('DELETE FROM tarifas WHERE id = ?', [id])
+		req.flash('message', 'Tarifa eliminada con éxito')
 		res.redirect('/ajustes/tarifas-conf')
 	} catch (error) {
 		console.log(error)

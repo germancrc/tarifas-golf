@@ -131,7 +131,7 @@
 									<div class="col">
 										<div class="form-floating mb-3">
 											<select class="form-select mb-3" name="cod_opera" aria-label="cliente-selector" required>
-												<option class="text-danger" selected value="">Confirmar código</option>
+												<option selected value="<%= resultsServices.cod_opera%>"><%= resultsServices.cod_opera%></option>
 												<% if (resultsCodes) { %> <% resultsCodes.forEach(code => { %>
 												<option value="<%= code.codigo %>"><%= code.codigo %> - <%= code.nombre %></option>
 												<% }) %>

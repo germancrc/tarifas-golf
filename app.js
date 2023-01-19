@@ -37,6 +37,10 @@ app.use('/', require('./routes/router.ttoo'))
 app.use('/', require('./routes/router.usuarios'))
 app.use('/', require('./routes/router.views'))
 
+app.get('*', (req, res) => {
+	res.render('404')
+})
+
 //para eliminar cache al cerrar sesion
 app.use(function (req, res, next) {
 	if (!req.user) res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate')

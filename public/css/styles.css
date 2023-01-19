@@ -99,6 +99,20 @@ p {
 	background-size: cover;
 }
 
+.no_url_404 {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	height: 280px;
+}
+
+.text404 {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 180px;
+}
+
 .login_flash_msg {
 	margin-left: 180px;
 	margin-right: 18px;

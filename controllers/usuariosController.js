@@ -11,10 +11,20 @@ exports.createUser = async (req, res) => {
 		let passHash = await bcrypt.hash(password, 8)
 		const rol = req.body.rol
 
-		db.query('INSERT INTO usuarios SET ?', { nombre: nombre, username: username, password: passHash, rol: rol }, (error, results) => {
+		db.query('SELECT * FROM usuarios where username = ?', [username], (error, results) => {
 			if (results) {
-				req.flash('message', 'Usuario agregado con éxito')
-				res.redirect('/ajustes/usuarios-conf')
+				res.render('ajustes/new-usuario', {
+					user: req.user,
+					alert: false,
+					errorMessage: 'El usuario ' + username + ' ya existe',
+				})
+			} else {
+				db.query('INSERT INTO usuarios SET ?', { nombre: nombre, username: username, password: passHash, rol: rol }, (error, results) => {
+					if (results) {
+						req.flash('message', 'Usuario agregado con éxito')
+						res.redirect('/ajustes/usuarios-conf')
+					}
+				})
 			}
 		})
 	} catch (error) {
@@ -89,11 +99,7 @@ exports.updateUser = async (req, res) => {
 					if (result == false) {
 						res.render('ajustes/edit-usuario', {
 							alert: true,
-							// alertTitle: 'Registration',
-							alertMessage: 'Contraseña actual usuario ' + username + ' incorrecta',
-							alertIcon: 'error',
-							showConfirmationButton: true,
-							ruta: '/ajustes/edit-usuario/' + id,
+							errorMessage: 'Contraseña actual incorrecta',
 							logged: req.user,
 							user: results[0],
 						})
@@ -140,10 +146,7 @@ exports.update_current_user = async (req, res) => {
 					res.render('edit-usuario-actual', {
 						alert: true,
 						// alertTitle: 'Registration',
-						alertMessage: 'Contraseña actual incorrecta',
-						alertIcon: 'error',
-						showConfirmationButton: true,
-						ruta: '/edit-usuario-actual',
+						errorMessage: 'Contraseña actual incorrecta',
 						logged: req.user,
 						user: results[0],
 					})

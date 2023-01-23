@@ -102,6 +102,15 @@
 				<div class="cardEdit-container">
 					<div class="card editShadow">
 						<div class="card-body">
+							<% if (typeof errorMessage !== "undefined") { %>
+							<div class="alert alert-warning alert-dismissible fade show btnShadow" role="alert">
+								<i class="bi bi-exclamation-triangle"></i> <%= errorMessage %><button
+									type="button"
+									class="btn-close"
+									data-bs-dismiss="alert"
+									aria-label="Close"></button>
+							</div>
+							<% } %>
 							<form id="add_new_form" action="/createUser" method="POST">
 								<div class="form-floating mb-3">
 									<input
@@ -115,7 +124,7 @@
 								</div>
 								<div class="form-floating mb-3">
 									<input type="text" class="form-control" name="username" placeholder="Nickname" required onkeyup="mayus(this)" required />
-									<label for="userNickname" class="form-label">Nombre de usuario</label>
+									<label for="userNickname" class="form-label">Nombre de Usuario</label>
 								</div>
 								<div class="form-floating mb-3">
 									<select class="form-select" name="rol" aria-label="role-selector" required>
@@ -136,7 +145,7 @@
 												placeholder="Escriba la Contraseña"
 												onkeyup="checkPass();"
 												required />
-											<label for="password" class="form-label">Contraseña nueva</label>
+											<label for="password" class="form-label">Contraseña</label>
 										</div>
 									</div>
 									<div class="col">

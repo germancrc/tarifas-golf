@@ -102,8 +102,15 @@
 				<div class="cardEdit-container">
 					<div class="card">
 						<div class="card-body">
-							<% if (user) { %>
-
+							<% if (typeof errorMessage !== "undefined") { %>
+							<div class="alert alert-warning alert-dismissible fade show btnShadow" role="alert">
+								<i class="bi bi-exclamation-triangle"></i> <%= errorMessage %><button
+									type="button"
+									class="btn-close"
+									data-bs-dismiss="alert"
+									aria-label="Close"></button>
+							</div>
+							<% } %> <% if (user) { %>
 							<form id="users-form" action="/edit-usuario-actual/<%= user.id %>" method="POST">
 								<div class="row row-cols-1 row-cols-sm-2">
 									<div class="col">
@@ -170,10 +177,7 @@
 										</div>
 									</div>
 								</div>
-								<p id="message" class="text-center"></p>
-								<% if (typeof errorMessage !== "undefined") { %>
-								<p class="text-center" style="color: red"><%= errorMessage %></p>
-								<% } %>
+								<p id="message" class="text-center mb-2"></p>
 								<div class="new-form-button">
 									<button type="submit" class="btn btn-warning btnAction btnShadow" id="btnEditUser">EDITAR</button>
 									<a href="/index" class="btn btn-danger btnAction btnShadow">CANCELAR</a>

@@ -34,7 +34,7 @@ exports.newUser = (req, res) => {
 //MOSTRAR TODOS LOS USERS
 exports.getUsers = (req, res) => {
 	try {
-		db.query("SELECT * FROM usuarios  where username != 'superuser'", (error, results) => {
+		db.query("SELECT * FROM usuarios  where username not in ('admin', 'superuser' ) ORDER BY username asc", (error, results) => {
 			if (results) {
 				res.render('ajustes/usuarios-conf', {
 					logged: req.user,

@@ -113,13 +113,13 @@
 								<div class="row row-cols-1 row-cols-sm-2">
 									<div class="col">
 										<div class="form-floating mb-3">
-											<input type="text" class="form-control" name="nombre" value="<%= user.nombre %>" required />
+											<input type="text" class="form-control" name="nombre" value="<%= user.nombre %>" />
 											<label for="userName" class="form-label">Nombre</label>
 										</div>
 									</div>
 									<div class="col">
 										<div class="form-floating mb-3">
-											<input type="text" class="form-control" name="username" value="<%= user.username %>" required />
+											<input type="text" class="form-control" name="username" value="<%= user.username %>" />
 											<label for="userNickname" class="form-label">Nombre de usuario</label>
 										</div>
 									</div>
@@ -127,7 +127,7 @@
 								<div class="row row-cols-1 row-cols-sm-2">
 									<div class="col">
 										<div class="form-floating mb-3" id="rolEdit">
-											<select class="form-select" name="rol" aria-label="role-selector" required>
+											<select class="form-select" name="rol" aria-label="role-selector">
 												<% if(user.rol === "Admin"){ %>
 												<option selected value="Admin">Admin</option>
 												<option value="User">User</option>

@@ -11,13 +11,11 @@ exports.createUser = async (req, res) => {
 		let passHash = await bcrypt.hash(password, 8)
 		const rol = req.body.rol
 
-		db.query('SELECT * FROM usuarios where username = ?', [username], (error, results) => {
-			if (results) {
-				res.render('ajustes/new-usuario', {
-					user: req.user,
-					alert: false,
-					errorMessage: 'El usuario ' + username + ' ya existe',
-				})
+		db.query('SELECT username FROM usuarios where username = ?', [username], (error, results) => {
+			if (results.length > 0) {
+				console.log(results)
+				req.flash('message', 'El usuario ' + username + ' ya existe')
+				res.redirect('/ajustes/new-usuario')
 			} else {
 				db.query('INSERT INTO usuarios SET ?', { nombre: nombre, username: username, password: passHash, rol: rol }, (error, results) => {
 					if (results) {
@@ -38,6 +36,7 @@ exports.newUser = (req, res) => {
 		user: req.user,
 		alert: false,
 		error: false,
+		message: req.flash('message'),
 	})
 }
 

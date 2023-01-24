@@ -101,21 +101,6 @@
 					<div class="card-body">
 						<div class="text-center"></div>
 
-						<!-- <div class="mb-3 inputSize">
-							<form role="search">
-								<div class="input-group">
-									<span class="input-group-text" id="basic-addon1"><i class="bi bi-search"></i></span>
-									<input
-										class="form-control"
-										type="search"
-										id="myInput"
-										onkeyup="filtroBusqueda(0.6)"
-										placeholder="Buscar Guia"
-										aria-label="Search" />
-								</div>
-							</form>
-						</div> -->
-
 						<table class="table align-middle" id="myTable">
 							<% if (results.length == 0) { %>
 							<div class="text-center">
@@ -136,9 +121,7 @@
 							<tbody>
 								<% results.forEach(guia => { %>
 								<tr>
-									<td
-										class="info"
-										onclick="alert('- <%= guia.aplicacion %> -\n\n Tamaño: <% if (guia.fileSize >= 1000000) { %> <%= (guia.fileSize/1000000).toFixed(2); %> MB <% } else if (guia.fileSize >= 1000) { %> <%= (guia.fileSize/1000).toFixed(2); %> KB  <% } else { %> <%= guia.fileSize %> bytes <% } %>\n\n Descripción: <%= guia.descripcion %>')">
+									<td class="info" data-bs-toggle="modal" data-bs-target="#staticBackdrop<%= guia.id %>">
 										<span><%= guia.aplicacion %></span>
 									</td>
 
@@ -156,6 +139,38 @@
 										></a>
 									</td>
 								</tr>
+								<!-- Modal -->
+								<div
+									class="modal fade"
+									id="staticBackdrop<%= guia.id %>"
+									data-bs-backdrop="static"
+									data-bs-keyboard="false"
+									tabindex="-1"
+									aria-labelledby="staticBackdropLabel"
+									aria-hidden="true">
+									<div class="modal-dialog modal-dialog-centered">
+										<div class="modal-content">
+											<div class="modal-header">
+												<h1 class="modal-title fs-5" id="staticBackdropLabel"><%= guia.aplicacion %></h1>
+												<!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+											</div>
+											<div class="modal-body">
+												<% if (guia.fileSize >= 1000000) { %>
+												<h6><strong>Peso: </strong><%= (guia.fileSize/1000000).toFixed(2); %> MB</h6>
+												<% } else if (guia.fileSize >= 1000) { %>
+												<h6><strong>Peso: </strong><%= (guia.fileSize/1000).toFixed(2); %> KB</h6>
+												<% } else { %>
+												<h6><strong>Peso: </strong><%= guia.fileSize %> bytes</h6>
+												<% } %>
+
+												<h6><strong>Descripción: </strong><%= guia.descripcion %></h6>
+											</div>
+											<div class="modal-footer">
+												<button type="button" class="btn btn-success" data-bs-dismiss="modal">OK</button>
+											</div>
+										</div>
+									</div>
+								</div>
 								<% }) %>
 							</tbody>
 						</table>

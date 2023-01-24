@@ -19,7 +19,7 @@ exports.createService = async (req, res) => {
 				if (error) {
 					console.log(error)
 				}
-				req.flash('message', 'Servicio agregado con éxito')
+				req.flash('message', 'El servicio ' + nombre + ' fué agregado con éxito')
 				res.redirect('/ajustes/servicios-conf')
 			}
 		)
@@ -99,7 +99,7 @@ exports.updateService = (req, res) => {
 		const { nombre, precio, cod_opera, descripcion } = req.body
 		const editedServ = { nombre, precio, cod_opera, descripcion }
 		db.query('UPDATE servicios SET ? WHERE id = ?', [editedServ, id])
-		req.flash('message', 'Servicio editado con éxito')
+		req.flash('message', 'El servicio ' + nombre + ' fué editado con éxito')
 		res.redirect('/ajustes/servicios-conf')
 	} catch (error) {
 		console.log(error)

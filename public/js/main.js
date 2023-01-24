@@ -215,7 +215,7 @@ if (document.getElementById('edit_form')) {
 
 // ELIMINAR
 function confirm_delete() {
-	let answer = confirm('Seguro que dease eliminarlo?')
+	let answer = confirm('Seguro que desea eliminarlo?')
 	if (answer == false) {
 		return false
 	}

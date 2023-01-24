@@ -16,7 +16,7 @@ exports.createTtoo = async (req, res) => {
 				if (error) {
 					console.log(error)
 				}
-				req.flash('message', 'TTOO agregado con éxito')
+				req.flash('message', 'El TTOO ' + nombre + ' fué agrgado con éxito')
 				res.redirect('/ajustes/ttoo-conf')
 			}
 		)
@@ -78,7 +78,7 @@ exports.updateTtoo = (req, res) => {
 		const { nombre, green_fee, twilight, cod_opera, operacion } = req.body
 		const editedTtoo = { nombre, green_fee, twilight, cod_opera, operacion }
 		db.query('UPDATE ttooRates SET ? WHERE id = ?', [editedTtoo, id])
-		req.flash('message', 'TTOO editado con éxito')
+		req.flash('message', 'El TTOO ' + nombre + ' fué editado con éxito')
 		res.redirect('/ajustes/ttoo-conf')
 	} catch (error) {
 		console.log(error)

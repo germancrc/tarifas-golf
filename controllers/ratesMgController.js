@@ -12,7 +12,7 @@ exports.createRateMg = async (req, res) => {
 			if (error) {
 				console.log(error)
 			}
-			req.flash('message', 'Tarifa agregada con éxito')
+			req.flash('message', 'La tarifa ' + nombre + ' fué agregada con éxito')
 			res.redirect('/ajustes/tarifas-mg')
 			//    console.log(results);
 		})
@@ -83,7 +83,7 @@ exports.updateRateMg = (req, res) => {
 		const { nombre, precio, cod_opera, descripcion } = req.body
 		const editedRate = { nombre, precio, cod_opera, descripcion }
 		db.query('UPDATE tarifasmg SET ? WHERE id = ?', [editedRate, id])
-		req.flash('message', 'Tarifa editada con éxito')
+		req.flash('message', 'La tarifa ' + nombre + ' fué editada con éxito')
 		res.redirect('/ajustes/tarifas-mg')
 	} catch (error) {
 		console.log(error)

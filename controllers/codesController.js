@@ -12,7 +12,7 @@ exports.createCode = async (req, res) => {
 			if (error) {
 				console.log(error)
 			}
-			req.flash('message', 'Código agregado con éxito')
+			req.flash('message', 'El código ' + codigo + ' - ' + nombre + ' fué agregado con éxito')
 			res.redirect('/ajustes/opera-codes')
 			console.log(results)
 		})
@@ -68,7 +68,7 @@ exports.updateCode = (req, res) => {
 		const { codigo, nombre, uso, descripcion } = req.body
 		const editedCode = { codigo, nombre, uso, descripcion }
 		db.query('UPDATE opera_codes SET ? WHERE id = ?', [editedCode, id])
-		req.flash('message', 'Código editado con éxito')
+		req.flash('message', 'El código ' + codigo + ' - ' + nombre + ' fué editado con éxito')
 		res.redirect('/ajustes/opera-codes')
 	} catch (error) {
 		console.log(error)

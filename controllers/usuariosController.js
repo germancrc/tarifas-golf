@@ -19,7 +19,7 @@ exports.createUser = async (req, res) => {
 			} else {
 				db.query('INSERT INTO usuarios SET ?', { nombre: nombre, username: username, password: passHash, rol: rol }, (error, results) => {
 					if (results) {
-						req.flash('message', 'Usuario agregado con éxito')
+						req.flash('message', 'Usuario ' + username + ' agregado con éxito')
 						res.redirect('/ajustes/usuarios-conf')
 					}
 				})
@@ -30,7 +30,7 @@ exports.createUser = async (req, res) => {
 	}
 }
 
-//MOSTRAR CODIGOS OPERA NUEVO USER
+//NUEVO USER
 exports.newUser = (req, res) => {
 	res.render('ajustes/new-usuario', {
 		user: req.user,
@@ -87,33 +87,73 @@ exports.updateUser = async (req, res) => {
 		const { id } = req.params
 		const { nombre, username, rol } = req.body
 		const editedUser = { nombre, username, rol }
+
 		const old_password = req.body.old_password
 		const pass = req.body.password
 		let password = await bcrypt.hash(pass, 8)
-		db.query('select * from usuarios where id = ?', [id], (error, results) => {
-			if (error) {
-				throw error
-			} else {
-				bcrypt.compare(old_password, results[0].password, function (err, result) {
-					if (result == false) {
-						res.render('ajustes/edit-usuario', {
-							alert: true,
-							errorMessage: 'Contraseña actual incorrecta',
-							logged: req.user,
-							user: results[0],
-						})
-					} else {
-						db.query('UPDATE usuarios SET ?, password = ? WHERE id = ?', [editedUser, password, id])
-						req.flash('message', 'Usuario editado con éxito')
-						res.redirect('/ajustes/usuarios-conf')
-					}
-				})
-			}
-		})
+
+		if (old_password.length > 0) {
+			db.query('select * from usuarios where id = ?', [id], (error, results) => {
+				if (error) {
+					throw error
+				} else {
+					bcrypt.compare(old_password, results[0].password, function (err, result) {
+						if (result == false) {
+							res.render('ajustes/edit-usuario', {
+								alert: true,
+								errorMessage: 'Contraseña actual incorrecta',
+								logged: req.user,
+								user: results[0],
+							})
+						} else {
+							db.query('UPDATE usuarios SET password = ? WHERE id = ?', [password, id])
+							req.flash('message', 'El usuario ' + username + ' fué editado con éxito')
+							res.redirect('/ajustes/usuarios-conf')
+						}
+					})
+				}
+			})
+		} else {
+			db.query('UPDATE usuarios SET ? WHERE id = ?', [editedUser, id])
+			req.flash('message', 'El usuario ' + username + ' fué editado con éxito')
+			res.redirect('/ajustes/usuarios-conf')
+		}
 	} catch (error) {
 		console.log(error)
 	}
 }
+// exports.updateUser = async (req, res) => {
+// 	try {
+// 		const { id } = req.params
+// 		const { nombre, username, rol } = req.body
+// 		const editedUser = { nombre, username, rol }
+// 		const old_password = req.body.old_password
+// 		const pass = req.body.password
+// 		let password = await bcrypt.hash(pass, 8)
+// 		db.query('select * from usuarios where id = ?', [id], (error, results) => {
+// 			if (error) {
+// 				throw error
+// 			} else {
+// 				bcrypt.compare(old_password, results[0].password, function (err, result) {
+// 					if (result == false) {
+// 						res.render('ajustes/edit-usuario', {
+// 							alert: true,
+// 							errorMessage: 'Contraseña actual incorrecta',
+// 							logged: req.user,
+// 							user: results[0],
+// 						})
+// 					} else {
+// 						db.query('UPDATE usuarios SET ?, password = ? WHERE id = ?', [editedUser, password, id])
+// 						req.flash('message', 'Usuario editado con éxito')
+// 						res.redirect('/ajustes/usuarios-conf')
+// 					}
+// 				})
+// 			}
+// 		})
+// 	} catch (error) {
+// 		console.log(error)
+// 	}
+// }
 
 // BORRAR USER
 exports.deleteUser = (req, res) => {

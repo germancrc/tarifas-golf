@@ -22,7 +22,7 @@ exports.uploadGuide = async (req, res) => {
 				if (error) {
 					console.log(error)
 				}
-				req.flash('message', 'Guía agregada con éxito')
+				req.flash('message', 'La guía de' + aplicacion + ' fué agregada con éxito')
 				res.redirect('/ajustes/guias-conf')
 			}
 		)

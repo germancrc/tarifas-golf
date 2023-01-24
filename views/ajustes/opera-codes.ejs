@@ -122,7 +122,8 @@
 								aria-label="Close"></button>
 						</div>
 						<% } %>
-						<div class="text-center mb-3"><h5>Mostrar códigos:</h5></div>
+						<!-- CHECKBOX CODIGOS -->
+						<!-- <div class="text-center mb-3"><h5>Mostrar códigos:</h5></div>
 						<div class="text-center mb-3">
 							<div class="form-check form-check-inline">
 								<input class="form-check-input opera-code-check" type="checkbox" onclick="filterCheckbox()" value="campogolf" id="campogolf" />
@@ -136,7 +137,7 @@
 								<input class="form-check-input opera-code-check" type="checkbox" onclick="filterCheckbox()" value="pagos" id="pagos" />
 								<label class="form-check-label" for="pagos"> Pagos </label>
 							</div>
-						</div>
+						</div> -->
 						<table class="table table-hover" id="myTable">
 							<thead>
 								<tr>
@@ -185,6 +186,10 @@
 								<% }) %>
 							</tbody>
 						</table>
+						<div class="text-center" id="noResults">
+							<img class="noResults" src="/img/noResults.PNG" alt="" />
+							<h4 class="text-uppercase mt-3">No hay resultados</h4>
+						</div>
 					</div>
 				</div>
 			</div>

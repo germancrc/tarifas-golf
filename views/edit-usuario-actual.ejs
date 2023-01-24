@@ -103,7 +103,7 @@
 					<div class="card">
 						<div class="card-body">
 							<% if (typeof errorMessage !== "undefined") { %>
-							<div class="alert alert-warning alert-dismissible fade show btnShadow" role="alert">
+							<div class="alert alert-danger alert-dismissible fade show btnShadow text-center" role="alert">
 								<i class="bi bi-exclamation-triangle"></i> <%= errorMessage %><button
 									type="button"
 									class="btn-close"
@@ -111,7 +111,7 @@
 									aria-label="Close"></button>
 							</div>
 							<% } %> <% if (user) { %>
-							<form id="users-form" action="/edit-usuario-actual/<%= user.id %>" method="POST">
+							<form id="edit_form" action="/edit-usuario-actual/<%= user.id %>" method="POST">
 								<div class="row row-cols-1 row-cols-sm-2">
 									<div class="col">
 										<div class="form-floating mb-3">

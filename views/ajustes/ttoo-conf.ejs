@@ -151,13 +151,7 @@
 									<td class="hide-column hide-text"><span><%= ttoo.operacion %></span></td>
 
 									<td class="d-flex justify-content-between">
-										<a
-											href="/ajustes/edit-ttoo/<%= ttoo.id %>"
-											data-bs-toggle="#"
-											data-bs-target="#ttooUpdate"
-											class="btn btn-sm btn-warning btnAction btnShadow"
-											><i class="bi bi-pencil"></i
-										></a>
+										<a href="/ajustes/edit-ttoo/<%= ttoo.id %>" class="btn btn-sm btn-warning btnAction btnShadow"><i class="bi bi-pencil"></i></a>
 
 										<a
 											href="/ajustes/ttoo-conf/deleteTtoo/<%= ttoo.id %>"
@@ -170,10 +164,10 @@
 								<% }) %>
 							</tbody>
 						</table>
-						<!-- <div class="text-center d-none" id="noResults">
+						<div class="text-center" id="noResults">
 							<img class="noResults" src="/img/noResults.PNG" alt="" />
 							<h4 class="text-uppercase mt-3">No hay resultados</h4>
-						</div> -->
+						</div>
 					</div>
 				</div>
 			</div>

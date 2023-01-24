@@ -80,7 +80,9 @@ function filterCheckbox() {
 //*****************************BUSQUEDA EN TABLAS********************************/
 let delay = 0
 let delayTimeout
-
+if ((imgResult = document.getElementById('noResults'))) {
+	imgResult.style.display = 'none'
+}
 function filtroBusqueda(secs) {
 	delay = secs * 1000
 	clearTimeout(delayTimeout)
@@ -90,11 +92,13 @@ function filtroBusqueda(secs) {
 
 function mySearchFunction() {
 	// Declare variables
-	let input, filter, table, tr, td1, td2, i
+	let input, filter, table, tr, td1, td2, i, imgResult, table_head
 	input = document.getElementById('myInput')
+	imgResult = document.getElementById('noResults')
 	filter = input.value.toUpperCase()
 	table = document.getElementById('myTable')
 	tr = table.getElementsByTagName('tr')
+	table_head = table.getElementsByTagName('th')
 
 	// Loop through all table rows, and hide those who don't match the search query
 	for (i = 0; i < tr.length; i++) {
@@ -114,9 +118,12 @@ function mySearchFunction() {
 				txtValue4.toUpperCase().indexOf(filter) > -1
 			) {
 				tr[i].style.display = ''
+				imgResult.style.display = 'none'
 			} else {
 				tr[i].style.display = 'none'
 			}
+		} else {
+			imgResult.style.display = 'block'
 		}
 	}
 
@@ -219,4 +226,24 @@ function confirm_delete() {
 	if (answer == false) {
 		return false
 	}
+}
+
+// FOCUS NEW IMPUT FORM
+if (document.getElementById('nombre')) {
+	const input = document.getElementById('nombre')
+
+	// fires when a page is loaded fully
+	window.addEventListener('load', (e) => {
+		input.focus()
+	})
+}
+
+// FOCUS search
+if (document.getElementById('myInput')) {
+	const busqueda = document.getElementById('myInput')
+
+	// fires when a page is loaded fully
+	window.addEventListener('load', (e) => {
+		busqueda.focus()
+	})
 }

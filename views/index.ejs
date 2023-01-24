@@ -95,7 +95,7 @@
 		<div class="banner"></div>
 		<% if (message.length > 0) { %>
 		<div class="login_flash_msg">
-			<div class="alert alert-success alert-dismissible fade show btnShadow text-center" role="alert">
+			<div class="alert alert-success alert-dismissible fade show btnShadow" role="alert">
 				<i class="bi bi-check-circle"></i> <%= message %><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 			</div>
 		</div>
@@ -179,12 +179,12 @@
 							</tbody>
 						</table>
 					</div>
+					<div class="text-center" id="noResults">
+						<img class="noResults" src="/img/noResults.PNG" alt="" />
+						<h4 class="text-uppercase mt-3">No hay resultados</h4>
+					</div>
 				</div>
 			</div>
-
-			<!-- <div class="d-none" id="noResults">
-              <img src="/img/noResults.png" alt="">
-            </div> -->
 
 			<!--IR ARRIBA-->
 

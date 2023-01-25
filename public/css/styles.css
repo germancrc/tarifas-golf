@@ -765,6 +765,27 @@ a.active .flecha {
 }
 
 /* ***************************************************The side navigation menu */
+/* OFF CANVAS */
+.new_sidenav {
+	background-color: #514d87;
+}
+
+.new_sidenav a {
+	padding: 8px 8px 8px 20px;
+	text-decoration: none;
+	font-size: 20px;
+	color: white;
+	display: block;
+	transition: 0.5s;
+}
+
+.new_sidenav a.active {
+	color: #dfb502;
+	border-bottom: 1px solid #dfb502;
+}
+
+/* OFFCANVAS */
+
 .sidenav {
 	height: 100%; /* 100% Full-height */
 	width: 0; /* 0 width - change this with JavaScript */

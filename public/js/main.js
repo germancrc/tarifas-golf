@@ -1,19 +1,19 @@
 /* Set the width of the side navigation to 250px */
-function openNav() {
-	document.getElementById('mySidenav').style.width = '250px'
+// function openNav() {
+// 	document.getElementById('mySidenav').style.width = '250px'
 
-	let showList = document.getElementById('main')
-	showList.classList.add('sidenav_open')
-	showList.classList.remove('sidenav_close')
-}
+// 	let showList = document.getElementById('main')
+// 	showList.classList.add('sidenav_open')
+// 	showList.classList.remove('sidenav_close')
+// }
 
-/* Set the width of the side navigation to 0 */
-function closeNav() {
-	let hideList = document.getElementById('main')
-	hideList.classList.remove('sidenav_open')
-	hideList.classList.add('sidenav_close')
-	document.getElementById('mySidenav').style.width = '0px'
-}
+// /* Set the width of the side navigation to 0 */
+// function closeNav() {
+// 	let hideList = document.getElementById('main')
+// 	hideList.classList.remove('sidenav_open')
+// 	hideList.classList.add('sidenav_close')
+// 	document.getElementById('mySidenav').style.width = '0px'
+// }
 
 // AÑO FOOTER
 const footer_year = new Date()
@@ -45,10 +45,13 @@ function topFunction() {
 // ********************************BOTON VOLVER ARRIBA**************************************
 
 // **********************************SHOW HIDE OPERA CODES WITH CHECBOX***********************
-function checkAllCodes() {
-	let checkbox = document.querySelectorAll('.opera-code-check')
-	for (let i = 0; i < checkbox.length; i++) {
-		checkbox[i].checked = true
+
+if (document.querySelectorAll('.opera-code-check')) {
+	function checkAllCodes() {
+		let checkbox = document.querySelectorAll('.opera-code-check')
+		for (let i = 0; i < checkbox.length; i++) {
+			checkbox[i].checked = true
+		}
 	}
 }
 
@@ -92,13 +95,12 @@ function filtroBusqueda(secs) {
 
 function mySearchFunction() {
 	// Declare variables
-	let input, filter, table, tr, td1, td2, i, imgResult, table_head
+	let input, filter, table, tr, td1, td2, i, imgResult
 	input = document.getElementById('myInput')
 	imgResult = document.getElementById('noResults')
 	filter = input.value.toUpperCase()
 	table = document.getElementById('myTable')
 	tr = table.getElementsByTagName('tr')
-	table_head = table.getElementsByTagName('th')
 
 	// Loop through all table rows, and hide those who don't match the search query
 	for (i = 0; i < tr.length; i++) {
@@ -126,32 +128,16 @@ function mySearchFunction() {
 			imgResult.style.display = 'block'
 		}
 	}
-
-	// const inputMobile = document.getElementById('myInput').value.toUpperCase()
-	// const cards = document.getElementsByClassName('cardHome')
-
-	// for (let i = 0; i < cards.length; i++) {
-	// 	let title = cards[i].querySelector('div.card-title')
-	// 	let descrip = cards[i].querySelector('div.accordion-body')
-	// 	// let opera = cards[i].querySelector('span.opera')
-
-	// 	if (
-	// 		title.innerText.toUpperCase().indexOf(inputMobile) > -1 ||
-	// 		descrip.innerText.toUpperCase().indexOf(inputMobile) > -1
-	// 		// opera.innerText.toUpperCase().indexOf(inputMobile) > -1
-	// 	) {
-	// 		cards[i].style.display = ''
-	// 	} else {
-	// 		cards[i].style.display = 'none'
-	// 	}
-	// }
 }
 
 //*****************************FIN BUSQUEDA EN TABLAS********************************/
+
+//DISABLED BUTTON
 if (document.getElementById('btnEditUser')) {
 	document.getElementById('btnEditUser').disabled = true
 }
 
+//PASS CAOMPARE
 let checkPass = function () {
 	let password = document.getElementById('password')
 	let pass_conf = document.getElementById('pass_conf')

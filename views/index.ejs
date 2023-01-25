@@ -134,83 +134,80 @@
 
 			<div class="card mt-3">
 				<div class="card-body">
-					<div class="table-responsive">
-						<table class="table table-hover" id="myTable">
-							<thead id="tabla-vacia">
-								<tr>
-									<th scope="col" class="col px-0">Nombre</th>
-									<th scope="col" class="col-2">Precio</th>
-									<th scope="col" class="col-2 hide-column-opera">Opera</th>
-									<th scope="col" class="col-4 hide-column">Descripción</th>
-								</tr>
-							</thead>
-							<tbody>
-								<% results.forEach((service) => { %>
-								<tr data-bs-toggle="modal" data-bs-target="#staticBackdrop<%= service.id %>">
-									<td class="hide-text">
-										<span><%= service.nombre %></span>
-									</td>
-									<!-- <td><%= service.precio%>.00</td> -->
+					<table class="table table-hover" id="myTable">
+						<thead id="tabla-vacia">
+							<tr>
+								<th scope="col" class="col px-0">Nombre</th>
+								<th scope="col" class="col-2">Precio</th>
+								<th scope="col" class="col-2 hide-column-opera">Opera</th>
+								<th scope="col" class="col-4 hide-column">Descripción</th>
+							</tr>
+						</thead>
+						<tbody>
+							<% results.forEach((service) => { %>
+							<tr class="info" data-bs-toggle="modal" data-bs-target="#staticBackdrop<%= service.id %>">
+								<td class="hide-text">
+									<span><%= service.nombre %></span>
+								</td>
 
-									<% if (service.precio == 0 && service.nombre == "Torneos") { %>
-									<td>COTIZAR</td>
-									<% } else { %>
-									<td>
-										<%= service.precio%>.00
-										<div class="verInfo hide-column">
-											- Ver Info
-											<i class="bi bi-info-circle"></i>
+								<% if (service.precio == 0 && service.nombre == "Torneos") { %>
+								<td>COTIZAR</td>
+								<% } else { %>
+								<td>
+									<%= service.precio%>.00
+									<div class="verInfo hide-column">
+										- Ver Info
+										<i class="bi bi-info-circle"></i>
+									</div>
+								</td>
+								<% } %> <% if (service.cod_opera == 0) { %>
+								<td class="hide-column-opera">NO POST</td>
+								<% } else if (service.cod_opera == 1){ %>
+								<td class="hide-column-opera">MULTIPLE</td>
+								<% } else { %>
+								<td class="hide-column-opera"><%= service.cod_opera%></td>
+								<% } %>
+								<td class="hide-text hide-column">
+									<span><%= service.descripcion %></span>
+								</td>
+							</tr>
+							<!-- Modal -->
+							<div
+								class="modal fade"
+								id="staticBackdrop<%= service.id %>"
+								tabindex="-1"
+								aria-labelledby="staticBackdropLabel"
+								aria-hidden="true"
+								data-backdrop="false">
+								<div class="modal-dialog modal-dialog-centered">
+									<div class="modal-content">
+										<div class="modal-header">
+											<h1 class="modal-title fs-5" id="staticBackdropLabel"><%= service.nombre %></h1>
+											<!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
 										</div>
-									</td>
-									<% } %> <% if (service.cod_opera == 0) { %>
-									<td class="hide-column-opera">NO POST</td>
-									<% } else if (service.cod_opera == 1){ %>
-									<td class="hide-column-opera">MULTIPLE</td>
-									<% } else { %>
-									<td class="hide-column-opera"><%= service.cod_opera%></td>
-									<% } %>
-									<td class="hide-text hide-column">
-										<span><%= service.descripcion %></span>
-									</td>
-								</tr>
-								<!-- Modal -->
-								<div
-									class="modal fade"
-									id="staticBackdrop<%= service.id %>"
-									tabindex="-1"
-									aria-labelledby="staticBackdropLabel"
-									aria-hidden="true"
-									data-backdrop="false">
-									<div class="modal-dialog modal-dialog-centered">
-										<div class="modal-content">
-											<div class="modal-header">
-												<h1 class="modal-title fs-5" id="staticBackdropLabel"><%= service.nombre %></h1>
-												<!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
-											</div>
-											<div class="modal-body">
-												<% if (service.precio == 0 && service.nombre == "Torneos") { %>
-												<h6><strong>Precio: </strong>COTIZAR</h6>
-												<% } else { %>
-												<h6><strong>Precio: </strong><%= service.precio%>.00</h6>
-												<% } %>
+										<div class="modal-body">
+											<% if (service.precio == 0 && service.nombre == "Torneos") { %>
+											<h6><strong>Precio: </strong>COTIZAR</h6>
+											<% } else { %>
+											<h6><strong>Precio: </strong><%= service.precio%>.00</h6>
+											<% } %>
 
-												<h6>
-													<strong>Código Opera: </strong><% if (service.cod_opera == 0) { %><%= service.cod_opera = `NO POST`%><% } else if
-													(service.cod_opera == 1){ %><%= service.cod_opera = `MULTIPLE`%><% } else { %><%= service.cod_opera%><% } %>
-												</h6>
+											<h6>
+												<strong>Código Opera: </strong><% if (service.cod_opera == 0) { %><%= service.cod_opera = `NO POST`%><% } else if
+												(service.cod_opera == 1){ %><%= service.cod_opera = `MULTIPLE`%><% } else { %><%= service.cod_opera%><% } %>
+											</h6>
 
-												<h6><strong>Descripción: </strong><%= service.descripcion %></h6>
-											</div>
-											<div class="modal-footer">
-												<button type="button" class="btn btn-success btnShadow" data-bs-dismiss="modal">CERRAR</button>
-											</div>
+											<h6><strong>Descripción: </strong><%= service.descripcion %></h6>
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-success btnShadow" data-bs-dismiss="modal">CERRAR</button>
 										</div>
 									</div>
 								</div>
-								<% }) %>
-							</tbody>
-						</table>
-					</div>
+							</div>
+							<% }) %>
+						</tbody>
+					</table>
 					<div class="text-center" id="noResults">
 						<img class="noResults" src="/img/noResults.PNG" alt="" />
 						<h4 class="text-uppercase mt-3">No hay resultados</h4>

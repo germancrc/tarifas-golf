@@ -146,7 +146,7 @@
 							</thead>
 							<tbody>
 								<% results.forEach((service) => { %>
-								<tr class="info" data-bs-toggle="modal" data-bs-target="#staticBackdrop<%= service.id %>">
+								<tr data-bs-toggle="modal" data-bs-target="#staticBackdrop<%= service.id %>">
 									<td class="hide-text">
 										<span><%= service.nombre %></span>
 									</td>
@@ -174,7 +174,13 @@
 									</td>
 								</tr>
 								<!-- Modal -->
-								<div class="modal" id="staticBackdrop<%= service.id %>" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+								<div
+									class="modal fade"
+									id="staticBackdrop<%= service.id %>"
+									tabindex="-1"
+									aria-labelledby="staticBackdropLabel"
+									aria-hidden="true"
+									data-backdrop="false">
 									<div class="modal-dialog modal-dialog-centered">
 										<div class="modal-content">
 											<div class="modal-header">

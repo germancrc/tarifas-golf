@@ -111,9 +111,7 @@
 						</thead>
 						<tbody>
 							<% results.forEach((ttoo) => { %>
-							<tr
-								class="info"
-								onclick="alert('- <%= ttoo.nombre %> -\n\n Opera: <% if (ttoo.cod_opera == 0) { %><%= ttoo.cod_opera = `NO POST`%><% } else if (ttoo.cod_opera == 1){ %><%= ttoo.cod_opera = `MULTIPLE`%><% } else { %><%= ttoo.cod_opera%><% } %>\n\n Cómo registrarlo: <%= ttoo.operacion %>')">
+							<tr class="info" data-bs-toggle="modal" data-bs-target="#staticBackdrop<%= ttoo.id %>">
 								<td class="hide-text">
 									<span><%= ttoo.nombre %></span>
 								</td>
@@ -130,6 +128,26 @@
 									<span><%= ttoo.operacion %></span>
 								</td>
 							</tr>
+							<!-- Modal -->
+							<div class="modal fade" id="staticBackdrop<%= ttoo.id %>" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+								<div class="modal-dialog modal-dialog-centered">
+									<div class="modal-content">
+										<div class="modal-header">
+											<h1 class="modal-title fs-5" id="staticBackdropLabel"><%= ttoo.nombre %></h1>
+											<!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+										</div>
+										<div class="modal-body">
+											<h6><strong>Green Fee: </strong><%= ttoo.green_fee%>.00</h6>
+											<h6><strong>Twilight: </strong><%= ttoo.twilight%>.00</h6>
+											<h6><strong>Código Opera: </strong><%= ttoo.cod_opera%></h6>
+											<h6><strong>Descripción: </strong><%= ttoo.operacion %></h6>
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-success btnShadow" data-bs-dismiss="modal">CERRAR</button>
+										</div>
+									</div>
+								</div>
+							</div>
 							<% }) %>
 						</tbody>
 					</table>

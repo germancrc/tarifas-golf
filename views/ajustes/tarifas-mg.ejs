@@ -134,9 +134,7 @@
 							<tbody>
 								<% results.forEach((rate) => { %>
 								<tr>
-									<td
-										class="hide-text info"
-										onclick="alert('- <%= rate.nombre %> -\n\n Precio: <% if (rate.precio > Math.floor(rate.precio)) { %><%= rate.precio%>0<% } else if (rate.precio == 0) { %>Resort Cred.<% } else { %><%= rate.precio%>.00<% } %>\n\n Opera: <%= rate.cod_opera %>\n\n <%= rate.descripcion %>')">
+									<td class="hide-text info" data-bs-toggle="modal" data-bs-target="#staticBackdrop<%= rate.id %>">
 										<span class="editCenter"
 											><%= rate.nombre %>
 											<div class="verInfo">
@@ -189,6 +187,38 @@
 										></a>
 									</td>
 								</tr>
+								<!-- Modal -->
+								<div class="modal fade" id="staticBackdrop<%= rate.id %>" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+									<div class="modal-dialog modal-dialog-centered">
+										<div class="modal-content">
+											<div class="modal-header">
+												<h1 class="modal-title fs-5" id="staticBackdropLabel"><%= rate.nombre %></h1>
+												<!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+											</div>
+											<div class="modal-body">
+												<% if (rate.precio > Math.floor(rate.precio)) { %>
+												<h6><strong>Precio: </strong><%= rate.precio%>0</h6>
+												<% } else if (rate.precio == 0) { %>
+												<h6><strong>Precio: </strong>Resort Credits</h6>
+												<% } else { %>
+												<h6><strong>Precio: </strong><%= rate.precio%>.00</h6>
+
+												<% } %> <% if (rate.cod_opera == 0) { %>
+												<h6><strong>Código Opera: </strong>NO POST</h6>
+												<% } else if (rate.cod_opera == 1){ %>
+												<h6><strong>Código Opera: </strong>MULTIPLE</h6>
+												<% } else { %>
+												<h6><strong>Código Opera: </strong><%= rate.cod_opera%></h6>
+												<% } %>
+
+												<h6><strong>Descripción: </strong><%= rate.descripcion %></h6>
+											</div>
+											<div class="modal-footer">
+												<button type="button" class="btn btn-success btnShadow" data-bs-dismiss="modal">CERRAR</button>
+											</div>
+										</div>
+									</div>
+								</div>
 								<% }) %>
 							</tbody>
 						</table>

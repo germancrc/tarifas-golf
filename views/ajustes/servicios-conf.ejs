@@ -134,9 +134,7 @@
 							<tbody>
 								<% results.forEach((service) => { %>
 								<tr>
-									<td
-										class="hide-text info"
-										onclick="alert('- <%= service.nombre %> -\n\n Precio: <%= service.precio%> USD | Opera: <%= service.cod_opera %>\n\n <%= service.descripcion %>')">
+									<td class="hide-text info" data-bs-toggle="modal" data-bs-target="#staticBackdrop<%= service.id %>">
 										<span class="editCenter"
 											><%= service.nombre %>
 											<div class="verInfo">
@@ -169,6 +167,34 @@
 										></a>
 									</td>
 								</tr>
+								<!-- Modal -->
+								<div class="modal fade" id="staticBackdrop<%= service.id %>" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+									<div class="modal-dialog modal-dialog-centered">
+										<div class="modal-content">
+											<div class="modal-header">
+												<h1 class="modal-title fs-5" id="staticBackdropLabel"><%= service.nombre %></h1>
+												<!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+											</div>
+											<div class="modal-body">
+												<% if (service.precio == 0 && service.nombre == "Torneos") { %>
+												<h6><strong>Precio: </strong>COTIZAR</h6>
+												<% } else { %>
+												<h6><strong>Precio: </strong><%= service.precio%>.00</h6>
+												<% } %>
+
+												<h6>
+													<strong>Código Opera: </strong><% if (service.cod_opera == 0) { %><%= service.cod_opera = `NO POST`%><% } else if
+													(service.cod_opera == 1){ %><%= service.cod_opera = `MULTIPLE`%><% } else { %><%= service.cod_opera%><% } %>
+												</h6>
+
+												<h6><strong>Descripción: </strong><%= service.descripcion %></h6>
+											</div>
+											<div class="modal-footer">
+												<button type="button" class="btn btn-success btnShadow" data-bs-dismiss="modal">CERRAR</button>
+											</div>
+										</div>
+									</div>
+								</div>
 								<% }) %>
 							</tbody>
 						</table>

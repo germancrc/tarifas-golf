@@ -135,9 +135,7 @@
 							<tbody>
 								<% results.forEach((ttoo) => { %>
 								<tr>
-									<td
-										class="info hide-text"
-										onclick="alert('- <%= ttoo.nombre %> -\n\n GF: <%= ttoo.green_fee%> USD | TW: <%= ttoo.twilight%> USD\n\n Opera: <%= ttoo.cod_opera%>\n\n Operación: <%= ttoo.operacion%> ')">
+									<td class="info hide-text" data-bs-toggle="modal" data-bs-target="#staticBackdrop<%= ttoo.id %>">
 										<span class="editCenter"
 											><%= ttoo.nombre %>
 											<div class="verInfo">
@@ -161,6 +159,26 @@
 										></a>
 									</td>
 								</tr>
+								<!-- Modal -->
+								<div class="modal fade" id="staticBackdrop<%= ttoo.id %>" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+									<div class="modal-dialog modal-dialog-centered">
+										<div class="modal-content">
+											<div class="modal-header">
+												<h1 class="modal-title fs-5" id="staticBackdropLabel">TTOO: <%= ttoo.nombre %></h1>
+												<!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+											</div>
+											<div class="modal-body">
+												<h6><strong>Green Fee: </strong><%= ttoo.green_fee%>.00</h6>
+												<h6><strong>Twilight: </strong><%= ttoo.twilight%>.00</h6>
+												<h6><strong>Código Opera: </strong><%= ttoo.cod_opera%></h6>
+												<h6><strong>Descripción: </strong><%= ttoo.operacion %></h6>
+											</div>
+											<div class="modal-footer">
+												<button type="button" class="btn btn-success btnShadow" data-bs-dismiss="modal">CERRAR</button>
+											</div>
+										</div>
+									</div>
+								</div>
 								<% }) %>
 							</tbody>
 						</table>

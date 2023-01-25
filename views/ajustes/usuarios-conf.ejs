@@ -131,7 +131,7 @@
 								<tbody>
 									<% results.forEach((user) => { %>
 									<tr>
-										<td class="info" onclick="alert('- <%= user.username %> -\n\n Nombre: <%= user.nombre%> \n\n Rol: <%= user.rol%>')">
+										<td class="info" data-bs-toggle="modal" data-bs-target="#staticBackdrop<%= user.id %>">
 											<%= user.username %>
 											<div class="verInfo">
 												-
@@ -168,6 +168,24 @@
 											<% } %>
 										</td>
 									</tr>
+									<!-- Modal -->
+									<div class="modal fade" id="staticBackdrop<%= user.id %>" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+										<div class="modal-dialog modal-dialog-centered">
+											<div class="modal-content">
+												<div class="modal-header">
+													<h1 class="modal-title fs-5" id="staticBackdropLabel">Usuario: <%= user.username %></h1>
+													<!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+												</div>
+												<div class="modal-body">
+													<h6><strong>Nombre: </strong><%= user.nombre%></h6>
+													<h6><strong>Rol: </strong><%= user.rol%></h6>
+												</div>
+												<div class="modal-footer">
+													<button type="button" class="btn btn-success btnShadow" data-bs-dismiss="modal">CERRAR</button>
+												</div>
+											</div>
+										</div>
+									</div>
 									<% }) %>
 								</tbody>
 							</table>

@@ -151,14 +151,10 @@
 							<tbody>
 								<% results.forEach((code) => { %>
 								<tr>
-									<td
-										class="info"
-										onclick="alert('-Código: <%= code.codigo %> -\n\n Nombre: <%= code.nombre%> \n\n Uso: <%= code.uso %>\n\n Descripción: <%= code.descripcion %>')">
+									<td>
 										<span><%= code.codigo %> </span>
 									</td>
-									<td
-										class="hide-text info"
-										onclick="alert('-Código: <%= code.codigo %> -\n\n Nombre: <%= code.nombre%> \n\n Uso: <%= code.uso %>\n\n Descripción: <%= code.descripcion %>')">
+									<td class="hide-text info" data-bs-toggle="modal" data-bs-target="#staticBackdrop<%=code.id %>">
 										<span
 											><%= code.nombre %>
 											<div class="verInfo">
@@ -183,6 +179,25 @@
 										></a>
 									</td>
 								</tr>
+								<!-- Modal -->
+								<div class="modal fade" id="staticBackdrop<%= code.id %>" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+									<div class="modal-dialog modal-dialog-centered">
+										<div class="modal-content">
+											<div class="modal-header">
+												<h1 class="modal-title fs-5" id="staticBackdropLabel">Código Opera: <%= code.codigo %></h1>
+												<!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+											</div>
+											<div class="modal-body">
+												<h6><strong>Nombre: </strong><%= code.nombre%></h6>
+												<h6><strong>Uso: </strong><%= code.uso%></h6>
+												<h6><strong>Descripción: </strong><%= code.descripcion %></h6>
+											</div>
+											<div class="modal-footer">
+												<button type="button" class="btn btn-success btnShadow" data-bs-dismiss="modal">CERRAR</button>
+											</div>
+										</div>
+									</div>
+								</div>
 								<% }) %>
 							</tbody>
 						</table>

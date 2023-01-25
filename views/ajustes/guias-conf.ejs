@@ -219,9 +219,7 @@
 											<% results.forEach(guia => { %> <% if (resultsFilteredGuides && guia.aplicacion === filtrada) { %>
 											<tbody>
 												<tr>
-													<td
-														class="hide-text info"
-														onclick="alert('- <%= guia.aplicacion %> -\n\n Tamaño: <% if (guia.fileSize >= 1000000) { %> <%= (guia.fileSize/1000000).toFixed(2); %> MB <% } else if (guia.fileSize >= 1000) { %> <%= (guia.fileSize/1000).toFixed(2); %> KB  <% } else { %> <%= guia.fileSize %> bytes <% } %>\n\n Actualizado: <%= guia.actualizado %>\n\n Descripción: <%= guia.descripcion %>')">
+													<td class="hide-text info" data-bs-toggle="modal" data-bs-target="#staticBackdrop<%= guia.id %>">
 														<span class="editCenter px-2"><%= guia.actualizado %></span>
 													</td>
 													<% if (guia.fileSize >= 1000000) { %>
@@ -245,6 +243,37 @@
 														></a>
 													</td>
 												</tr>
+												<!-- Modal -->
+												<div
+													class="modal fade"
+													id="staticBackdrop<%= guia.id %>"
+													tabindex="-1"
+													aria-labelledby="staticBackdropLabel"
+													aria-hidden="true">
+													<div class="modal-dialog modal-dialog-centered">
+														<div class="modal-content">
+															<div class="modal-header">
+																<h1 class="modal-title fs-5" id="staticBackdropLabel"><%= guia.aplicacion %></h1>
+																<!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+															</div>
+															<div class="modal-body">
+																<% if (guia.fileSize >= 1000000) { %>
+																<h6><strong>Peso: </strong><%= (guia.fileSize/1000000).toFixed(2); %> MB</h6>
+																<% } else if (guia.fileSize >= 1000) { %>
+																<h6><strong>Peso: </strong><%= (guia.fileSize/1000).toFixed(2); %> KB</h6>
+																<% } else { %>
+																<h6><strong>Peso: </strong><%= guia.fileSize %> bytes</h6>
+																<% } %>
+
+																<h6><strong>Actualizado: </strong><%= guia.actualizado %></h6>
+																<h6><strong>Descripción: </strong><%= guia.descripcion %></h6>
+															</div>
+															<div class="modal-footer">
+																<button type="button" class="btn btn-success btnShadow" data-bs-dismiss="modal">CERRAR</button>
+															</div>
+														</div>
+													</div>
+												</div>
 											</tbody>
 											<% } %> <% }) %>
 										</table>

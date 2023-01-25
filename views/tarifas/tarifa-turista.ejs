@@ -110,9 +110,7 @@
 						</thead>
 						<tbody>
 							<% results.forEach((turista) => { %>
-							<tr
-								class="info"
-								onclick="alert('- <%= turista.nombre %> -\n\n Opera: <% if (turista.cod_opera == 0) { %><%= turista.cod_opera = `NO POST`%><% } else if (turista.cod_opera == 1){ %><%= turista.cod_opera = `MULTIPLE`%><% } else { %><%= turista.cod_opera%><% } %>\n\n <%= turista.tips %>')">
+							<tr class="info" data-bs-toggle="modal" data-bs-target="#staticBackdrop<%= turista.id %>">
 								<td class="hide-text">
 									<span><%= turista.nombre %></span>
 								</td>
@@ -134,6 +132,34 @@
 									<span><%= turista.tips %></span>
 								</td>
 							</tr>
+							<!-- Modal -->
+							<div class="modal fade" id="staticBackdrop<%= turista.id %>" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+								<div class="modal-dialog modal-dialog-centered">
+									<div class="modal-content">
+										<div class="modal-header">
+											<h1 class="modal-title fs-5" id="staticBackdropLabel"><%= turista.nombre %></h1>
+											<!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+										</div>
+										<div class="modal-body">
+											<% if (turista.precio == 0 && turista.nombre == "Torneos") { %>
+											<h6><strong>Precio: </strong>COTIZAR</h6>
+											<% } else { %>
+											<h6><strong>Precio: </strong><%= turista.precio%>.00</h6>
+											<% } %>
+
+											<h6>
+												<strong>Código Opera: </strong><% if (turista.cod_opera == 0) { %><%= turista.cod_opera = `NO POST`%><% } else if
+												(turista.cod_opera == 1){ %><%= turista.cod_opera = `MULTIPLE`%><% } else { %><%= turista.cod_opera%><% } %>
+											</h6>
+
+											<h6><strong>Descripción: </strong><%= turista.tips %></h6>
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-success btnShadow" data-bs-dismiss="modal">CERRAR</button>
+										</div>
+									</div>
+								</div>
+							</div>
 							<% }) %>
 						</tbody>
 					</table>

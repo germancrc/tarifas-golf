@@ -110,9 +110,7 @@
 						</thead>
 						<tbody>
 							<% results.forEach((hotel) => { %>
-							<tr
-								class="info"
-								onclick="alert('- <%= hotel.nombre %> -\n\n Opera: <% if (hotel.cod_opera == 0) { %><%= hotel.cod_opera = `NO POST`%><% } else if (hotel.cod_opera == 1){ %><%= hotel.cod_opera = `MULTIPLE`%><% } else { %><%= hotel.cod_opera%><% } %>\n\n <%= hotel.tips %>')">
+							<tr class="info" data-bs-toggle="modal" data-bs-target="#staticBackdrop<%= hotel.id %>">
 								<td class="hide-text">
 									<span><%= hotel.nombre %></span>
 								</td>
@@ -132,6 +130,34 @@
 									<span><%= hotel.tips %></span>
 								</td>
 							</tr>
+							<!-- Modal -->
+							<div class="modal fade" id="staticBackdrop<%= hotel.id %>" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+								<div class="modal-dialog modal-dialog-centered">
+									<div class="modal-content">
+										<div class="modal-header">
+											<h1 class="modal-title fs-5" id="staticBackdropLabel"><%= hotel.nombre %></h1>
+											<!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+										</div>
+										<div class="modal-body">
+											<% if (hotel.precio == 0 && hotel.nombre == "Torneos") { %>
+											<h6><strong>Precio: </strong>COTIZAR</h6>
+											<% } else { %>
+											<h6><strong>Precio: </strong><%= hotel.precio%>.00</h6>
+											<% } %>
+
+											<h6>
+												<strong>Código Opera: </strong><% if (hotel.cod_opera == 0) { %><%= hotel.cod_opera = `NO POST`%><% } else if (hotel.cod_opera
+												== 1){ %><%= hotel.cod_opera = `MULTIPLE`%><% } else { %><%= hotel.cod_opera%><% } %>
+											</h6>
+
+											<h6><strong>Descripción: </strong><%= hotel.tips %></h6>
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-success btnShadow" data-bs-dismiss="modal">CERRAR</button>
+										</div>
+									</div>
+								</div>
+							</div>
 							<% }) %>
 						</tbody>
 					</table>

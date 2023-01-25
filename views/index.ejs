@@ -59,7 +59,6 @@
 				<div
 					class="offcanvas offcanvas-start new_sidenav"
 					data-bs-scroll="true"
-					data-bs-backdrop="false"
 					tabindex="-1"
 					id="offcanvasWithBothOptions"
 					aria-labelledby="offcanvasWithBothOptionsLabel">
@@ -188,13 +187,7 @@
 								</td>
 							</tr>
 							<!-- Modal -->
-							<div
-								class="modal fade"
-								id="staticBackdrop<%= service.id %>"
-								tabindex="-1"
-								aria-labelledby="staticBackdropLabel"
-								aria-hidden="true"
-								data-bs-backdrop="false">
+							<div class="modal fade" id="staticBackdrop<%= service.id %>" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 								<div class="modal-dialog modal-dialog-centered">
 									<div class="modal-content">
 										<div class="modal-header">

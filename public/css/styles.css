@@ -306,10 +306,10 @@ p {
 }
 
 .info:hover {
-	transition: all 0.15s ease;
-	background-color: #ffffff;
+	/* transition: all 0.15s ease; */
+	/* background-color: #ffffff; */
 	font-weight: bold;
-	border-color: black;
+	/* border-color: black; */
 }
 
 .info:hover .verInfo {

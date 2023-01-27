@@ -279,7 +279,6 @@ p {
 
 .info:hover {
 	/* transition: all 0.2s ease; */
-	background-color: #f0f0f0;
 	font-weight: bold;
 	border-color: black;
 }

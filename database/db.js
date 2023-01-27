@@ -12,7 +12,7 @@ connection.connect((error) => {
 		console.log('Error de conexion: ' + error)
 		return
 	}
-	console.log('Conectado a DB Planetscale')
+	console.log('Conectado a DB Planetscale GOLF')
 })
 
 module.exports = connection

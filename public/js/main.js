@@ -15,6 +15,13 @@
 // 	document.getElementById('mySidenav').style.width = '0px'
 // }
 
+//SET ACTIVE LINKS
+document.querySelectorAll('.nav-link').forEach((link) => {
+	if (window.location.href.toString().includes(link.href)) {
+		link.setAttribute('aria-current', 'page')
+	}
+})
+
 // AÑO FOOTER
 const footer_year = new Date()
 let year = footer_year.getFullYear()
@@ -162,13 +169,15 @@ function mayus(e) {
 }
 
 // titulos
-if (document.getElementById('navbarLG')) {
-	let navbarLG = document.getElementById('navbarLG').innerHTML
-	// console.log(navbarLG)
-	if (document.getElementById('navbarSM')) {
-		document.getElementById('navbarSM').innerHTML = navbarLG
+if (document.getElementById('navbar_titulo_pagina')) {
+	let main_title = document.getElementById('navbar_titulo_pagina').innerHTML
+	document.getElementById('navbarLG_titulo').innerHTML = main_title
+	document.getElementById('navbarSM_titulo').innerHTML = main_title
+	if (document.getElementById('navbar_titulo_pagina').innerHTML != 'Guía Hard Rock Golf club') {
+		document.getElementById('page_title').innerHTML = main_title + ' - Guía Hard Rock Golf club'
+	} else {
+		document.getElementById('page_title').innerHTML = main_title
 	}
-	document.getElementById('nuevoTitulo').innerHTML = navbarLG + ' - Guía Hard Rock Golf Club Punta C'
 }
 
 //************************UPLOAD BUTTON DISABLED */
@@ -214,22 +223,26 @@ function confirm_delete() {
 	}
 }
 
-// FOCUS NEW IMPUT FORM
-if (document.getElementById('nombre')) {
-	const input = document.getElementById('nombre')
+// FOCUS
+let isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
+if (!isMobile) {
+	// FOCUS NEW IMPUT FORM
+	if (document.getElementById('nombre')) {
+		const input = document.getElementById('nombre')
 
-	// fires when a page is loaded fully
-	window.addEventListener('load', (e) => {
-		input.focus()
-	})
-}
+		// fires when a page is loaded fully
+		window.addEventListener('load', (e) => {
+			input.focus()
+		})
+	}
 
-// FOCUS search
-if (document.getElementById('myInput')) {
-	const busqueda = document.getElementById('myInput')
+	//SEARCH BAR
+	if (document.getElementById('myInput')) {
+		const busqueda = document.getElementById('myInput')
 
-	// fires when a page is loaded fully
-	window.addEventListener('load', (e) => {
-		busqueda.focus()
-	})
+		// fires when a page is loaded fully
+		window.addEventListener('load', (e) => {
+			busqueda.focus()
+		})
+	}
 }

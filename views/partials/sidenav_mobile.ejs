@@ -1,7 +1,7 @@
 <nav class="navbar navSmall fixed-top">
 	<div class="container-fluid">
-		<a class="navbar-brand" href="/index"><i class="bi bi-house-up" id="titulo"></i></a>
-		<span class="text-uppercase text-light" id="navbarSM"></span>
+		<a class="navbar-brand" href="/index"><i class="bi bi-house-up"></i></a>
+		<span class="text-uppercase text-light" id="navbarSM_titulo"></span>
 		<!-- OFFCANVAS -->
 		<button
 			class="navbar-toggler navbar-dark"
@@ -48,7 +48,7 @@
 					<a class="nav-link" href="/opera"><i class="bi bi-upc-scan"></i>&nbsp; CÓDIGOS OPERA</a>
 					<a class="nav-link" href="/minigolf"><i class="bi bi-houses"></i>&nbsp; MINI GOLF</a>
 					<% if(user.rol === "Admin"){ %>
-					<a class="d-block" href="/ajustes"><i class="bi bi-gear"></i>&nbsp; AJUSTES </a>
+					<a class="d-block nav-link" href="/ajustes"><i class="bi bi-gear"></i>&nbsp; AJUSTES </a>
 					<% } else { %>
 					<a class="d-none" href="/ajustes">AJUSTES </a>
 					<% } %>
@@ -56,7 +56,7 @@
 			</div>
 			<div class="offcanvas-footer text-light text-center">
 				<hr />
-				<h5 class="text-uppercase">Guía Hard Rock Golf</h5>
+				<h5 class="text-uppercase">Guía Hard Rock Golf PC</h5>
 			</div>
 		</div>
 		<!-- OFFCANVAS -->

@@ -8,13 +8,18 @@ exports.createCode = async (req, res) => {
 		const uso = req.body.uso
 		const descripcion = req.body.descripcion
 
-		db.query('INSERT INTO opera_codes SET ?', { codigo: codigo, nombre: nombre, uso: uso, descripcion: descripcion }, (error, results) => {
-			if (error) {
-				console.log(error)
+		db.query('SELECT codigo FROM opera_codes where codigo = ?', [codigo], (error, results) => {
+			if (results.length > 0) {
+				req.flash('message', 'El código ' + codigo + ' ya existe')
+				res.redirect('/ajustes/new-opera-codes')
+			} else {
+				db.query('INSERT INTO opera_codes SET ?', { codigo: codigo, nombre: nombre, uso: uso, descripcion: descripcion }, (error, results) => {
+					if (results) {
+						req.flash('message', 'El código ' + codigo + ' - ' + nombre + ' fué agregado con éxito')
+						res.redirect('/ajustes/opera-codes')
+					}
+				})
 			}
-			req.flash('message', 'El código ' + codigo + ' - ' + nombre + ' fué agregado con éxito')
-			res.redirect('/ajustes/opera-codes')
-			console.log(results)
 		})
 	} catch (error) {
 		console.log(error)
@@ -24,7 +29,7 @@ exports.createCode = async (req, res) => {
 //RENDER NEW OPERA CODE PAGE
 exports.getOperaCodes = (req, res) => {
 	try {
-		res.render('ajustes/new-opera-codes', { user: req.user, alert: false, error: false })
+		res.render('ajustes/new-opera-codes', { user: req.user, alert: false, error: false, message: req.flash('message') })
 	} catch (error) {
 		console.log(error)
 	}

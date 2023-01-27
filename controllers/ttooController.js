@@ -9,17 +9,24 @@ exports.createTtoo = async (req, res) => {
 		const cod_opera = req.body.cod_opera
 		const operacion = req.body.operacion
 
-		db.query(
-			'INSERT INTO ttooRates SET ?',
-			{ nombre: nombre, green_fee: green_fee, twilight: twilight, cod_opera: cod_opera, operacion: operacion },
-			(error, results) => {
-				if (error) {
-					console.log(error)
-				}
-				req.flash('message', 'El TTOO ' + nombre + ' fué agrgado con éxito')
-				res.redirect('/ajustes/ttoo-conf')
+		db.query('SELECT nombre FROM ttooRates where nombre = ?', [nombre], (error, results) => {
+			if (results.length > 0) {
+				req.flash('message', 'El TTOO ' + nombre + ' ya existe')
+				res.redirect('/ajustes/new-ttoo')
+			} else {
+				db.query(
+					'INSERT INTO ttooRates SET ?',
+					{ nombre: nombre, green_fee: green_fee, twilight: twilight, cod_opera: cod_opera, operacion: operacion },
+					(error, results) => {
+						if (error) {
+							console.log(error)
+						}
+						req.flash('message', 'El TTOO ' + nombre + ' fué agrgado con éxito')
+						res.redirect('/ajustes/ttoo-conf')
+					}
+				)
 			}
-		)
+		})
 	} catch (error) {
 		console.log(error)
 	}
@@ -30,7 +37,7 @@ exports.getOperaCodes = (req, res) => {
 	try {
 		db.query('SELECT * FROM opera_codes WHERE nombre LIKE "%agencia%"', (error, results) => {
 			if (results) {
-				res.render('ajustes/new-ttoo', { user: req.user, alert: false, results: results, error: false })
+				res.render('ajustes/new-ttoo', { user: req.user, alert: false, results: results, error: false, message: req.flash('message') })
 			} else {
 				throw error
 			}

@@ -13,7 +13,6 @@ exports.createUser = async (req, res) => {
 
 		db.query('SELECT username FROM usuarios where username = ?', [username], (error, results) => {
 			if (results.length > 0) {
-				console.log(results)
 				req.flash('message', 'El usuario ' + username + ' ya existe')
 				res.redirect('/ajustes/new-usuario')
 			} else {

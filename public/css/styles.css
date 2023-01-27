@@ -275,6 +275,8 @@ p {
 	display: inline-block;
 }
 
+@media(hover:hover){
+
 .info:hover {
 	/* transition: all 0.2s ease; */
 	background-color: #f0f0f0;
@@ -285,6 +287,7 @@ p {
 .info:hover .verInfo {
 	visibility: visible;
 	color: green;
+}
 }
 
 table {

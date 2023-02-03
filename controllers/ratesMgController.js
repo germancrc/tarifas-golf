@@ -26,7 +26,7 @@ exports.getOperaCodes = (req, res) => {
 	try {
 		db.query('SELECT * FROM opera_codes where uso = "mini golf" order by codigo asc', (error, results) => {
 			if (results) {
-				res.render('ajustes/new-tarifas-mg', { user: req.user, alert: false, results: results, error: false })
+				res.render('ajustes/new-tarifas-mg', { logged: req.user, alert: false, results: results, error: false })
 			} else {
 				throw error
 			}
@@ -41,7 +41,7 @@ exports.getRatesMg = (req, res) => {
 	try {
 		db.query('SELECT * FROM tarifasmg', (error, results) => {
 			if (results) {
-				res.render('ajustes/tarifas-mg', { user: req.user, alert: false, results: results, error: false, message: req.flash('message') })
+				res.render('ajustes/tarifas-mg', { logged: req.user, alert: false, results: results, error: false, message: req.flash('message') })
 			} else {
 				throw error
 			}
@@ -64,7 +64,7 @@ exports.getRateMg = (req, res) => {
 				if (error) throw error
 				resultsCodes.push(resultsCodes)
 				res.render('ajustes/edit-tarifa-mg', {
-					user: req.user,
+					logged: req.user,
 					resultsRatesMg: resultsRatesMg[0],
 					resultsCodes: resultsCodes,
 					alert: false,

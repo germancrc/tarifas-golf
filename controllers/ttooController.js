@@ -37,7 +37,7 @@ exports.getOperaCodes = (req, res) => {
 	try {
 		db.query('SELECT * FROM opera_codes WHERE nombre LIKE "%agencia%"', (error, results) => {
 			if (results) {
-				res.render('ajustes/new-ttoo', { user: req.user, alert: false, results: results, error: false, message: req.flash('message') })
+				res.render('ajustes/new-ttoo', { logged: req.user, alert: false, results: results, error: false, message: req.flash('message') })
 			} else {
 				throw error
 			}
@@ -52,7 +52,7 @@ exports.getTtoos = (req, res) => {
 	try {
 		db.query('SELECT * FROM ttooRates order by nombre asc', (error, results) => {
 			if (results) {
-				res.render('ajustes/ttoo-conf', { user: req.user, alert: false, results: results, error: false, message: req.flash('message') })
+				res.render('ajustes/ttoo-conf', { logged: req.user, alert: false, results: results, error: false, message: req.flash('message') })
 			} else {
 				throw error
 			}
@@ -68,7 +68,7 @@ exports.getTtoo = (req, res) => {
 		const id = req.params.id
 		db.query('SELECT * FROM ttooRates WHERE id=?', [id], (error, results) => {
 			if (results) {
-				res.render('ajustes/edit-ttoo', { user: req.user, ttoo: results[0], alert: false })
+				res.render('ajustes/edit-ttoo', { logged: req.user, ttoo: results[0], alert: false })
 			} else {
 				throw error
 			}

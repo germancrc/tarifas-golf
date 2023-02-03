@@ -5,18 +5,21 @@
 	<body>
 		<span class="d-none text-uppercase" id="navbar_titulo_pagina">AJUSTES - TTOO</span>
 		<!-- SIDEBAR DESKTOP -->
-		<%- include ('../partials/sidebar_desktop.ejs') %>
+		<%- include ('../partials/sidebar_desktop_logged.ejs') %>
 
 		<!-- NAVBAR DESKTOP -->
-		<%- include ('../partials/navbar_desktop.ejs') %>
+		<%- include ('../partials/navbar_desktop_logged.ejs') %>
 
 		<!-- NAVBAR MOBILE -->
-		<%- include ('../partials/sidenav_mobile.ejs') %>
+		<%- include ('../partials/sidenav_mobile_logged.ejs') %>
 
 		<div class="content">
 			<div id="Servicios" class="afterNav">
 				<div class="text-center mb-3">
 					<h4 class="text-uppercase" id="titulo">Editar TTOO</h4>
+				</div>
+				<div class="text-center mb-3">
+					<span>*Si el TTOO no tiene tarifa de Twilight definida, <strong>dejar twilight en cero (0)*</strong> </span>
 				</div>
 				<div class="cardEdit-container">
 					<div class="card editShadow">
@@ -33,6 +36,7 @@
 										<div class="form-floating mb-3">
 											<input
 												type="number"
+												step="0.01"
 												class="form-control"
 												name="green_fee"
 												value="<%= ttoo.green_fee %>"
@@ -43,7 +47,14 @@
 									</div>
 									<div class="col">
 										<div class="form-floating mb-3">
-											<input type="number" class="form-control" name="twilight" value="<%= ttoo.twilight %>" placeholder="Precio Twilight" required />
+											<input
+												type="number"
+												step="0.01"
+												class="form-control"
+												name="twilight"
+												value="<%= ttoo.twilight %>"
+												placeholder="Precio Twilight"
+												required />
 											<label for="rate-price" class="form-label">Twilight:</label>
 										</div>
 									</div>

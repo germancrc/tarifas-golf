@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+	<%- include ('./partials/head-edits.ejs') %>
+
+	<body>
+		<span class="d-none text-uppercase" id="navbar_titulo_pagina">RUTINAS DIARIAS</span>
+		<!-- SIDEBAR DESKTOP -->
+		<%- include ('./partials/sidebar_desktop_logged.ejs') %>
+
+		<!-- NAVBAR DESKTOP -->
+		<%- include ('./partials/navbar_desktop_logged.ejs') %>
+
+		<!-- NAVBAR MOBILE -->
+		<%- include ('./partials/sidenav_mobile_logged.ejs') %>
+
+		<div class="content">
+			<div id="Guias" class="afterNav">
+				<div class="card editShadow mb-3">
+					<div class="card-body">
+						<h5 class="text-uppercase text-center mb-3">tareas de apertura</h5>
+						<hr />
+						<% results.forEach((tarea) => { %> <% if (tarea.turno_tarea == 'apertura') { %>
+						<div class="form-check mb-3">
+							<input
+								class="form-check-input tarea_completada"
+								type="checkbox"
+								value="<%= tarea.id %>"
+								id="flexCheck<%= tarea.id %>"
+								onclick="tarea_checked(id)" />
+							<label class="form-check-label" for="flexCheck<%= tarea.id %>"><%= tarea.tarea %></label>
+						</div>
+						<% } %> <% }) %>
+					</div>
+				</div>
+
+				<div class="card editShadow">
+					<div class="card-body">
+						<h5 class="text-uppercase text-center mb-3">tareas de cierre</h5>
+						<hr />
+						<% results.forEach((tarea) => { %> <% if (tarea.turno_tarea == 'cierre') { %>
+						<div class="form-check mb-3">
+							<input
+								class="form-check-input tarea_completada"
+								type="checkbox"
+								value="<%= tarea.id %>"
+								id="flexCheck<%= tarea.id %>"
+								onclick="tarea_checked(id)" />
+							<label class="form-check-label" for="flexCheck<%= tarea.id %>"><%= tarea.tarea %> </label>
+						</div>
+						<% } %> <% }) %>
+					</div>
+				</div>
+			</div>
+			<%- include ('./partials/footer.ejs') %>
+		</div>
+	</body>
+</html>

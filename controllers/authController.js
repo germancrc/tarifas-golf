@@ -65,9 +65,9 @@ exports.logout = (req, res) => {
 exports.checkAdmin = (req, res) => {
 	db.query('SELECT * FROM usuarios', (error, results) => {
 		if (req.user.rol === 'Admin') {
-			res.render('ajustes', { user: req.user, results: results, alert: false })
+			res.render('ajustes', { logged: req.user, results: results, alert: false })
 		} else {
-			res.render('index', { user: req.user, results: results, alert: false })
+			res.render('index', { logged: req.user, results: results, alert: false })
 		}
 	})
 }

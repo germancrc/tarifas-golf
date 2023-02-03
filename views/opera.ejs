@@ -5,13 +5,13 @@
 	<body>
 		<span class="d-none" id="navbar_titulo_pagina">CÓDIGOS OPERA</span>
 		<!-- SIDEBAR DESKTOP -->
-		<%- include ('./partials/sidebar_desktop.ejs') %>
+		<%- include ('./partials/sidebar_desktop_logged.ejs') %>
 
 		<!-- NAVBAR DESKTOP -->
-		<%- include ('./partials/navbar_desktop.ejs') %>
+		<%- include ('./partials/navbar_desktop_logged.ejs') %>
 
 		<!-- NAVBAR MOBILE -->
-		<%- include ('./partials/sidenav_mobile.ejs') %>
+		<%- include ('./partials/sidenav_mobile_logged.ejs') %>
 
 		<div class="content">
 			<div class="mb-3 afterNav">
@@ -98,6 +98,11 @@
 							<% }) %>
 						</tbody>
 					</table>
+					<div class="text-center" id="noResults">
+						<!-- <img class="noResults" src="/img/noResults.PNG" alt="" /> -->
+						<i class="bi bi-check-square"></i>
+						<h5 class="text-uppercase mt-3">elija una de las opciones de arriba para mostrar los códigos</h5>
+					</div>
 				</div>
 			</div>
 			<%- include ('./partials/footer.ejs') %>

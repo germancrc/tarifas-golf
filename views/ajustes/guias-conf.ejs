@@ -5,22 +5,24 @@
 	<body>
 		<span class="d-none text-uppercase" id="navbar_titulo_pagina">AJUSTES - GUIAS</span>
 		<!-- SIDEBAR DESKTOP -->
-		<%- include ('../partials/sidebar_desktop.ejs') %>
+		<%- include ('../partials/sidebar_desktop_logged.ejs') %>
 
 		<!-- NAVBAR DESKTOP -->
-		<%- include ('../partials/navbar_desktop.ejs') %>
+		<%- include ('../partials/navbar_desktop_logged.ejs') %>
 
 		<!-- NAVBAR MOBILE -->
-		<%- include ('../partials/sidenav_mobile.ejs') %>
+		<%- include ('../partials/sidenav_mobile_logged.ejs') %>
 
 		<div class="content">
 			<div id="Guias" class="afterNav">
 				<div class="card editShadow mb-3">
 					<div class="card-body">
 						<div class="d-flex justify-content-between">
-							<div class="text-center mb-3">
-								<h5 class="text-uppercase mt-2" id="titulo">Subir Guías</h5>
+							<div class="text-center">
+								<button type="button" class="btn btn-success btnShadow" data-bs-toggle="modal" data-bs-target="#exampleModal">Subir Guía</button>
+								<!-- <h5 class="text-uppercase mt-2" id="titulo">Subir Guías</h5> -->
 							</div>
+
 							<div id="btnGuiaBase">
 								<a
 									href="https://drive.google.com/drive/folders/1CMxxgG371jXmxJcPug3FEXpx2LLaLmtP?usp=sharing"
@@ -30,61 +32,80 @@
 								</a>
 							</div>
 						</div>
+					</div>
+				</div>
 
-						<form id="guides-form" name="form1" action="/uploadGuide" enctype="multipart/form-data" method="POST">
-							<div class="row row-cols-1 row-cols-sm-1 row-cols-md-2">
-								<div class="col">
-									<div class="form-floating mb-3">
+				<!-- MODAL AGREGAR NUEVA GUIA -->
+				<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+					<div class="modal-dialog modal-dialog-centered">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h1 class="modal-title fs-5" id="exampleModalLabel">Subir Guía</h1>
+								<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+							</div>
+							<div class="modal-body">
+								<form id="guides-form" name="form1" action="/uploadGuide" enctype="multipart/form-data" method="POST">
+									<div class="col">
+										<div class="form-floating mb-3">
+											<input
+												type="text"
+												class="form-control"
+												name="aplicacion"
+												id="nombreGuia"
+												placeholder="Nombre de la aplicación"
+												required
+												onkeyup="mayus(this), inform()" />
+											<label for="nombreGuia" class="form-label">Nombre de la aplicación</label>
+											<% if(logged){ %>
+											<input class="d-none" type="text" name="autor" value="<%= logged.username %>" />
+											<% } %>
+										</div>
+									</div>
+									<div class="col">
+										<div class="form-floating mb-3">
+											<input
+												type="text"
+												class="form-control"
+												name="descripcion"
+												id="descripcion"
+												placeholder="Descripción"
+												required
+												onkeyup="inform()" />
+											<label for="descripcion" class="form-label">Descripción</label>
+										</div>
+									</div>
+
+									<div class="input-group mb-3">
 										<input
-											type="text"
+											type="file"
 											class="form-control"
-											name="aplicacion"
-											id="nombreGuia"
-											placeholder="Nombre de la aplicación"
-											required
-											onkeyup="mayus(this), inform()" />
-										<label for="nombreGuia" class="form-label">Nombre de la aplicación</label>
+											id="fileGuide"
+											name="archivo"
+											accept=".pdf"
+											aria-describedby="inputGroupFileAddon04"
+											aria-label="Upload"
+											onChange="inform()"
+											required />
+									</div>
+									<div class="new-form-button">
+										<button id="upload" type="submit" class="btn btn-success btnAction btnShadow" id="botonAdd" disabled onclick="showSpinner()">
+											AGREGAR
+										</button>
+										<button type="button" class="btn btn-danger btnShadow" data-bs-dismiss="modal">CANCELAR</button>
+									</div>
+								</form>
+								<!-- SPINNER SUBIENDO -->
+								<div id="showSpin" class="px-2 mt-4">
+									<div class="d-flex align-items-center mt-1">
+										<strong>Subiendo archivo...</strong>
+										<div class="spinner-border me-auto text-success" id="spinnerUpload" role="status" aria-hidden="true"></div>
 									</div>
 								</div>
-								<div class="col">
-									<div class="form-floating mb-3">
-										<input
-											type="text"
-											class="form-control"
-											name="descripcion"
-											id="descripcion"
-											placeholder="Descripción"
-											required
-											onkeyup="inform()" />
-										<label for="descripcion" class="form-label">Descripción</label>
-									</div>
-								</div>
-							</div>
-
-							<div class="input-group mb-3">
-								<input
-									type="file"
-									class="form-control"
-									id="fileGuide"
-									name="archivo"
-									accept=".pdf"
-									aria-describedby="inputGroupFileAddon04"
-									aria-label="Upload"
-									onChange="inform()"
-									required />
-								<button class="btn btn-success" id="upload" type="submit" disabled onclick="showSpinner()">Enviar</button>
-							</div>
-						</form>
-
-						<!-- SPINNER SUBIENDO -->
-						<div id="showSpin" class="px-2 mt-4">
-							<div class="d-flex align-items-center mt-1">
-								<strong>Subiendo archivo...</strong>
-								<div class="spinner-border me-auto text-danger" id="spinnerUpload" role="status" aria-hidden="true"></div>
 							</div>
 						</div>
 					</div>
 				</div>
+				<!-- MODAL AGREGAR NUEVA GUIA -->
 
 				<div class="card editShadow">
 					<div class="card-body">
@@ -126,10 +147,11 @@
 									aria-labelledby="heading<%= filtrada %>"
 									data-bs-parent="#accordionExample<%= filtrada %>">
 									<div class="accordion-body p-2">
-										<table class="table table-hover " id="myTable">
+										<table class="table table-hover" id="myTable">
 											<thead>
 												<tr>
 													<th scope="col" class="col-6 col-xl-3">Actualizado</th>
+													<th scope="col" class="col hide-column">Subido Por</th>
 													<th scope="col" class="col-2 hide-column">Tamaño</th>
 													<th scope="col" class="col hide-column px-0">Descripción</th>
 													<th scope="col" class="col-2">Acciones</th>
@@ -141,6 +163,7 @@
 													<td class="hide-text info" data-bs-toggle="modal" data-bs-target="#staticBackdrop<%= guia.id %>">
 														<span class="editCenter px-2"><%= guia.actualizado %></span>
 													</td>
+													<td class="hide-column"><%= guia.upload_by %></td>
 													<% if (guia.fileSize >= 1000000) { %>
 													<td class="hide-column"><%= (guia.fileSize/1000000).toFixed(2); %> MB</td>
 													<% } else if (guia.fileSize >= 1000) { %>
@@ -150,8 +173,8 @@
 													<% } %>
 													<td class="hide-column hide-text"><span><%= guia.descripcion %></span></td>
 													<td class="d-flex justify-content-between">
-														<a href="/downloadGuide/<%= guia.id %>" target="_blank" class="btn btn-sm btn-success btnAction btnShadow"
-															><i class="bi bi-cloud-download"></i
+														<a href="/ajustes/edit-guide/<%= guia.id %>" class="btn btn-sm btn-warning btnAction btnShadow"
+															><i class="bi bi-pencil"></i
 														></a>
 
 														<a
@@ -176,6 +199,7 @@
 																<!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
 															</div>
 															<div class="modal-body">
+																<h6><strong>Archivo: </strong><%= guia.archivo %></h6>
 																<% if (guia.fileSize >= 1000000) { %>
 																<h6><strong>Peso: </strong><%= (guia.fileSize/1000000).toFixed(2); %> MB</h6>
 																<% } else if (guia.fileSize >= 1000) { %>
@@ -184,7 +208,7 @@
 																<h6><strong>Peso: </strong><%= guia.fileSize %> bytes</h6>
 																<% } %>
 
-																<h6><strong>Actualizado: </strong><%= guia.actualizado %></h6>
+																<h6><strong>Actualizado: </strong><%= guia.actualizado %> por: <%= guia.upload_by %></h6>
 																<h6><strong>Descripción: </strong><%= guia.descripcion %></h6>
 															</div>
 															<div class="modal-footer">

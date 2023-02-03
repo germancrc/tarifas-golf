@@ -121,38 +121,6 @@ exports.updateUser = async (req, res) => {
 		console.log(error)
 	}
 }
-// exports.updateUser = async (req, res) => {
-// 	try {
-// 		const { id } = req.params
-// 		const { nombre, username, rol } = req.body
-// 		const editedUser = { nombre, username, rol }
-// 		const old_password = req.body.old_password
-// 		const pass = req.body.password
-// 		let password = await bcrypt.hash(pass, 8)
-// 		db.query('select * from usuarios where id = ?', [id], (error, results) => {
-// 			if (error) {
-// 				throw error
-// 			} else {
-// 				bcrypt.compare(old_password, results[0].password, function (err, result) {
-// 					if (result == false) {
-// 						res.render('ajustes/edit-usuario', {
-// 							alert: true,
-// 							errorMessage: 'Contraseña actual incorrecta',
-// 							logged: req.user,
-// 							user: results[0],
-// 						})
-// 					} else {
-// 						db.query('UPDATE usuarios SET ?, password = ? WHERE id = ?', [editedUser, password, id])
-// 						req.flash('message', 'Usuario editado con éxito')
-// 						res.redirect('/ajustes/usuarios-conf')
-// 					}
-// 				})
-// 			}
-// 		})
-// 	} catch (error) {
-// 		console.log(error)
-// 	}
-// }
 
 // BORRAR USER
 exports.deleteUser = (req, res) => {
@@ -168,7 +136,7 @@ exports.deleteUser = (req, res) => {
 
 //VIEW
 exports.view_edit_current_user = async (req, res) => {
-	res.render('edit-usuario-actual', { alert: false, user: req.user })
+	res.render('edit-usuario-actual', { alert: false, logged: req.user })
 }
 
 // EDITAR CURRENT USER

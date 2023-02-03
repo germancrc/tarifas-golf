@@ -1,6 +1,8 @@
 //************************SHOW SPINNER */
-let btnGuiaBase = document.getElementById('btnGuiaBase')
-let spinner = document.getElementById('showSpin')
+if (document.getElementById('btnGuiaBase')) {
+	let btnGuiaBase = document.getElementById('btnGuiaBase')
+}
+let spinner = (document.getElementById('showSpin').style.display = 'none')
 
 function showSpinner() {
 	spinner.className = 'd-block'
@@ -11,5 +13,7 @@ function showSpinner() {
 let data = window.performance.getEntriesByType('navigation')[0].type
 if ((data = 'reload')) {
 	spinner.className = 'd-none'
-	btnGuiaBase.className = 'd-block'
+	if (document.getElementById('btnGuiaBase')) {
+		btnGuiaBase.className = 'd-block'
+	}
 }

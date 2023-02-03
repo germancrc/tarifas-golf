@@ -151,7 +151,7 @@ p {
 	justify-content: center;
 }
 
-.fixSizeHead {
+/* .fixSizeHead {
 	height: 3rem;
 	display: flex;
 	justify-content: center;
@@ -172,13 +172,21 @@ p {
 
 .bodyCardZiseMG {
 	height: 6.5rem;
-}
+} */
 
 .noResults {
 	height: 30vh;
 	border-radius: 10px 10px 25px 25px;
 	-webkit-border-radius: 10px 10px 25px 25px;
 	-moz-border-radius: 10px 10px 25px 25px;
+}
+
+.bi-check-square {
+	font-size: 3rem;
+}
+
+.tarea_completada:checked + label {
+	text-decoration: line-through;
 }
 
 .cardShadow {
@@ -275,18 +283,17 @@ p {
 	display: inline-block;
 }
 
-@media(hover:hover){
+@media (hover: hover) {
+	.info:hover {
+		/* transition: all 0.2s ease; */
+		font-weight: bold;
+		border-color: black;
+	}
 
-.info:hover {
-	/* transition: all 0.2s ease; */
-	font-weight: bold;
-	border-color: black;
-}
-
-.info:hover .verInfo {
-	visibility: visible;
-	color: green;
-}
+	.info:hover .verInfo {
+		visibility: visible;
+		color: green;
+	}
 }
 
 table {

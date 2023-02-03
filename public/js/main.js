@@ -61,13 +61,25 @@ if (document.querySelectorAll('.opera-code-check')) {
 		}
 	}
 }
+// **********************************SHOW HIDE OPERA CODES WITH CHECBOX***********************
 
+// **********************************CHECKBOX TAREAS***********************
+function tarea_checked(id) {
+	let check = document.getElementById(id)
+	let check_label = document.getElementById(id)
+	if (check.checked == true) {
+		console.log(check.value)
+		check_label.classList.toggle('.palabra_tachada')
+	}
+}
+// **********************************CHECKBOX TAREAS***********************
 function filterCheckbox() {
 	let table = document.getElementById('myTable')
 	let tr = table.getElementsByTagName('tr')
 	let checkboxCG = document.getElementById('campogolf')
 	let checkboxMG = document.getElementById('minigolf')
 	let checkboxPago = document.getElementById('pagos')
+	let imgResult = document.getElementById('noResults')
 
 	// Loop through all table rows, and hide those who don't match the search query
 	for (i = 0; i < tr.length; i++) {
@@ -76,13 +88,18 @@ function filterCheckbox() {
 			tdValue = td.textContent || td.innerText
 			if (checkboxCG.checked == true && tdValue == 'Campo Golf') {
 				tr[i].style.display = ''
+				imgResult.style.display = 'none'
 			} else if (checkboxMG.checked == true && tdValue == 'Mini Golf') {
 				tr[i].style.display = ''
+				imgResult.style.display = 'none'
 			} else if (checkboxPago.checked == true && tdValue == 'Pagos') {
 				tr[i].style.display = ''
+				imgResult.style.display = 'none'
 			} else {
 				tr[i].style.display = 'none'
 			}
+		} else {
+			imgResult.style.display = 'block'
 		}
 	}
 }
@@ -173,8 +190,8 @@ if (document.getElementById('navbar_titulo_pagina')) {
 	let main_title = document.getElementById('navbar_titulo_pagina').innerHTML
 	document.getElementById('navbarLG_titulo').innerHTML = main_title
 	document.getElementById('navbarSM_titulo').innerHTML = main_title
-	if (document.getElementById('navbar_titulo_pagina').innerHTML != 'Guía Hard Rock Golf club') {
-		document.getElementById('page_title').innerHTML = main_title + ' - Guía Hard Rock Golf club'
+	if (document.getElementById('navbar_titulo_pagina').innerHTML != 'Guía Hard Rock Golf Club') {
+		document.getElementById('page_title').innerHTML = main_title + ' - Guía Hard Rock Golf Club'
 	} else {
 		document.getElementById('page_title').innerHTML = main_title
 	}
@@ -182,14 +199,16 @@ if (document.getElementById('navbar_titulo_pagina')) {
 
 //************************UPLOAD BUTTON DISABLED */
 function inform() {
-	let nombreGuia = document.getElementById('nombreGuia').value
-	let descripcion = document.getElementById('descripcion').value
-	let file = document.getElementById('fileGuide').value
+	if (document.getElementById('nombreGuia') && document.getElementById('descripcion') && document.getElementById('fileGuide')) {
+		let nombreGuia = document.getElementById('nombreGuia').value
+		let descripcion = document.getElementById('descripcion').value
+		let file = document.getElementById('fileGuide').value
 
-	if (!file || nombreGuia.length == 0 || descripcion.length == 0) {
-		document.getElementById('upload').disabled = true
-	} else if (file && nombreGuia && descripcion) {
-		document.getElementById('upload').disabled = false
+		if (!file || nombreGuia.length == 0 || descripcion.length == 0) {
+			document.getElementById('upload').disabled = true
+		} else if (file && nombreGuia && descripcion) {
+			document.getElementById('upload').disabled = false
+		}
 	}
 }
 

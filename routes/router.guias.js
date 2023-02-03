@@ -31,9 +31,11 @@ const upload = multer({
 
 //---------------------------------------GUIAS-------------------------------------------
 router_guias.get('/guias', authController.isAuthenticated, guiasController.viewGuide)
-router_guias.post('/uploadGuide', upload.single('archivo'), guiasController.uploadGuide)
-router_guias.get('/ajustes/guias-conf', authController.isAuthenticated, guiasController.getGuides)
-router_guias.get('/ajustes/guias-conf/deleteGuide/:id', authController.isAuthenticated, guiasController.deleteGuide)
+router_guias.post('/uploadGuide', upload.single('archivo'), guiasController.uploadGuide, authController.isAuthenticated)
 router_guias.get('/downloadGuide/:id', authController.isAuthenticated, guiasController.downloadGuide)
+router_guias.get('/ajustes/guias-conf', authController.isAuthenticated, guiasController.getGuides)
+router_guias.get('/ajustes/edit-guide/:id', authController.isAuthenticated, guiasController.getGuide)
+router_guias.post('/ajustes/edit-guide/:id', upload.single('archivo'), authController.isAuthenticated, guiasController.updateGuide)
+router_guias.get('/ajustes/guias-conf/deleteGuide/:id', authController.isAuthenticated, guiasController.deleteGuide)
 
 module.exports = router_guias

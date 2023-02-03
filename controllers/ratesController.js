@@ -32,7 +32,7 @@ exports.getOperaCodes = (req, res) => {
 	try {
 		db.query('SELECT * FROM opera_codes where uso = "campo golf" order by codigo asc', (error, results) => {
 			if (results) {
-				res.render('ajustes/new-tarifas-cg', { user: req.user, alert: false, results: results, error: false })
+				res.render('ajustes/new-tarifas-cg', { logged: req.user, alert: false, results: results, error: false })
 			} else {
 				throw error
 			}
@@ -47,7 +47,7 @@ exports.getRatesCg = (req, res) => {
 	try {
 		db.query('SELECT * FROM tarifas ORDER BY nombre asc', (error, results) => {
 			if (results) {
-				res.render('ajustes/tarifas-conf', { user: req.user, alert: false, results: results, error: false, message: req.flash('message') })
+				res.render('ajustes/tarifas-conf', { logged: req.user, alert: false, results: results, error: false, message: req.flash('message') })
 			} else {
 				throw error
 			}
@@ -70,7 +70,7 @@ exports.getRateCg = (req, res) => {
 				if (error) throw error
 				resultsCodes.push(resultsCodes)
 				res.render('ajustes/edit-tarifa', {
-					user: req.user,
+					logged: req.user,
 					resultsRates: resultsRates[0],
 					resultsCodes: resultsCodes,
 					alert: false,
@@ -113,14 +113,14 @@ exports.deleteRateCg = (req, res) => {
 //********************************************* VIEWS ***********************************
 // VISTA TARIFAS
 exports.viewRatesCg = (req, res) => {
-	res.render('tarifas', { user: req.user, alert: false })
+	res.render('tarifas', { logged: req.user, alert: false })
 }
 
 exports.viewRatesTurista = (req, res) => {
 	db.query('SELECT * FROM tarifas where cliente IN ("extranjero", "varios") ORDER BY nombre asc', (error, results) => {
 		if (results) {
 			res.render('tarifas/tarifa-turista', {
-				user: req.user,
+				logged: req.user,
 				results: results,
 				alert: false,
 			})
@@ -133,7 +133,7 @@ exports.viewRatesTtoo = (req, res) => {
 	db.query('SELECT * FROM ttooRates order by nombre asc', (error, results) => {
 		if (results) {
 			res.render('tarifas/tarifa-ttoo', {
-				user: req.user,
+				logged: req.user,
 				results: results,
 				alert: false,
 			})
@@ -147,7 +147,7 @@ exports.viewRatesLocal = (req, res) => {
 	db.query('SELECT * FROM tarifas where cliente IN ("local", "varios") ORDER BY nombre asc', (error, results) => {
 		if (results) {
 			res.render('tarifas/tarifa-local', {
-				user: req.user,
+				logged: req.user,
 				results: results,
 				alert: false,
 			})
@@ -161,7 +161,7 @@ exports.viewRatesHotel = (req, res) => {
 	db.query('SELECT * FROM tarifas where cliente IN ("hotel", "varios") ORDER BY nombre asc', (error, results) => {
 		if (results) {
 			res.render('tarifas/tarifa-hotel', {
-				user: req.user,
+				logged: req.user,
 				results: results,
 				alert: false,
 			})

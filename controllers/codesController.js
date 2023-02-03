@@ -29,7 +29,7 @@ exports.createCode = async (req, res) => {
 //RENDER NEW OPERA CODE PAGE
 exports.getOperaCodes = (req, res) => {
 	try {
-		res.render('ajustes/new-opera-codes', { user: req.user, alert: false, error: false, message: req.flash('message') })
+		res.render('ajustes/new-opera-codes', { logged: req.user, alert: false, error: false, message: req.flash('message') })
 	} catch (error) {
 		console.log(error)
 	}
@@ -40,7 +40,7 @@ exports.getCodes = (req, res) => {
 	try {
 		db.query('SELECT * FROM opera_codes order by uso, codigo asc', (error, results) => {
 			if (results) {
-				res.render('ajustes/opera-codes', { user: req.user, alert: false, results: results, error: false, message: req.flash('message') })
+				res.render('ajustes/opera-codes', { logged: req.user, alert: false, results: results, error: false, message: req.flash('message') })
 			} else {
 				throw error
 			}
@@ -56,7 +56,7 @@ exports.getCode = (req, res) => {
 		const id = req.params.id
 		db.query('SELECT * FROM opera_codes WHERE id=?', [id], (error, results) => {
 			if (results) {
-				res.render('ajustes/edit-codes', { user: req.user, code: results[0], alert: false })
+				res.render('ajustes/edit-codes', { logged: req.user, code: results[0], alert: false })
 			} else {
 				throw error
 			}

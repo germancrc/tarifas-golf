@@ -35,6 +35,7 @@ app.use('/', require('./routes/router.tarifas_minig'))
 app.use('/', require('./routes/router.servicios'))
 app.use('/', require('./routes/router.ttoo'))
 app.use('/', require('./routes/router.usuarios'))
+app.use('/', require('./routes/router.rutinas'))
 app.use('/', require('./routes/router.views'))
 
 app.get('*', (req, res) => {

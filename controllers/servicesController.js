@@ -34,7 +34,7 @@ exports.getOperaCodes = (req, res) => {
 		db.query('SELECT * FROM opera_codes where uso = "campo golf" order by codigo asc', (error, results) => {
 			if (results) {
 				res.render('ajustes/new-servicio', {
-					user: req.user,
+					logged: req.user,
 					alert: false,
 					results: results,
 					error: false,
@@ -54,7 +54,7 @@ exports.getServices = (req, res) => {
 		db.query('SELECT * FROM servicios ORDER BY nombre asc', (error, results) => {
 			if (results) {
 				res.render('ajustes/servicios-conf', {
-					user: req.user,
+					logged: req.user,
 					results: results,
 					message: req.flash('message'),
 				})
@@ -80,7 +80,7 @@ exports.getService = (req, res) => {
 				if (error) throw error
 				resultsCodes.push(resultsCodes)
 				res.render('ajustes/edit-servicio', {
-					user: req.user,
+					logged: req.user,
 					resultsServices: resultsServices[0],
 					resultsCodes: resultsCodes,
 					alert: false,

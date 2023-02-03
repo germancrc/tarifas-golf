@@ -5,13 +5,13 @@
 	<body>
 		<span class="d-none text-uppercase" id="navbar_titulo_pagina">AJUSTES - TARIFAS MINI GOLF</span>
 		<!-- SIDEBAR DESKTOP -->
-		<%- include ('../partials/sidebar_desktop.ejs') %>
+		<%- include ('../partials/sidebar_desktop_logged.ejs') %>
 
 		<!-- NAVBAR DESKTOP -->
-		<%- include ('../partials/navbar_desktop.ejs') %>
+		<%- include ('../partials/navbar_desktop_logged.ejs') %>
 
 		<!-- NAVBAR MOBILE -->
-		<%- include ('../partials/sidenav_mobile.ejs') %>
+		<%- include ('../partials/sidenav_mobile_logged.ejs') %>
 
 		<div class="content">
 			<div id="Tarifas" class="afterNav">
@@ -37,7 +37,7 @@
 								aria-label="Close"></button>
 						</div>
 						<% } %>
-						<table class="table table-hover " id="myTable">
+						<table class="table table-hover" id="myTable">
 							<thead>
 								<tr>
 									<th scope="col" class="col-5 col-xl-3 px-0">Nombre</th>

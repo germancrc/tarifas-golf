@@ -8,6 +8,7 @@ exports.uploadGuide = async (req, res) => {
 		const archivo = req.file.originalname
 		const fileData = req.file.buffer.toString('base64')
 		const fileSize = req.file.size
+		const autor = req.body.autor
 
 		db.query(
 			'INSERT INTO guias_hrgolf SET ?',
@@ -17,6 +18,7 @@ exports.uploadGuide = async (req, res) => {
 				archivo: archivo,
 				fileData: fileData,
 				fileSize: fileSize,
+				upload_by: autor,
 			},
 			(error, results) => {
 				if (error) {
@@ -31,28 +33,25 @@ exports.uploadGuide = async (req, res) => {
 	}
 }
 
-//MOSTRAR todas guias
-// exports.getGuides = (req, res) => {
-// 	try {
-// 		db.query(
-// 			'select id, aplicacion, archivo,  DATE_FORMAT(CONVERT_TZ(actualizado,"+00:00","-04:00"), "%d/%c/%y - %H:%i:%s") as actualizado, fileSize from guias_hrgolf ORDER BY aplicacion asc, actualizado desc',
-// 			(error, results) => {
-// 				if (results) {
-// 					res.render('ajustes/guias-conf', {
-// 						user: req.user,
-// 						alert: false,
-// 						results: results,
-// 						error: false,
-// 					})
-// 				} else {
-// 					throw error
-// 				}
-// 			}
-// 		)
-// 	} catch (error) {
-// 		console.log(error)
-// 	}
-// }
+// MOSTRAR 1 guia
+exports.getGuide = (req, res) => {
+	try {
+		const id = req.params.id
+		db.query(
+			'select id, aplicacion, descripcion, archivo,  DATE_FORMAT(CONVERT_TZ(actualizado,"+00:00","-04:00"), "%d/%b/%y - %H:%i:%s") as actualizado, fileSize, upload_by from guias_hrgolf WHERE id=?',
+			[id],
+			(error, results) => {
+				if (results) {
+					res.render('ajustes/edit-guide', { logged: req.user, guia: results[0], alert: false })
+				} else {
+					throw error
+				}
+			}
+		)
+	} catch (error) {
+		console.log(error.message)
+	}
+}
 
 exports.getGuides = (req, res) => {
 	try {
@@ -68,7 +67,7 @@ exports.getGuides = (req, res) => {
 						(error, results) => {
 							if (results) {
 								res.render('ajustes/guias-conf', {
-									user: req.user,
+									logged: req.user,
 									alert: false,
 									results: results,
 									error: false,
@@ -83,13 +82,13 @@ exports.getGuides = (req, res) => {
 				}
 			} else {
 				db.query(
-					'select id, aplicacion, descripcion, archivo,  DATE_FORMAT(CONVERT_TZ(actualizado,"+00:00","-04:00"), "%d/%b/%y - %H:%i:%s") as actualizado, fileSize from guias_hrgolf where aplicacion IN (?) ORDER BY aplicacion asc, actualizado desc',
+					'select id, aplicacion, descripcion, archivo,  DATE_FORMAT(CONVERT_TZ(actualizado,"+00:00","-04:00"), "%d/%b/%y - %H:%i:%s") as actualizado, fileSize, upload_by from guias_hrgolf where aplicacion IN (?) ORDER BY aplicacion asc, actualizado desc',
 					[resultsFilteredGuides],
 					(error, resultsAllGuides) => {
 						if (error) throw error
 						// console.log('todos: ' + [resultsAllGuides])
 						res.render('ajustes/guias-conf', {
-							user: req.user,
+							logged: req.user,
 							alert: false,
 							results: resultsAllGuides,
 							resultsFilteredGuides: resultsFilteredGuides,
@@ -106,16 +105,34 @@ exports.getGuides = (req, res) => {
 }
 
 // EDITAR DESCRIPCION GUIA
-// exports.updateGuide = (req, res) => {
-// 	try {
-// 		const { id } = req.params
-// 		const { descripcion } = req.body
-// 		db.query('UPDATE guias_hrgolf SET ? WHERE id = ?', [descripcion, id])
-// 		res.redirect('/ajustes/guias-conf')
-// 	} catch (error) {
-// 		console.log(error)
-// 	}
-// }
+exports.updateGuide = (req, res) => {
+	try {
+		const { id } = req.params
+		const descripcion = req.body.descripcion
+		const aplicacion = req.body.aplicacion
+		const archivo = req.file.originalname
+		const fileData = req.file.buffer.toString('base64')
+		const fileSize = req.file.size
+		const autor = req.body.autor
+
+		if (archivo.length > 0) {
+			db.query('UPDATE guias_hrgolf SET descripcion = ?, archivo = ?, filedata = ?, fileSize = ?, upload_by = ? WHERE id = ?', [
+				descripcion,
+				archivo,
+				fileData,
+				fileSize,
+				autor,
+				id,
+			])
+		} else {
+			db.query('UPDATE guias_hrgolf SET descripcion = ?, upload_by = ? WHERE id = ?', [descripcion, autor, id])
+		}
+		req.flash('message', 'La guía de' + aplicacion + ' fué actualizada con éxito')
+		res.redirect('/ajustes/guias-conf')
+	} catch (error) {
+		console.log(error)
+	}
+}
 
 // BORRAR GUIA
 exports.deleteGuide = (req, res) => {
@@ -164,7 +181,7 @@ exports.viewGuide = (req, res) => {
 					console.log(error)
 				} else {
 					res.render('guias', {
-						user: req.user,
+						logged: req.user,
 						alert: false,
 						results: results,
 						error: true,

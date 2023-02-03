@@ -80,7 +80,7 @@ exports.view_rutinas = async (req, res) => {
 	try {
 		db.query('SELECT * FROM tareas_diarias', (error, results) => {
 			if (results) {
-				res.render('RUTINAS', { logged: req.user, alert: false, results: results, error: false })
+				res.render('rutinas', { logged: req.user, alert: false, results: results, error: false })
 			} else {
 				throw error
 			}

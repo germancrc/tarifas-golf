@@ -16,15 +16,16 @@ router_rutinas.use(
 
 router_rutinas.use(flash())
 
-const authController = require('../controllers/authController')
-const rutinas_controller = require('../controllers/rutinas_controller')
+const controller_auth = require('../controllers/controller_auth')
+const controller_rutinas = require('../controllers/controller_rutinas')
 
 //---------------------------------------RUTINAS-------------------------------------------
-router_rutinas.post('/create_tarea', authController.isAuthenticated, rutinas_controller.create_tarea)
-router_rutinas.get('/rutinas', authController.isAuthenticated, rutinas_controller.view_rutinas)
-router_rutinas.get('/ajustes/rutinas-conf', authController.isAuthenticated, rutinas_controller.get_tareas)
-router_rutinas.get('/ajustes/edit_rutinas/:id', authController.isAuthenticated, rutinas_controller.get_tarea)
-router_rutinas.post('/ajustes/edit-rutinas/:id', authController.isAuthenticated, rutinas_controller.update_tarea)
-router_rutinas.get('/ajustes/rutinas-conf/delete_tarea/:id', authController.isAuthenticated, rutinas_controller.delete_tarea)
+router_rutinas.post('/test_checkbox/:id', controller_auth.isAuthenticated, controller_rutinas.test_checkbox)
+router_rutinas.get('/rutinas', controller_auth.isAuthenticated, controller_rutinas.view_rutinas)
+router_rutinas.post('/create_tarea', controller_auth.isAuthenticated, controller_rutinas.create_tarea)
+router_rutinas.get('/ajustes/conf_rutinas', controller_auth.isAuthenticated, controller_rutinas.get_tareas)
+router_rutinas.get('/ajustes/edit_rutinas/:id', controller_auth.isAuthenticated, controller_rutinas.get_tarea)
+router_rutinas.post('/edit_rutina/:id', controller_auth.isAuthenticated, controller_rutinas.update_tarea)
+router_rutinas.get('/ajustes/conf_rutinas/delete_tarea/:id', controller_auth.isAuthenticated, controller_rutinas.delete_tarea)
 
 module.exports = router_rutinas

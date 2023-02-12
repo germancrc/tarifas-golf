@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+	<%- include ('../partials/head-edits.ejs') %>
+
+	<body>
+		<span class="d-none text-uppercase" id="navbar_titulo_pagina">AJUSTES - USUARIOS</span>
+		<!-- SIDEBAR DESKTOP -->
+		<%- include ('../partials/sidebar_desktop_logged.ejs') %>
+
+		<!-- NAVBAR DESKTOP -->
+		<%- include ('../partials/navbar_desktop_logged.ejs') %>
+
+		<!-- NAVBAR MOBILE -->
+		<%- include ('../partials/sidenav_mobile_logged.ejs') %>
+
+		<div class="content">
+			<div id="Servicios" class="afterNav">
+				<div class="text-center mb-3">
+					<h4 class="text-uppercase">Nuevo Usuario</h4>
+				</div>
+				<div class="cardEdit-container">
+					<div class="card editShadow">
+						<div class="card-body">
+							<% if (message.length > 0) { %>
+							<div class="alert alert-warning alert-dismissible fade show btnShadow text-center" role="alert">
+								<i class="bi bi-exclamation-triangle"></i> <%= message %><button
+									type="button"
+									class="btn-close"
+									data-bs-dismiss="alert"
+									aria-label="Close"></button>
+							</div>
+							<% } %>
+							<form id="add_new_form" action="/createUser" method="POST">
+								<div class="form-floating mb-3">
+									<input
+										type="text"
+										class="form-control"
+										name="nombre"
+										id="nombre"
+										class="text-capitalized"
+										placeholder="Escriba el nombre del usuario"
+										required />
+									<label for="userName" class="form-label">Nombre:</label>
+								</div>
+								<div class="form-floating mb-3">
+									<input type="text" class="form-control" name="username" placeholder="Nickname" required onkeyup="mayus(this)" required />
+									<label for="userNickname" class="form-label">Nombre de Usuario:</label>
+								</div>
+								<div class="form-floating mb-3">
+									<select class="form-select" name="rol" aria-label="role-selector" required>
+										<option selected value="">Elegir:</option>
+										<option value="Admin">Admin</option>
+										<option value="User">User</option>
+									</select>
+									<label for="userRole" class="form-label">Rol</label>
+								</div>
+								<div class="row row-cols-1 row-cols-sm-2">
+									<div class="col">
+										<div class="form-floating mb-3">
+											<input
+												type="password"
+												class="form-control"
+												name="password"
+												id="password"
+												placeholder="Escriba la Contraseña"
+												onkeyup="checkPass();"
+												required />
+											<label for="password" class="form-label">Contraseña:</label>
+										</div>
+									</div>
+									<div class="col">
+										<div class="form-floating mb-3">
+											<input
+												type="password"
+												class="form-control"
+												name="pass_conf"
+												id="pass_conf"
+												placeholder="Repita la Contraseña"
+												onkeyup="checkPass();"
+												required />
+											<label for="pass_conf" class="form-label">Repita la contraseña:</label>
+										</div>
+									</div>
+								</div>
+								<p id="message" class="text-center"></p>
+
+								<div class="new-form-button">
+									<button type="submit" class="btn btn-success btnAction btnShadow" id="botonAdd">AGREGAR</button>
+									<a href="/ajustes/conf_usuarios" class="btn btn-danger btnAction btnShadow">CANCELAR</a>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<%- include ('../partials/footer.ejs') %>
+		</div>
+	</body>
+</html>

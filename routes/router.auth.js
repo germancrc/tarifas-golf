@@ -16,17 +16,17 @@ router_auth.use(
 
 router_auth.use(flash())
 
-const authController = require('../controllers/authController')
+const controller_auth = require('../controllers/controller_auth')
 
 //login - LOGOUT
 router_auth.get('/', (req, res) => {
 	res.render('login', { alert: false, message: req.flash('message') })
 })
-router_auth.post('/login', authController.login)
-router_auth.get('/logout', authController.logout)
+router_auth.post('/login', controller_auth.login)
+router_auth.get('/logout', controller_auth.logout)
 
 //***************************************************************RUTAS AJUSTES****************************/
 // VERIFICAR SI ES ADMIN O USER
-router_auth.get('/ajustes', authController.isAuthenticated, authController.checkAdmin, (req, res) => {})
+router_auth.get('/ajustes', controller_auth.isAuthenticated, controller_auth.checkAdmin, (req, res) => {})
 
 module.exports = router_auth

@@ -49,7 +49,7 @@
 					</div>
 				</form>
 			</div>
-			<div class="text-center mt-3 mb-2">
+			<div class="text-center mt-3">
 				<span>*Seleccione un servicio para ver su descripción*</span>
 			</div>
 
@@ -74,13 +74,7 @@
 								<% if (service.precio == 0 && service.nombre == "Torneos") { %>
 								<td>COTIZAR</td>
 								<% } else { %>
-								<td>
-									<%= service.precio%>.00
-									<div class="verInfo hide-column">
-										- Ver Info
-										<i class="bi bi-info-circle"></i>
-									</div>
-								</td>
+								<td><%= service.precio%>.00</td>
 								<% } %> <% if (service.cod_opera == 0) { %>
 								<td class="hide-column-opera">NO POST</td>
 								<% } else if (service.cod_opera == 1){ %>

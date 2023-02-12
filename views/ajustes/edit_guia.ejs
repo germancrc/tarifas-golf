@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+	<%- include ('../partials/head-edits.ejs') %>
+	<body>
+		<span class="d-none text-uppercase" id="navbar_titulo_pagina">AJUSTES - GUIAS</span>
+		<!-- SIDEBAR DESKTOP -->
+		<%- include ('../partials/sidebar_desktop_logged.ejs') %>
+
+		<!-- NAVBAR DESKTOP -->
+		<%- include ('../partials/navbar_desktop_logged.ejs') %>
+
+		<!-- NAVBAR MOBILE -->
+		<%- include ('../partials/sidenav_mobile_logged.ejs') %>
+
+		<div class="content">
+			<div id="Servicios" class="afterNav">
+				<div class="text-center mb-3">
+					<h4 class="text-uppercase" id="titulo">Editar Guía</h4>
+				</div>
+				<div class="cardEdit-container">
+					<div class="card editShadow">
+						<div class="card-body">
+							<% if (guia) { %>
+							<form id="guides-form" name="form1" ction="/ajustes/edit-guia/<%= guia.id %>" enctype="multipart/form-data" method="POST">
+								<div class="col">
+									<div class="form-floating mb-3">
+										<input
+											type="text"
+											class="form-control"
+											name="aplicacion"
+											id="nombreGuia"
+											value="<%= guia.aplicacion %>"
+											required
+											onkeyup="mayus(this), inform()"
+											disabled />
+										<label for="nombreGuia" class="form-label">Nombre de la aplicación</label>
+										<% if(logged){ %>
+										<input class="d-none" type="text" name="autor" value="<%= logged.username %>" />
+										<% } %>
+									</div>
+								</div>
+								<div class="col">
+									<div class="form-floating mb-3">
+										<input
+											type="text"
+											class="form-control"
+											name="descripcion"
+											id="descripcion"
+											value="<%= guia.descripcion %>"
+											required
+											onkeyup="inform()" />
+										<label for="descripcion" class="form-label">Descripción</label>
+									</div>
+								</div>
+								<div class="col">
+									<div class="form-floating mb-3">
+										<input
+											type="text"
+											class="form-control"
+											name="actual_file"
+											id="actual_file"
+											value="<%= guia.archivo %> - Actualizado: <%= guia.actualizado %>"
+											required
+											onkeyup="inform()"
+											disabled />
+										<label for="descripcion" class="form-label">Archivo actual</label>
+									</div>
+								</div>
+								<div class="col">
+									<div class="form-floating mb-3">
+										<input
+											type="text"
+											class="form-control"
+											name="subido_por"
+											id="subido_por"
+											value="<%= guia.upload_by %>"
+											required
+											onkeyup="inform()"
+											disabled />
+										<label for="descripcion" class="form-label">Subido por</label>
+									</div>
+								</div>
+								<div class="text-center mb-3">
+									<h5 class="text-uppercase">Actualizar archivo</h5>
+								</div>
+								<div class="input-group mb-3">
+									<input
+										type="file"
+										class="form-control"
+										id="fileGuide"
+										name="archivo"
+										accept=".pdf"
+										aria-describedby="inputGroupFileAddon04"
+										aria-label="Upload"
+										onChange="inform()"
+										value="<%= guia.archivo %>" />
+								</div>
+								<div class="new-form-button">
+									<button type="submit" id="upload" class="btn btn-warning btnAction btnShadow" id="modalServName" disabled onclick="showSpinner()">
+										EDITAR
+									</button>
+									<a href="/ajustes/conf-guias" class="btn btn-danger btnAction btnShadow">CANCELAR</a>
+								</div>
+							</form>
+							<!-- SPINNER SUBIENDO -->
+							<div id="showSpin" class="px-2 mt-4">
+								<div class="d-flex align-items-center mt-1">
+									<strong>Actualizando...</strong>
+									<div class="spinner-border me-auto text-warning" id="spinnerUpload" role="status" aria-hidden="true"></div>
+								</div>
+							</div>
+
+							<% } %>
+						</div>
+					</div>
+				</div>
+			</div>
+			<%- include ('../partials/footer.ejs') %>
+		</div>
+		<script src="/js/spinnerLoader.js"></script>
+	</body>
+</html>

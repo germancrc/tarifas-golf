@@ -63,16 +63,6 @@ if (document.querySelectorAll('.opera-code-check')) {
 }
 // **********************************SHOW HIDE OPERA CODES WITH CHECBOX***********************
 
-// **********************************CHECKBOX TAREAS***********************
-function tarea_checked(id) {
-	let check = document.getElementById(id)
-	let check_label = document.getElementById(id)
-	if (check.checked == true) {
-		console.log(check.value)
-		check_label.classList.toggle('.palabra_tachada')
-	}
-}
-// **********************************CHECKBOX TAREAS***********************
 function filterCheckbox() {
 	let table = document.getElementById('myTable')
 	let tr = table.getElementsByTagName('tr')

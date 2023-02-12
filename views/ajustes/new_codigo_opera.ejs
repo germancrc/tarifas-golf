@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+	<%- include ('../partials/head-edits.ejs') %>
+
+	<body>
+		<span class="d-none text-uppercase" id="navbar_titulo_pagina">AJUSTES - CÓDIGOS OPERA</span>
+		<!-- SIDEBAR DESKTOP -->
+		<%- include ('../partials/sidebar_desktop_logged.ejs') %>
+
+		<!-- NAVBAR DESKTOP -->
+		<%- include ('../partials/navbar_desktop_logged.ejs') %>
+
+		<!-- NAVBAR MOBILE -->
+		<%- include ('../partials/sidenav_mobile_logged.ejs') %>
+
+		<div class="content">
+			<div id="Servicios" class="afterNav">
+				<div class="text-center mb-3">
+					<h4 class="text-uppercase" id="titulo">Nuevo CÓDIGO OPERA</h4>
+				</div>
+				<div class="cardEdit-container">
+					<div class="card editShadow">
+						<div class="card-body">
+							<% if (message.length > 0) { %>
+							<div class="alert alert-danger alert-dismissible fade show btnShadow text-center" role="alert">
+								<i class="bi bi-exclamation-triangle"></i> <%= message %><button
+									type="button"
+									class="btn-close"
+									data-bs-dismiss="alert"
+									aria-label="Close"></button>
+							</div>
+							<% } %>
+							<form id="add_new_form" action="/ajustes/createCode" method="POST">
+								<div class="form-floating mb-3">
+									<input type="number" class="form-control" name="codigo" id="nombre" placeholder="Escriba el Código" required />
+									<label for="codeTitle" id="codeTitle" class="form-label">Código:</label>
+								</div>
+								<div class="form-floating mb-3">
+									<input type="text" class="form-control" name="nombre" placeholder="Escriba el Nombre" required />
+									<label for="codeName" id="codeName" class="form-label">Nombre:</label>
+								</div>
+								<div class="mb-3">
+									<div class="form-floating">
+										<select class="form-select mb-3" name="uso" aria-label="uso-selector" required>
+											<option selected value="">Elegir:</option>
+											<option value="Campo Golf">Campo Golf</option>
+											<option value="Mini Golf">Mini Golf</option>
+											<option value="Pagos">Pagos</option>
+										</select>
+										<label for="code-use" class="form-label">Dónde se usa?</label>
+									</div>
+								</div>
+								<div class="form-floating mb-3">
+									<textarea
+										class="form-control"
+										id="descripcion"
+										name="descripcion"
+										placeholder="Descripción"
+										style="height: 100px"
+										required></textarea>
+									<label for="code-desc" class="form-label">Descripción:</label>
+								</div>
+
+								<div class="new-form-button">
+									<button type="submit" class="btn btn-success btnAction btnShadow" id="botonAdd">AGREGAR</button>
+									<a href="/ajustes/conf_codigos_opera" class="btn btn-danger btnAction btnShadow">CANCELAR</a>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<%- include ('../partials/footer.ejs') %>
+		</div>
+	</body>
+</html>

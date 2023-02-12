@@ -45,6 +45,10 @@
 				</form> -->
 			</div>
 
+			<div class="text-center mt-3 mb-2">
+				<span>*Seleccione un código para ver su descripción*</span>
+			</div>
+
 			<div class="card mt-2">
 				<div class="card-body">
 					<table class="table table-hover" id="myTable">
@@ -64,13 +68,7 @@
 								<td class="d-none"></td>
 								<% } else { %>
 
-								<td>
-									<%= code.codigo %>
-									<div class="verInfo hide-column">
-										- Ver Info
-										<i class="bi bi-info-circle"></i>
-									</div>
-								</td>
+								<td class="hide-text"><%= code.codigo %></td>
 								<td class="hide-text"><span><%= code.nombre%></span></td>
 								<td class="hide-text"><span><%= code.uso%></span></td>
 								<td class="hide-text hide-column"><span><%= code.descripcion %></span></td>

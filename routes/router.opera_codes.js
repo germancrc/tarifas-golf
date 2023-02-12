@@ -16,15 +16,16 @@ router_opera_codes.use(
 
 router_opera_codes.use(flash())
 
-const authController = require('../controllers/authController')
-const codesController = require('../controllers/codesController')
+const controller_auth = require('../controllers/controller_auth')
+const controller_codigos_opera = require('../controllers/controller_codigos_opera')
 
 //---------------------------------------CODIGOS OPERA-------------------------------------------
-router_opera_codes.post('/createCode', codesController.createCode)
-router_opera_codes.get('/ajustes/opera-codes', authController.isAuthenticated, codesController.getCodes)
-router_opera_codes.get('/ajustes/new-opera-codes', authController.isAuthenticated, codesController.getOperaCodes)
-router_opera_codes.get('/ajustes/edit-codes/:id', authController.isAuthenticated, codesController.getCode)
-router_opera_codes.post('/ajustes/edit-codes/:id', authController.isAuthenticated, codesController.updateCode)
-router_opera_codes.get('/ajustes/opera-codes/deleteCode/:id', authController.isAuthenticated, codesController.deleteCode)
+router_opera_codes.get('/opera', controller_auth.isAuthenticated, controller_codigos_opera.view_opera)
+router_opera_codes.post('/ajustes/createCode', controller_codigos_opera.createCode)
+router_opera_codes.get('/ajustes/conf_codigos_opera', controller_auth.isAuthenticated, controller_codigos_opera.getCodes)
+router_opera_codes.get('/ajustes/new_codigo_opera', controller_auth.isAuthenticated, controller_codigos_opera.getOperaCodes)
+router_opera_codes.get('/ajustes/edit_codigo_opera/:id', controller_auth.isAuthenticated, controller_codigos_opera.getCode)
+router_opera_codes.post('/ajustes/edit_codigo_opera/:id', controller_auth.isAuthenticated, controller_codigos_opera.updateCode)
+router_opera_codes.get('/ajustes/conf_codigos_opera/borrar_codigo/:id', controller_auth.isAuthenticated, controller_codigos_opera.deleteCode)
 
 module.exports = router_opera_codes

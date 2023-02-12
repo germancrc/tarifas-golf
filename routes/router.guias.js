@@ -17,8 +17,8 @@ router_guias.use(
 
 router_guias.use(flash())
 
-const authController = require('../controllers/authController')
-const guiasController = require('../controllers/guiasController')
+const controller_auth = require('../controllers/controller_auth')
+const controller_guias = require('../controllers/controller_guias')
 
 //multer
 const upload = multer({
@@ -30,12 +30,12 @@ const upload = multer({
 })
 
 //---------------------------------------GUIAS-------------------------------------------
-router_guias.get('/guias', authController.isAuthenticated, guiasController.viewGuide)
-router_guias.post('/uploadGuide', upload.single('archivo'), guiasController.uploadGuide, authController.isAuthenticated)
-router_guias.get('/downloadGuide/:id', authController.isAuthenticated, guiasController.downloadGuide)
-router_guias.get('/ajustes/guias-conf', authController.isAuthenticated, guiasController.getGuides)
-router_guias.get('/ajustes/edit-guide/:id', authController.isAuthenticated, guiasController.getGuide)
-router_guias.post('/ajustes/edit-guide/:id', upload.single('archivo'), authController.isAuthenticated, guiasController.updateGuide)
-router_guias.get('/ajustes/guias-conf/deleteGuide/:id', authController.isAuthenticated, guiasController.deleteGuide)
+router_guias.get('/guias', controller_auth.isAuthenticated, controller_guias.viewGuide)
+router_guias.post('/ajustes/subir_guia', upload.single('archivo'), controller_guias.uploadGuide, controller_auth.isAuthenticated)
+router_guias.get('/downloadGuide/:id', controller_auth.isAuthenticated, controller_guias.downloadGuide)
+router_guias.get('/ajustes/conf_guias', controller_auth.isAuthenticated, controller_guias.getGuides)
+router_guias.get('/ajustes/edit_guia/:id', controller_auth.isAuthenticated, controller_guias.getGuide)
+router_guias.post('/ajustes/edit_guia/:id', upload.single('archivo'), controller_auth.isAuthenticated, controller_guias.updateGuide)
+router_guias.get('/ajustes/conf_guias/borrar_guia/:id', controller_auth.isAuthenticated, controller_guias.deleteGuide)
 
 module.exports = router_guias

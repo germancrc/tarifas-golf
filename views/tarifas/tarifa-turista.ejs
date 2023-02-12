@@ -33,13 +33,7 @@
 								<td class="hide-text">
 									<span><%= turista.nombre %></span>
 								</td>
-								<td>
-									<%= turista.precio%>.00
-									<div class="verInfo hide-column">
-										- Ver Info
-										<i class="bi bi-info-circle"></i>
-									</div>
-								</td>
+								<td><%= turista.precio%>.00</td>
 								<% if (turista.cod_opera == 0 && turista.nombre != "Ronda de Practica Torneo") { %>
 								<td class="hide-column-opera">NO POSTEAR</td>
 								<% } else if (turista.cod_opera == 0 && turista.nombre == "Ronda de Practica Torneo"){ %>

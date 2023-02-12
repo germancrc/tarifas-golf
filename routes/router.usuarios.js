@@ -16,17 +16,22 @@ router_usuarios.use(
 
 router_usuarios.use(flash())
 
-const authController = require('../controllers/authController')
-const usuariosController = require('../controllers/usuariosController')
+const controller_auth = require('../controllers/controller_auth')
+const controller_usuarios = require('../controllers/controller_usuarios')
 
 //---------------------------------------USUARIOS------------------------------------------------
-router_usuarios.post('/createUser', usuariosController.createUser, authController.checkAdmin)
-router_usuarios.get('/edit-usuario-actual', authController.isAuthenticated, usuariosController.view_edit_current_user, authController.checkAdmin)
-router_usuarios.post('/edit-usuario-actual/:id', authController.isAuthenticated, usuariosController.update_current_user, authController.checkAdmin)
-router_usuarios.get('/ajustes/usuarios-conf', authController.isAuthenticated, usuariosController.getUsers, authController.checkAdmin)
-router_usuarios.get('/ajustes/new-usuario', authController.isAuthenticated, usuariosController.newUser, authController.checkAdmin)
-router_usuarios.get('/ajustes/edit-usuario/:id', authController.isAuthenticated, usuariosController.getUser, authController.checkAdmin)
-router_usuarios.post('/ajustes/edit-usuario/:id', authController.isAuthenticated, usuariosController.updateUser, authController.checkAdmin)
-router_usuarios.get('/ajustes/usuarios-conf/deleteUser/:id', authController.isAuthenticated, usuariosController.deleteUser, authController.checkAdmin)
+router_usuarios.post('/createUser', controller_usuarios.createUser, controller_auth.checkAdmin)
+router_usuarios.get('/edit-usuario-actual', controller_auth.isAuthenticated, controller_usuarios.view_edit_current_user, controller_auth.checkAdmin)
+router_usuarios.post('/edit-usuario-actual/:id', controller_auth.isAuthenticated, controller_usuarios.update_current_user, controller_auth.checkAdmin)
+router_usuarios.get('/ajustes/conf_usuarios', controller_auth.isAuthenticated, controller_usuarios.getUsers, controller_auth.checkAdmin)
+router_usuarios.get('/ajustes/new_usuario', controller_auth.isAuthenticated, controller_usuarios.newUser, controller_auth.checkAdmin)
+router_usuarios.get('/ajustes/edit-usuario/:id', controller_auth.isAuthenticated, controller_usuarios.getUser, controller_auth.checkAdmin)
+router_usuarios.post('/ajustes/edit-usuario/:id', controller_auth.isAuthenticated, controller_usuarios.updateUser, controller_auth.checkAdmin)
+router_usuarios.get(
+	'/ajustes/usuarios-conf/deleteUser/:id',
+	controller_auth.isAuthenticated,
+	controller_usuarios.deleteUser,
+	controller_auth.checkAdmin
+)
 
 module.exports = router_usuarios

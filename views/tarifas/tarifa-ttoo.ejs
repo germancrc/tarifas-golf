@@ -35,35 +35,17 @@
 									<span><%= ttoo.nombre %></span>
 								</td>
 								<% if (ttoo.green_fee > Math.floor(ttoo.green_fee)) { %>
-								<td class="hide-column">
-									<%= ttoo.green_fee%>0
-									<div class="verInfo hide-column">
-										-
-										<i class="bi bi-info-circle"></i>
-									</div>
-								</td>
+								<td><%= ttoo.green_fee%>0</td>
 								<% } else if (ttoo.green_fee == 0) { %>
-								<td class="hide-column">
-									Falta dato
-									<div class="verInfo hide-column">
-										-
-										<i class="bi bi-info-circle"></i>
-									</div>
-								</td>
+								<td>Falta dato</td>
 								<% } else { %>
-								<td class="hide-column">
-									<%= ttoo.green_fee%>.00
-									<div class="verInfo hide-column">
-										-
-										<i class="bi bi-info-circle"></i>
-									</div>
-								</td>
+								<td><%= ttoo.green_fee%>.00</td>
 								<% } %> <% if (ttoo.twilight > Math.floor(ttoo.twilight)) { %>
-								<td class="hide-column"><%= ttoo.twilight%>0</td>
+								<td><%= ttoo.twilight%>0</td>
 								<% } else if (ttoo.twilight == 0) { %>
-								<td class="hide-column">VERIFICAR</td>
+								<td>VERIFICAR</td>
 								<% } else { %>
-								<td class="hide-column"><%= ttoo.twilight%>.00</td>
+								<td><%= ttoo.twilight%>.00</td>
 								<% } %>
 
 								<td class="hide-column-opera"><%= ttoo.cod_opera%></td>

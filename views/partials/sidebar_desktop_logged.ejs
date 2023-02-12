@@ -2,14 +2,14 @@
 	<div class="container mb-3 mt-3">
 		<img src="/img/golflogo.png" class="logo" alt="" />
 	</div>
-	<a class="nav-link" href="/index"><i class="bi bi-house-check"></i>&nbsp; Inicio <i class="bi bi-chevron-right flecha"></i></a>
-	<a class="nav-link" href="/opera"> <i class="bi bi-upc-scan"></i>&nbsp; CÓD. OPERA <i class="bi bi-chevron-right flecha"></i></a>
-	<a class="nav-link" href="/guias"> <i class="bi bi-journal-text"></i>&nbsp; Guías <i class="bi bi-chevron-right flecha"></i></a>
-	<a class="nav-link" href="/minigolf"> <i class="bi bi-houses"></i>&nbsp; MINI GOLF <i class="bi bi-chevron-right flecha"></i></a>
-	<a class="nav-link" href="/rutinas"> <i class="bi bi-clock-history"></i>&nbsp; RUTINAS</a>
-	<a class="nav-link" href="/tarifas"><i class="bi bi-currency-dollar"></i>&nbsp; Tarifas <i class="bi bi-chevron-right flecha"></i></a>
+	<a class="nav-link" href="/index"><i class="bi bi-house-check"></i>&nbsp; Inicio</a>
+	<a class="nav-link" href="/opera"> <i class="bi bi-upc-scan"></i>&nbsp; CÓD. OPERA</a>
+	<a class="nav-link" href="/guias"> <i class="bi bi-journal-text"></i>&nbsp; Guías</a>
+	<a class="nav-link" href="/minigolf"> <i class="bi bi-houses"></i>&nbsp; MINI GOLF</a>
+	<!-- <a class="nav-link" href="/rutinas"> <i class="bi bi-clock-history"></i>&nbsp; RUTINAS</a> -->
+	<a class="nav-link" href="/tarifas"><i class="bi bi-currency-dollar"></i>&nbsp; Tarifas</a>
 	<% if(logged.rol === "Admin"){ %>
-	<a class="d-block nav-link" href="/ajustes"><i class="bi bi-gear"></i>&nbsp; AJUSTES <i class="bi bi-chevron-right flecha"></i></a>
+	<a class="d-block nav-link" href="/ajustes"><i class="bi bi-gear"></i>&nbsp; AJUSTES</a>
 	<% } else { %>
 	<a class="d-none" href="/ajustes">AJUSTES <i class="bi bi-chevron-right flecha"></i></a>
 	<% } %>

@@ -16,15 +16,15 @@ router_servicios.use(
 
 router_servicios.use(flash())
 
-const authController = require('../controllers/authController')
-const servicesController = require('../controllers/servicesController')
+const controller_auth = require('../controllers/controller_auth')
+const controller_servicios = require('../controllers/controller_servicios')
 
 //-----------------------SERVICIOS------------------------------------------------
-router_servicios.post('/createService', servicesController.createService)
-router_servicios.get('/ajustes/servicios-conf', authController.isAuthenticated, servicesController.getServices)
-router_servicios.get('/ajustes/new-servicio', authController.isAuthenticated, servicesController.getOperaCodes)
-router_servicios.get('/ajustes/edit-servicio/:id', authController.isAuthenticated, servicesController.getService)
-router_servicios.post('/ajustes/edit-servicio/:id', authController.isAuthenticated, servicesController.updateService)
-router_servicios.get('/ajustes/servicios-conf/deleteService/:id', authController.isAuthenticated, servicesController.deleteService)
+router_servicios.post('/ajustes/crear_servicio', controller_auth.isAuthenticated, controller_servicios.createService)
+router_servicios.get('/ajustes/conf_servicios', controller_auth.isAuthenticated, controller_servicios.getServices)
+router_servicios.get('/ajustes/new_servicio', controller_auth.isAuthenticated, controller_servicios.getOperaCodes)
+router_servicios.get('/ajustes/edit_servicio/:id', controller_auth.isAuthenticated, controller_servicios.getService)
+router_servicios.post('/ajustes/edit_servicio/:id', controller_auth.isAuthenticated, controller_servicios.updateService)
+router_servicios.get('/ajustes/conf_servicios/borrar_servicio/:id', controller_auth.isAuthenticated, controller_servicios.deleteService)
 
 module.exports = router_servicios

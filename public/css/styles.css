@@ -1,15 +1,56 @@
 body {
-	background-color: #ffffff;
+	background-color: #f5f5f5;
+	/* background-color: #ffffff; */
 	font-family: 'roboto', sans-serif;
 	scroll-behavior: smooth;
 	min-height: 100vh;
 }
 
-.content,
-#btnArriba {
-	animation: fadeInAnimation ease-in-out 0.3s;
+.content {
+	animation: fadeIn ease-in-out 0.4s;
 	animation-iteration-count: 1;
 	/* animation-fill-mode: forwards; */
+}
+
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+#btnArriba {
+	animation: btnArriba 1s ease 0s 1 normal forwards;
+}
+
+@keyframes btnArriba {
+	0%,
+	100% {
+		transform: translateY(0);
+	}
+
+	10%,
+	30%,
+	50%,
+	70% {
+		transform: translateY(-8px);
+	}
+
+	20%,
+	40%,
+	60% {
+		transform: translateY(8px);
+	}
+
+	80% {
+		transform: translateY(6.4px);
+	}
+
+	90% {
+		transform: translateY(-6.4px);
+	}
 }
 
 #inputBuscar {
@@ -185,6 +226,7 @@ p {
 	font-size: 3rem;
 }
 
+/* TACHAR TEXT CHECKBOX CHECKED */
 .tarea_completada:checked + label {
 	text-decoration: line-through;
 }
@@ -325,7 +367,8 @@ table {
 .sidebar {
 	margin: 0;
 	padding: 0;
-	background-color: #f0f0f0;
+	background-color: #ffffff;
+	/* background-color: #f0f0f0; */
 	/*#f5f6fe*/
 	position: fixed;
 	height: 100%;

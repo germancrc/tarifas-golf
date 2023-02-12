@@ -16,15 +16,15 @@ router_ttoo.use(
 
 router_ttoo.use(flash())
 
-const authController = require('../controllers/authController')
-const ttooController = require('../controllers/ttooController')
+const controller_auth = require('../controllers/controller_auth')
+const controller_ttoo = require('../controllers/controller_ttoo')
 
 //---------------------------------------TOUR OPERADORES-------------------------------------------
-router_ttoo.post('/createTtoo', ttooController.createTtoo)
-router_ttoo.get('/ajustes/ttoo-conf', authController.isAuthenticated, ttooController.getTtoos)
-router_ttoo.get('/ajustes/new-ttoo', authController.isAuthenticated, ttooController.getOperaCodes)
-router_ttoo.get('/ajustes/edit-ttoo/:id', authController.isAuthenticated, ttooController.getTtoo)
-router_ttoo.post('/ajustes/edit-ttoo/:id', authController.isAuthenticated, ttooController.updateTtoo)
-router_ttoo.get('/ajustes/ttoo-conf/deleteTtoo/:id', authController.isAuthenticated, ttooController.deleteTtoo)
+router_ttoo.post('/createTtoo', controller_auth.isAuthenticated, controller_ttoo.createTtoo)
+router_ttoo.get('/ajustes/conf_ttoo', controller_auth.isAuthenticated, controller_ttoo.getTtoos)
+router_ttoo.get('/ajustes/new_ttoo', controller_auth.isAuthenticated, controller_ttoo.getOperaCodes)
+router_ttoo.get('/ajustes/edit_ttoo/:id', controller_auth.isAuthenticated, controller_ttoo.getTtoo)
+router_ttoo.post('/ajustes/edit_ttoo/:id', controller_auth.isAuthenticated, controller_ttoo.updateTtoo)
+router_ttoo.get('/ajustes/conf_ttoo/borrar_ttoo/:id', controller_auth.isAuthenticated, controller_ttoo.deleteTtoo)
 
 module.exports = router_ttoo

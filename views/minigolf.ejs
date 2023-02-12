@@ -66,29 +66,11 @@
 								</td>
 
 								<% if (rateMg.precio > Math.floor(rateMg.precio)) { %>
-								<td>
-									<%= rateMg.precio%>0
-									<div class="verInfo hide-column">
-										- Ver Info
-										<i class="bi bi-info-circle"></i>
-									</div>
-								</td>
+								<td><%= rateMg.precio%>0</td>
 								<% } else if (rateMg.precio == 0) { %>
-								<td>
-									Resort C.
-									<div class="verInfo hide-column">
-										- Ver Info
-										<i class="bi bi-info-circle"></i>
-									</div>
-								</td>
+								<td>Resort C.</td>
 								<% } else { %>
-								<td>
-									<%= rateMg.precio%>.00
-									<div class="verInfo hide-column">
-										- Ver Info
-										<i class="bi bi-info-circle"></i>
-									</div>
-								</td>
+								<td><%= rateMg.precio%>.00</td>
 								<% } %> <% if (rateMg.cod_opera == 0) { %>
 								<td class="hide-column-opera">NO POST</td>
 								<% } else if (rateMg.cod_opera == 1){ %>

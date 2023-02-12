@@ -33,13 +33,7 @@
 								<td class="hide-text">
 									<span><%= local.nombre %></span>
 								</td>
-								<td>
-									<%= local.precio%>.00
-									<div class="verInfo hide-column">
-										- Ver Info
-										<i class="bi bi-info-circle"></i>
-									</div>
-								</td>
+								<td><%= local.precio%>.00</td>
 								<% if (local.cod_opera == 0 && local.nombre != "Ronda de Practica Torneo HR") { %>
 								<td class="hide-column-opera">NO POSTEAR</td>
 								<% } else if (local.cod_opera == 0 && local.nombre == "Ronda de Practica Torneo HR"){ %>

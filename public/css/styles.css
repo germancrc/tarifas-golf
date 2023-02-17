@@ -405,7 +405,7 @@ table {
 	align-items: flex-end;
 }
 
-.sidebar a:hover:not([aria-current='page']) {
+.sidebar a:hover:not([aria-current='page']):not(.logo_sidebar) {
 	background-color: #dfb502;
 	color: white;
 	transition: 0.1s ease;

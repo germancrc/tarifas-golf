@@ -91,18 +91,20 @@ exports.view_rutinas = async (req, res) => {
 }
 
 // TEST CHECKBOX
-exports.test_checkbox = async (req, res) => {
+exports.tarea_completa = async (req, res) => {
 	try {
 		const { id } = req.params
-		const user = req.user.id
+		const user = req.user.username
 
-		if (req.body.checkbox_check) {
-			console.log('true')
-		} else {
-			console.log('false')
-		}
+		// db.query('SHOW COLUMNS FROM tareas_diarias LIKE ?;', [user], (error, results) => {
+		// 	if (results) {
+		// 		console.log(results)
+		// 	} else {
+		// 		console.log('NO existe')
+		// 	}
+		// })
 		// if (req.body.checkbox_check) {
-		// 	console.log('Tarea ' + id + ' true')
+		// 	console.log('Tarea ' + id + ' ' + user + ' hecha')
 		// } else {
 		// 	console.log('false')
 		// }

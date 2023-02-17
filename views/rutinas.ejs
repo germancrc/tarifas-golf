@@ -20,10 +20,18 @@
 						<h5 class="text-uppercase text-center mb-3">tareas de apertura</h5>
 						<hr />
 						<% results.forEach((tarea) => { %> <% if (tarea.turno_tarea == 'Apertura') { %>
-						<div class="form-check mb-3">
-							<input class="form-check-input tarea_completada" type="checkbox" name="checkbox_check" id="flexCheck<%= tarea.id %>" />
-							<label class="form-check-label" for="flexCheck<%= tarea.id %>"><%= tarea.tarea %> </label>
-						</div>
+						<form action="/tarea_completa/<%= tarea.id %>" method="post">
+							<div class="form-check mb-3">
+								<input
+									onChange="this.form.submit()"
+									class="form-check-input tarea_completada"
+									type="checkbox"
+									value="1"
+									name="checkbox_check"
+									id="flexCheck<%= tarea.id %>" />
+								<label class="form-check-label" for="flexCheck<%= tarea.id %>"><%= tarea.tarea %> </label>
+							</div>
+						</form>
 						<% } %> <% }) %>
 					</div>
 				</div>

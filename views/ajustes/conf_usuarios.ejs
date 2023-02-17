@@ -39,25 +39,21 @@
 						<table class="table align-middle table-hover" id="myTable">
 							<thead>
 								<tr>
-									<th scope="col" class="col-5 col-xl-3">Nombre de Usuario</th>
-									<th scope="col" class="col-4 hide-column">Nombre</th>
+									<th scope="col" class="col-3 col-xl-3">Nombre de Usuario</th>
+									<th scope="col" class="col-3 hide-column">Nombre</th>
 									<th scope="col" class="col-2 hide-column">Rol</th>
+									<th scope="col" class="col-2 hide-column">Agregado</th>
 									<th scope="col" class="col-2">Acciones</th>
 								</tr>
 							</thead>
 							<tbody>
 								<% results.forEach((user) => { %>
 								<tr>
-									<td class="info" data-bs-toggle="modal" data-bs-target="#staticBackdrop<%= user.id %>">
-										<%= user.username %>
-										<div class="verInfo">
-											-
-											<i class="bi bi-info-circle"></i>
-										</div>
-									</td>
+									<td class="info" data-bs-toggle="modal" data-bs-target="#staticBackdrop<%= user.id %>"><%= user.username %></td>
 
 									<td class="hide-column"><%= user.nombre %></td>
 									<td class="hide-column"><%= user.rol %></td>
+									<td class="hide-column"><%= user.agregado %></td>
 
 									<td class="d-flex justify-content-between">
 										<% if (logged.username == user.username) { %>
@@ -92,6 +88,7 @@
 											<div class="modal-body">
 												<h6><strong>Nombre: </strong><%= user.nombre%></h6>
 												<h6><strong>Rol: </strong><%= user.rol%></h6>
+												<h6><strong>Agregado: </strong><%= user.agregado%></h6>
 											</div>
 											<div class="modal-footer">
 												<button type="button" class="btn btn-success btnShadow" data-bs-dismiss="modal">CERRAR</button>

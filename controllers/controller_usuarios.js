@@ -42,19 +42,22 @@ exports.newUser = (req, res) => {
 //MOSTRAR TODOS LOS USERS
 exports.getUsers = (req, res) => {
 	try {
-		db.query("SELECT * FROM usuarios  where username not in ('admin', 'superuser' ) ORDER BY username asc", (error, results) => {
-			if (results) {
-				res.render('ajustes/conf_usuarios', {
-					logged: req.user,
-					alert: false,
-					results: results,
-					error: false,
-					message: req.flash('message'),
-				})
-			} else {
-				throw error
+		db.query(
+			'select id, nombre, username, rol,  DATE_FORMAT(CONVERT_TZ(agregado,"+00:00","-04:00"), "%d/%b/%y") as agregado from usuarios where username not in ("admin", "superuser" ) ORDER BY username asc',
+			(error, results) => {
+				if (results) {
+					res.render('ajustes/conf_usuarios', {
+						logged: req.user,
+						alert: false,
+						results: results,
+						error: false,
+						message: req.flash('message'),
+					})
+				} else {
+					throw error
+				}
 			}
-		})
+		)
 	} catch (error) {
 		console.log(error)
 	}

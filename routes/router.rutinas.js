@@ -20,7 +20,7 @@ const controller_auth = require('../controllers/controller_auth')
 const controller_rutinas = require('../controllers/controller_rutinas')
 
 //---------------------------------------RUTINAS-------------------------------------------
-router_rutinas.post('/test_checkbox/:id', controller_auth.isAuthenticated, controller_rutinas.test_checkbox)
+router_rutinas.post('/tarea_completa/:id', controller_auth.isAuthenticated, controller_rutinas.tarea_completa)
 router_rutinas.get('/rutinas', controller_auth.isAuthenticated, controller_rutinas.view_rutinas)
 router_rutinas.post('/create_tarea', controller_auth.isAuthenticated, controller_rutinas.create_tarea)
 router_rutinas.get('/ajustes/conf_rutinas', controller_auth.isAuthenticated, controller_rutinas.get_tareas)

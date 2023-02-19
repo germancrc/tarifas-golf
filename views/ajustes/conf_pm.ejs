@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+	<%- include ('../partials/head-edits.ejs') %>
+	<body>
+		<span class="d-none text-uppercase" id="navbar_titulo_pagina">AJUSTES - PM</span>
+		<!-- SIDEBAR DESKTOP -->
+		<%- include ('../partials/sidebar_desktop_logged.ejs') %>
+
+		<!-- NAVBAR DESKTOP -->
+		<%- include ('../partials/navbar_desktop_logged.ejs') %>
+
+		<!-- NAVBAR MOBILE -->
+		<%- include ('../partials/sidenav_mobile_logged.ejs') %>
+
+		<div class="content">
+			<div id="usuarios" class="afterNav">
+				<div class="row d-flex justify-content-between">
+					<div class="col-4">
+						<a href="/ajustes/new_pm" class="btn btn-success btnShadow" id="btnService"> AGREGAR </a>
+						<!-- Button trigger modal -->
+					</div>
+					<div class="col-8" id="inputBuscar"><%- include ('../partials/buscar-conf.ejs') %></div>
+				</div>
+				<div class="text-center mt-3 mb-2">
+					<span>*Seleccione un elemento para más detalles*</span>
+				</div>
+
+				<div class="card mt-3">
+					<div class="card-body">
+						<% if (message.length > 0) { %>
+						<div class="alert alert-success alert-dismissible fade show btnShadow text-center" role="alert">
+							<i class="bi bi-check-circle"></i> <%= message %><button
+								type="button"
+								class="btn-close"
+								data-bs-dismiss="alert"
+								aria-label="Close"></button>
+						</div>
+						<% } %>
+						<table class="table align-middle table-hover" id="myTable">
+							<thead>
+								<tr>
+									<th scope="col" class="col-1">PM</th>
+									<th scope="col" class="col-2">TTOO / DEPTO</th>
+									<th scope="col" class="col-3 hide-column-opera">NOMBRE OPERA</th>
+									<th scope="col" class="col-4 hide-column">Descripción</th>
+									<th scope="col" class="col-2">Acciones</th>
+								</tr>
+							</thead>
+							<tbody>
+								<% results.forEach((pms) => { %>
+								<tr>
+									<td class="info" data-bs-toggle="modal" data-bs-target="#staticBackdrop<%= pms.id %>"><%= pms.pm %></td>
+
+									<td><%= pms.ttoo_depto %></td>
+									<td class="hide-column"><%= pms.nombre_opera %></td>
+									<td class="hide-column"><%= pms.descripcion %></td>
+
+									<td class="d-flex justify-content-between">
+										<a href="/ajustes/edit_pm/<%= pms.id %>" title="Editar PM" class="btn btn-sm btn-warning btnAction btnShadow"
+											><i class="bi bi-pencil"></i
+										></a>
+
+										<a
+											href="/ajustes/conf_pm/borrar_pm/<%= pms.id %>"
+											class="btn btn-sm btn-danger btnAction btnShadow"
+											onclick="return confirm_delete()"
+											><i class="bi bi-trash"></i
+										></a>
+									</td>
+								</tr>
+								<!-- Modal -->
+								<div class="modal fade" id="staticBackdrop<%= pms.id %>" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+									<div class="modal-dialog modal-dialog-centered">
+										<div class="modal-content">
+											<div class="modal-header">
+												<h1 class="modal-title fs-5" id="staticBackdropLabel"><%= pms.ttoo_depto %></h1>
+												<!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+											</div>
+											<div class="modal-body">
+												<h6><strong>Nombre Opera: </strong><%= pms.nombre_opera %></h6>
+												<h6><strong>Descripción: </strong><%= pms.descripcion %></h6>
+											</div>
+											<div class="modal-footer">
+												<button type="button" class="btn btn-success btnShadow" data-bs-dismiss="modal">CERRAR</button>
+											</div>
+										</div>
+									</div>
+								</div>
+								<% }) %>
+							</tbody>
+						</table>
+						<div class="text-center" id="noResults">
+							<img class="noResults" src="/img/noResults.PNG" alt="" />
+							<h4 class="text-uppercase mt-3">No hay resultados</h4>
+						</div>
+					</div>
+				</div>
+			</div>
+			<%- include ('../partials/footer.ejs') %>
+		</div>
+	</body>
+</html>

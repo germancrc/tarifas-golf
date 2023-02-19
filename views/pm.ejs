@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+	<%- include ('./partials/head-edits.ejs') %>
+
+	<body>
+		<span class="d-none text-uppercase" id="navbar_titulo_pagina">PM's</span>
+		<!-- SIDEBAR DESKTOP -->
+		<%- include ('./partials/sidebar_desktop_logged.ejs') %>
+
+		<!-- NAVBAR DESKTOP -->
+		<%- include ('./partials/navbar_desktop_logged.ejs') %>
+
+		<!-- NAVBAR MOBILE -->
+		<%- include ('./partials/sidenav_mobile_logged.ejs') %>
+
+		<div class="content">
+			<%- include ('./partials/buscar-tarifas.ejs') %>
+
+			<div class="card mt-2">
+				<div class="card-body">
+					<table class="table table-hover" id="myTable">
+						<thead id="tabla-vacia">
+							<tr>
+								<th scope="col" class="col-1">PM</th>
+								<th scope="col" class="col-2 px-0">TTOO / DEPTO</th>
+								<th scope="col" class="col-2 hide-column-opera">NOMBRE OPERA</th>
+								<th scope="col" class="col-4 hide-column px-0">Descripción</th>
+							</tr>
+						</thead>
+						<tbody>
+							<% results.forEach((pms) => { %>
+							<tr class="info" data-bs-toggle="modal" data-bs-target="#staticBackdrop<%= pms.id %>">
+								<td><%= pms.pm%></td>
+								<td class="hide-text">
+									<span><%= pms.ttoo_depto %></span>
+								</td>
+								<td class="hide-column"><%= pms.nombre_opera%></td>
+								<td class="hide-text hide-column">
+									<span><%= pms.descripcion %></span>
+								</td>
+							</tr>
+							<!-- Modal -->
+							<div class="modal fade" id="staticBackdrop<%= pms.id %>" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+								<div class="modal-dialog modal-dialog-centered">
+									<div class="modal-content">
+										<div class="modal-header">
+											<h1 class="modal-title fs-5" id="staticBackdropLabel"><%= pms.ttoo_depto %></h1>
+											<!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+										</div>
+										<div class="modal-body">
+											<h6><strong>Nombre Opera: </strong><%= pms.nombre_opera %></h6>
+											<h6><strong>Descripción: </strong><%= pms.descripcion %></h6>
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-success btnShadow" data-bs-dismiss="modal">CERRAR</button>
+										</div>
+									</div>
+								</div>
+							</div>
+							<% }) %>
+						</tbody>
+					</table>
+					<div class="text-center" id="noResults">
+						<img class="noResults" src="/img/noResults.PNG" alt="" />
+						<h4 class="text-uppercase mt-3">No hay resultados</h4>
+					</div>
+				</div>
+			</div>
+
+			<!-- <div class="d-flex justify-content-flex-end">
+				<a class="btn btn-danger" href="/tarifas" id="backRates"> Cambiar tipo cliente</a>
+			</div> -->
+			<%- include ('./partials/footer.ejs') %>
+		</div>
+	</body>
+</html>

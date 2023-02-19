@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+	<%- include ('../partials/head-edits.ejs') %>
+
+	<body>
+		<span class="d-none text-uppercase" id="navbar_titulo_pagina">AJUSTES - PM</span>
+		<!-- SIDEBAR DESKTOP -->
+		<%- include ('../partials/sidebar_desktop_logged.ejs') %>
+
+		<!-- NAVBAR DESKTOP -->
+		<%- include ('../partials/navbar_desktop_logged.ejs') %>
+
+		<!-- NAVBAR MOBILE -->
+		<%- include ('../partials/sidenav_mobile_logged.ejs') %>
+
+		<div class="content">
+			<div id="Servicios" class="afterNav">
+				<div class="text-center mb-3">
+					<h4 class="text-uppercase" id="titulo">Editar PM</h4>
+				</div>
+				<div class="cardEdit-container">
+					<div class="card">
+						<div class="card-body">
+							<% if (pms) { %>
+							<form id="edit_form" action="/ajustes/edit_pm/<%= pms.id %>" method="POST">
+								<div class="col">
+									<div class="form-floating mb-3">
+										<input type="number" class="form-control" name="pm" value="<%= pms.pm %>" placeholder="PM" required />
+										<label for="pm-title" class="form-label">PM:</label>
+									</div>
+								</div>
+								<div class="col">
+									<div class="form-floating mb-3">
+										<input
+											type="text"
+											class="form-control"
+											name="ttoo_depto"
+											value="<%= pms.ttoo_depto %>"
+											placeholder="TTOO / DEPTO "
+											onfocusout="mayus(this)"
+											required />
+										<label for="ttoo_depto" class="form-label">TTOO / DEPTO:</label>
+									</div>
+								</div>
+								<div class="col">
+									<div class="form-floating mb-3">
+										<input
+											type="text"
+											class="form-control"
+											name="nombre_opera"
+											value="<%= pms.nombre_opera %>"
+											placeholder="Nombre en OPERA"
+											onfocusout="mayus(this)"
+											required />
+										<label for="nombre_opera" class="form-label">Nombre en OPERA:</label>
+									</div>
+								</div>
+
+								<div class="form-floating mb-3">
+									<textarea class="form-control" name="descripcion" rows="3" placeholder="Descripción de la PM" style="height: 100px" required>
+<%= pms.descripcion %></textarea
+									>
+									<label for="TextareaService" class="form-label">Descripción:</label>
+								</div>
+
+								<div class="new-form-button">
+									<button type="submit" class="btn btn-warning btnAction btnShadow" id="botonAdd">EDITAR</button>
+									<a href="/ajustes/conf_pm" class="btn btn-danger btnAction btnShadow">CANCELAR</a>
+								</div>
+							</form>
+							<% } %>
+						</div>
+					</div>
+				</div>
+			</div>
+			<%- include ('../partials/footer.ejs') %>
+		</div>
+	</body>
+</html>

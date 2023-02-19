@@ -41,8 +41,9 @@
 												<option selected value="">Elegir:</option>
 												<option value="Apertura">Apertura</option>
 												<option value="Cierre">Cierre</option>
+												<option value="Ambos">Ambos</option>
 											</select>
-											<label for="floatingSelect">Es de apertura o cierre?</label>
+											<label for="floatingSelect">Turno:</label>
 										</div>
 									</div>
 									<div class="new-form-button">
@@ -145,12 +146,17 @@
 																<option selected value="<%= tarea.turno_tarea %>"><%= tarea.turno_tarea %></option>
 																<% if (tarea.turno_tarea == 'Apertura') { %>
 																<option value="Cierre">Cierre</option>
-																<%} else { %>
+																<option value="Ambos">Ambos</option>
+																<%} else if (tarea.turno_tarea == 'Cierre') { %>
 																<option value="Apertura">Apertura</option>
+																<option value="Ambos">Ambos</option>
 
+																<% } else {%>
+																<option value="Apertura">Apertura</option>
+																<option value="Cierre">Cierre</option>
 																<% } %>
 															</select>
-															<label for="floatingSelect">Es de apertura o cierre?</label>
+															<label for="floatingSelect">Turno:</label>
 														</div>
 													</div>
 													<div class="new-form-button">

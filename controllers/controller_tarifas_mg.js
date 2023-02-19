@@ -53,8 +53,6 @@ exports.getRatesMg = (req, res) => {
 
 // MOSTRAR 1 TARIFA-MG
 exports.getRateMg = (req, res) => {
-	let resultsRates = []
-	let resultsCodes = []
 	try {
 		const { id } = req.params
 		db.query('SELECT * FROM tarifasmg WHERE id=?', [id], (error, resultsRatesMg) => {

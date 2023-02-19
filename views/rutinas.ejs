@@ -19,8 +19,8 @@
 					<div class="card-body">
 						<h5 class="text-uppercase text-center mb-3">tareas de apertura</h5>
 						<hr />
-						<% results.forEach((tarea) => { %> <% if (tarea.turno_tarea == 'Apertura') { %>
-						<form action="/tarea_completa/<%= tarea.id %>" method="post">
+						<% results.forEach((tarea) => { %> <% if (tarea.turno_tarea == 'Apertura' || tarea.turno_tarea == 'Ambos') { %>
+						<!-- <form action="/tarea_completa/<%= tarea.id %>" method="post">
 							<div class="form-check mb-3">
 								<input
 									onChange="this.form.submit()"
@@ -31,7 +31,11 @@
 									id="flexCheck<%= tarea.id %>" />
 								<label class="form-check-label" for="flexCheck<%= tarea.id %>"><%= tarea.tarea %> </label>
 							</div>
-						</form>
+						</form> -->
+
+						<ul>
+							<li><%= tarea.tarea %></li>
+						</ul>
 						<% } %> <% }) %>
 					</div>
 				</div>
@@ -40,11 +44,14 @@
 					<div class="card-body">
 						<h5 class="text-uppercase text-center mb-3">tareas de cierre</h5>
 						<hr />
-						<% results.forEach((tarea) => { %> <% if (tarea.turno_tarea == 'Cierre') { %>
-						<div class="form-check mb-3">
+						<% results.forEach((tarea) => { %> <% if (tarea.turno_tarea == 'Cierre' || tarea.turno_tarea == 'Ambos') { %>
+						<!-- <div class="form-check mb-3">
 							<input class="form-check-input tarea_completada" type="checkbox" name="checkbox_check" id="flexCheck<%= tarea.id %>" />
 							<label class="form-check-label" for="flexCheck<%= tarea.id %>"><%= tarea.tarea %> </label>
-						</div>
+						</div> -->
+						<ul>
+							<li><%= tarea.tarea %></li>
+						</ul>
 						<% } %> <% }) %>
 					</div>
 				</div>

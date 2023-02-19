@@ -24,7 +24,9 @@
 			<div class="container"></div>
 			<h2 class="fixHead text-center">Hard Rock Golf Club At Cana Bay</h2>
 			<p id="text"></p>
-			<h5 class="text-center">PM Opera: <strong>9508</strong></h5>
+			<% resultsPM.forEach(pm => { %>
+			<h5 class="text-center">PM Opera: <strong><%= pm.pm %></strong> - <%= pm.ttoo_depto %></h5>
+			<% }) %>
 
 			<div class="container">
 				<% if(results){ %>

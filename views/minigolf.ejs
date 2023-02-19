@@ -15,12 +15,14 @@
 		<div class="banner-mg"></div>
 		<div class="content">
 			<h2 class="fixHead text-center">Rock Star Mini Golf</h2>
-			<h5 class="text-center mb-2">PM Opera: <strong>9502</strong></h5>
+			<% resultsPM.forEach(pm => { %>
+			<h5 class="text-center">PM Opera: <strong><%= pm.pm %></strong> - <%= pm.ttoo_depto %></h5>
+			<% }) %>
 
 			<div class="container">
 				<div class="row text-center mt-3">
 					<h5 class="mb-3">
-						<span class="text-danger">TODOS</span> los clientes mayores de 15 años <span class="text-danger">DEBEN PAGAR.</span> Ningún tipo de
+						<span class="text-danger">TODOS</span> los clientes con 15 años en adelante <span class="text-danger">DEBEN PAGAR.</span> Ningún tipo de
 						membresía tiene el mini golf incluido.
 					</h5>
 

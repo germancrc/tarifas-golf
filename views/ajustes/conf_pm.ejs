@@ -36,23 +36,25 @@
 								aria-label="Close"></button>
 						</div>
 						<% } %>
-						<table class="table align-middle table-hover" id="myTable">
+						<table class="table table-hover" id="myTable">
 							<thead>
 								<tr>
-									<th scope="col" class="col-1">PM</th>
-									<th scope="col" class="col-2">TTOO / DEPTO</th>
+									<th scope="col" class="col-1 px-0">PM</th>
+									<th scope="col" class="col-2 px-0">TTOO / DEPTO</th>
 									<th scope="col" class="col-3 hide-column-opera">NOMBRE OPERA</th>
 									<th scope="col" class="col-4 hide-column">Descripción</th>
-									<th scope="col" class="col-2">Acciones</th>
+									<th scope="col" class="col-1">Acciones</th>
 								</tr>
 							</thead>
 							<tbody>
 								<% results.forEach((pms) => { %>
 								<tr>
-									<td class="info" data-bs-toggle="modal" data-bs-target="#staticBackdrop<%= pms.id %>"><%= pms.pm %></td>
+									<td class="info hide-text" data-bs-toggle="modal" data-bs-target="#staticBackdrop<%= pms.id %>"><span><%= pms.pm %></span></td>
 
-									<td><%= pms.ttoo_depto %></td>
-									<td class="hide-column"><%= pms.nombre_opera %></td>
+									<td class="hide-text">
+										<span><%= pms.ttoo_depto %></span>
+									</td>
+									<td class="hide-column-opera"><%= pms.nombre_opera %></td>
 									<td class="hide-column"><%= pms.descripcion %></td>
 
 									<td class="d-flex justify-content-between">
@@ -73,7 +75,7 @@
 									<div class="modal-dialog modal-dialog-centered">
 										<div class="modal-content">
 											<div class="modal-header">
-												<h1 class="modal-title fs-5" id="staticBackdropLabel"><%= pms.ttoo_depto %></h1>
+												<h1 class="modal-title fs-5" id="staticBackdropLabel"><%= pms.pm %> - <%= pms.ttoo_depto %></h1>
 												<!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
 											</div>
 											<div class="modal-body">

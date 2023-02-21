@@ -31,9 +31,10 @@
 			<div class="container">
 				<% if(results){ %>
 				<div class="row text-center mt-3">
+					<hr />
 					<h4>Informaciones generales</h4>
 					<p class="text-center">
-						Diseñado por JACK NICKLAUS. Cuenta con 18 hoyos. Un campo Par 72. Con 7,253 yardas de largo desde los tees traseros.
+						Diseñado por <strong>JACK NICKLAUS</strong> . Cuenta con 18 hoyos. Un campo Par 72. Con 7,253 yardas de largo desde los tees traseros.
 					</p>
 
 					<p class="text-center">Tenemos un snack Bar ¨ El hoyo 19¨. Es Open Bar. Tambien se incluye el carro bar que circula por el campo.</p>
@@ -47,12 +48,12 @@
 				<form role="search">
 					<div class="input-group">
 						<span class="input-group-text" id="basic-addon1"><i class="bi bi-search"></i></span>
-						<input class="form-control" type="search" id="myInput" onkeyup="filtroBusqueda(0.6)" placeholder="Buscar Servicios" aria-label="Search" />
+						<input class="form-control" type="search" id="myInput" onkeyup="filtroBusqueda(0.6)" placeholder="Buscar" aria-label="Search" />
 					</div>
 				</form>
 			</div>
 			<div class="text-center mt-3">
-				<span>*Seleccione un servicio para ver su descripción*</span>
+				<span>*Seleccione un elemento para ver su descripción*</span>
 			</div>
 
 			<div class="card mt-3">
@@ -72,8 +73,9 @@
 								<td class="hide-text">
 									<span><%= service.nombre %></span>
 								</td>
-
-								<% if (service.precio == 0 && service.nombre == "Torneos") { %>
+								<% if (service.precio == 0 && service.nombre == "Transporte") { %>
+								<td>DRIVE</td>
+								<% } else if (service.precio == 0 && service.nombre == "Torneos") { %>
 								<td>COTIZAR</td>
 								<% } else { %>
 								<td><%= service.precio%>.00</td>
@@ -97,7 +99,9 @@
 											<!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
 										</div>
 										<div class="modal-body">
-											<% if (service.precio == 0 && service.nombre == "Torneos") { %>
+											<% if (service.precio == 0 && service.nombre == "Transporte") { %>
+											<h6><strong>Precio: </strong>VER EN DRIVE</h6>
+											<% } else if (service.precio == 0 && service.nombre == "Torneos") { %>
 											<h6><strong>Precio: </strong>COTIZAR</h6>
 											<% } else { %>
 											<h6><strong>Precio: </strong><%= service.precio%>.00</h6>

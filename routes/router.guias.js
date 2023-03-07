@@ -30,12 +30,18 @@ const upload = multer({
 })
 
 //---------------------------------------GUIAS-------------------------------------------
-router_guias.get('/guias', controller_auth.isAuthenticated, controller_guias.viewGuide)
-router_guias.post('/ajustes/subir_guia', upload.single('archivo'), controller_guias.uploadGuide, controller_auth.isAuthenticated)
-router_guias.get('/downloadGuide/:id', controller_auth.isAuthenticated, controller_guias.downloadGuide)
-router_guias.get('/ajustes/conf_guias', controller_auth.isAuthenticated, controller_guias.getGuides)
-router_guias.get('/ajustes/edit_guia/:id', controller_auth.isAuthenticated, controller_guias.getGuide)
+router_guias.get('/guias', controller_auth.verify_token, controller_auth.isAuthenticated, controller_guias.viewGuide)
+router_guias.post(
+	'/ajustes/subir_guia',
+	upload.single('archivo'),
+	controller_auth.verify_token,
+	controller_guias.uploadGuide,
+	controller_auth.isAuthenticated
+)
+router_guias.get('/downloadGuide/:id', controller_auth.verify_token, controller_auth.isAuthenticated, controller_guias.downloadGuide)
+router_guias.get('/ajustes/conf_guias', controller_auth.verify_token, controller_auth.isAuthenticated, controller_guias.getGuides)
+router_guias.get('/ajustes/edit_guia/:id', controller_auth.verify_token, controller_auth.isAuthenticated, controller_guias.getGuide)
 router_guias.post('/ajustes/edit_guia/:id', upload.single('archivo'), controller_auth.isAuthenticated, controller_guias.updateGuide)
-router_guias.get('/ajustes/conf_guias/borrar_guia/:id', controller_auth.isAuthenticated, controller_guias.deleteGuide)
+router_guias.get('/ajustes/conf_guias/borrar_guia/:id', controller_auth.verify_token, controller_auth.isAuthenticated, controller_guias.deleteGuide)
 
 module.exports = router_guias

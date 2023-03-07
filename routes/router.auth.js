@@ -27,6 +27,6 @@ router_auth.get('/logout', controller_auth.logout)
 
 //***************************************************************RUTAS AJUSTES****************************/
 // VERIFICAR SI ES ADMIN O USER
-router_auth.get('/ajustes', controller_auth.isAuthenticated, controller_auth.checkAdmin, (req, res) => {})
+router_auth.get('/ajustes', controller_auth.verify_token, controller_auth.isAuthenticated, controller_auth.checkAdmin, (req, res) => {})
 
 module.exports = router_auth

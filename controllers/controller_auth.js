@@ -24,42 +24,28 @@ exports.isAuthenticated = async (req, res, next) => {
 }
 
 ///test expire error
-// exports.isAuthenticated = async (req, res, next) => {
-// 	const token = req.cookies.jwt
-// 	if (!token) {
-// 		req.flash('message', 'Debe iniciar sesión')
-// 		res.redirect('/')
-// 	} else {
-// 		try {
-// 			const decodificada = await promisify(jwt.verify)(token, process.env.JWT_SECRETO)
-// 			db.query('SELECT*FROM usuarios WHERE id = ?', [decodificada.id], (error, results) => {
-// 				if (!results) {
-// 					req.flash('message', 'Debe iniciar sesión')
-// 					res.redirect('/')
-// 					return next()
-// 				} else {
-// 					req.user = results[0]
-// 					return next()
-// 				}
-// 			})
-// 			console.log(decodificada)
-// 		} catch (error) {
-// 			if (error instanceof jwt.TokenExpiredError) {
-// 				req.flash('message', 'Debe iniciar sesión')
-// 				res.redirect('/')
-// 				console.log('El token ha expirado')
-// 			} else if (error instanceof jwt.JsonWebTokenError) {
-// 				req.flash('message', 'Debe iniciar sesión')
-// 				res.redirect('/')
-// 				console.log('El token es inválido')
-// 			} else {
-// 				req.flash('message', 'Debe iniciar sesión')
-// 				res.redirect('/')
-// 				console.log('Error al verificar el token', error)
-// 			}
-// 		}
-// 	}
-// }
+exports.verify_token = (req, res, next) => {
+	const token = req.cookies.jwt
+	try {
+		const decodificada = jwt.verify(token, process.env.JWT_SECRETO)
+		console.log(decodificada)
+		return next()
+	} catch (error) {
+		if (error instanceof jwt.TokenExpiredError) {
+			req.flash('message', 'Debe iniciar sesión')
+			res.redirect('/')
+			console.log('El token ha expirado')
+		} else if (error instanceof jwt.JsonWebTokenError) {
+			req.flash('message', 'Debe iniciar sesión')
+			res.redirect('/')
+			console.log('El token es inválido')
+		} else {
+			req.flash('message', 'Debe iniciar sesión')
+			res.redirect('/')
+			console.log('Error al verificar el token', error)
+		}
+	}
+}
 
 exports.login = async (req, res) => {
 	try {

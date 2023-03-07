@@ -20,12 +20,12 @@ const controller_auth = require('../controllers/controller_auth')
 const controller_pm = require('../controllers/controller_pm')
 
 //---------------------------------------PM-------------------------------------------
-router_pm.get('/pm', controller_auth.isAuthenticated, controller_pm.view_pm)
-router_pm.post('/ajustes/crear_pm', controller_auth.isAuthenticated, controller_pm.crear_pm)
-router_pm.get('/ajustes/conf_pm', controller_auth.isAuthenticated, controller_pm.get_all_pm)
-router_pm.get('/ajustes/new_pm', controller_auth.isAuthenticated, controller_pm.new_pm)
-router_pm.get('/ajustes/edit_pm/:id', controller_auth.isAuthenticated, controller_pm.get_pm)
-router_pm.post('/ajustes/edit_pm/:id', controller_auth.isAuthenticated, controller_pm.update_pm)
-router_pm.get('/ajustes/conf_pm/borrar_pm/:id', controller_auth.isAuthenticated, controller_pm.delete_pm)
+router_pm.get('/pm', controller_auth.verify_token, controller_auth.isAuthenticated, controller_pm.view_pm)
+router_pm.post('/ajustes/crear_pm', controller_auth.verify_token, controller_auth.isAuthenticated, controller_pm.crear_pm)
+router_pm.get('/ajustes/conf_pm', controller_auth.verify_token, controller_auth.isAuthenticated, controller_pm.get_all_pm)
+router_pm.get('/ajustes/new_pm', controller_auth.verify_token, controller_auth.isAuthenticated, controller_pm.new_pm)
+router_pm.get('/ajustes/edit_pm/:id', controller_auth.verify_token, controller_auth.isAuthenticated, controller_pm.get_pm)
+router_pm.post('/ajustes/edit_pm/:id', controller_auth.verify_token, controller_auth.isAuthenticated, controller_pm.update_pm)
+router_pm.get('/ajustes/conf_pm/borrar_pm/:id', controller_auth.verify_token, controller_auth.isAuthenticated, controller_pm.delete_pm)
 
 module.exports = router_pm

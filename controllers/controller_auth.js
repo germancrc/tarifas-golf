@@ -10,21 +10,16 @@ exports.isAuthenticated = async (req, res, next) => {
 		res.redirect('/')
 	} else {
 		const decodificada = await promisify(jwt.verify)(token, process.env.JWT_SECRETO)
-		if (decodificada.exp <= Date.now()) {
-			req.flash('message', 'Debe iniciar sesión')
-			res.redirect('/')
-		} else {
-			db.query('SELECT*FROM usuarios WHERE id = ?', [decodificada.id], (error, results) => {
-				if (!results) {
-					req.flash('message', 'Debe iniciar sesión')
-					res.redirect('/')
-					return next()
-				} else {
-					req.user = results[0]
-					return next()
-				}
-			})
-		}
+		db.query('SELECT*FROM usuarios WHERE id = ?', [decodificada.id], (error, results) => {
+			if (!results) {
+				req.flash('message', 'Debe iniciar sesión')
+				res.redirect('/')
+				return next()
+			} else {
+				req.user = results[0]
+				return next()
+			}
+		})
 	}
 }
 
